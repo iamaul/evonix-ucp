@@ -17,15 +17,6 @@ const Dashboard = ({ auth: { user } }) => {
             <Topbar />
             <Segment attached="bottom">
                 <Header as="h4">Welcome, { user && user.name }!</Header>
-                { !user.email_verified &&
-                    <Message size="small" warning>
-                        <Message.Header>Warning</Message.Header>
-                        <p>
-                            Hey! You have not yet verify your email address to this account, please click here to verify.<br/>
-                            <b>Note</b>: Verifying your email address will improves the security of your account.
-                        </p>
-                    </Message>   
-                }
                 <Grid stackable>
                     <Grid.Column width={4}>
                         <div 
