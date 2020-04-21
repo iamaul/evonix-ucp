@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { 
     Menu,
     Message 
@@ -14,7 +14,7 @@ const Topbar = ({ auth: { user } }) => {
                 <Message size="small" warning>
                     <Message.Header>Warning</Message.Header>
                     <p>
-                        Hey! You have not yet verify your email address to this account, please click here to verify.<br/>
+                        Hey! You have not yet verify your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
                         <b>Note</b>: Verifying your email address will improves the security of your account.
                     </p>
                 </Message>   

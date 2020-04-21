@@ -16,7 +16,7 @@ const Dashboard = ({ auth: { user } }) => {
         <>
             <Topbar />
             <Segment attached="bottom">
-                <Header as="h4">Welcome, { user && user.name }!</Header>
+                {/* <Header as="h4">Welcome, { user && user.name }!</Header> */}
                 <Grid stackable>
                     <Grid.Column width={4}>
                         <div 
@@ -40,7 +40,7 @@ const Dashboard = ({ auth: { user } }) => {
                     </Grid.Column>
                     <Grid.Column width={7}>
                         <p style={{ textAlign: 'justify' }}>
-                            <Header as='h3'>Welcome to EvoniX Roleplay,</Header><hr/>
+                            <Header as='h3'>Welcome to EvoniX Roleplay</Header><hr/>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at hendrerit leo. Proin lacinia non dolor vel laoreet. Morbi non risus porta, efficitur sapien vitae, luctus orci. Nam imperdiet metus tortor, convallis posuere dolor cursus sed. Maecenas in vulputate sapien, in bibendum ligula. Vestibulum vel sollicitudin sem. Suspendisse varius eget erat at feugiat. Donec sed maximus mi, ac dignissim augue. Sed mauris ipsum, molestie eu diam quis, bibendum mollis arcu. Fusce pellentesque commodo faucibus. Ut iaculis efficitur nunc, in euismod quam facilisis interdum. Donec urna nunc, facilisis vitae diam et, hendrerit luctus nisi. Duis blandit porttitor varius. Vestibulum posuere elementum quam, quis aliquam lectus rutrum vitae. Nulla tempor orci pretium lacinia tristique.
                         </p>
                     </Grid.Column>
@@ -50,15 +50,15 @@ const Dashboard = ({ auth: { user } }) => {
                             <Segment>
                                 <p style={{ textAlign: 'justify' }}>
                                     Username        :   <b>{ user && user.name }</b><br/>
-                                    Email           :   <b>{ user && user.email }</b>
-                                    Admin           :   <b>{ user && user.admin }</b>
-                                    Helper          :   <b>{ user && user.helper }</b>
-                                    Created At      :   <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b>
+                                    Email           :   <b>{ user && user.email }</b><br/>
+                                    Admin           :   <b>{ user && user.admin }</b><br/>
+                                    Helper          :   <b>{ user && user.helper }</b><br/>
+                                    Created At      :   <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b><br/>
                                     Last Login      :   <b><Moment unix fromNow>{ user && user.lastlogin }</Moment></b>
                                 </p>
                             </Segment>
                         </Message>
-                        <p style={{ textAlign: "center", padding: '20px' }}> ACCEPTS DONATION PAYMENT LOGO </p>
+                        <p style={{ textAlign: "center", padding: '20px' }}> RESERVED FOR ACCEPTS DONATION PAYMENT BANNER </p>
                     </Grid.Column>
                 </Grid>
             </Segment>
