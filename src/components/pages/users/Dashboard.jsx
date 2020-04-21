@@ -49,12 +49,12 @@ const Dashboard = ({ auth: { user } }) => {
                             <Message.Header>Profile</Message.Header>
                             <Segment>
                                 <p style={{ textAlign: 'justify' }}>
-                                    Username        :   <b>{ user && user.name }</b><br/>
-                                    Email           :   <b>{ user && user.email }</b><br/>
-                                    Admin           :   <b>{ user && user.admin }</b><br/>
-                                    Helper          :   <b>{ user && user.helper }</b><br/>
-                                    Created At      :   <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b><br/>
-                                    Last Login      :   <b><Moment unix fromNow>{ user && user.lastlogin }</Moment></b>
+                                    Username: <b>{ user && user.name }</b><br/>
+                                    Email: <b>{ user && user.email }</b><br/>
+                                    Admin: <b>{ user && user.admin }</b><br/>
+                                    Helper: <b>{ user && user.helper }</b><br/>
+                                    Created At: <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b><br/>
+                                    Last Login: <b><Moment unix fromNow>{ user && user.lastlogin }</Moment></b>
                                 </p>
                             </Segment>
                         </Message>
