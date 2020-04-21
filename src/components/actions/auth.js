@@ -1,5 +1,5 @@
+import axios from 'axios';
 import Swal from 'sweetalert2';
-import api from '../api/api';
 import {
     USER_LOADED,
     REGISTER_FAIL,
@@ -19,7 +19,7 @@ const Toast = Swal.mixin({
 
 export const userLoad = () => async dispatch => {
     try {
-        const res = await api.get('/auth');
+        const res = await axios.get('/api/v1/auth');
         dispatch({ type: USER_LOADED, payload: res.data });
     } catch (error) {
         dispatch({ type: AUTH_ERROR });
@@ -36,7 +36,7 @@ export const userRegister = ({ username, email, password }) => async dispatch =>
     const body = JSON.stringify({ username, email, password });
 
     try {
-        const res = await api.post('/auth/new', body, config);
+        const res = await axios.post('/api/v1/auth/new', body, config);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         dispatch(userLoad());
     } catch (error) {
@@ -64,7 +64,7 @@ export const userLogin = ({ usermail, password }) => async dispatch => {
     const body = JSON.stringify({ usermail, password });
 
     try {
-        const res = await api.post('/auth', body, config);
+        const res = await axios.post('/api/v1/auth', body, config);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         dispatch(userLoad());
     } catch (error) {
@@ -92,7 +92,7 @@ export const userForgotPassword = ({ email }) => async dispatch => {
     const body = JSON.stringify({ email });
 
     try {
-        const res = await api.post('/auth/reset', body, config);
+        const res = await axios.post('/api/v1/auth/reset', body, config);
         dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: res.data });
         Toast.fire({
             icon: 'success',
