@@ -5,7 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const override = css`
     display: block;
     margin: 0 auto;
-    padding: 20px;
+    padding-top: 50px;
 `;
 
 export default (props) => (
@@ -13,7 +13,7 @@ export default (props) => (
         <ClipLoader
             css={override}
             size={50}
-            color={"ff001f"}
+            color={"#ff0000"}
             loading={props.isLoading}
         />
     </div>
