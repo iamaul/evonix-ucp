@@ -1,16 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { 
     Menu,
     Message 
 } from 'semantic-ui-react';
 
-const Topbar = ({ auth: { user } }) => {
+const Topbar = (props) => {
     return (
         <>
-            { !user.email_verified &&
+            { !props.isVerified &&
                 <Message size="small" warning>
                     <Message.Header>Warning</Message.Header>
                     <p>
@@ -40,12 +38,4 @@ const Topbar = ({ auth: { user } }) => {
     )
 }
 
-Topbar.propTypes = {
-    auth: PropTypes.object.isRequired
-}
-
-const mapStateToProps = state => ({
-    auth: state.auth
-});
-
-export default connect(mapStateToProps)(Topbar);
+export default (Topbar);

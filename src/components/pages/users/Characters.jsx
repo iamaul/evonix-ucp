@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Button, Header, Icon, Segment } from 'semantic-ui-react';
 
 import Topbar from '../../layouts/topbar/Topbar';
 
-const Characters = () => {
+const Characters = ({ auth: { user }}) => {
     return (
         <>
-            <Topbar />
+            <Topbar isVerified={user && user.setLoading} />
             <Segment attached="bottom">
                 <Segment placeholder textAlign="center">
                     <Header icon>
@@ -20,4 +22,12 @@ const Characters = () => {
     )
 }
 
-export default Characters;
+Characters.propTypes = {
+    auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps)(Characters);

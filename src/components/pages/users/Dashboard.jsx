@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
@@ -13,8 +13,8 @@ import Topbar from '../../layouts/topbar/Topbar';
 
 const Dashboard = ({ auth: { user } }) => {
     return (
-        <Fragment>
-            <Topbar />
+        <>
+            <Topbar isVerified={user && user.setLoading} />
             <Segment attached="bottom">
                 <Grid stackable>
                     <Grid.Column width={4}>
@@ -38,10 +38,12 @@ const Dashboard = ({ auth: { user } }) => {
                         </div>
                     </Grid.Column>
                     <Grid.Column width={7}>
-                        <p style={{ textAlign: 'justify' }}>
-                            <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at hendrerit leo. Proin lacinia non dolor vel laoreet. Morbi non risus porta, efficitur sapien vitae, luctus orci. Nam imperdiet metus tortor, convallis posuere dolor cursus sed. Maecenas in vulputate sapien, in bibendum ligula. Vestibulum vel sollicitudin sem. Suspendisse varius eget erat at feugiat. Donec sed maximus mi, ac dignissim augue. Sed mauris ipsum, molestie eu diam quis, bibendum mollis arcu. Fusce pellentesque commodo faucibus. Ut iaculis efficitur nunc, in euismod quam facilisis interdum. Donec urna nunc, facilisis vitae diam et, hendrerit luctus nisi. Duis blandit porttitor varius. Vestibulum posuere elementum quam, quis aliquam lectus rutrum vitae. Nulla tempor orci pretium lacinia tristique.
-                        </p>
+                        <div>
+                            <p style={{ textAlign: 'justify' }}>
+                                <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at hendrerit leo. Proin lacinia non dolor vel laoreet. Morbi non risus porta, efficitur sapien vitae, luctus orci. Nam imperdiet metus tortor, convallis posuere dolor cursus sed. Maecenas in vulputate sapien, in bibendum ligula. Vestibulum vel sollicitudin sem. Suspendisse varius eget erat at feugiat. Donec sed maximus mi, ac dignissim augue. Sed mauris ipsum, molestie eu diam quis, bibendum mollis arcu. Fusce pellentesque commodo faucibus. Ut iaculis efficitur nunc, in euismod quam facilisis interdum. Donec urna nunc, facilisis vitae diam et, hendrerit luctus nisi. Duis blandit porttitor varius. Vestibulum posuere elementum quam, quis aliquam lectus rutrum vitae. Nulla tempor orci pretium lacinia tristique.
+                            </p>
+                        </div>
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Message info>
@@ -57,11 +59,13 @@ const Dashboard = ({ auth: { user } }) => {
                                 </p>
                             </Segment>
                         </Message>
-                        <p style={{ textAlign: "center", padding: '15px' }}>SERVER STATUS</p>
+                        <div>
+                            <p style={{ textAlign: "center", padding: '15px' }}>SERVER STATUS</p>
+                        </div>
                     </Grid.Column>
                 </Grid>
             </Segment>
-        </Fragment>
+        </>
     )
 }
 
