@@ -1,0 +1,22 @@
+html, body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+}
+
+.head {
+    text-shadow: 2px 2px #ff0000;
+}
+
+section {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+  
+.swiper-container {
+    width: 100%;
+  
+    @media screen and (max-width: 32rem) {
+      height: 10rem !important;
+    }
+}
