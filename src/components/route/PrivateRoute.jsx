@@ -7,7 +7,7 @@ import Loader from '../layouts/loader/Loader';
 
 const PrivateRoute = ({ component: Component, auth: { isAuthenticated, setLoading }, ...rest }) => (
     <Route {...rest} 
-        render={props => setLoading ? (<Loader />) : isAuthenticated ? (<Component {...props} />) : (<Redirect to="/login" />)} 
+        render={props => setLoading ? (<Loader isLoading={setLoading} />) : isAuthenticated ? (<Component {...props} />) : (<Redirect to="/login" />)} 
     />
 ) 
 

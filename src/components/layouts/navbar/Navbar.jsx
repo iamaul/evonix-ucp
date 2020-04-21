@@ -6,7 +6,7 @@ import { Dropdown, Menu, Icon } from 'semantic-ui-react';
 
 import { userLogout } from '../../actions/auth';
 
-const Navbar = ({ auth: { isAuthenticated, user, setLoading }, userLogout }) => {
+const Navbar = ({ auth: { isAuthenticated, setLoading, user }, userLogout }) => {
     const authMenu = (
         <Dropdown
             text={user && user.name}
@@ -17,7 +17,10 @@ const Navbar = ({ auth: { isAuthenticated, user, setLoading }, userLogout }) => 
             className="icon"
         >
             <Dropdown.Menu>
-                <Dropdown.Header content="Hi there!" />
+                <Dropdown.Header content="Welcome back!" />
+                <Dropdown.Item as={NavLink} to="/dashboard">
+                    Dashboard
+                </Dropdown.Item>
                 <Dropdown.Item onClick={userLogout}>
                     <Icon name="sign out" />
                     Sign Out

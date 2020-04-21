@@ -4,7 +4,7 @@ import {
     Menu 
 } from 'semantic-ui-react';
 
-const Sidebar = () => {
+const Topbar = () => {
     return (
         <Menu attached="top" tabular>
             <Menu.Item
@@ -14,13 +14,8 @@ const Sidebar = () => {
             />
             <Menu.Item
                 as={NavLink}
-                name="profile"
-                to="/profile"
-            />
-            <Menu.Item
-                as={NavLink}
-                name="my-characters"
-                to="/my-characters"
+                name="characters"
+                to="/characters"
             />
             <Menu.Item
                 as={NavLink}
@@ -31,4 +26,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar;
+export default Topbar;
