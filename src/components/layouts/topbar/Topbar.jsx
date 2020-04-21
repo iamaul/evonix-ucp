@@ -12,7 +12,7 @@ const Topbar = (props) => {
                 <Message size="small" warning>
                     <Message.Header>Warning</Message.Header>
                     <p>
-                        Hey! You have not yet verify your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
+                        Hey! You have not yet verified your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
                         <b>Note</b>: Verifying your email address will improves the security of your account.
                     </p>
                 </Message>   
