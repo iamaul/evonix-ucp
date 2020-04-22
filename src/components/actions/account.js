@@ -22,7 +22,7 @@ export const userChangePassword = ({ old_password, password }) => async dispatch
     const body = JSON.stringify({ old_password, password });
 
     try {
-        const res = await axios.post('/api/v1/change/password', body, config);
+        const res = await axios.post('/api/v1/users/change/password', body, config);
         dispatch({ type: CHANGE_PASSWORD_SUCCESS, payload: res.data });
         Toast.fire({
             icon: 'success',
@@ -56,7 +56,7 @@ export const userChangeEmail = ({ email }) => async dispatch => {
     const body = JSON.stringify({ email });
 
     try {
-        const res = await axios.post('/api/v1/change/email', body, config);
+        const res = await axios.post('/api/v1/users/change/email', body, config);
         dispatch({ type: CHANGE_EMAIL_SUCCESS, payload: res.data });
         Toast.fire({
             icon: 'success',

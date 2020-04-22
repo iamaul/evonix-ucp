@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
-import Swal from 'sweetalert2';
 
 import { userChangeEmail } from '../../../actions/account';
 
@@ -16,11 +15,6 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     const onChange = c => setFormData({
         ...formData,
         [c.target.name]: c.target.value
-    });
-
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end'
     });
 
     const onSubmit = async e => {
@@ -41,7 +35,6 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
                         iconPosition="left"
                         placeholder={currentEmail}
                         onChange={c => onChange(c)}
-                        fluid
                     />
                     <Form.Button color="red" content="Change" />
                 </Form.Group>
