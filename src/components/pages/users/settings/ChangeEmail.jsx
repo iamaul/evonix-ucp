@@ -26,8 +26,9 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     return (
         <>
             <Form onSubmit={e => onSubmit(e)}>
-                <Form.Group>
+                <Form.Group inline>
                     <Form.Input
+                        label="Change Email"
                         type="email"
                         name="email"
                         value={email}

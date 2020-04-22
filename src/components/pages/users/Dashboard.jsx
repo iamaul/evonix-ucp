@@ -52,8 +52,8 @@ const Dashboard = ({ auth: { user } }) => {
                                     Email: <b>{ user && user.email }</b><br/>
                                     Admin: <b>{ user && user.admin }</b><br/>
                                     Helper: <b>{ user && user.helper }</b><br/>
-                                    Created At: <b><Moment unix format="llll">{ user.registered_date }</Moment></b><br/>
-                                    Last Login: { user.lastlogin == 0 ? (<b>Not logged in yet</b>) : (<b><Moment unix fromNow>{ user.lastlogin }</Moment></b>) }
+                                    Created At: <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b><br/>
+                                    Last Login: { user && user.lastlogin == 0 ? (<b>Not logged in yet</b>) : (<b><Moment unix fromNow>{ user && user.lastlogin }</Moment></b>) }
                                 </p>
                             </Segment>
                         </Message>
