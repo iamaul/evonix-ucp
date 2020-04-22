@@ -14,8 +14,8 @@ const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     user: null,
-    error: null,
-    setLoading: true
+    setLoading: true,
+    error: {}
 }
 
 export default function (state = INITIAL_STATE, action) {

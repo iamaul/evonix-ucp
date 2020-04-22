@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Header, Icon, Segment } from 'semantic-ui-react';
+import { Header, Icon, Segment, Grid } from 'semantic-ui-react';
 
 import Topbar from '../../layouts/topbar/Topbar';
+import ChangePassword from './settings/ChangePassword';
+import ChangeEmail from './settings/ChangeEmail';
 
 const Settings = ({ auth: { user }}) => {
     return (
@@ -17,6 +19,20 @@ const Settings = ({ auth: { user }}) => {
                         Manage your account settings.
                     </Header.Subheader>
                 </Header>
+                <Grid stackable columns={2}>
+                    <Grid.Column>
+                        <Segment>
+                            <Header as="h3" textAlign="center">Change Password</Header>
+                            <ChangePassword />
+                        </Segment>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Segment>
+                            <Header as="h4" textAlign="center">Change Email</Header>
+                            <ChangeEmail email={user && user.email} />
+                        </Segment>
+                    </Grid.Column>
+                </Grid>
             </Segment>
         </>
     )

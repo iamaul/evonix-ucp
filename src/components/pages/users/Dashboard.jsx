@@ -41,7 +41,7 @@ const Dashboard = ({ auth: { user } }) => {
                         <div>
                             <p style={{ textAlign: 'justify' }}>
                                 <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at hendrerit leo. Proin lacinia non dolor vel laoreet. Morbi non risus porta, efficitur sapien vitae, luctus orci. Nam imperdiet metus tortor, convallis posuere dolor cursus sed. Maecenas in vulputate sapien, in bibendum ligula. Vestibulum vel sollicitudin sem. Suspendisse varius eget erat at feugiat. Donec sed maximus mi, ac dignissim augue. Sed mauris ipsum, molestie eu diam quis, bibendum mollis arcu. Fusce pellentesque commodo faucibus. Ut iaculis efficitur nunc, in euismod quam facilisis interdum. Donec urna nunc, facilisis vitae diam et, hendrerit luctus nisi. Duis blandit porttitor varius. Vestibulum posuere elementum quam, quis aliquam lectus rutrum vitae. Nulla tempor orci pretium lacinia tristique.
+                                Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe RP yang bold dan realistis tanpa ada embel embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management, dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
                             </p>
                         </div>
                     </Grid.Column>
@@ -49,14 +49,16 @@ const Dashboard = ({ auth: { user } }) => {
                         <Message info>
                             <Message.Header>Profile</Message.Header>
                             <Segment>
-                                <p style={{ textAlign: 'justify' }}>
-                                    Username: <b>{ user && user.name }</b><br/>
-                                    Email: <b>{ user && user.email }</b><br/>
-                                    Admin: <b>{ user && user.admin }</b><br/>
-                                    Helper: <b>{ user && user.helper }</b><br/>
-                                    Created At: <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b><br/>
-                                    Last Login: <b><Moment unix fromNow>{ user && user.lastlogin }</Moment></b>
-                                </p>
+                                <div>
+                                    <p style={{ textAlign: 'justify' }}>
+                                        Username: <b>{ user && user.name }</b><br/>
+                                        Email: <b>{ user && user.email }</b><br/>
+                                        Admin: <b>{ user && user.admin }</b><br/>
+                                        Helper: <b>{ user && user.helper }</b><br/>
+                                        Created At: <b><Moment unix format="llll">{ user && user.registered_date }</Moment></b><br/>
+                                        Last Login: { user && user.lastlogin === 0 ? (<b>Not logged in yet</b>) : (<b><Moment unix fromNow>{ user.lastlogin }</Moment></b>) }
+                                    </p>
+                                </div>
                             </Segment>
                         </Message>
                         <div>
