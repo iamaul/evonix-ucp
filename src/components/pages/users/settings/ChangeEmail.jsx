@@ -5,7 +5,7 @@ import { Form } from 'semantic-ui-react';
 
 import { userChangeEmail } from '../../../actions/account';
 
-const ChangeEmail = ({ auth: { user }, userChangeEmail }) => {
+const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     const [formData, setFormData] = useState({ email: '' });
 
     const { email } = formData;
@@ -32,7 +32,7 @@ const ChangeEmail = ({ auth: { user }, userChangeEmail }) => {
                         value={email}
                         icon="envelope"
                         iconPosition="left"
-                        placeholder={user && user.email}
+                        placeholder={currentEmail}
                         onChange={c => onChange(c)}
                     />
                     <Form.Button color="red" content="Change" />
@@ -43,12 +43,7 @@ const ChangeEmail = ({ auth: { user }, userChangeEmail }) => {
 }
 
 ChangeEmail.propTypes = {
-    userChangeEmail: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    userChangeEmail: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-    auth: state.auth
-});
-
-export default connect(mapStateToProps, { userChangeEmail })(ChangeEmail);
+export default connect(null, { userChangeEmail })(ChangeEmail);

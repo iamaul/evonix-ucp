@@ -42,7 +42,7 @@ const ForgotPassword = ({ userForgotPassword }) => {
                     <Form size="large" onSubmit={e => onSubmit(e)}>
                         <Segment stacked>
                             <Form.Input 
-                                type="text"
+                                type="email"
                                 name="email" 
                                 value={email}
                                 icon="envelope" 

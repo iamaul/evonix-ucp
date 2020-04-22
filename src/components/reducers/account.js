@@ -19,6 +19,7 @@ export default function (state = INITIAL_STATE, action) {
         case CHANGE_EMAIL_SUCCESS:
             return {
                 ...state,
+                ...payload,
                 account_settings: payload,
                 setLoading: false
             }
