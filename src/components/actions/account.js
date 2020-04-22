@@ -46,14 +46,14 @@ export const userChangePassword = ({ old_password, password }) => async dispatch
     }
 }
 
-export const userChangeEmail = ({ new_email }) => async dispatch => {
+export const userChangeEmail = ({ email }) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
 
-    const body = JSON.stringify({ new_email });
+    const body = JSON.stringify({ email });
 
     try {
         const res = await axios.put('/api/v1/users/change/email', body, config);

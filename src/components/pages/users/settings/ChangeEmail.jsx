@@ -5,10 +5,10 @@ import { Form } from 'semantic-ui-react';
 
 import { userChangeEmail } from '../../../actions/account';
 
-const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
-    const [formData, setFormData] = useState({ new_email: '' });
+const ChangeEmail = ({ auth: { user }, userChangeEmail }) => {
+    const [formData, setFormData] = useState({ email: '' });
 
-    const { new_email } = formData;
+    const { email } = formData;
 
     const onChange = c => setFormData({
         ...formData,
@@ -18,7 +18,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     const onSubmit = async e => {
         e.preventDefault();
 
-        userChangeEmail({ new_email });
+        userChangeEmail({ email });
     }
 
     return (
@@ -28,11 +28,11 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
                     <Form.Input
                         label="Change Email"
                         type="email"
-                        name="new_email"
-                        value={new_email}
+                        name="email"
+                        value={email}
                         icon="envelope"
                         iconPosition="left"
-                        placeholder={currentEmail}
+                        placeholder={this.props.currentEmail}
                         onChange={c => onChange(c)}
                     />
                     <Form.Button color="red" content="Change" />
@@ -43,7 +43,12 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
 }
 
 ChangeEmail.propTypes = {
-    userChangeEmail: PropTypes.func.isRequired
+    userChangeEmail: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
-export default connect(null, { userChangeEmail })(ChangeEmail);
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps, { userChangeEmail })(ChangeEmail);

@@ -28,7 +28,7 @@ const Settings = ({ auth: { user }}) => {
                     </Grid.Column>
                     <Grid.Column>
                         <Segment>
-                            <ChangeEmail currentEmail={user && user.email} />
+                            <ChangeEmail />
                         </Segment>
                     </Grid.Column>
                 </Grid>
