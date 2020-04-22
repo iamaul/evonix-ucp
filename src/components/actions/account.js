@@ -56,7 +56,7 @@ export const userChangeEmail = ({ email }) => async dispatch => {
     const body = JSON.stringify({ email });
 
     try {
-        const res = await axios.post('/api/v1/users/change/email', body, config);
+        const res = await axios.put('/api/v1/users/change/email', body, config);
         dispatch({ type: CHANGE_EMAIL_SUCCESS, payload: res.data });
         Toast.fire({
             icon: 'success',
