@@ -38,8 +38,8 @@ const Dashboard = ({ auth: { user } }) => {
                         </div>
                     </Grid.Column>
                     <Grid.Column width={7}>
+                        <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
                         <p style={{ textAlign: 'justify' }}>
-                            <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
                             Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe RP yang bold dan realistis tanpa ada embel embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management, dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
                         </p>
                     </Grid.Column>
