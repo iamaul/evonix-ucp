@@ -6,9 +6,9 @@ import { Form } from 'semantic-ui-react';
 import { userChangeEmail } from '../../../actions/account';
 
 const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
-    const [formData, setFormData] = useState({ email: '' });
+    const [formData, setFormData] = useState({ new_email: '' });
 
-    const { email } = formData;
+    const { new_email } = formData;
 
     const onChange = c => setFormData({
         ...formData,
@@ -18,7 +18,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     const onSubmit = async e => {
         e.preventDefault();
 
-        userChangeEmail({ email });
+        userChangeEmail({ new_email });
     }
 
     return (
@@ -28,8 +28,8 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
                     <Form.Input
                         label="Change Email"
                         type="email"
-                        name="email"
-                        value={email}
+                        name="new_email"
+                        value={new_email}
                         icon="envelope"
                         iconPosition="left"
                         placeholder={currentEmail}
