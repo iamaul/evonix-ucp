@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 import { userChangeEmail } from '../../../actions/account';
 
-const ChangeEmail = ({ userChangeEmail }) => {
+const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     const [formData, setFormData] = useState({
         email: ''
     });
@@ -39,7 +39,7 @@ const ChangeEmail = ({ userChangeEmail }) => {
                         value={email}
                         icon="envelope"
                         iconPosition="left"
-                        placeholder={this.props.email}
+                        placeholder={currentEmail}
                         onChange={c => onChange(c)}
                         fluid
                     />
