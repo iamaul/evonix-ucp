@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
+import Swal from 'sweetalert2';
 
 import { userChangePassword } from '../../../actions/account';
 
