@@ -32,7 +32,7 @@ const ChangeEmail = ({ auth: { user }, userChangeEmail }) => {
                         value={email}
                         icon="envelope"
                         iconPosition="left"
-                        placeholder={this.props.currentEmail}
+                        placeholder={user && user.email}
                         onChange={c => onChange(c)}
                     />
                     <Form.Button color="red" content="Change" />
