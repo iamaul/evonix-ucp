@@ -17,9 +17,7 @@ import { userForgotPassword } from '../../actions/auth';
 import evonixLogo from '../../../assets/images/evonix-logo.png';
 
 const ForgotPassword = ({ userForgotPassword }) => {
-    const [formData, setFormData] = useState({
-        email: ''
-    });
+    const [formData, setFormData] = useState({ email: '' });
 
     const { email } = formData;
 

@@ -6,9 +6,7 @@ import { Form } from 'semantic-ui-react';
 import { userChangeEmail } from '../../../actions/account';
 
 const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
-    const [formData, setFormData] = useState({
-        email: ''
-    });
+    const [formData, setFormData] = useState({ email: '' });
 
     const { email } = formData;
 

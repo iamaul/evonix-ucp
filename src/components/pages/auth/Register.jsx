@@ -19,12 +19,14 @@ import { userRegister } from '../../actions/auth';
 import evonixLogo from '../../../assets/images/evonix-logo.png';
 
 const Register = ({ userRegister, isAuthenticated }) => {
-    const [formData, setFormData] = useState({
+    const initialState = {
         username: '',
         email: '',
         password: '',
         confirm_password: ''
-    });
+    }
+
+    const [formData, setFormData] = useState(initialState);
 
     const {
         username,

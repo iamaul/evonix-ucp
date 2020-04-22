@@ -7,11 +7,13 @@ import Swal from 'sweetalert2';
 import { userChangePassword } from '../../../actions/account';
 
 const ChangePassword = ({ userChangePassword }) => {
-    const [formData, setFormData] = useState({
+    const initialState = {
         old_password: '',
         password: '',
         confirm_password: ''
-    });
+    }
+
+    const [formData, setFormData] = useState(initialState);
 
     const { old_password, password, confirm_password } = formData;
 
@@ -37,6 +39,7 @@ const ChangePassword = ({ userChangePassword }) => {
         } else {
             userChangePassword({ old_password, password });
         }
+        setFormData({ ...initialState });
     }
 
     return (
