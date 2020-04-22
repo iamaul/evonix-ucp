@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
 
+import { userChangeEmail } from '../../../actions/account';
+
 const ChangeEmail = ({ userChangeEmail }) => {
     const [formData, setFormData] = useState({
         email: ''

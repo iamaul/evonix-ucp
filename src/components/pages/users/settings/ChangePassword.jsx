@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
 
+import { userChangePassword } from '../../../actions/account';
+
 const ChangePassword = ({ userChangePassword }) => {
     const [formData, setFormData] = useState({
         old_password: '',
