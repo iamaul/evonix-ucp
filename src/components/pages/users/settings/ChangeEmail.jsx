@@ -24,7 +24,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
 
     return (
         <>
-            <Form onSubmit={e => onSubmit(e)}>
+            <Form onSubmit={e => onSubmit(e)} size="small">
                 <Form.Group inline>
                     <Form.Input
                         label="Change Email"
@@ -36,7 +36,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
                         placeholder={currentEmail}
                         onChange={c => onChange(c)}
                     />
-                    <Form.Button color="red" content="Change" />
+                    <Form.Button color="red" size="small" content="Change" />
                 </Form.Group>
             </Form>
         </>
