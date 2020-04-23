@@ -5,7 +5,8 @@ import Moment from 'react-moment';
 import { 
     Segment,
     Grid,
-    Header
+    Header,
+    Table
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
