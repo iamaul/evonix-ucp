@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Header, Icon, Segment, Grid } from 'semantic-ui-react';
+import { Header, Icon, Segment, Grid, Message } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import ChangePassword from './settings/ChangePassword';
@@ -10,6 +10,15 @@ import ChangeEmail from './settings/ChangeEmail';
 const Settings = ({ auth: { user }}) => {
     return (
         <>
+            { user && !user.email_verified &&
+                <Message size="small" warning>
+                    <Message.Header>Warning</Message.Header>
+                    <p>
+                        Hey! You have not yet verified your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
+                        <b>Note</b>: Verifying your email address will improves the security of your account.
+                    </p>
+                </Message>   
+            }
             <Grid stackable>
                 <Sidebar isVerified={user && user.setLoading} />
                 <Grid.Column stretched width={12}>

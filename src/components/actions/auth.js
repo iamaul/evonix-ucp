@@ -24,10 +24,7 @@ export const getApiSampServer = () => async dispatch => {
         const res = await axios.get('https://api.samp-servers.net/v2/server/185.169.134.5:7777');
         dispatch({ type: GET_API_SAMP_SERVER, payload: res.data });
     } catch (error) {
-        dispatch({ type: API_SAMP_SERVER_ERROR, payload: {
-            msg: error.response.statusText,
-            status: error.response.status
-        } });
+        dispatch({ type: API_SAMP_SERVER_ERROR });
     }
 }
 
@@ -35,7 +32,6 @@ export const userLoad = () => async dispatch => {
     try {
         const res = await axios.get('/api/v1/auth');
         dispatch({ type: USER_LOADED, payload: res.data });
-        dispatch(getApiSampServer());
     } catch (error) {
         dispatch({ type: AUTH_ERROR });
     }

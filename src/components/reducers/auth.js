@@ -8,7 +8,7 @@ import {
     FORGOT_PASSWORD_FAIL,
     FORGOT_PASSWORD_SUCCESS,
     AUTH_ERROR,
-    API_SAMP_SERVER_ERROR,
+    // API_SAMP_SERVER_ERROR,
     LOGOUT
 } from '../actions/types';
 
@@ -65,12 +65,12 @@ export default function (state = INITIAL_STATE, action) {
                 error: payload,
                 setLoading: false
             }
-        case API_SAMP_SERVER_ERROR:
-            return {
-                ...state,
-                error: payload,
-                setLoading: false
-            }
+        // case API_SAMP_SERVER_ERROR:
+        //     return {
+        //         ...state,
+        //         error: payload,
+        //         setLoading: false
+        //     }
         // case REGISTER_FAIL:
         // case LOGIN_FAIL:
         case AUTH_ERROR:

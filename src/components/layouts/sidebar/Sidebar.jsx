@@ -1,23 +1,13 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { 
     Menu,
-    Grid,
-    Message 
+    Grid
 } from 'semantic-ui-react';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
     return (
         <>
-            { !props.isVerified &&
-                <Message size="small" warning>
-                    <Message.Header>Warning</Message.Header>
-                    <p>
-                        Hey! You have not yet verified your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
-                        <b>Note</b>: Verifying your email address will improves the security of your account.
-                    </p>
-                </Message>   
-            }
             <Grid.Column width={4}>
                 <Menu fluid vertical tabular>
                     <Menu.Item
@@ -41,4 +31,4 @@ const Sidebar = (props) => {
     )
 }
 
-export default (Sidebar);
+export default Sidebar;

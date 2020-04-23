@@ -17,7 +17,7 @@ import Routes from './route/Routes';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
-import { userLoad } from './actions/auth';
+import { userLoad, getApiSampServer } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 // CSS/SCSS
@@ -28,6 +28,7 @@ const App = () => {
     useEffect(() => {
         setAuthToken(localStorage.token);
         store.dispatch(userLoad());
+        store.dispatch(getApiSampServer());
     }, []);
 
     return (
