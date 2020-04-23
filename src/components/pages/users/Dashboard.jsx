@@ -6,7 +6,9 @@ import {
     Segment,
     Grid,
     Header,
-    Table
+    Table,
+    Label,
+    Icon
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
