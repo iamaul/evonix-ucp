@@ -13,7 +13,7 @@ const Header = () => (
             <Image centered src={evonixLogo} size="massive"/><br/>
             User Control Panel
             <Head.Subheader>
-                This <b>beta version</b> could be unstable and there may even be bugged sometime, If you're facing issues please submit a ticket on 
+                This <b>beta version</b> could be unstable and there may even be bugged sometimes, If you're facing issues please submit a ticket on 
                 <u><a href="http://support.evonix-rp.com" target="_blank" rel="noopener noreferrer"> support.evonix-rp.com</a></u>
             </Head.Subheader>
         </Head>

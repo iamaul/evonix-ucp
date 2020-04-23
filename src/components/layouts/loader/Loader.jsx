@@ -5,16 +5,17 @@ import ClipLoader from "react-spinners/ClipLoader";
 const override = css`
     display: block;
     margin: auto;
-    padding-top: 50px;
 `;
 
 export default (props) => (
-    <div className="sweet-loading">
-        <ClipLoader
-            css={override}
-            size={50}
-            color={"#ff0000"}
-            loading={props.isLoading}
-        />
-    </div>
+    <section>
+        <div className="sweet-loading">
+            <ClipLoader
+                css={override}
+                size={50}
+                color={"#ff0000"}
+                loading={props.isLoading}
+            />
+        </div>
+    </section>
 )
