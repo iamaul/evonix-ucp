@@ -21,6 +21,7 @@ let currentState = {
         token: null, 
         isAuthenticated: null,  
         user: null,
+        samp: null,
         error: null,
         setLoading: true 
     }
