@@ -15,6 +15,7 @@ const Navbar = ({ auth: { isAuthenticated, setLoading, user }, userLogout }) => 
             labeled
             button
             className="icon"
+            pointing="bottom"
         >
             <Dropdown.Menu>
                 <Dropdown.Header content="Welcome back!" />
