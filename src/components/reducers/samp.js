@@ -1,4 +1,4 @@
-import { GET_API_SAMP_SERVER, API_SAMP_SERVER_ERROR } from "../actions/types";
+import { GET_API_SAMP_SERVER } from "../actions/types";
 
 const INITIAL_STATE = {
     server: null,
@@ -15,12 +15,6 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 setLoading: false,
                 server: payload
-            }
-        case API_SAMP_SERVER_ERROR:
-            return {
-                ...state,
-                error: payload,
-                setLoading: false
             }
         default: return state;
     }

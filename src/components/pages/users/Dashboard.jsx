@@ -16,7 +16,7 @@ import { getApiSampServer } from '../../actions/samp';
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
 
-const Dashboard = ({ auth: { user }, getApiSampServer, samp: { server, setLoading } }) => {
+const Dashboard = ({ auth: { user }, samp: { server, setLoading }, getApiSampServer }) => {
     useEffect(() => {
         getApiSampServer();
     }, [getApiSampServer])
