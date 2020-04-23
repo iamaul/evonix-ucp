@@ -13,7 +13,7 @@ import {
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 
-const Dashboard = ({ auth: { user } }) => {
+const Dashboard = ({ auth: { user, samp } }) => {
     return (
         <>
             <section id="dashboard">
@@ -33,8 +33,8 @@ const Dashboard = ({ auth: { user } }) => {
                                 <img
                                     src="https://media.giphy.com/media/YkrEHLsVinbIuddp1q/giphy-downsized.gif"
                                     style={{ 
-                                        width: '100%',
-                                        height: '100%',
+                                        width: '50%',
+                                        height: '50%',
                                         position: 'absolute' 
                                     }}
                                     alt="neil warnock"
@@ -81,34 +81,41 @@ const Dashboard = ({ auth: { user } }) => {
                                 <Grid.Column>
                                     <Segment>
                                         <Header as="h3" textAlign="center">Server Status</Header>
-                                        <Label color="green" size="tiny" pointing="left" floating>
-                                            <Icon name="wifi" /> Online
-                                        </Label>
+                                        { samp && samp.active ? (
+                                            <Label color="green" size="tiny" pointing="left" floating>
+                                                <Icon name="wifi" /> Online
+                                            </Label>
+                                        ) : (
+                                            <Label color="red" size="tiny" pointing="left" floating>
+                                                <Icon name="power off" /> Offline
+                                            </Label>
+                                        )
+                                        }
                                         <Table>
                                             <Table.Body>
                                                 <Table.Row>
                                                     <Table.Cell><b>IP</b></Table.Cell>
-                                                    <Table.Cell>101.50.3.61:7780</Table.Cell>
+                                                    <Table.Cell>{ samp && samp.core.ip }</Table.Cell>
                                                 </Table.Row>
                                                 <Table.Row>
                                                     <Table.Cell><b>Hostname</b></Table.Cell>
-                                                    <Table.Cell>[0.3.DL] Evonix Roleplay | www.evonix-rp.com</Table.Cell>
+                                                    <Table.Cell>{ samp && samp.core.hn }</Table.Cell>
                                                 </Table.Row>
                                                 <Table.Row>
                                                     <Table.Cell><b>Players</b></Table.Cell>
-                                                    <Table.Cell>0 / 32</Table.Cell>
+                                                    <Table.Cell>{ samp && samp.core.pc } / { samp && samp.core.pm }</Table.Cell>
                                                 </Table.Row>
                                                 <Table.Row>
                                                     <Table.Cell><b>Gamemode</b></Table.Cell>
-                                                    <Table.Cell>EX-RP 1.1.0</Table.Cell>
+                                                    <Table.Cell>{ samp && samp.core.gm }</Table.Cell>
                                                 </Table.Row>
                                                 <Table.Row>
                                                     <Table.Cell><b>Language</b></Table.Cell>
-                                                    <Table.Cell>English</Table.Cell>
+                                                    <Table.Cell>{ samp && samp.core.la }</Table.Cell>
                                                 </Table.Row>
                                                 <Table.Row>
                                                     <Table.Cell><b>Version</b></Table.Cell>
-                                                    <Table.Cell>0.3.DL-R1</Table.Cell>
+                                                    <Table.Cell>{ samp && samp.core.vn }</Table.Cell>
                                                 </Table.Row>
                                             </Table.Body>
                                         </Table>

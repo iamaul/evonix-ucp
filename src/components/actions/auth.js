@@ -21,7 +21,7 @@ const Toast = Swal.mixin({
 
 export const getApiSampServer = () => async dispatch => {
     try {
-        const res = await axios.get('https://api.samp-servers.net/v2/server/185.169.134.5:7777');
+        const res = await axios.get('https://api.samp-servers.net/v2/server/101.50.3.61:7780');
         dispatch({ type: GET_API_SAMP_SERVER, payload: res.data });
     } catch (error) {
         dispatch({ type: API_SAMP_SERVER_ERROR });

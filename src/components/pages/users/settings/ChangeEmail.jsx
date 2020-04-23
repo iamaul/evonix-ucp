@@ -24,20 +24,17 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
 
     return (
         <>
-            <Form onSubmit={e => onSubmit(e)} size="small">
-                <Form.Group inline>
-                    <Form.Input
-                        label="Change Email"
-                        type="email"
-                        name="new_email"
-                        value={new_email}
-                        icon="envelope"
-                        iconPosition="left"
-                        placeholder={currentEmail}
-                        onChange={c => onChange(c)}
-                    />
-                    <Form.Button color="red" size="small" content="Change" />
-                </Form.Group>
+            <Form onSubmit={e => onSubmit(e)}>
+                <Form.Input
+                    type="email"
+                    name="new_email"
+                    value={new_email}
+                    icon="envelope"
+                    iconPosition="left"
+                    placeholder={currentEmail}
+                    onChange={c => onChange(c)}
+                />
+                <Form.Button color="red" content="Change" />
             </Form>
         </>
     )
