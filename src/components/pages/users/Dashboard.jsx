@@ -16,7 +16,7 @@ import { getApiSampServer } from '../../actions/samp';
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
 
-const Dashboard = ({ auth: { user }, getApiSampServer, samp: { samp, setLoading } }) => {
+const Dashboard = ({ auth: { user }, getApiSampServer, samp: { server, setLoading } }) => {
     useEffect(() => {
         getApiSampServer();
     }, [getApiSampServer])
@@ -88,7 +88,8 @@ const Dashboard = ({ auth: { user }, getApiSampServer, samp: { samp, setLoading 
                                 <Grid.Column>
                                     <Segment>
                                         <Header as="h3" textAlign="center">Server Status</Header>
-                                        { setLoading ? (<Loader isLoading={setLoading} />) : samp && samp.active ? (
+                                        { setLoading ? (<Loader isLoading={setLoading} />) : 
+                                            server && server.active ? (
                                                 <Label color="green" size="tiny" pointing="left" floating>
                                                     <Icon name="wifi" /> Online
                                                 </Label>
@@ -96,36 +97,37 @@ const Dashboard = ({ auth: { user }, getApiSampServer, samp: { samp, setLoading 
                                                 <Label color="red" size="tiny" pointing="left" floating>
                                                     <Icon name="power off" /> Offline
                                                 </Label>
-                                            )}
-                                            <Table>
-                                                <Table.Body>
-                                                    <Table.Row>
-                                                        <Table.Cell><b>IP</b></Table.Cell>
-                                                        <Table.Cell>{ samp && samp.core.ip }</Table.Cell>
-                                                    </Table.Row>
-                                                    <Table.Row>
-                                                        <Table.Cell><b>Hostname</b></Table.Cell>
-                                                        <Table.Cell>{ samp && samp.core.hn }</Table.Cell>
-                                                    </Table.Row>
-                                                    <Table.Row>
-                                                        <Table.Cell><b>Players</b></Table.Cell>
-                                                        <Table.Cell>{ samp && samp.core.pc } / { samp && samp.core.pm }</Table.Cell>
-                                                    </Table.Row>
-                                                    <Table.Row>
-                                                        <Table.Cell><b>Gamemode</b></Table.Cell>
-                                                        <Table.Cell>{ samp && samp.core.gm }</Table.Cell>
-                                                    </Table.Row>
-                                                    <Table.Row>
-                                                        <Table.Cell><b>Language</b></Table.Cell>
-                                                        <Table.Cell>{ samp && samp.core.la }</Table.Cell>
-                                                    </Table.Row>
-                                                    <Table.Row>
-                                                        <Table.Cell><b>Version</b></Table.Cell>
-                                                        <Table.Cell>{ samp && samp.core.vn }</Table.Cell>
-                                                    </Table.Row>
-                                                </Table.Body>
-                                            </Table>
-                                        )}
+                                            ) (
+                                                <Table>
+                                                    <Table.Body>
+                                                        <Table.Row>
+                                                            <Table.Cell><b>IP</b></Table.Cell>
+                                                            <Table.Cell>{ server && server.core.ip }</Table.Cell>
+                                                        </Table.Row>
+                                                        <Table.Row>
+                                                            <Table.Cell><b>Hostname</b></Table.Cell>
+                                                            <Table.Cell>{ server && server.core.hn }</Table.Cell>
+                                                        </Table.Row>
+                                                        <Table.Row>
+                                                            <Table.Cell><b>Players</b></Table.Cell>
+                                                            <Table.Cell>{ server && server.core.pc } / { server && server.core.pm }</Table.Cell>
+                                                        </Table.Row>
+                                                        <Table.Row>
+                                                            <Table.Cell><b>Gamemode</b></Table.Cell>
+                                                            <Table.Cell>{ server && server.core.gm }</Table.Cell>
+                                                        </Table.Row>
+                                                        <Table.Row>
+                                                            <Table.Cell><b>Language</b></Table.Cell>
+                                                            <Table.Cell>{ server && server.core.la }</Table.Cell>
+                                                        </Table.Row>
+                                                        <Table.Row>
+                                                            <Table.Cell><b>Version</b></Table.Cell>
+                                                            <Table.Cell>{ server && server.core.vn }</Table.Cell>
+                                                        </Table.Row>
+                                                    </Table.Body>
+                                                </Table>
+                                            )
+                                        }
                                     </Segment>
                                 </Grid.Column>
                             </Grid>
