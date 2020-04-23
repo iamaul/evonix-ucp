@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Header, Icon, Segment } from 'semantic-ui-react';
+import { Button, Header, Icon, Segment, Grid } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 
