@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
@@ -11,9 +11,16 @@ import {
     Icon
 } from 'semantic-ui-react';
 
-import Sidebar from '../../layouts/sidebar/Sidebar';
+import { getApiSampServer } from '../../actions/samp';
 
-const Dashboard = ({ auth: { user, samp } }) => {
+import Sidebar from '../../layouts/sidebar/Sidebar';
+import Loader from '../../layouts/loader/Loader';
+
+const Dashboard = ({ auth: { user }, getApiSampServer, samp: { samp, setLoading } }) => {
+    useEffect(() => {
+        getApiSampServer();
+    }, [getApiSampServer])
+
     return (
         <>
             <section id="dashboard">
@@ -33,8 +40,8 @@ const Dashboard = ({ auth: { user, samp } }) => {
                                 <img
                                     src="https://media.giphy.com/media/YkrEHLsVinbIuddp1q/giphy-downsized.gif"
                                     style={{ 
-                                        width: '50%',
-                                        height: '50%',
+                                        width: '100%',
+                                        height: '100%',
                                         position: 'absolute' 
                                     }}
                                     alt="neil warnock"
@@ -81,44 +88,44 @@ const Dashboard = ({ auth: { user, samp } }) => {
                                 <Grid.Column>
                                     <Segment>
                                         <Header as="h3" textAlign="center">Server Status</Header>
-                                        { samp && samp.active ? (
-                                            <Label color="green" size="tiny" pointing="left" floating>
-                                                <Icon name="wifi" /> Online
-                                            </Label>
-                                        ) : (
-                                            <Label color="red" size="tiny" pointing="left" floating>
-                                                <Icon name="power off" /> Offline
-                                            </Label>
-                                        )
-                                        }
-                                        <Table>
-                                            <Table.Body>
-                                                <Table.Row>
-                                                    <Table.Cell><b>IP</b></Table.Cell>
-                                                    <Table.Cell>{ samp && samp.core.ip }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Hostname</b></Table.Cell>
-                                                    <Table.Cell>{ samp && samp.core.hn }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Players</b></Table.Cell>
-                                                    <Table.Cell>{ samp && samp.core.pc } / { samp && samp.core.pm }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Gamemode</b></Table.Cell>
-                                                    <Table.Cell>{ samp && samp.core.gm }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Language</b></Table.Cell>
-                                                    <Table.Cell>{ samp && samp.core.la }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Version</b></Table.Cell>
-                                                    <Table.Cell>{ samp && samp.core.vn }</Table.Cell>
-                                                </Table.Row>
-                                            </Table.Body>
-                                        </Table>
+                                        { setLoading ? (<Loader isLoading={setLoading} />) : samp && samp.active ? (
+                                                <Label color="green" size="tiny" pointing="left" floating>
+                                                    <Icon name="wifi" /> Online
+                                                </Label>
+                                            ) : (
+                                                <Label color="red" size="tiny" pointing="left" floating>
+                                                    <Icon name="power off" /> Offline
+                                                </Label>
+                                            )}
+                                            <Table>
+                                                <Table.Body>
+                                                    <Table.Row>
+                                                        <Table.Cell><b>IP</b></Table.Cell>
+                                                        <Table.Cell>{ samp && samp.core.ip }</Table.Cell>
+                                                    </Table.Row>
+                                                    <Table.Row>
+                                                        <Table.Cell><b>Hostname</b></Table.Cell>
+                                                        <Table.Cell>{ samp && samp.core.hn }</Table.Cell>
+                                                    </Table.Row>
+                                                    <Table.Row>
+                                                        <Table.Cell><b>Players</b></Table.Cell>
+                                                        <Table.Cell>{ samp && samp.core.pc } / { samp && samp.core.pm }</Table.Cell>
+                                                    </Table.Row>
+                                                    <Table.Row>
+                                                        <Table.Cell><b>Gamemode</b></Table.Cell>
+                                                        <Table.Cell>{ samp && samp.core.gm }</Table.Cell>
+                                                    </Table.Row>
+                                                    <Table.Row>
+                                                        <Table.Cell><b>Language</b></Table.Cell>
+                                                        <Table.Cell>{ samp && samp.core.la }</Table.Cell>
+                                                    </Table.Row>
+                                                    <Table.Row>
+                                                        <Table.Cell><b>Version</b></Table.Cell>
+                                                        <Table.Cell>{ samp && samp.core.vn }</Table.Cell>
+                                                    </Table.Row>
+                                                </Table.Body>
+                                            </Table>
+                                        )}
                                     </Segment>
                                 </Grid.Column>
                             </Grid>
@@ -131,11 +138,14 @@ const Dashboard = ({ auth: { user, samp } }) => {
 }
 
 Dashboard.propTypes = {
-    auth: PropTypes.object.isRequired
+    getApiSampServer: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    samp: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    samp: state.samp
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, { getApiSampServer })(Dashboard);

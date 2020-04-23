@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
-    GET_API_SAMP_SERVER,
     USER_LOADED,
     REGISTER_FAIL,
     REGISTER_SUCCESS,
@@ -10,7 +9,6 @@ import {
     FORGOT_PASSWORD_FAIL,
     FORGOT_PASSWORD_SUCCESS,
     AUTH_ERROR,
-    API_SAMP_SERVER_ERROR,
     LOGOUT
 } from './types';
 
@@ -18,15 +16,6 @@ const Toast = Swal.mixin({
     toast: true,
     position: 'top-end'
 });
-
-export const getApiSampServer = () => async dispatch => {
-    try {
-        const res = await axios.get('https://api.samp-servers.net/v2/server/101.50.3.61:7780');
-        dispatch({ type: GET_API_SAMP_SERVER, payload: res.data });
-    } catch (error) {
-        dispatch({ type: API_SAMP_SERVER_ERROR });
-    }
-}
 
 export const userLoad = () => async dispatch => {
     try {

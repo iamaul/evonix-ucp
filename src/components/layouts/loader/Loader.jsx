@@ -4,7 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const override = css`
     display: block;
-    margin: 0 auto;
+    margin: auto;
     padding-top: 50px;
 `;
 
