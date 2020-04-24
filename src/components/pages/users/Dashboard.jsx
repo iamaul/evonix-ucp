@@ -27,7 +27,7 @@ const Dashboard = ({
     getCountServerVehicles,
     getCountServerProperties, 
     samp: { server, setLoading },
-    server_stats: { users, vehicles, properties } 
+    server_stats: { data } 
 }) => {
     useEffect(() => {
         getApiSampServer();
@@ -46,19 +46,19 @@ const Dashboard = ({
                             <Statistic.Group widths="three" size="small">
                                 { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
                                     <Statistic>
-                                        <Statistic.Value>{ users }</Statistic.Value>
+                                        <Statistic.Value>{ data && data.users }</Statistic.Value>
                                         <Statistic.Label>Registered Users</Statistic.Label>
                                     </Statistic>
                                 )}
                                 { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
                                     <Statistic>
-                                        <Statistic.Value>{ vehicles }</Statistic.Value>
+                                        <Statistic.Value>{ data && data.player_vehicles }</Statistic.Value>
                                         <Statistic.Label>Player Vehicles</Statistic.Label>
                                     </Statistic>
                                 )}
                                 { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
                                     <Statistic>
-                                        <Statistic.Value>{ properties }</Statistic.Value>
+                                        <Statistic.Value>{ data && data.player_properties }</Statistic.Value>
                                         <Statistic.Label>Properties</Statistic.Label>
                                     </Statistic>
                                 )}
