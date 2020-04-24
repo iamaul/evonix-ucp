@@ -5,13 +5,10 @@ import {
     Segment,
     Grid,
     Header,
-    Table,
-    Label,
-    Icon,
-    Statistic
+    Statistic,
+    Divider
 } from 'semantic-ui-react';
 
-import { getApiSampServer } from '../../actions/samp';
 import { 
     getCountServerUsers, 
     getCountServerVehicles,
@@ -22,19 +19,16 @@ import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
 
 const Dashboard = ({ 
-    getApiSampServer,
     getCountServerUsers,
     getCountServerVehicles,
     getCountServerProperties, 
-    samp: { server },
-    stats: { server_stats }
+    stats: { server_stats, setLoading }
 }) => {
     useEffect(() => {
-        getApiSampServer();
         getCountServerUsers();
         getCountServerVehicles();
         getCountServerProperties();
-    }, [getApiSampServer, getCountServerUsers, getCountServerVehicles, getCountServerProperties])
+    }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties])
 
     return (
         <>
@@ -45,7 +39,7 @@ const Dashboard = ({
                         <Segment>
                             <Statistic.Group widths="three" size="small">
                                 <Statistic>
-                                    { stats && stats.setLoading ? (<Loader isLoading={stats.setLoading} />) : (
+                                    { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
                                             { server_stats && server_stats.users }
                                         </Statistic.Value> )
@@ -53,7 +47,7 @@ const Dashboard = ({
                                     <Statistic.Label>Registered Users</Statistic.Label>
                                 </Statistic>
                                 <Statistic>
-                                    { server_stats && server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
+                                    { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
                                             { server_stats && server_stats.player_vehicles }
                                         </Statistic.Value> )
@@ -61,7 +55,7 @@ const Dashboard = ({
                                     <Statistic.Label>Player Vehicles</Statistic.Label>
                                 </Statistic>
                                 <Statistic>
-                                    { server_stats && server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
+                                    { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
                                             { server_stats && server_stats.player_properties }
                                         </Statistic.Value> )
@@ -74,7 +68,7 @@ const Dashboard = ({
                             <p style={{ textAlign: 'justify' }}>
                                 Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe roleplay yang bold dan realistis tanpa ada embel-embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management, dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
                             </p>
-                            <Divider horizontal>Server Status</Divider>
+                            {/* <Divider horizontal>Server Status</Divider>
                             { samp && samp.setLoading ? (<Loader isLoading={samp.setLoading} />) : (
                                 <Grid stackable centered>
                                     <Segment>
@@ -116,7 +110,7 @@ const Dashboard = ({
                                         </Table>
                                     </Segment>
                                 </Grid>
-                            )}
+                            )} */}
                         </Segment>
                     </Grid.Column>
                 </Grid>
@@ -126,20 +120,17 @@ const Dashboard = ({
 }
 
 Dashboard.propTypes = {
-    getApiSampServer: PropTypes.func.isRequired,
     getCountServerUsers: PropTypes.func.isRequired,
     getCountServerVehicles: PropTypes.func.isRequired,
     getCountServerProperties: PropTypes.func.isRequired,
-    samp: PropTypes.object.isRequired,
     stats: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    samp: state.samp,
     stats: state.stats
 });
 
-export default connect(mapStateToProps, { getApiSampServer, 
+export default connect(mapStateToProps, { 
     getCountServerUsers, 
     getCountServerVehicles, 
     getCountServerProperties })(Dashboard);
