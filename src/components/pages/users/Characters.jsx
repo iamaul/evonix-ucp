@@ -5,6 +5,7 @@ import { Button, Header, Icon, Segment, Grid } from 'semantic-ui-react';
 
 import { getCountUserCharacters } from '../../actions/character';
 
+import Loader from '../../layouts/loader/Loader';
 import Sidebar from '../../layouts/sidebar/Sidebar';
 
 const Characters = ({ getCountUserCharacters, user_chars: { chars, count, setLoading, error } }) => {
