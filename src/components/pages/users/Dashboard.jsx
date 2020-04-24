@@ -22,7 +22,7 @@ const Dashboard = ({
     getCountServerUsers,
     getCountServerVehicles,
     getCountServerProperties, 
-    stats: { server_stats, setLoading }
+    stats: { total_users, player_vehicles, player_properties, setLoading }
 }) => {
     useEffect(() => {
         getCountServerUsers();
@@ -41,7 +41,7 @@ const Dashboard = ({
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
-                                            { server_stats && server_stats.users }
+                                            { total_users }
                                         </Statistic.Value> )
                                     }
                                     <Statistic.Label>Registered Users</Statistic.Label>
@@ -49,7 +49,7 @@ const Dashboard = ({
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
-                                            { server_stats && server_stats.player_vehicles }
+                                            { player_vehicles }
                                         </Statistic.Value> )
                                     }
                                     <Statistic.Label>Player Vehicles</Statistic.Label>
@@ -57,7 +57,7 @@ const Dashboard = ({
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
-                                            { server_stats && server_stats.player_properties }
+                                            { player_properties }
                                         </Statistic.Value> )
                                     }
                                     <Statistic.Label>Properties</Statistic.Label>

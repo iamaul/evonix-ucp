@@ -5,7 +5,9 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    server_stats: null,
+    total_users: null,
+    player_vehicles: null,
+    player_properties: null,
     setLoading: true
 }
 
@@ -17,19 +19,19 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 setLoading: false,
-                server_stats: payload
+                total_users: payload
             }
         case COUNT_SERVER_VEHICLES:
             return {
                 ...state,
                 setLoading: false,
-                server_stats: payload
+                player_vehicles: payload
             }
         case COUNT_SERVER_PROPERTIES:
             return {
                 ...state,
                 setLoading: false,
-                server_stats: payload
+                player_properties: payload
             }
         default: return state;
     }
