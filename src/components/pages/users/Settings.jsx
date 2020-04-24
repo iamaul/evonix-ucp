@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 import { Header, Icon, Segment, Grid, Message } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
-import Loader from '../../layouts/loader/Loader';
 import ChangePassword from './settings/ChangePassword';
 import ChangeEmail from './settings/ChangeEmail';
 
-const Settings = ({ auth: { user, setLoading }}) => {
+const Settings = ({ auth: { user }}) => {
     return (
         <>
             <section id="settings">
@@ -25,31 +24,29 @@ const Settings = ({ auth: { user, setLoading }}) => {
                 <Grid stackable>
                     <Sidebar />
                     <Grid.Column stretched width={12}>
-                        { setLoading ? (<Loader isLoading={setLoading} />) : (
-                            <Segment>
-                                <Header as="h3" icon textAlign="center">
-                                    <Icon name="settings" />
-                                    Account Settings
-                                    <Header.Subheader>
-                                        Manage your account settings.
-                                    </Header.Subheader>
-                                </Header>
-                                <Grid stackable columns={2}>
-                                    <Grid.Column>
-                                        <Segment>
-                                            <Header as="h4" textAlign="center">Change Password</Header>
-                                            <ChangePassword />
-                                        </Segment>
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <Segment>
-                                            <Header as="h4" textAlign="center">Change Email</Header>
-                                            <ChangeEmail currentEmail={user && user.email} />
-                                        </Segment>
-                                    </Grid.Column>
-                                </Grid>
-                            </Segment>
-                        ) }
+                        <Segment>
+                            <Header as="h3" icon textAlign="center">
+                                <Icon name="settings" />
+                                Account Settings
+                                <Header.Subheader>
+                                    Manage your account settings.
+                                </Header.Subheader>
+                            </Header>
+                            <Grid stackable columns={2}>
+                                <Grid.Column>
+                                    <Segment>
+                                        <Header as="h4" textAlign="center">Change Password</Header>
+                                        <ChangePassword />
+                                    </Segment>
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <Segment>
+                                        <Header as="h4" textAlign="center">Change Email</Header>
+                                        <ChangeEmail currentEmail={user && user.email} />
+                                    </Segment>
+                                </Grid.Column>
+                            </Grid>
+                        </Segment>
                     </Grid.Column>
                 </Grid>
             </section>
