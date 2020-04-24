@@ -32,6 +32,7 @@ const Dashboard = ({ auth: { user }, samp: { server, setLoading }, getApiSampSer
                                 src="https://media.giphy.com/media/YkrEHLsVinbIuddp1q/200w_d.gif"
                                 height="200"
                                 style={{ width: '60%', height: '0 auto', textAlign: 'center' }}
+                                alt="welcome_kim_jong_un"
                             />
                             <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
                             <p style={{ textAlign: 'justify' }}>
