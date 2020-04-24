@@ -28,11 +28,27 @@ const Dashboard = ({ auth: { user }, samp: { server, setLoading }, getApiSampSer
                     <Sidebar isVerified={user && user.setLoading} />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            <img
-                                src="https://media.giphy.com/media/YkrEHLsVinbIuddp1q/giphy-downsized.gif"
-                                style={{ textAlign: 'center' }}
-                                alt="neil warnock"
-                            /><br/>
+                            <div 
+                                style={{ 
+                                    width: '100%',
+                                    height: '0',
+                                    paddingBottom: '56%',
+                                    position: 'relative',
+                                    textAlign: 'center'
+                                }}
+                            >
+                                <iframe 
+                                    src="https://giphy.com/embed/YkrEHLsVinbIuddp1q" 
+                                    style={{ 
+                                        width: '100%',
+                                        height: '100%',
+                                        position: 'absolute' 
+                                    }} 
+                                    frameBorder="0" 
+                                    className="giphy-embed" 
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
                             <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
                             <p style={{ textAlign: 'justify' }}>
                                 Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe roleplay yang bold dan realistis tanpa ada embel-embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management, dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
