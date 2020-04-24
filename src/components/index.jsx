@@ -7,9 +7,9 @@ import {
     Icon
 } from 'semantic-ui-react';
 
-import forumLink from '../assets/images/forum_link.png';
-import discordLink from '../assets/images/discord_link.png';
-import supportLink from '../assets/images/support_link.png';
+// import forumLink from '../assets/images/forum_link.png';
+// import discordLink from '../assets/images/discord_link.png';
+// import supportLink from '../assets/images/support_link.png';
 
 const index = () => (
     <>
@@ -83,13 +83,13 @@ const index = () => (
             <hr/>
             <Grid container columns={3} relaxed stackable>
                 <Grid.Column>
-                    <Image src={forumLink} as="a" href="http://forum.evonix-rp.com" />
+                    <Image src="/assets/images/forum_link.png" as="a" href="http://forum.evonix-rp.com" />
                 </Grid.Column>
                 <Grid.Column>
-                    <Image src={supportLink} as="a" href="http://support.evonix-rp.com" />
+                    <Image src="/assets/images/support_link.png" as="a" href="http://support.evonix-rp.com" />
                 </Grid.Column>
                 <Grid.Column>
-                    <Image src={discordLink} as="a" href="https://discord.gg/CgPcnZZ" />
+                    <Image src="/assets/images/discord_link.png" as="a" href="https://discord.gg/CgPcnZZ" />
                 </Grid.Column>
             </Grid>
         </section>
