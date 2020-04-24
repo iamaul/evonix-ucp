@@ -44,24 +44,18 @@ const Dashboard = ({
                     <Grid.Column stretched width={12}>
                         <Segment>
                             <Statistic.Group widths="three" size="small">
-                                { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
-                                    <Statistic>
-                                        <Statistic.Value>{ data && data.users }</Statistic.Value>
-                                        <Statistic.Label>Registered Users</Statistic.Label>
-                                    </Statistic>
-                                )}
-                                { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
-                                    <Statistic>
-                                        <Statistic.Value>{ data && data.player_vehicles }</Statistic.Value>
-                                        <Statistic.Label>Player Vehicles</Statistic.Label>
-                                    </Statistic>
-                                )}
-                                { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
-                                    <Statistic>
-                                        <Statistic.Value>{ data && data.player_properties }</Statistic.Value>
-                                        <Statistic.Label>Properties</Statistic.Label>
-                                    </Statistic>
-                                )}
+                                <Statistic>
+                                    <Statistic.Value>{ data && data.users }</Statistic.Value>
+                                    <Statistic.Label>Registered Users</Statistic.Label>
+                                </Statistic>
+                                <Statistic>
+                                    <Statistic.Value>{ data && data.player_vehicles }</Statistic.Value>
+                                    <Statistic.Label>Player Vehicles</Statistic.Label>
+                                </Statistic>
+                                <Statistic>
+                                    <Statistic.Value>{ data && data.player_properties }</Statistic.Value>
+                                    <Statistic.Label>Properties</Statistic.Label>
+                                </Statistic>
                             </Statistic.Group>
                             <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
                             <p style={{ textAlign: 'justify' }}>
