@@ -8,11 +8,11 @@ import {
 
 import CustomDotGroup from './CustomDotGroup';
 
-import bannerOne from '../../assets/images/banner_1.png';
-import bannerTwo from '../../assets/images/banner_2.png';
-import bannerThree from '../../assets/images/banner_3.png';
-import bannerFour from '../../assets/images/banner_4.png';
-import bannerFive from '../../assets/images/banner_5.png';
+// import bannerOne from '../../assets/images/banner_1.png';
+// import bannerTwo from '../../assets/images/banner_2.png';
+// import bannerThree from '../../assets/images/banner_3.png';
+// import bannerFour from '../../assets/images/banner_4.png';
+// import bannerFive from '../../assets/images/banner_5.png';
 
 const ImageCarousel = () => (
     <>
@@ -26,19 +26,19 @@ const ImageCarousel = () => (
         >
             <Slider>
                 <Slide tag="a" index={0}>
-                    <Image src={bannerOne} />
+                    <Image src="/assets/images/banner_1.png" />
                 </Slide>
                 <Slide tag="a" index={1}>
-                    <Image src={bannerTwo} />
+                    <Image src="/assets/images/banner_2.png" />
                 </Slide>
                 <Slide tag="a" index={2}>
-                    <Image src={bannerThree} />
+                    <Image src="/assets/images/banner_3.png" />
                 </Slide>
                 <Slide tag="a" index={3}>
-                    <Image src={bannerFour} />
+                    <Image src="/assets/images/banner_4.png" />
                 </Slide>
                 <Slide tag="a" index={4}>
-                    <Image src={bannerFive} />
+                    <Image src="/assets/images/banner_5.png" />
                 </Slide>
             </Slider><br/>
             <CustomDotGroup slides={5} />

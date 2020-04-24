@@ -1,80 +1,75 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Moment from 'react-moment';
 import { 
     Segment,
     Grid,
     Header,
     Table,
     Label,
-    Icon
+    Icon,
+    Statistic
 } from 'semantic-ui-react';
 
 import { getApiSampServer } from '../../actions/samp';
+import { 
+    getCountServerUsers, 
+    getCountServerVehicles,
+    getCountServerProperties
+} from '../../actions/serverstats';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
 
-const Dashboard = ({ auth: { user }, samp: { server, setLoading }, getApiSampServer }) => {
+const Dashboard = ({ 
+    getApiSampServer,
+    getCountServerUsers,
+    getCountServerVehicles,
+    getCountServerProperties, 
+    samp: { server, setLoading },
+    server_stats: { users, vehicles, properties } 
+}) => {
     useEffect(() => {
         getApiSampServer();
-    }, [getApiSampServer])
+        getCountServerUsers();
+        getCountServerVehicles();
+        getCountServerProperties();
+    }, [getApiSampServer, getCountServerUsers, getCountServerVehicles, getCountServerProperties])
 
     return (
         <>
             <section id="dashboard">
                 <Grid stackable>
-                    <Sidebar isVerified={user && user.setLoading} />
+                    <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            <img
-                                src="https://media.giphy.com/media/YkrEHLsVinbIuddp1q/200w_d.gif"
-                                height="200"
-                                style={{ width: '60%', height: '0 auto', textAlign: 'center' }}
-                                alt="welcome_kim_jong_un"
-                            />
+                            <Statistic.Group widths="three" size="small">
+                                { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
+                                    <Statistic>
+                                        <Statistic.Value>{ users }</Statistic.Value>
+                                        <Statistic.Label>Registered Users</Statistic.Label>
+                                    </Statistic>
+                                )}
+                                { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
+                                    <Statistic>
+                                        <Statistic.Value>{ vehicles }</Statistic.Value>
+                                        <Statistic.Label>Player Vehicles</Statistic.Label>
+                                    </Statistic>
+                                )}
+                                { server_stats.setLoading ? (<Loader isLoading={server_stats.setLoading} />) : (
+                                    <Statistic>
+                                        <Statistic.Value>{ properties }</Statistic.Value>
+                                        <Statistic.Label>Properties</Statistic.Label>
+                                    </Statistic>
+                                )}
+                            </Statistic.Group>
                             <Header as="h3">Welcome to EvoniX Roleplay</Header><hr/>
                             <p style={{ textAlign: 'justify' }}>
                                 Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe roleplay yang bold dan realistis tanpa ada embel-embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management, dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
                             </p>
-                            <Grid stackable columns={2}>
-                                <Grid.Column>
-                                    <Segment>
-                                        <Header as="h3" textAlign="center">Profile</Header>
-                                        <Table>
-                                            <Table.Body>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Username</b></Table.Cell>
-                                                    <Table.Cell>{ user && user.name }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Email</b></Table.Cell>
-                                                    <Table.Cell>{ user && user.email }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Admin</b></Table.Cell>
-                                                    <Table.Cell>{ user && user.admin }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Helper</b></Table.Cell>
-                                                    <Table.Cell>{ user && user.helper }</Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Joined</b></Table.Cell>
-                                                    <Table.Cell><Moment unix format="llll">{ user && user.registered_date }</Moment></Table.Cell>
-                                                </Table.Row>
-                                                <Table.Row>
-                                                    <Table.Cell><b>Last Login</b></Table.Cell>
-                                                    <Table.Cell>{ user && user.lastlogin === 0 ? ('Not logged in yet') : (<Moment unix fromNow>{ user && user.lastlogin }</Moment>) }</Table.Cell>
-                                                </Table.Row>
-                                            </Table.Body>
-                                        </Table>
-                                    </Segment>
-                                </Grid.Column>
-                                <Grid.Column>
-                                    <Segment>
-                                        <Header as="h3" textAlign="center">Server Status</Header>
+                            <Grid stackable centered>
+                                <Segment>
+                                    <Header as="h3" textAlign="center">Server Status</Header>
                                         { setLoading ? (<Loader isLoading={setLoading} />) : 
                                             server && server.active ? (
                                                 <Label color="green" size="tiny" pointing="left" floating>
@@ -115,8 +110,7 @@ const Dashboard = ({ auth: { user }, samp: { server, setLoading }, getApiSampSer
                                                 </Table>
                                             )
                                         }
-                                    </Segment>
-                                </Grid.Column>
+                                </Segment>
                             </Grid>
                         </Segment>
                     </Grid.Column>
@@ -128,13 +122,19 @@ const Dashboard = ({ auth: { user }, samp: { server, setLoading }, getApiSampSer
 
 Dashboard.propTypes = {
     getApiSampServer: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    samp: PropTypes.object.isRequired
+    getCountServerUsers: PropTypes.func.isRequired,
+    getCountServerVehicles: PropTypes.func.isRequired,
+    getCountServerProperties: PropTypes.func.isRequired,
+    samp: PropTypes.object.isRequired,
+    server_stats: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth,
-    samp: state.samp
+    samp: state.samp,
+    server_stats: state.server_stats
 });
 
-export default connect(mapStateToProps, { getApiSampServer })(Dashboard);
+export default connect(mapStateToProps, { getApiSampServer, 
+    getCountServerUsers, 
+    getCountServerVehicles, 
+    getCountServerProperties })(Dashboard);

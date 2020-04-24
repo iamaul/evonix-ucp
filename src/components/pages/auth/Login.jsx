@@ -14,7 +14,7 @@ import {
 
 import { userLogin } from '../../actions/auth';
 
-import evonixLogo from '../../../assets/images/evonix-logo.png';
+// import evonixLogo from '../../../assets/images/evonix-logo.png';
 
 const Login = ({ userLogin, isAuthenticated }) => {
     const [formData, setFormData] = useState({
@@ -44,7 +44,7 @@ const Login = ({ userLogin, isAuthenticated }) => {
             <Grid textAlign="center" style={{ height: '80vh' }} verticalAlign="middle">
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as="h2" textAlign="center">
-                        <Image as={Link} src={evonixLogo} size="massive" to="/" />
+                        <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
                     <Form size="large" onSubmit={e => onSubmit(e)}>
                         <Segment stacked>

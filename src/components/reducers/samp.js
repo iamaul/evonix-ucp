@@ -2,8 +2,7 @@ import { GET_API_SAMP_SERVER } from "../actions/types";
 
 const INITIAL_STATE = {
     server: null,
-    setLoading: true,
-    error: {}
+    setLoading: true
 }
 
 export default function (state = INITIAL_STATE, action) {
