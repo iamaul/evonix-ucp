@@ -9,14 +9,15 @@ import {
     Icon,
     Segment,
     Table,
-    Header
+    Header,
+    Label
 } from 'semantic-ui-react';
 
-import { getApiSampServer } from '../components/actions/samp';
+import { getApiSampServer } from './actions/samp';
 
-import Loader from '../components/layouts/loader/Loader';
+import Loader from './layouts/loader/Loader';
 
-const index = ({ getApiSampServer, samp: { server, sampLoader } }) => {
+const Home = ({ getApiSampServer, samp: { server, sampLoader } }) => {
     useEffect(() => {
         getApiSampServer();
     }, [getApiSampServer])
@@ -151,7 +152,7 @@ const index = ({ getApiSampServer, samp: { server, sampLoader } }) => {
     )
 }
 
-index.propTypes = {
+Home.propTypes = {
     getApiSampServer: PropTypes.func.isRequired,
     samp: PropTypes.object.isRequired
 }
@@ -160,4 +161,4 @@ const mapStateToProps = state => ({
     samp: state.samp
 });
 
-export default connect(mapStateToProps, { getApiSampServer })(index);
+export default connect(mapStateToProps, { getApiSampServer })(Home);

@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 // Components
 import Header from './layouts/header/Header';
 import ImageCarousel from './slider/ImageCarousel';
-import index from './index';
+import Home from './Home';
 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -41,7 +41,7 @@ const App = () => {
                         <Fragment>
                             <Header />
                             <ImageCarousel />
-                            <Route exact path="/" component={index} />
+                            <Route exact path="/" component={Home} />
                             <Route component={Routes} />
                             <Footer />
                         </Fragment>
