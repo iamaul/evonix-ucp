@@ -16,7 +16,7 @@ import {
     getCountServerUsers, 
     getCountServerVehicles,
     getCountServerProperties
-} from '../../actions/serverStats';
+} from '../../actions/stats';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
@@ -27,7 +27,7 @@ const Dashboard = ({
     getCountServerVehicles,
     getCountServerProperties, 
     samp: { server, setLoading },
-    serverStats: { stats } 
+    stats: { server_stats }
 }) => {
     useEffect(() => {
         getApiSampServer();
@@ -45,15 +45,15 @@ const Dashboard = ({
                         <Segment>
                             <Statistic.Group widths="three" size="small">
                                 <Statistic>
-                                    <Statistic.Value>{ stats && stats.users }</Statistic.Value>
+                                    <Statistic.Value>{ server_stats && server_stats.users }</Statistic.Value>
                                     <Statistic.Label>Registered Users</Statistic.Label>
                                 </Statistic>
                                 <Statistic>
-                                    <Statistic.Value>{ stats && stats.player_vehicles }</Statistic.Value>
+                                    <Statistic.Value>{ server_stats && server_stats.player_vehicles }</Statistic.Value>
                                     <Statistic.Label>Player Vehicles</Statistic.Label>
                                 </Statistic>
                                 <Statistic>
-                                    <Statistic.Value>{ stats && stats.player_properties }</Statistic.Value>
+                                    <Statistic.Value>{ server_stats && server_stats.player_properties }</Statistic.Value>
                                     <Statistic.Label>Properties</Statistic.Label>
                                 </Statistic>
                             </Statistic.Group>
@@ -120,12 +120,12 @@ Dashboard.propTypes = {
     getCountServerVehicles: PropTypes.func.isRequired,
     getCountServerProperties: PropTypes.func.isRequired,
     samp: PropTypes.object.isRequired,
-    serverStats: PropTypes.object.isRequired
+    stats: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     samp: state.samp,
-    serverStats: state.serverStats
+    stats: state.stats
 });
 
 export default connect(mapStateToProps, { getApiSampServer, 

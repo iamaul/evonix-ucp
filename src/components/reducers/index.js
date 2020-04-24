@@ -4,7 +4,7 @@ import alert from './alert';
 import auth from './auth';
 import account from './account';
 import samp from './samp';
-import serverStats from './serverStats';
+import stats from './stats';
 import character from './character';
 
 export default combineReducers({
@@ -12,6 +12,6 @@ export default combineReducers({
     auth,
     account,
     samp,
-    serverStats,
+    stats,
     character
 });
