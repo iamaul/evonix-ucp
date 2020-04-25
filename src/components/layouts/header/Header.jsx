@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Header as Head, Image, Divider, Label, Icon } from 'semantic-ui-react';
 
 import Navbar from '../navbar/Navbar';
@@ -24,13 +23,15 @@ const Header = ({ getApiSampServer, samp: { server } }) => {
                 <Head.Subheader>
                     This <b>beta version</b> could be unstable and there may even be bugged sometimes, If you're facing issues please submit a ticket on 
                     <u><a href="http://support.evonix-rp.com" target="_blank" rel="noopener noreferrer"> support.evonix-rp.com</a></u>
-                </Head.Subheader>
+                </Head.Subheader><br/>
                 { server && server.active ? (
-                    <Label as={Link} to={linkIp} image color="green">
-                        <Icon name="server" />
-                        Online
-                        <Label.Detail>{ server && server.core.pc } / { server && server.core.pm }</Label.Detail>
-                    </Label> ) : (
+                    <a href={linkIp}>
+                        <Label image color="green">
+                            <Icon name="server" />
+                            Online
+                            <Label.Detail>{ server && server.core.pc } / { server && server.core.pm }</Label.Detail>
+                        </Label>
+                    </a> ) : (
                         <Label image color="red">
                             <Icon name="server" />
                             Offline
