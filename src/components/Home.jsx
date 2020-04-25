@@ -1,73 +1,15 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react';
 import { 
     Grid, 
     Image,
     Item, 
     Button, 
-    Icon,
-    Segment,
-    Table,
-    Header,
-    Label
+    Icon
 } from 'semantic-ui-react';
 
-import { getApiSampServer } from './actions/samp';
-
-import Loader from './layouts/loader/Loader';
-
-const Home = ({ getApiSampServer, samp: { server, sampLoader } }) => {
-    useEffect(() => {
-        getApiSampServer();
-    }, [getApiSampServer])
-
+const Home = () => {
     return (
         <>
-            <section>
-                <Segment compact raised textAlign="center">
-                    <Header as="h4" textAlign="center">Server Status</Header>
-                    { server && server.active ? (
-                        <Label color="green" size="tiny" pointing="left" floating>
-                            <Icon name="wifi" /> Online
-                        </Label>
-                    ) : (
-                        <Label color="red" size="tiny" pointing="left" floating>
-                            <Icon name="power off" /> Offline
-                        </Label>
-                    )}
-                    { sampLoader ? (<Loader isLoading={sampLoader} />) : (
-                        <Table size="small">
-                            <Table.Body>
-                                <Table.Row>
-                                    <Table.Cell><b>IP</b></Table.Cell>
-                                    <Table.Cell>{ server && server.core.ip }</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell><b>Hostname</b></Table.Cell>
-                                    <Table.Cell>{ server && server.core.hn }</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell><b>Players</b></Table.Cell>
-                                    <Table.Cell>{ server && server.core.pc } / { server && server.core.pm }</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell><b>Gamemode</b></Table.Cell>
-                                    <Table.Cell>{ server && server.core.gm }</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell><b>Language</b></Table.Cell>
-                                    <Table.Cell>{ server && server.core.la }</Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell><b>Version</b></Table.Cell>
-                                    <Table.Cell>{ server && server.core.vn }</Table.Cell>
-                                </Table.Row>
-                            </Table.Body>
-                        </Table>
-                    )}
-                </Segment>
-            </section>
             <section id="news">
                 <h1 className="head">News</h1>
                 <hr/>
@@ -152,13 +94,4 @@ const Home = ({ getApiSampServer, samp: { server, sampLoader } }) => {
     )
 }
 
-Home.propTypes = {
-    getApiSampServer: PropTypes.func.isRequired,
-    samp: PropTypes.object.isRequired
-}
-
-const mapStateToProps = state => ({
-    samp: state.samp
-});
-
-export default connect(mapStateToProps, { getApiSampServer })(Home);
+export default Home;
