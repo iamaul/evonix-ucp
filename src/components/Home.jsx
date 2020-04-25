@@ -25,9 +25,9 @@ const Home = ({ getApiSampServer, samp: { server, sampLoader } }) => {
     return (
         <>
             <section>
-                <Segment raised size="small" textAlign="center">
+                <Segment compact raised textAlign="center">
                     <Header as="h4" textAlign="center">Server Status</Header>
-                    { sampLoader ? (<Loader isLoading={sampLoader} />) : server && server.active ? (
+                    { server && server.active ? (
                         <Label color="green" size="tiny" pointing="left" floating>
                             <Icon name="wifi" /> Online
                         </Label>
