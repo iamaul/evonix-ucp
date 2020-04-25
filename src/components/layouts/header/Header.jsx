@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Header as Head, Image, Divider, Label } from 'semantic-ui-react';
+import { Header as Head, Image, Divider, Label, Icon } from 'semantic-ui-react';
 
 import Navbar from '../navbar/Navbar';
 import { getApiSampServer } from '../../actions/samp';
