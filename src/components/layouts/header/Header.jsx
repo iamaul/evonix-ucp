@@ -25,17 +25,16 @@ const Header = ({ getApiSampServer, samp: { server } }) => {
                     <u><a href="http://support.evonix-rp.com" target="_blank" rel="noopener noreferrer"> support.evonix-rp.com</a></u>
                 </Head.Subheader><br/>
                 { server && server.active ? (
-                    <a href={linkIp}>
-                        <Label image color="green">
-                            <Icon name="server" />
-                            Online
-                            <Label.Detail>{ server && server.core.pc } / { server && server.core.pm }</Label.Detail>
-                        </Label>
-                    </a> ) : (
-                        <Label image color="red">
-                            <Icon name="server" />
-                            Offline
-                        </Label>
+                    <Label image color="green" as="a" href={linkIp}>
+                        <Icon name="server" />
+                        Online
+                        <Label.Detail>{ server && server.core.pc } / { server && server.core.pm }</Label.Detail>
+                    </Label>
+                    ) : (
+                    <Label image color="red">
+                        <Icon name="server" />
+                        Offline
+                    </Label>
                     )
                 }
             </Head>
