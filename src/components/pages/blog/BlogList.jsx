@@ -5,7 +5,7 @@ const BlogList = () => {
     return (
         <section id="blog">
             <h1 className="head">Blogs</h1>
-            <hr/>
+            <Divider />
             <Responsive>
                 <Grid stackable columns={4}>
                     <Grid.Column mobile={16} computer={4}>

@@ -4,7 +4,8 @@ import {
     Image,
     Item, 
     Button, 
-    Icon
+    Icon,
+    Divider
 } from 'semantic-ui-react';
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
         <>
             <section id="news">
                 <h1 className="head">News</h1>
-                <hr/>
+                <Divider />
                 <Item.Group divided>
                     <Item>
                         <Item.Image src="https://place-hold.it/800x800&text=Image&fontsize=32" />
@@ -77,7 +78,7 @@ const Home = () => {
             </section>
             <section id="quick-links">
                 <h1 className="head">Quick Links</h1>
-                <hr/>
+                <Divider />
                 <Grid container columns={3} relaxed stackable>
                     <Grid.Column>
                         <Image src="/assets/images/forum_link.png" as="a" href="http://forum.evonix-rp.com" />

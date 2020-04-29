@@ -2,7 +2,7 @@ import { GET_API_SAMP_SERVER } from "../actions/types";
 
 const INITIAL_STATE = {
     server: null,
-    sampLoader: true
+    setLoading: true
 }
 
 export default function (state = INITIAL_STATE, action) {
@@ -12,7 +12,7 @@ export default function (state = INITIAL_STATE, action) {
         case GET_API_SAMP_SERVER:
             return {
                 ...state,
-                sampLoader: false,
+                setLoading: false,
                 server: payload
             }
         default: return state;

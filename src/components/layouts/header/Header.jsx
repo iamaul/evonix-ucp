@@ -8,7 +8,7 @@ import { getApiSampServer } from '../../actions/samp';
 
 import './style.scss';
 
-const Header = ({ getApiSampServer, samp: { server } }) => {
+const Header = ({ getApiSampServer, samp: { server, setLoading } }) => {
     useEffect(() => {
         getApiSampServer();
     }, [getApiSampServer])
@@ -24,7 +24,7 @@ const Header = ({ getApiSampServer, samp: { server } }) => {
                     This <b>beta version</b> could be unstable and there may even be bugged sometimes, If you're facing issues please submit a ticket on 
                     <u><a href="http://support.evonix-rp.com" target="_blank" rel="noopener noreferrer"> support.evonix-rp.com</a></u>
                 </Head.Subheader><br/>
-                { server && server.active ? (
+                { setLoading ? (<Loader isLoading={setLoading} />) : server && server.active ? (
                     <Label image color="green" as="a" href={linkIp}>
                         <Icon name="server" />
                         Online

@@ -36,7 +36,7 @@ const Dashboard = ({
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            <Statistic.Group widths="three" size="small">
+                            <Statistic.Group size="small">
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
