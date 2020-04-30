@@ -11,7 +11,7 @@ export default (props) => (
     <div className="sweet-loading">
         <ClipLoader
             css={override}
-            size={50}
+            size={props.resizeIcon ? props.resizeIcon : '50'}
             color={"#ff0000"}
             loading={props.isLoading}
         />

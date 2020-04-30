@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Grid, Responsive } from 'semantic-ui-react';
+import { Card, Image, Grid, Responsive, Divider } from 'semantic-ui-react';
 
 const BlogList = () => {
     return (
