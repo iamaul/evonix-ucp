@@ -7,13 +7,17 @@ const override = css`
     margin: 0 auto;
 `;
 
-export default (props) => (
-    <div className="sweet-loading">
-        <ClipLoader
-            css={override}
-            size={props.resizeIcon ? props.resizeIcon : '50'}
-            color={"#ff0000"}
-            loading={props.isLoading}
-        />
-    </div>
-)
+export default (props) => {
+    return (
+        <>
+            <div className="sweet-loading">
+                <ClipLoader
+                    css={override}
+                    size={props.resizeIcon ? props.resizeIcon : 50}
+                    color={"#ff0000"}
+                    loading={props.isLoading}
+                />
+            </div>
+        </>
+    )
+}
