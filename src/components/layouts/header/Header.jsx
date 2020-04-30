@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Header as Head, Image, Divider, Label, Icon } from 'semantic-ui-react';
 
 import Navbar from '../navbar/Navbar';
+import Loader from '../loader/Loader';
+
 import { getApiSampServer } from '../../actions/samp';
 
 import './style.scss';
