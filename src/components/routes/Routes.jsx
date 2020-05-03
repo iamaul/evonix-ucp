@@ -6,7 +6,7 @@ import Dashboard from '../pages/users/Dashboard';
 import Characters from '../pages/users/Characters';
 import Settings from '../pages/users/Settings';
 
-import PrivateRoute from '../route/PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 // import Page404 from '../pages/error/Page404';
 
 const Routes = () => {
