@@ -12,7 +12,7 @@ import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import Footer from './layouts/footer/Footer';
 
-import Routes from './route/Routes';
+import Routes from './routes/Routes';
 
 // Redux
 import { Provider } from 'react-redux';
