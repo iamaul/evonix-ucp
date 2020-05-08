@@ -1,0 +1,366 @@
+{
+    "id": 1,
+    "name": "Multiple Choice #1",
+    "questions": [
+        {
+            "id": 1,
+            "name": "Percakapan 911 yang benar di bawah ini adalah:",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 1,
+                    "question_id": 1,
+                    "name": "“Halo pak, saya melihat penembakan di Idlewood, satu orang tertembak!”",
+                    "correct_answer": true
+                },
+                {
+                    "id": 2,
+                    "question_id": 1,
+                    "name": "“Halo, saya mau daftar lisensi pistol, bisa dibantu pak?”",
+                    "correct_answer": false
+                },
+                {
+                    "id": 3,
+                    "question_id": 1,
+                    "name": "“Halo, saya ingin check crime record, apakah bisa dibantu?”",
+                    "correct_answer": false
+                },
+                {
+                    "id": 4,
+                    "question_id": 1,
+                    "name": "“Selamat malam pak, nama saya Rika, mobil saya kena ticket, kemana saya harus tebus dendanya pak?”",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 2,
+            "name": "Kamu membutuhkan tumpangan ke Idlewood, hal yang dapat kamu lakukan adalah:",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 5,
+                    "question_id": 2,
+                    "name": "Meminta Admin untuk teleport kamu ke Idlewood.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 6,
+                    "question_id": 2,
+                    "name": "Memaksa orang-orang dengan cara PM untuk mengantar kamu ke Idlewood.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 7,
+                    "question_id": 2,
+                    "name": "Telfon layanan taxi untuk menuju ke Idlewood.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 8,
+                    "question_id": 2,
+                    "name": "Males susah ke Idlewood, /q aja.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 3,
+            "name": "Kamu sedang dalam keadaan dikejar oleh polisi, apa yang sebaiknya kamu lakukan:",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 9,
+                    "question_id": 3,
+                    "name": "Menekan tombol lompat berkali kali (Bunny-hopping).",
+                    "correct_answer": false
+                },
+                {
+                    "id": 10,
+                    "question_id": 3,
+                    "name": "Mengikuti alur roleplay dan menerima konsekuensi yang akan diterima walaupun itu dipenjara dengan waktu yang lama.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 11,
+                    "question_id": 3,
+                    "name": "Mengeluarkan senjata dan langsung menembak polisi secara membabi buta seorang diri.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 12,
+                    "question_id": 3,
+                    "name": "Meminta bantuan ke teman via PM.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 4,
+            "name": "Statement manakah yang salah di bawah ini:",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 13,
+                    "question_id": 4,
+                    "name": "Menggunakan format nama Firstname_Lastname untuk mendaftar akun.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 14,
+                    "question_id": 4,
+                    "name": "Mod CLEO (3rd party) dilarang walaupun CLEO tersebut tidak merugikan server atau player lain.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 15,
+                    "question_id": 4,
+                    "name": "Kita dapat membayar Lead Admin agar menjadi Probation Staff.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 16,
+                    "question_id": 4,
+                    "name": "Player dilarang untuk melakukan copy-paste dalam membuat faction thread.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 5,
+            "name": "Kamu dalam keadaan dirob, tiba tiba internet kamu mati. Ketika internet kamu sudah menyala apa yang kamu harus lakukan:",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 17,
+                    "question_id": 5,
+                    "name": "Tidak kunjung in-game, karena takut kehilangan uang.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 18,
+                    "question_id": 5,
+                    "name": "Bertanya kepada teman yang in-game, untuk memeriksa lokasi kamu dirob.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 19,
+                    "question_id": 5,
+                    "name": "In-game, dan melakukan re-rp kepada lawan rp anda.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 20,
+                    "question_id": 5,
+                    "name": "In-game lalu lari dari tempat roleplay seakan tidak terjadi apa apa.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 6,
+            "name": "Andy adalah seorang trucker yang sedang melakukan tugasnya. Dijalan, Andy distop oleh polisi karena menyetir tanpa menggunakan lampu. Pada saat itu, Andy lupa dia belum memperbaharui SIM nya alias dia tidak memiliki SIM. Apa yang harus Andy lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 21,
+                    "question_id": 6,
+                    "name": "Quit dari game agar tidak ditilang dan dipenjara.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 22,
+                    "question_id": 6,
+                    "name": "Mengikuti alur roleplay walaupun harus ditilang atau dipenjara.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 23,
+                    "question_id": 6,
+                    "name": "Menginformasikan teman nya lewat PM dan meminta bantuan untuk dapat menghajar polisi yang memberhentikannya.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 24,
+                    "question_id": 6,
+                    "name": "Membayar polisi dengan uang asli alias rupiah.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 7,
+            "name": "Penulisan yang paling benar dalam In-Character dengan penggunaan EYD yang benar, adalah :",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 25,
+                    "question_id": 7,
+                    "name": "“Bang, minta uang dong. plis :v”",
+                    "correct_answer": false 
+                },
+                {
+                    "id": 26,
+                    "question_id": 7,
+                    "name": "“Lgi apa lu, boy?”",
+                    "correct_answer": false
+                },
+                {
+                    "id": 27,
+                    "question_id": 7,
+                    "name": "“Kemarin lu abis dari mana? Idlewood ya?”",
+                    "correct_answer": true
+                },
+                {
+                    "id": 28,
+                    "question_id": 7,
+                    "name": "“Oi gue lagi mancing nih sama rika, joinlah”",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 8,
+            "name": "Statement dibawah ini adalah benar, kecuali?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 29,
+                    "question_id": 8,
+                    "name": "Alvin adalah seorang player EvoniX yang malas berkerja maka dari itu dia membeli uang in-game/RMT kepada seorang teman.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 30,
+                    "question_id": 8,
+                    "name": "Reza membeli mobil di dealer dengan jerih payah sendiri.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 31,
+                    "question_id": 8,
+                    "name": "Theo membayar uang bulanan kepada boss nya, Nandang.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 32,
+                    "question_id": 8,
+                    "name": "Glen adalah seorang polisi yang baik, dia suka memberhentikan orang yang melakukan kebut-kebutan dan menilangnya.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 9,
+            "name": "Semua statement di bawah adalah contoh Revenge-Killing, kecuali?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 33,
+                    "question_id": 9,
+                    "name": "Rony baru saja respawn di rumah sakit setelah dibunuh player lain, dia roleplay seperti biasa dan melupakan kejadian terkait kematiannya.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 34,
+                    "question_id": 9,
+                    "name": "Kamu seorang polisi dan mati saat shootout, setelah kamu respawn kamu kembali ke lokasi penembakan dan ikut tembak-tembakan kembali.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 35,
+                    "question_id": 9,
+                    "name": "Mondo mati karena dibunuh seorang robber, setelah ia mati dan /acceptdeath ia memutuskan untuk /q.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 36,
+                    "question_id": 9,
+                    "name": "Semua benar.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 10,
+            "name": "Contoh dari Powergaming di bawah ini, kecuali?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 37,
+                    "question_id": 10,
+                    "name": "Melompat - lompat dari tempat yang tinggi tanpa merasakan sakit.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 38,
+                    "question_id": 10,
+                    "name": "Menggunakan ilmu santet untuk membunuh orang yang kita benci tanpa menyentuhnya.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 39,
+                    "question_id": 10,
+                    "name": "Melakukan jurus Kagebunshin seperti Naruto.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 40,
+                    "question_id": 10,
+                    "name": "Menelfon otoritas 911 saat melihat ada korban dari kejadian perampokan.",
+                    "correct_answer": true
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        }
+    ]
+}

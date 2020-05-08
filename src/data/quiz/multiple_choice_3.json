@@ -1,0 +1,366 @@
+{
+    "id": 3,
+    "name": "Multiple Choice #3",
+    "questions": [
+        {
+            "id": 1,
+            "name": "Kamu berdiskusi tentang suatu masalah di forum, lalu ada yang tidak sependapat dengan kamu. Apa yang akan kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 80,
+                    "question_id": 51,
+                    "name": "Mencari alamat nya lalu mendatangi tempat tinggalnya.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 81,
+                    "question_id": 52,
+                    "name": "Mencaci-maki lawan debat kamu di Discord Evonix seperti anak kecil.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 82,
+                    "question_id": 53,
+                    "name": "Melanjutkan debat secara sehat dan dewasa di Forum.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 83,
+                    "question_id": 54,
+                    "name": "Keluar dari server karena kamu tidak suka statement kamu di sanggah oleh orang lain.",
+                    "correct_answer": true
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 2,
+            "name": "Karakter kamu diban oleh staff mightyHarry karena melakukan kesalahan yang cukup fatal dalam server EvoniX Roleplay, apa yang harus kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 84,
+                    "question_id": 55,
+                    "name": "Ban evading, dan membuat rusuh di server EvoniX, dan mencaci-maki staff mightyHarry",
+                    "correct_answer": true
+                },
+                {
+                    "id": 85,
+                    "question_id": 56,
+                    "name": "Membuat thread unban request, dengan isi mencaci-maki mightyHarry",
+                    "correct_answer": false
+                },
+                {
+                    "id": 86,
+                    "question_id": 57,
+                    "name": "Mencari alamat mightyHarry dan mengajak ribut.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 87,
+                    "question_id": 58,
+                    "name": "Membuat thread unban request dan berjanji tidak akan mengulanginya.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 3,
+            "name": "Kamu ingin menyarankan fitur baru untuk server, apa yang harus kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 88,
+                    "question_id": 59,
+                    "name": "Mengirimkan pesan ke Discord MightyHarry dengan nada kasar agar cepat dinotice.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 89,
+                    "question_id": 60,
+                    "name": "Membuat suggestion di forum dengan format yang benar dan rapih.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 90,
+                    "question_id": 61,
+                    "name": "Memberitahu saran kamu di server Discord.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 91,
+                    "question_id": 62,
+                    "name": "Menjadi donatur agar saran kamu didengarkan.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 4,
+            "name": "Kamu menemukan sebuah faction yang melanggar faction rules, apa yang harus kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 92,
+                    "question_id": 63,
+                    "name": "Melaporan faction tersebut melalui /report.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 93,
+                    "question_id": 64,
+                    "name": "Mem-PM faction admin melalui in-game.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 94,
+                    "question_id": 65,
+                    "name": "Melaporkan faction tersebut melalui report forum, dengan menyertakan bukti yang valid.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 95,
+                    "question_id": 66,
+                    "name": "Melaporkan faction tersebut ke faction admin dengan format dan bukti yang valid.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 5,
+            "name": "Kamu selalu gagal dan ditolak dalam sistem whitelist UCP, apa yang harus kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 96,
+                    "question_id": 67,
+                    "name": "Membeli UCP yang sudah ter-whitelist.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 97,
+                    "question_id": 68,
+                    "name": "Mencaci maki server karena selalu gagal dalam whitelist.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 98,
+                    "question_id": 69,
+                    "name": "Meminta joki kepada admin atau teman kamu.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 99,
+                    "question_id": 70,
+                    "name": "Bersabar, mengevaluasi kesalahan kamu lalu mencoba mendaftar lagi.",
+                    "correct_answer": true
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 6,
+            "name": "Kamu mendapat suatu masalah berkaitan dengan server, website mana yang kamu buka?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 100,
+                    "question_id": 71,
+                    "name": "ticket.evonix-rp.com",
+                    "correct_answer": true
+                },
+                {
+                    "id": 101,
+                    "question_id": 72,
+                    "name": "youtube.com",
+                    "correct_answer": false
+                },
+                {
+                    "id": 102,
+                    "question_id": 73,
+                    "name": "piratebayproxy.ao",
+                    "correct_answer": false
+                },
+                {
+                    "id": 103,
+                    "question_id": 74,
+                    "name": "ucp.evonix-rp.com",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 7,
+            "name": "Kamu dan teman mu dalam pengejaran polisi dan akhirnya kamu lost contact. Apa yang kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 104,
+                    "question_id": 75,
+                    "name": "Sembunyi di basement Las Venturas dan menunggu 15 menit dan akhirnya kembali ke LS.",
+                    "correct_answer": true 
+                },
+                {
+                    "id": 105,
+                    "question_id": 76,
+                    "name": "Keluar dari game sebelum 15 menit karena takut tertangkap.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 106,
+                    "question_id": 77,
+                    "name": "Mem PM teman teman satu faction agar membackup jika dibutuhkan nantinya.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 107,
+                    "question_id": 78,
+                    "name": "Menggunakan cheat teleport ke daerah antah berantah agar tidak tertangkap.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 8,
+            "name": "Kamu ingin membuat faction kamu official, apa yang harus kamu lakukan?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 108,
+                    "question_id": 79,
+                    "name": "Memberikan effort sebisa yang kamu lakukan, mengikuti rules yang ada dan bersikap baik di komunitas Evonix RP. Setelah itu mengirimkan form official faction ke management sesuai dengan format dan syarat yang berlaku.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 109,
+                    "question_id": 80,
+                    "name": "Membayar Outlawz selaku Faction Management sejumlah uang.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 110,
+                    "question_id": 81,
+                    "name": "Membuat drama di forum agar dinotice oleh Faction Management.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 111,
+                    "question_id": 82,
+                    "name": "Semua benar.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 9,
+            "name": "Motto komunitas Evonix Roleplay adalah?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 112,
+                    "question_id": 83,
+                    "name": "More Than You Know",
+                    "correct_answer": false
+                },
+                {
+                    "id": 113,
+                    "question_id": 84,
+                    "name": "We Are The Best, Because You Pay Us!",
+                    "correct_answer": false
+                },
+                {
+                    "id": 114,
+                    "question_id": 85,
+                    "name": "When Community Becomes Unity",
+                    "correct_answer": true
+                },
+                {
+                    "id": 115,
+                    "question_id": 86,
+                    "name": "Community For No One",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        },
+        {
+            "id": 10,
+            "name": "Jika anda memiliki masalah dan melakukan debat berkepanjangan dengan Admin yang merugikan anda di in-game, bagaimana cara anda menyikapinya?",
+            "question_type_id": 1,
+            "options": [
+                {
+                    "id": 116,
+                    "question_id": 87,
+                    "name": "Menyelesaikan permasalahan dengan berdiskusi secara pribadi tanpa sepengetahuan pihak Lead Admin dan tidak melaporkan Admin tersebut.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 117,
+                    "question_id": 88,
+                    "name": "Menyudahi debat dan menghiraukan nya.",
+                    "correct_answer": false
+                },
+                {
+                    "id": 118,
+                    "question_id": 89,
+                    "name": "Melaporkan Admin tersebut sesuai prosedur yang ada di Forum dan menjelaskan secara detail permasalahan nya serta kerugian yang anda alami.",
+                    "correct_answer": true
+                },
+                {
+                    "id": 119,
+                    "question_id": 90,
+                    "name": "Mengejek dan mencaci maki Admin tersebut.",
+                    "correct_answer": false
+                }
+            ],
+            "question_type": {
+                "id": 1,
+                "name": "Multiple Choice",
+                "active": true
+            }
+        }
+    ]
+}
