@@ -69,9 +69,7 @@ const Register = ({ userRegister, isAuthenticated, auth: { user } }) => {
         }
     }
 
-    if (isAuthenticated && user.passed_quiz_multiple_choice) {
-        return <Redirect to="/applications" />;
-    } else {
+    if (isAuthenticated) {
         return <Redirect to="/dashboard" />;
     }
 

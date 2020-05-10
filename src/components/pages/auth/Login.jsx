@@ -35,9 +35,7 @@ const Login = ({ userLogin, isAuthenticated, auth: { user } }) => {
         userLogin({ usermail, password });
     }
 
-    if (isAuthenticated && user.passed_quiz_multiple_choice) {
-        return <Redirect to="/applications" />;
-    } else {
+    if (isAuthenticated) {
         return <Redirect to="/dashboard" />;
     }
 
