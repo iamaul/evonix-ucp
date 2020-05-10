@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
-import * as utils from './utils';
+import { setAuthToken } from './utils';
 
 // Components
 import Quiz from './pages/users/applications/Quiz';
@@ -30,7 +30,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const App = () => {
     useEffect(() => {
-        utils.setAuthToken(localStorage.token);
+        setAuthToken(localStorage.token);
         store.dispatch(userLoad());
     }, []);
 

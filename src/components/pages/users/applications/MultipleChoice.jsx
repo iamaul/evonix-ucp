@@ -10,7 +10,7 @@ import {
     Icon,
     Form
 } from 'semantic-ui-react';
-import * as utils from '../../../utils';
+import { setQuestions } from '../../../utils';
 
 import { loadQuiz, gradeQuiz, quizSubmissions } from '../../../actions/quiz';
 
@@ -19,7 +19,7 @@ import Results from './Results';
 
 const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz, gradeQuiz, quizSubmissions, setLoading }, nextStep }) => {
     useEffect(() => {
-        const questions = utils.setQuestions();
+        const questions = setQuestions();
         loadQuiz(questions);
         // eslint-disable-next-line
     }, [])
@@ -48,7 +48,7 @@ const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz,
     const onSubmit = e => {
         e.preventDefault();
 
-        const gradedQuestions = utils.getGradedQuestions(questions);
+        const gradedQuestions = getGradedQuestions(questions);
         const newSubmissions = submissions + 1;
 
         gradeQuiz(gradedQuestions);

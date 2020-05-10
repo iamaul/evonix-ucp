@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
-import * as utils from './utils';
+import { setAuthToken } from './utils';
 
 const INITIAL_STATE = {};
 const middleware = [thunk];
@@ -33,7 +33,7 @@ store.subscribe(() => {
     // if the token changes set the value in localStorage and axios headers
     if (previousState.auth.token !== currentState.auth.token) {
         const token = currentState.auth.token;
-        utils.setAuthToken(token);
+        setAuthToken(token);
     }
 });
 

@@ -5,7 +5,7 @@ import questions from '../../data/quiz/multiple_choice';
 
 const NUMBER_OF_QUESTIONS = 10;
 
-exports.setAuthToken = (token) => {
+export const setAuthToken = (token) => {
     if (token) {
         axios.defaults.headers.common['x-auth-token'] = token;
         localStorage.setItem('token', token);
@@ -15,7 +15,7 @@ exports.setAuthToken = (token) => {
     }
 }
 
-exports.setQuestions = () => {
+export const setQuestions = () => {
     const orderQuestions = questions
         .filter((q) => !q.justification)
         .map((question, index) => {
@@ -37,7 +37,7 @@ exports.setQuestions = () => {
     return take(shuffle(orderQuestions), NUMBER_OF_QUESTIONS);
 }
 
-exports.getGradedQuestions = (questions) => {
+export const getGradedQuestions = (questions) => {
     questions.forEach((question) => {
         if (!question.providedAnswer) {
             question.isCorrect = false;
