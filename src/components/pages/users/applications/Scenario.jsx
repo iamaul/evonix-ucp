@@ -5,7 +5,9 @@ import {
     Segment,
     Label,
     Image,
-    Form
+    Form,
+    Button,
+    Icon
 } from 'semantic-ui-react';
 
 const Scenario = () => {
