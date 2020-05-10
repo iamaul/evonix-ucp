@@ -33,6 +33,11 @@ const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz,
         return <MultipleChoiceQuestion key={index} index={index} {...question} />;
     });
 
+    const saveAndNext = e => {
+        e.preventDefault();
+        nextStep();
+    }
+    
     let submitButton = maxSubmissions ? (
         <Button color="red" size="small" content="Save & Next" onClick={saveAndNext} /> 
     ) : (
@@ -41,11 +46,6 @@ const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz,
             <Icon name="save" />
         </Button>
     );
-
-    const saveAndNext = e => {
-        e.preventDefault();
-        nextStep();
-    }
 
     const onSubmit = e => {
         e.preventDefault();
