@@ -10,8 +10,8 @@ export const loadQuiz = (questions) => dispatch => {
 }
 
 export const updateQuiz = (questionId, answer) => dispatch => {
-    const { questionId, answer } = payload;
-    dispatch({ type: QUIZ_UPDATE, payload });
+    const data = { questionId, answer };
+    dispatch({ type: QUIZ_UPDATE, payload: data });
 }
 
 export const gradeQuiz = (questions) => dispatch => {
