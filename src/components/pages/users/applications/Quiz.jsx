@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Introduction from './Introduction';
+import MultipleChoice from './MultipleChoice';
 import Scenario from './Scenario';
 
 const Quiz = () => {
