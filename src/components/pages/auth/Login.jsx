@@ -16,7 +16,7 @@ import { userLogin } from '../../actions/auth';
 
 // import evonixLogo from '../../../assets/images/evonix-logo.png';
 
-const Login = ({ userLogin, isAuthenticated }) => {
+const Login = ({ userLogin, isAuthenticated, auth: { user } }) => {
     const [formData, setFormData] = useState({
         usermail: '',
         password: ''
@@ -35,7 +35,9 @@ const Login = ({ userLogin, isAuthenticated }) => {
         userLogin({ usermail, password });
     }
 
-    if (isAuthenticated) {
+    if (isAuthenticated && user.passed_quiz_multiple_choice) {
+        return <Redirect to="/applications" />;
+    } else {
         return <Redirect to="/dashboard" />;
     }
 
@@ -47,7 +49,7 @@ const Login = ({ userLogin, isAuthenticated }) => {
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
                     <Form size="large" onSubmit={e => onSubmit(e)}>
-                        <Segment stacked>
+                        <Segment color="red" stacked>
                             <Form.Input 
                                 type="text"
                                 name="usermail" 
@@ -112,11 +114,13 @@ const Login = ({ userLogin, isAuthenticated }) => {
 
 Login.propTypes = {
     userLogin: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { userLogin })(Login);

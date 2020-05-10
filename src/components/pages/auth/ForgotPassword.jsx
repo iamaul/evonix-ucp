@@ -40,7 +40,7 @@ const ForgotPassword = ({ userForgotPassword }) => {
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
                     <Form size="large" onSubmit={e => onSubmit(e)}>
-                        <Segment stacked>
+                        <Segment color="red" stacked>
                             <Form.Input 
                                 type="email"
                                 name="email" 

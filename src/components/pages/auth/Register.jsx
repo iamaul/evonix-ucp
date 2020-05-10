@@ -18,7 +18,7 @@ import { userRegister } from '../../actions/auth';
 
 // import evonixLogo from '../../../assets/images/evonix-logo.png';
 
-const Register = ({ userRegister, isAuthenticated }) => {
+const Register = ({ userRegister, isAuthenticated, auth: { user } }) => {
     const initialState = {
         username: '',
         email: '',
@@ -69,7 +69,9 @@ const Register = ({ userRegister, isAuthenticated }) => {
         }
     }
 
-    if (isAuthenticated) {
+    if (isAuthenticated && user.passed_quiz_multiple_choice) {
+        return <Redirect to="/applications" />;
+    } else {
         return <Redirect to="/dashboard" />;
     }
 
@@ -81,7 +83,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
                     <Form size="large" onSubmit={e => onSubmit(e)}>
-                        <Segment stacked>
+                        <Segment color="red" stacked>
                             <Form.Input
                                 type="text"
                                 name="username"
@@ -166,11 +168,13 @@ const Register = ({ userRegister, isAuthenticated }) => {
 
 Register.propTypes = {
     userRegister: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { userRegister })(Register);
