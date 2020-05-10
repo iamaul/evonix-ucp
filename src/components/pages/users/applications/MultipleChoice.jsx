@@ -8,14 +8,16 @@ import {
     Divider,
     Button,
     Icon,
-    Form
+    Form,
+    Image
 } from 'semantic-ui-react';
-import { setQuestions } from '../../../utils';
+import { setQuestions, getGradedQuestions } from '../../../utils';
 
 import { loadQuiz, gradeQuiz, quizSubmissions } from '../../../actions/quiz';
 
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import Results from './Results';
+import Loader from '../../../layouts/loader/Loader';
 
 const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz, gradeQuiz, quizSubmissions, setLoading }, nextStep }) => {
     useEffect(() => {
