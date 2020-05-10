@@ -19,12 +19,11 @@ import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import Results from './Results';
 import Loader from '../../../layouts/loader/Loader';
 
-const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz, gradeQuiz, quizSubmissions, setLoading }, nextStep }) => {
+const MultipleChoice = ({ user_applications: { questions, submissions, quizSubmissions, setLoading }, loadQuiz, gradeQuiz, nextStep }) => {
     useEffect(() => {
         const questions = setQuestions();
         loadQuiz(questions);
-        // eslint-disable-next-line
-    }, [])
+    }, [loadQuiz])
 
     const numbersCorrect = questions.filter((question) => question.isCorrect).length;
     const maxSubmissions = (submissions === 2);
