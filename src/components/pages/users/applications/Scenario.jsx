@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+    Grid,
+    Header,
+    Segment,
+    Label,
+    Image,
+    Form
+} from 'semantic-ui-react';
 
 const Scenario = () => {
     return (

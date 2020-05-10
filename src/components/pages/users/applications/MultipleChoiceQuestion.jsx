@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-    Header
+    Header,
+    Grid
 } from 'semantic-ui-react';
 
 import MultipleChoiceAnswer from './MultipleChoiceAnswer';

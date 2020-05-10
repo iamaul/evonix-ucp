@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { 
+    Grid,
+    Header,
+    Image,
+    Segment,
+    Button
+ } from 'semantic-ui-react';
 
 const Introduction = ({ nextStep, auth: { user } }) => {
     const startQuiz = e => {
