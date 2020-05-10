@@ -17,7 +17,7 @@ import { loadQuiz, gradeQuiz, quizSubmissions } from '../../../actions/quiz';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import Results from './Results';
 
-const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz, gradeQuiz, quizSubmissions }, nextStep }) => {
+const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz, gradeQuiz, quizSubmissions, setLoading }, nextStep }) => {
     useEffect(() => {
         const questions = utils.setQuestions();
         loadQuiz(questions);
@@ -68,13 +68,15 @@ const MultipleChoice = ({ user_applications: { questions, submissions, loadQuiz,
                             Step 1: Multiple Choices
                         </Header>
                         <Results {...{ submissions, maxSubmissions, numbersCorrect }} />
-                        <Form size="small" onSubmit={onSubmit}>
-                            <p style={{ textAlign: "justify" }}>
-                                {questionContainerNodes}
-                            </p>
-                            <Divider />
-                            {submitButton}
-                        </Form>
+                        { setLoading ? <Loader isLoading={setLoading} /> : (
+                            <Form size="small" onSubmit={onSubmit}>
+                                <p style={{ textAlign: "justify" }}>
+                                    {questionContainerNodes}
+                                </p>
+                                <Divider />
+                                {submitButton}
+                            </Form>
+                        )}
                     </Segment>
                 </Grid.Column>
             </Grid>
