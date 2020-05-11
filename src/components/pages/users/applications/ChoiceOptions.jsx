@@ -4,6 +4,7 @@ import { Checkbox } from 'semantic-ui-react';
 const ChoiceOptions = (props) => {
     const { letter } = props;
     const upper = letter.toUpperCase();
+    const option = `${upper}. ${props.text}`;
 
     return (
         <>
@@ -11,10 +12,9 @@ const ChoiceOptions = (props) => {
                 onChange={props.onSelectChange}
                 checked={props.checked}
                 value={props.letter}
-                id={props.id} 
-            >
-                {upper}. {props.question}
-            </Checkbox>
+                label={option}
+                id={props.id}
+            />
         </>
     )
 }

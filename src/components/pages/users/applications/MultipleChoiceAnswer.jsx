@@ -13,7 +13,7 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
     const choiceNodes = Object.keys(choices).map((key) => {
         return <ChoiceOptions 
             letter={key} 
-            question={choices[key]} 
+            text={choices[key]} 
             id={`question-${id}-choice-${key}`}
             onSelectChange={onSelectChoice}
             checked={providedAnswer === key}
@@ -22,7 +22,7 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
 
     return (
         <>
-            <Grid.Column>
+            <Grid.Column key={id}>
                 {choiceNodes}
             </Grid.Column>
         </>
@@ -31,7 +31,7 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
 
 MultipleChoiceAnswer.propTypes = {
     choices: PropTypes.object.isRequired,
-    providedAnswer: PropTypes.string.isRequired,
+    providedAnswer: PropTypes.string,
     id: PropTypes.number.isRequired,
     updateQuiz: PropTypes.func.isRequired
 }

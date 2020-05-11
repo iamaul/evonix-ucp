@@ -1,24 +1,28 @@
 import React from 'react';
 import {
-    Header,
-    Grid
+    Grid,
+    Label
 } from 'semantic-ui-react';
 
 import MultipleChoiceAnswer from './MultipleChoiceAnswer';
 
 const MultipleChoiceQuestion = (props) => {
-    let headerColor = 'black';
+    let ribbon = '';
     
     if (props.hasOwnProperty('isCorrect')) {
-        headerColor = `${props.isCorrect ? 'green' : 'red'}`;
+        ribbon = (props.isCorrect ? (<Label ribbon size="tiny">
+            <span role="img" aria-label="check-mark">✔️</span>
+        </Label>) : (<Label ribbon size="tiny">
+            <span role="img" aria-label="cross-mark">❌</span>
+        </Label>));
     }
 
     return (
         <>
-            <Header as="h5" color={headerColor}>
-                {props.index + 1}. {props.question}
-            </Header>
-            <Grid columns={2}>
+            <p style={{ textAlign: 'justify', fontWeight: 'bold' }}>
+                {ribbon}{props.index + 1}. {props.question}
+            </p>
+            <Grid columns={2} textAlign="justified">
                 <MultipleChoiceAnswer {...props} />
             </Grid>
         </>

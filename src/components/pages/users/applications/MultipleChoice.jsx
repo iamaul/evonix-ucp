@@ -71,9 +71,7 @@ const MultipleChoice = ({ quiz: { questions, submissions, quizSubmissions, setLo
                         <Results {...{ submissions, maxSubmissions, numbersCorrect }} />
                         { setLoading ? <Loader isLoading={setLoading} /> : (
                             <Form size="small" onSubmit={onSubmit}>
-                                <p style={{ textAlign: "justify" }}>
-                                    {questionContainerNodes}
-                                </p>
+                                {questionContainerNodes}
                                 <Divider />
                                 {submitButton}
                             </Form>
