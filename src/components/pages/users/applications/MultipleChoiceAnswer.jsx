@@ -14,7 +14,7 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
         return <ChoiceOptions 
             letter={key} 
             text={choices[key]}
-            keyId={id} 
+            key={id}
             id={`question-${id}-choice-${key}`}
             onSelectChange={onSelectChoice}
             checked={providedAnswer === key}
@@ -24,9 +24,7 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
     return (
         <>
             <Grid columns={2} textAlign="justified">
-                <Grid.Column>
-                    {choiceNodes}
-                </Grid.Column>
+                {choiceNodes}
             </Grid>
         </>
     )
