@@ -23,7 +23,8 @@ const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz
     useEffect(() => {
         const questions = setQuestions();
         loadQuiz(questions);
-    }, [loadQuiz])
+        // eslint-disable-next-line
+    }, [])
 
     const numbersCorrect = questions.filter((question) => question.isCorrect).length;
     const maxSubmissions = (submissions === 2);
@@ -38,18 +39,19 @@ const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz
     }
     
     let submitButton = maxSubmissions ? (
-        <Button color="red" size="small" content="Save & Next" onClick={saveAndNext} /> 
+        <Form.Button color="red" size="small" content="Save & Next" onClick={saveAndNext} /> 
     ) : (
-        <Button icon color="red" labelPosition="right" size="small">
+        <Form.Button icon color="red" labelPosition="right" size="small">
             Submit
             <Icon name="save" />
-        </Button>
+        </Form.Button>
     );
 
     const onSubmit = e => {
         e.preventDefault();
 
         const gradedQuestions = getGradedQuestions(questions);
+        console.log(gradedQuestions);
         const newSubmissions = submissions + 1;
 
         gradeQuiz(gradedQuestions);
