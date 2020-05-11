@@ -5,7 +5,7 @@ const ChoiceOptions = (props) => {
     const { letter } = props;
     const upper = letter.toUpperCase();
     const option = `${upper}. ${props.text}`;
-    const keyUniq = `${props.key}-${props.id}`;
+    const keyUniq = `${props.keyId}-${props.id}`;
 
     return (
         <>
