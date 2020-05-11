@@ -45,4 +45,5 @@ export const getGradedQuestions = (questions) => {
         }
         question.isCorrect = question.answer.toLowerCase() === question.providedAnswer.toLowerCase();
     });
+    return questions;
 }

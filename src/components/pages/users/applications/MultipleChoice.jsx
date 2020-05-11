@@ -6,7 +6,6 @@ import {
     Segment,
     Header,
     Divider,
-    Button,
     Icon,
     Form,
     Image
