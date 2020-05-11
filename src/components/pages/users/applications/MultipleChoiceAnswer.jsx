@@ -14,6 +14,7 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
         return <ChoiceOptions
             letter={key} 
             text={choices[key]}
+            key={key}
             keyId={key}
             id={`question-${id}-choice-${key}`}
             onSelectChange={onSelectChoice}
