@@ -65,7 +65,7 @@ const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz
                     </Header>
                     <Segment color="red" stacked>
                         <Header as="h3" textAlign="center">
-                            Step 1: Multiple Choices
+                            Step 1: Multiple Choice
                         </Header>
                         <Results {...{ submissions, maxSubmissions, numbersCorrect }} />
                         { setLoading ? <Loader isLoading={setLoading} /> : (
