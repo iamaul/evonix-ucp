@@ -22,9 +22,7 @@ const MultipleChoiceQuestion = (props) => {
             <p style={{ textAlign: 'justify', fontWeight: 'bold' }}>
                 {ribbon}{props.index + 1}. {props.question}
             </p>
-            <Grid columns={2} textAlign="justified">
-                <MultipleChoiceAnswer {...props} />
-            </Grid>
+            <MultipleChoiceAnswer {...props} />
         </>
     )
 }

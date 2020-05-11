@@ -9,7 +9,6 @@ const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
     if (submissions === 0) {
         print = (
             <Message info size="small">
-                <Message.Header>Notes</Message.Header>
                 <p style={{ textAlign: 'justify' }}>
                     Hey there! The quiz below is made up of 10 multiple choices of random questions. 
                     You may have 4 or fewer answer options, so please choose the correct answers wisely.
@@ -28,7 +27,6 @@ const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
     } else {
         print = (
             <Message success size="small">
-                <Message.Header>Result</Message.Header>
                 <p style={{ textAlign: 'justify' }}>
                     Your score was <b>{score}</b>, it means that you are {score < 80 ? 'passed' : 'failed' } the quiz. {score < 70 && (
                         <>Don't worry the quiz isn't ended yet for you. You still have 1 submission left, you can do fixing the incorrect questions answer below and press the button at the bottom of the page to submit your final score.</>

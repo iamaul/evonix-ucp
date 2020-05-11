@@ -9,6 +9,7 @@ const ChoiceOptions = (props) => {
     return (
         <>
             <Checkbox 
+                key={props.keyId}
                 onChange={props.onSelectChange}
                 checked={props.checked}
                 value={props.letter}
