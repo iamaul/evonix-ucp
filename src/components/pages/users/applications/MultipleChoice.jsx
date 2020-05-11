@@ -19,7 +19,7 @@ import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import Results from './Results';
 import Loader from '../../../layouts/loader/Loader';
 
-const MultipleChoice = ({ user_applications: { questions, submissions, quizSubmissions, setLoading }, loadQuiz, gradeQuiz, nextStep }) => {
+const MultipleChoice = ({ quiz: { questions, submissions, quizSubmissions, setLoading }, loadQuiz, gradeQuiz, nextStep }) => {
     useEffect(() => {
         const questions = setQuestions();
         loadQuiz(questions);
@@ -86,12 +86,12 @@ const MultipleChoice = ({ user_applications: { questions, submissions, quizSubmi
 }
 
 MultipleChoice.propTypes = {
-    user_applications: PropTypes.object.isRequired,
+    quiz: PropTypes.object.isRequired,
     nextStep: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-    user_applications: state.user_applications
+    quiz: state.quiz
 });
 
 export default connect(mapStateToProps, { loadQuiz, gradeQuiz, quizSubmissions })(MultipleChoice);
