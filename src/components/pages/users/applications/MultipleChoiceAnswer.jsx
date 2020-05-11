@@ -7,7 +7,7 @@ import ChoiceOptions from './ChoiceOptions';
 
 import { updateQuiz } from '../../../actions/quiz';
 
-const MultipleChoiceAnswer = ({ quiz: { choices, providedAnswer, id }, updateQuiz }) => {
+const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
     const choiceNodes = Object.keys(choices).map((key) => {
         return <ChoiceOptions 
             letter={key} 
@@ -33,12 +33,10 @@ const MultipleChoiceAnswer = ({ quiz: { choices, providedAnswer, id }, updateQui
 }
 
 MultipleChoiceAnswer.propTypes = {
-    quiz: PropTypes.object.isRequired,
+    choices: PropTypes.object.isRequired,
+    providedAnswer: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     updateQuiz: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-    quiz: state.quiz
-});
-
-export default connect(mapStateToProps, { updateQuiz })(MultipleChoiceAnswer);
+export default connect(null, { updateQuiz })(MultipleChoiceAnswer);
