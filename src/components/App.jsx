@@ -15,6 +15,7 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import Footer from './layouts/footer/Footer';
+import Page404 from './pages/error/Page404';
 
 import PrivateRoute from './routes/PrivateRoute';
 import Routes from './routes/Routes';
@@ -50,6 +51,7 @@ const App = () => {
                             <Route component={Routes} />
                             <Footer />
                         </Fragment>
+                        <Route component={Page404} />
                     </Switch>
                 </Container>
             </Router>
