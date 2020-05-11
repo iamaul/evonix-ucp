@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { shuffle, take } from 'lodash';
 
-import questions from '../../../data/quiz/multiple_choice';
+import questions from '../../data/quiz/multiple_choice';
 
 const NUMBER_OF_QUESTIONS = 10;
 
