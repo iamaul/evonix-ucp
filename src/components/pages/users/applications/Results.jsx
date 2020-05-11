@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Message } from 'semantic-ui-react';
 
-const Results = ({ quiz: { submissions }, maxSubmissions, numbersCorrect }) => {
+const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
     let print = '';
     const score = {numbersCorrect}*10;
 
@@ -41,7 +41,7 @@ const Results = ({ quiz: { submissions }, maxSubmissions, numbersCorrect }) => {
 }
 
 Results.propTypes = {
-    quiz: PropTypes.object.isRequired,
+    submissions: PropTypes.number.isRequired,
     maxSubmissions: PropTypes.number.isRequired,
     numbersCorrect: PropTypes.number.isRequired,
 }
