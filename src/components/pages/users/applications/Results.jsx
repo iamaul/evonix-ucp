@@ -11,8 +11,8 @@ const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
             <Message info size="small">
                 <p style={{ textAlign: 'justify' }}>
                     Hey there! The quiz below is made up of 10 multiple choices of random questions. 
-                    You may have 4 or fewer answer options, so please choose the correct answers wisely.
-                    At the end of the words, you are allowed up to 2 submissions in case you are finished with a low score <span role="img" aria-label="face-savouring-food">😋</span>.
+                    You may have 4 or fewer answer options, so please choose the correct answers wisely.<br/><br/>
+                    <b>Note</b>: You are allowed up to 2 submissions in case you are finished with a low score <span role="img" aria-label="face-savouring-food">😋</span>.
                 </p>
             </Message>
         )
