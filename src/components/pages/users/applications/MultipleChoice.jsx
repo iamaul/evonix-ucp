@@ -19,7 +19,7 @@ import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import Results from './Results';
 import Loader from '../../../layouts/loader/Loader';
 
-const MultipleChoice = ({ quiz: { questions, submissions, quizSubmissions, setLoading }, loadQuiz, gradeQuiz, nextStep }) => {
+const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz, gradeQuiz, quizSubmissions, nextStep }) => {
     useEffect(() => {
         const questions = setQuestions();
         loadQuiz(questions);
@@ -85,6 +85,9 @@ const MultipleChoice = ({ quiz: { questions, submissions, quizSubmissions, setLo
 
 MultipleChoice.propTypes = {
     quiz: PropTypes.object.isRequired,
+    loadQuiz: PropTypes.func.isRequired,
+    gradeQuiz: PropTypes.func.isRequired,
+    quizSubmissions: PropTypes.func.isRequired,
     nextStep: PropTypes.func.isRequired
 }
 
