@@ -8,7 +8,7 @@ const ChoiceOptions = (props) => {
     return (
         <>
             <Checkbox 
-                onChange={props.onChange}
+                onChange={props.onSelectChange}
                 checked={props.checked}
                 value={props.letter}
                 id={props.id} 
