@@ -5,6 +5,7 @@ const ChoiceOptions = (props) => {
     const { letter } = props;
     const upper = letter.toUpperCase();
     const option = `${upper}. ${props.text}`;
+    const keyUniq = `${props.key}-${props.id}`;
 
     return (
         <>
@@ -14,7 +15,7 @@ const ChoiceOptions = (props) => {
                     checked={props.checked}
                     value={props.letter}
                     label={option}
-                    key={props.key}
+                    key={keyUniq}
                     id={props.id}
                 />
             </Grid.Column>

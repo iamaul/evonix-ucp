@@ -11,10 +11,10 @@ const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
     const onSelectChoice = e => updateQuiz(id, e.target.value);
 
     const choiceNodes = Object.keys(choices).map((key) => {
-        return <ChoiceOptions 
+        return <ChoiceOptions
             letter={key} 
             text={choices[key]}
-            key={id}
+            key={key}
             id={`question-${id}-choice-${key}`}
             onSelectChange={onSelectChoice}
             checked={providedAnswer === key}
