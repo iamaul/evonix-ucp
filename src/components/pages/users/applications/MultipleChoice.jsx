@@ -25,8 +25,6 @@ const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz
     }, [loadQuiz])
 
     const numbersCorrect = questions.filter((question) => question.isCorrect).length;
-    console.log("numbersCorrect: " + numbersCorrect);
-    console.log("questions: " + questions);
     const maxSubmissions = (submissions === 2);
 
     const questionContainerNodes = questions.map((question, index) => {
@@ -38,18 +36,6 @@ const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz
         nextStep();
     }
 
-    const onSubmit = e => {
-        e.preventDefault();
-
-        const gradedQuestions = getGradedQuestions(questions);
-        console.log("gradedQuestions: " + gradedQuestions);
-        const newSubmissions = submissions + 1;
-
-        gradeQuiz(gradedQuestions);
-        quizSubmissions(newSubmissions);
-        window.scrollTo(0, 0);
-    }
-
     let submitButton = maxSubmissions ? (
         <Form.Button color="red" size="small" content="Save & Next" onClick={saveAndNext} /> 
     ) : (
@@ -58,6 +44,17 @@ const MultipleChoice = ({ quiz: { questions, submissions, setLoading }, loadQuiz
             <Icon name="save" />
         </Form.Button>
     );
+
+    const onSubmit = e => {
+        e.preventDefault();
+
+        const gradedQuestions = getGradedQuestions(questions);
+        const newSubmissions = submissions + 1;
+
+        gradeQuiz(gradedQuestions);
+        quizSubmissions(newSubmissions);
+        window.scrollTo(0, 0);
+    }
 
     return (
         <>

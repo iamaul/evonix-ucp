@@ -4,7 +4,7 @@ import { Message } from 'semantic-ui-react';
 
 const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
     let print = '';
-    const score = {numbersCorrect}*10;
+    const score = numbersCorrect*10;
 
     if (submissions === 0) {
         print = (
@@ -44,7 +44,7 @@ const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
 Results.propTypes = {
     submissions: PropTypes.number.isRequired,
     maxSubmissions: PropTypes.bool.isRequired,
-    numbersCorrect: PropTypes.number.isRequired,
+    numbersCorrect: PropTypes.number.isRequired
 }
 
 export default Results;

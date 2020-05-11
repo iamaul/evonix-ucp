@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-    Label
+    Label,
+    Header
 } from 'semantic-ui-react';
 
 import MultipleChoiceAnswer from './MultipleChoiceAnswer';
@@ -18,9 +19,9 @@ const MultipleChoiceQuestion = (props) => {
 
     return (
         <>
-            <p style={{ textAlign: 'justify', fontWeight: 'bold' }}>
+            <Header as="h5" textAlign="left">
                 {ribbon}{props.index + 1}. {props.question}
-            </p>
+            </Header>
             <MultipleChoiceAnswer {...props} />
         </>
     )
