@@ -8,20 +8,17 @@ import ChoiceOptions from './ChoiceOptions';
 import { updateQuiz } from '../../../actions/quiz';
 
 const MultipleChoiceAnswer = ({ choices, providedAnswer, id, updateQuiz }) => {
+    const onSelectChoice = e => updateQuiz(id, e.target.value);
+
     const choiceNodes = Object.keys(choices).map((key) => {
         return <ChoiceOptions 
             letter={key} 
             question={choices[key]} 
             id={`question-${id}-choice-${key}`}
-            onChange={onSelectChoice}
+            onSelectChange={onSelectChoice}
             checked={providedAnswer === key}
         />
     });
-
-    const onSelectChoice = e => {
-        const answer = e.target.value;
-        updateQuiz(id, answer);
-    }
 
     return (
         <>
