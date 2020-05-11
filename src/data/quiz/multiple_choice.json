@@ -1,0 +1,242 @@
+[
+    {
+        "question": "Percakapan 911 yang benar di bawah ini adalah:",
+        "choice_a": "“Halo pak, saya melihat penembakan di Idlewood, satu orang tertembak!”",
+        "choice_b": "“Halo, saya mau daftar lisensi pistol, bisa dibantu pak?”",
+        "choice_c": "“Halo, saya ingin check crime record, apakah bisa dibantu?”",
+        "choice_d": "“Selamat malam pak, nama saya Rika, mobil saya kena ticket, kemana saya harus tebus dendanya pak?”",
+        "answer": "A"
+    },
+    {
+        "question": "Kamu membutuhkan tumpangan ke Idlewood, hal yang dapat kamu lakukan adalah:",
+        "choice_a": "Meminta Admin untuk teleport kamu ke Idlewood.",
+        "choice_b": "Memaksa orang-orang dengan cara PM untuk mengantar kamu ke Idlewood.",
+        "choice_c": "Telfon layanan taxi untuk menuju ke Idlewood.",
+        "choice_d": "Males susah ke Idlewood, /q aja.",
+        "answer": "C"
+    },
+    {
+        "question": "Kamu sedang dalam keadaan dikejar oleh polisi, apa yang sebaiknya kamu lakukan:",
+        "choice_a": "Menekan tombol lompat berkali kali (Bunny-hopping).",
+        "choice_b": "Mengikuti alur roleplay dan menerima konsekuensi yang akan diterima walaupun itu dipenjara dengan waktu yang lama.",
+        "choice_c": "Mengeluarkan senjata dan langsung menembak polisi secara membabi buta seorang diri.",
+        "choice_d": "Meminta bantuan ke teman via PM.",
+        "answer": "B"
+    },
+    {
+        "question": "Statement manakah yang salah di bawah ini:",
+        "choice_a": "Menggunakan format nama Firstname_Lastname untuk mendaftar akun.",
+        "choice_b": "Mod CLEO (3rd party) dilarang walaupun CLEO tersebut tidak merugikan server atau player lain.",
+        "choice_c": "Kita dapat membayar Lead Admin agar menjadi Probation Staff.",
+        "choice_d": "Player dilarang untuk melakukan copy-paste dalam membuat faction thread.",
+        "answer": "C"
+    },
+    {
+        "question": "Kamu dalam keadaan dirob, tiba tiba internet kamu mati. Ketika internet kamu sudah menyala apa yang kamu harus lakukan:",
+        "choice_a": "Tidak kunjung in-game, karena takut kehilangan uang.",
+        "choice_b": "Bertanya kepada teman yang in-game, untuk memeriksa lokasi kamu dirob.",
+        "choice_c": "In-game, dan melakukan re-rp kepada lawan rp anda.",
+        "choice_d": "In-game lalu lari dari tempat roleplay seakan tidak terjadi apa apa.",
+        "answer": "C"
+    },
+    {
+        "question": "Andy adalah seorang trucker yang sedang melakukan tugasnya. Dijalan, Andy distop oleh polisi karena menyetir tanpa menggunakan lampu. Pada saat itu, Andy lupa dia belum memperbaharui SIM nya alias dia tidak memiliki SIM. Apa yang harus Andy lakukan?",
+        "choice_a": "Quit dari game agar tidak ditilang dan dipenjara.",
+        "choice_b": "Mengikuti alur roleplay walaupun harus ditilang atau dipenjara.",
+        "choice_c": "Menginformasikan teman nya lewat PM dan meminta bantuan untuk dapat menghajar polisi yang memberhentikannya.",
+        "choice_d": "Membayar polisi dengan uang asli alias rupiah.",
+        "answer": "B"
+    },
+    {
+        "question": "Penulisan yang paling benar dalam In-Character dengan penggunaan EYD yang benar adalah:",
+        "choice_a": "“Bang, minta uang dong. plis :v”",
+        "choice_b": "“Lgi apa lu, boy?”",
+        "choice_c": "Kemarin lu abis dari mana? Idlewood ya?",
+        "choice_d": "Oi gue lagi mancing nih sama rika, joinlah",
+        "answer": "C"
+    },
+    {
+        "question": "Statement dibawah ini adalah benar, kecuali?",
+        "choice_a": "Alvin adalah seorang player Evonix yang malas berkerja maka dari itu dia membeli uang in-game/RMT kepada seorang teman.",
+        "choice_b": "Reza membeli mobil di dealer dengan jerih payah sendiri.",
+        "choice_c": "Theo membayar uang bulanan kepada boss nya, Nandang.",
+        "choice_d": "Glen adalah seorang polisi yang baik, dia suka memberhentikan orang yang melakukan kebut-kebutan dan menilangnya.",
+        "answer": "A"
+    },
+    {
+        "question": "Semua statement di bawah adalah contoh Revenge-Killing, kecuali?",
+        "choice_a": "Rony baru saja respawn di rumah sakit setelah dibunuh player lain, dia roleplay seperti biasa dan melupakan kejadian terkait kematiannya.",
+        "choice_b": "Kamu seorang polisi dan mati saat shootout, setelah kamu respawn kamu kembali ke lokasi penembakan dan ikut tembak-tembakan kembali.",
+        "choice_c": "Mondo mati karena dibunuh seorang robber, setelah ia mati lalu /respawnme, ia mencari robber tersebut untuk membunuhnya.",
+        "choice_d": "A, B dan C benar.",
+        "answer": "B"
+    },
+    {
+        "question": "Contoh dari Powergaming di bawah ini, kecuali?",
+        "choice_a": "Melompat - lompat dari tempat yang tinggi tanpa merasakan sakit.",
+        "choice_b": "Menggunakan ilmu santet untuk membunuh orang yang kita benci tanpa menyentuhnya.",
+        "choice_c": "Melakukan jurus Kagebunshin seperti Naruto.",
+        "choice_d": "Menelfon otoritas 911 saat melihat ada korban dari kejadian perampokan.",
+        "answer": "D"
+    },
+    {
+        "question": "Apa yang dimaksud dengan Happy Triggering?",
+        "choice_a": "Menembak dengan asal ke semua orang yang lewat atau ditemui.",
+        "choice_b": "Berlari lari tidak jelas untuk menghindari tembakan.",
+        "choice_c": "Melakukan roleplay seperti orang gila yang happy.",
+        "choice_d": "Tidak ada.",
+        "answer": "D"
+    },
+    {
+        "question": "Anda menemukan newbie yang melanggar peraturan, hal apa yang paling benar yang harus kalian lakukan?",
+        "choice_a": "Beritahu kepada newbie tersebut, mana yang benar mana yang salah.",
+        "choice_b": "Melaporkan newbie tersebut ke admin lewat PM.",
+        "choice_c": "Memukul newbie tersebut sampai mati dan mencacimakinya lewat /b.",
+        "choice_d": "Melaporkan newbie kepada teman temannya untuk membully newbie tersebut.",
+        "answer": "A"
+    },
+    {
+        "question": "Berikut adalah contoh kasus pelanggaran MG, kecuali?",
+        "choice_a": "Memanggil nama player lain dari melihat nametagnya padahal kamu belum kenal secara IC.",
+        "choice_b": "Menggunakan PM kepada teman kamu untuk meminta dijemput di suatu lokasi.",
+        "choice_c": "Menggunakan discord untuk kepentingan OOC.",
+        "choice_d": "Menggunakan PM untuk bertanya tentang nama forum EvoniX.",
+        "answer": "B"
+    },
+    {
+        "question": "Mobil anda tiba-tiba hilang dan tidak bisa ditemukan karena kamu lupa menguncinya, apa yang harus kamu lakukan?:",
+        "choice_a": "Mem-PM admin untuk menteleport mobil kamu.",
+        "choice_b": "Menanyakan satu persatu player di server dengan cara /pm.",
+        "choice_c": "Menelpon polisi dan mencarinya melalui GPS.",
+        "choice_d": "Keluar dari game, karena kesal mobil kamu hilang.",
+        "answer": "C"
+    },
+    {
+        "question": "Contoh penggunaan /me yang benar menurut kalian adalah:",
+        "choice_a": "/me memukul Irfan sampai mati dengan tangan kanannya",
+        "choice_b": "/me take its money",
+        "choice_c": "/me shocked",
+        "choice_d": "/me menerima uang dari Irfan dengan tangan kanan, lalu memasukannya ke kantong.",
+        "answer": "D"
+    },
+    {
+        "question": "Faction kamu dan faction B adalah rival. Dengan sengaja faction B melakukan eksploitasi bug. Apakah hal yang paling benar yang dapat kamu lakukan?:",
+        "choice_a": "Memaki-maki nya di Discord dengan kata kata yang kasar.",
+        "choice_b": "Membuat malu pelaku dengan cara posting di Facebook.",
+        "choice_c": "Melaporkan hal tersebut ke forum dengan menyertakan bukti yang konkrit.",
+        "choice_d": "Berkerjasama mengeksploitasi bug.",
+        "answer": "C"
+    },
+    {
+        "question": "Apa yang bisa kamu dapatkan di forum EvoniX Roleplay? :",
+        "choice_a": "Pengumuman terbaru mengenai server, informasi tentang rules dan roleplay guide.",
+        "choice_b": "Uang ingame yang ditukar dengan uang real life (Rupiah).",
+        "choice_c": "Bagi-bagi uang ingame melalui IC Advertisement.",
+        "choice_d": "Penyewaan kamar PintuMerah.",
+        "answer": "A"
+    },
+    {
+        "question": "Nama dibawah adalah nama yang tidak dapat kita gunakan di ingame, kecuali:",
+        "choice_a": "Tony_Sanfilippo",
+        "choice_b": "Baskaras_Putras",
+        "choice_c": "Rocky_Hutapea_SibutarButar",
+        "choice_d": "RikaciE_Imoet",
+        "answer": "A"
+    },
+    {
+        "question": "Mobil kamu meledak tanpa sebab dan kamu kehilangan barang yang ada di mobil kamu, apa yang harus kalian lakukan?",
+        "choice_a": "Mem-PM staff/admin untuk merefund kendaraan kamu.",
+        "choice_b": "Mencaci-maki server, karna mobil kamu meledak.",
+        "choice_c": "Membuat thread refund request diforum dan menyertakan bukti yang valid.",
+        "choice_d": "Menggunakan /report untuk merefund kendaraan kamu.",
+        "answer": "C"
+    },
+    {
+        "question": "Penggunaan /report yang benar menurut kamu adalah?",
+        "choice_a": "/report woy min ini tempet kerja dimana?",
+        "choice_b": "/report Min, ID 69 melakukan deathmatching terhadap saya",
+        "choice_c": "/report min, refund kendaraan gue. Gece akh!",
+        "choice_d": "/report min, ini ID Mighty_Harry dari tadi mukulin gue mulu. Tolongin apah!",
+        "answer": "B"
+    },
+    {
+        "question": "Kamu berdiskusi tentang suatu masalah di forum, lalu ada yang tidak sependapat dengan kamu. Apa yang akan kamu lakukan?",
+        "choice_a": "Mencari alamat nya dan langsung mendatangi tempat tinggalnya.",
+        "choice_b": "Mencaci-maki lawan debat kamu di Discord Evonix seperti anak kecil.",
+        "choice_c": "Melanjutkan debat secara sehat dan dewasa di Forum.",
+        "choice_d": "Keluar dari server karena kamu tidak suka statement kamu di sanggah oleh orang lain.",
+        "answer": "C"
+    },
+    {
+        "question": "Karakter kamu diban oleh staff mightyHarry karena melakukan kesalahan yang cukup fatal dalam server EvoniX Roleplay, apa yang harus kamu lakukan?",
+        "choice_a": "Ban evading, dan membuat rusuh di server EvoniX, dan mencaci-maki staff mightyHarry.",
+        "choice_b": "Membuat thread unban request, dengan isi mencaci-maki mightyHarry.",
+        "choice_c": "Mencari alamat mightyHarry dan mengajak ribut dia.",
+        "choice_d": "Membuat thread unban request dan berjanji tidak akan mengulanginya.",
+        "answer": "D"
+    },
+    {
+        "question": "Kamu ingin menyarankan fitur baru untuk server, apa yang harus kamu lakukan?",
+        "choice_a": "Mengirimkan pesan ke Discord MightyHarry dengan nada kasar agar cepat dinotice.",
+        "choice_b": "Membuat suggestion di forum dengan format yang benar dan rapih.",
+        "choice_c": "Memberitahu saran kamu di server Discord.",
+        "choice_d": "Menjadi donatur agar saran kamu didengarkan.",
+        "answer": "B"
+    },
+    {
+        "question": "Kamu menemukan sebuah faction yang melanggar faction rules, apa yang harus kamu lakukan?",
+        "choice_a": "Melaporan faction tersebut melalui /report.",
+        "choice_b": "Mem-PM faction admin melalui in-game.",
+        "choice_c": "Melaporkan faction tersebut melalui report forum, dengan menyertakan bukti yang valid.",
+        "choice_d": "Melaporkan faction tersebut ke faction admin dengan format dan bukti yang valid.",
+        "answer": "D"
+    },
+    {
+        "question": "Kamu selalu gagal dan ditolak dalam sistem whitelist UCP, apa yang harus kamu lakukan?",
+        "choice_a": "Membeli UCP yang sudah ter-whitelist.",
+        "choice_b": "Mencacimaki server karena selalu gagal dalam whitelist.",
+        "choice_c": "Meminta joki kepada admin atau teman kamu.",
+        "choice_d": "Bersabar, mengevaluasi kesalahan kamu lalu mencoba mendaftar lagi.",
+        "answer": "D"
+    },
+    {
+        "question": "Kamu mendapat suatu masalah berkaitan dengan server, website mana yang kamu buka?",
+        "choice_a": "support.evonix-rp.com",
+        "choice_b": "Youtube.com",
+        "choice_c": "Piratebayproxy.ao",
+        "choice_d": "Anime.org",
+        "answer": "A"
+    },
+    {
+        "question": "Kamu dan teman mu dalam pengejaran polisi dan akhirnya kamu lost contact. Apa yang kamu lakukan?",
+        "choice_a": "Sembunyi di basement Las Venturas dan menunggu 15 menit dan akhirnya kembali ke LS.",
+        "choice_b": "Keluar dari game sebelum 15 menit karena takut tertangkap.",
+        "choice_c": "Mem PM teman teman satu faction agar membackup jika dibutuhkan nantinya.",
+        "choice_d": "Menggunakan cheat teleport ke daerah antah berantah agar tidak tertangkap.",
+        "answer": "A"
+    },
+    {
+        "question": "Kamu ingin membuat faction kamu official, apa yang harus kamu lakukan?",
+        "choice_a": "Memberikan effort sebisa yang kamu lakukan, mengikuti rules yang ada dan bersikap baik di komunitas Evonix RP. Setelah itu mengirimkan form official faction ke management sesuai dengan format dan syarat yang berlaku.",
+        "choice_b": "Membayar Outlawz selaku Faction Management sejumlah uang.",
+        "choice_c": "Membuat drama di forum agar dinotice oleh Faction Management.",
+        "choice_d": "Semua benar.",
+        "answer": "A"
+    },
+    {
+        "question": "Motto komunitas Evonix Roleplay adalah?",
+        "choice_a": "More Than You Know",
+        "choice_b": "We Are The Best, Because You Pay Us!",
+        "choice_c": "When Community Comes Unity",
+        "choice_d": "Community For No One",
+        "answer": "C"
+    },
+    {
+        "question": "Jika anda memiliki masalah dan melakukan debat berkepenjangan dengan Admin yang merugikan anda di in-game, bagaimana cara anda menyikapinya?",
+        "choice_a": "Menyelesaikan permasalahan dengan berdiskusi secara pribadi tanpa sepengetahuan pihak Lead Admin dan tidak melaporkan Admin tersebut.",
+        "choice_b": "Menyudahi debat dan menghiraukan nya.",
+        "choice_c": "Melaporkan Admin tersebut sesuai prosedur yang ada di Forum dan menjelaskan secara detail permasalahan nya serta kerugian yang anda alami.",
+        "choice_d": "Mengejek dan mencaci maki Admin tersebut.",
+        "answer": "C"
+    }
+]
