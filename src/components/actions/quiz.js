@@ -24,7 +24,7 @@ export const loadQuiz = (questions) => dispatch => {
 
 export const loadQuizScenario = () => async dispatch => {
     try {
-        const res = axios.get('/api/v1/quiz/scenario');
+        const res = await axios.get('/api/v1/quiz/scenario');
         dispatch({ type: LOAD_QUIZ_SCENARIO, payload: res.data });
     } catch (error) {
         dispatch({ type: LOAD_QUIZ_SCENARIO_FAIL, payload: {
