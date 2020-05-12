@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
-    Label,
     Form,
-    Image
+    Image,
+    Header,
+    Divider
 } from 'semantic-ui-react';
 
 import { quizResult } from '../../../actions/quiz';
@@ -26,7 +27,8 @@ const ScenarioItem = ({ quizResult, item, userId, score, history }) => {
 
     return (
         <>
-            <Label ribbon size="small">{title}</Label>
+            <Header as="h3">{title}</Header>
+            <Divider />
             <Image src={image} bordered />
             <small>
                 <i>
