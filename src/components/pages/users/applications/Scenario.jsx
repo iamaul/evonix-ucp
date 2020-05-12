@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -6,7 +6,9 @@ import {
     Grid,
     Header,
     Segment,
-    Image
+    Image,
+    Label,
+    Form
 } from 'semantic-ui-react';
 
 import { loadQuizScenario, quizResult } from '../../../actions/quiz';
