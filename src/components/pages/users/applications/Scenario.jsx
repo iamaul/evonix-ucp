@@ -11,21 +11,16 @@ import {
     Form
 } from 'semantic-ui-react';
 
-import { loadQuizScenario, quizResult } from '../../../actions/quiz';
+import { quizResult } from '../../../actions/quiz';
 
 import Loader from '../../../layouts/loader/Loader';
 
 const Scenario = ({ 
-    loadQuizScenario, 
     quizResult, 
     auth: { user }, 
     quiz: { scenarios, score, setLoading }, 
     history 
 }) => {
-    useEffect(() => {
-        loadQuizScenario();
-    }, [loadQuizScenario])
-
     const [answer, setAnswer] = useState('');
 
     const { id, title, image, question } = scenarios;
@@ -88,7 +83,6 @@ const Scenario = ({
 }
 
 Scenario.propTypes = {
-    loadQuizScenario: PropTypes.func.isRequired,
     quizResult: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     quiz: PropTypes.object.isRequired
@@ -99,4 +93,4 @@ const mapStateToProps = state => ({
     quiz: state.quiz
 });
 
-export default connect(mapStateToProps, { loadQuizScenario, quizResult })(withRouter(Scenario));
+export default connect(mapStateToProps, { quizResult })(withRouter(Scenario));

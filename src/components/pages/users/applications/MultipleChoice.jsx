@@ -16,7 +16,8 @@ import {
     gradeQuiz, 
     quizSubmissions, 
     pushQuizScore,
-    clearQuiz
+    clearQuiz,
+    loadQuizScenario
 } from '../../../actions/quiz';
 
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
@@ -28,6 +29,7 @@ const MultipleChoice = ({
     gradeQuiz, 
     quizSubmissions,
     pushQuizScore,
+    loadQuizScenario,
     clearQuiz,
     nextStep,
     prevStep,
@@ -36,7 +38,8 @@ const MultipleChoice = ({
     useEffect(() => {
         const questions = setQuestions();
         loadQuiz(questions);
-    }, [loadQuiz])
+        loadQuizScenario();
+    }, [loadQuiz, loadQuizScenario])
 
     const numbersCorrect = questions.filter((question) => question.isCorrect).length;
     const score = numbersCorrect*10;
@@ -108,6 +111,7 @@ MultipleChoice.propTypes = {
     gradeQuiz: PropTypes.func.isRequired,
     quizSubmissions: PropTypes.func.isRequired,
     pushQuizScore: PropTypes.func.isRequired,
+    loadQuizScenario: PropTypes.func.isRequired,
     nextStep: PropTypes.func.isRequired,
     prevStep: PropTypes.func.isRequired,
     quiz: PropTypes.object.isRequired
@@ -122,5 +126,6 @@ export default connect(mapStateToProps, {
     gradeQuiz, 
     quizSubmissions,
     pushQuizScore,
+    loadQuizScenario,
     clearQuiz 
 })(MultipleChoice);
