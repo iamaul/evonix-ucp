@@ -23,10 +23,12 @@ const Scenario = ({
 }) => {
     const [answer, setAnswer] = useState('');
 
-    console.log(scenarios);
     // const { id, title, image, question } = scenarios;
     const userId = user.id;
-    const data = { userId, id, score, answer };
+    const quizId = scenarios.id;
+    const data = { userId, quizId, score, answer };
+
+    console.log(scenarios);
 
     const onSubmit = e => {
         e.preventDefault();
