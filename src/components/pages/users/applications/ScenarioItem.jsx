@@ -27,8 +27,6 @@ const ScenarioItem = ({ quizResult, item, userId, score, history }) => {
 
     return (
         <>
-            <Header as="h3">{title}</Header>
-            <Divider />
             <Image src={image} bordered />
             <small>
                 <i>
@@ -38,6 +36,8 @@ const ScenarioItem = ({ quizResult, item, userId, score, history }) => {
                 </i>
             </small>
             <br />
+            <Header as="h5">{title}</Header>
+            <Divider />
             <p style={{ textAlign: "justify" }}>{question}</p>
             <Form size="small" onSubmit={onSubmit}>
                 <Form.Field>
