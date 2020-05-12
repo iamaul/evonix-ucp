@@ -7,7 +7,7 @@ import {
     Image,
     Segment,
     Button
- } from 'semantic-ui-react';
+} from 'semantic-ui-react';
 
 const Introduction = ({ nextStep, user }) => {
     const { name, status } = user;
