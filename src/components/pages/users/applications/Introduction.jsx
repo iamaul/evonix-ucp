@@ -34,7 +34,7 @@ const Introduction = ({ nextStep, auth: { user } }) => {
         </p>
     )
 
-    if (user && user.status === 2) {
+    if (user.status === 3) {
         return <Redirect to="/dashboard" />;
     }
 
@@ -47,10 +47,10 @@ const Introduction = ({ nextStep, auth: { user } }) => {
                     </Header>
                     <Segment color="red" stacked>
                         <Header as="h2" textAlign="center">
-                            {user && user.status === 1 ? 'We\'ve received your application!' : 'Introduction'}
+                            {user.status === 1 ? 'We\'ve received your application!' : 'Introduction'}
                         </Header>
-                        {user && user.status === 0 || user && user.status === 2 && intro}
-                        {user && user.status === 1 && submitted}
+                        {user.status === 0 || user.status === 2 && intro}
+                        {user.status === 1 && submitted}
                     </Segment>
                 </Grid.Column>
             </Grid>
