@@ -30,10 +30,9 @@ const Scenario = ({ loadQuizScenario, quiz: { scenarios, setLoading } }) => {
                             Step 2: Scenario
                         </Header>
                         { setLoading ? (<Loader isLoading={setLoading} />) : (
-                            scenarios.map((scenario) => (
-                                <ScenarioItem key={scenario.id} item={scenario} />
-                            ))
-                        ) }
+                                <ScenarioItem key={scenario.id} item={scenarios} />
+                            )
+                        }
                     </Segment>
                 </Grid.Column>
             </Grid>

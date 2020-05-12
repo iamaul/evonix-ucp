@@ -13,7 +13,7 @@ import {
 
 const INITIAL_STATE = { 
     questions: [],
-    scenarios: [], 
+    scenarios: null, 
     submissions: 0,
     score: 0,
     result: null,
