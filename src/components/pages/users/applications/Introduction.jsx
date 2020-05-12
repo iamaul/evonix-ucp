@@ -27,11 +27,12 @@ const Introduction = ({ nextStep, auth: { user } }) => {
         </Fragment>
     )
 
-    const submitted = (
+    const submitted = (<Fragment>
         <p style={{ textAlign: "justify" }}>
             Your application is still under review. We'll let you know when there are admins available to look through them! While you're waiting to get accepted, 
             we suggest you read server rules again or visit our forums to see what's hot in there. Thanks for waiting and do not ever ask any admins to respond to your application!
         </p>
+        </Fragment>
     )
 
     if (user.status === 3) {
@@ -49,8 +50,7 @@ const Introduction = ({ nextStep, auth: { user } }) => {
                         <Header as="h2" textAlign="center">
                             {user.status === 1 ? 'We\'ve received your application!' : 'Introduction'}
                         </Header>
-                        {user.status === 0 || user.status === 2 && intro}
-                        {user.status === 1 && submitted}
+                        {user.status === 0 || user.status === 2 ? intro : submitted}
                     </Segment>
                 </Grid.Column>
             </Grid>
