@@ -17,7 +17,7 @@ const Quiz = ({ auth: { user, setLoading } }) => {
     switch (step) {
         case 1: {
             if (setLoading) 
-                return <Loader isLoading={isLoading} />;
+                return <Loader isLoading={setLoading} />;
             else
                 return <Introduction nextStep={nextStep} user={user} />;
         }
