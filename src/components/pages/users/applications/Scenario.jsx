@@ -95,7 +95,8 @@ Scenario.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    quiz: state.quiz
 });
 
 export default connect(mapStateToProps, { loadQuizScenario, quizResult })(withRouter(Scenario));
