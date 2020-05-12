@@ -65,7 +65,7 @@ export const quizResult = (dataObj, history) => async dispatch => {
             icon: 'success',
             text: res.data.msg
         });
-        history.push('/applications');
+        history.push('/dashboard');
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
