@@ -6,6 +6,8 @@ import Introduction from './Introduction';
 import MultipleChoice from './MultipleChoice';
 import Scenario from './Scenario';
 
+import Loader from '../../../layouts/loader/Loader';
+
 const Quiz = ({ auth: { user, setLoading } }) => {
     const [step, setStep] = useState(1);
 
