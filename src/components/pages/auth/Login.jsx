@@ -16,7 +16,7 @@ import { userLogin } from '../../actions/auth';
 
 // import evonixLogo from '../../../assets/images/evonix-logo.png';
 
-const Login = ({ userLogin, isAuthenticated, auth: { user } }) => {
+const Login = ({ userLogin, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         usermail: '',
         password: ''
@@ -112,13 +112,11 @@ const Login = ({ userLogin, isAuthenticated, auth: { user } }) => {
 
 Login.propTypes = {
     userLogin: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool,
-    auth: PropTypes.object.isRequired
+    isAuthenticated: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    auth: state.auth
+    isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { userLogin })(Login);

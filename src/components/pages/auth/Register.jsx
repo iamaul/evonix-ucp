@@ -18,7 +18,7 @@ import { userRegister } from '../../actions/auth';
 
 // import evonixLogo from '../../../assets/images/evonix-logo.png';
 
-const Register = ({ userRegister, isAuthenticated, auth: { user } }) => {
+const Register = ({ userRegister, isAuthenticated }) => {
     const initialState = {
         username: '',
         email: '',
@@ -166,13 +166,11 @@ const Register = ({ userRegister, isAuthenticated, auth: { user } }) => {
 
 Register.propTypes = {
     userRegister: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool,
-    auth: PropTypes.object.isRequired
+    isAuthenticated: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    auth: state.auth
+    isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { userRegister })(Register);
