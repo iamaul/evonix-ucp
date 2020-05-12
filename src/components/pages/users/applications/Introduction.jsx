@@ -49,7 +49,7 @@ const Introduction = ({ nextStep, auth: { user } }) => {
                         <Header as="h2" textAlign="center">
                             {user.status === 1 ? 'We\'ve received your application!' : 'Introduction'}
                         </Header>
-                        {user.status === 0 && user.status === 2 ? intro : submitted}
+                        {user.status === 0 || user.status === 2 ? intro : submitted}
                     </Segment>
                 </Grid.Column>
             </Grid>

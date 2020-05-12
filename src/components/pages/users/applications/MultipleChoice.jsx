@@ -6,7 +6,6 @@ import {
     Segment,
     Header,
     Divider,
-    Icon,
     Form,
     Image
 } from 'semantic-ui-react';
