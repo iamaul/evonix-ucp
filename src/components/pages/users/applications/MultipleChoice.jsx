@@ -15,7 +15,8 @@ import {
     loadQuiz, 
     gradeQuiz, 
     quizSubmissions, 
-    pushQuizScore
+    pushQuizScore,
+    clearQuiz
 } from '../../../actions/quiz';
 
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
@@ -27,6 +28,7 @@ const MultipleChoice = ({
     gradeQuiz, 
     quizSubmissions,
     pushQuizScore,
+    clearQuiz,
     nextStep,
     prevStep,
     quiz: { questions, submissions, setLoading } 
@@ -52,6 +54,7 @@ const MultipleChoice = ({
     const goBack = e => {
         e.preventDefault();
         prevStep();
+        clearQuiz();
     }
 
     let submitButton = maxSubmissions && score >= 70 ? (
@@ -118,5 +121,6 @@ export default connect(mapStateToProps, {
     loadQuiz, 
     gradeQuiz, 
     quizSubmissions,
-    pushQuizScore 
+    pushQuizScore,
+    clearQuiz 
 })(MultipleChoice);

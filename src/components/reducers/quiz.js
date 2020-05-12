@@ -7,7 +7,8 @@ import {
     QUIZ_SUBMISSIONS,
     QUIZ_RESULT,
     // QUIZ_RESULT_FAIL,
-    PUSH_QUIZ_SCORE
+    PUSH_QUIZ_SCORE,
+    CLEAR_QUIZ
 } from '../actions/types';
 
 const INITIAL_STATE = { 
@@ -50,6 +51,12 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 error: payload,
                 setLoading: false
+            }
+        case CLEAR_QUIZ:
+            return {
+                ...state,
+                score: 0,
+                submissions: 0
             }
         default: return state;
     }

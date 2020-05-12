@@ -9,7 +9,8 @@ import {
     QUIZ_SUBMISSIONS,
     QUIZ_RESULT,
     QUIZ_RESULT_FAIL,
-    PUSH_QUIZ_SCORE
+    PUSH_QUIZ_SCORE,
+    CLEAR_QUIZ
 } from './types';
 
 const Toast = Swal.mixin({
@@ -78,4 +79,8 @@ export const quizResult = (dataObj, history) => async dispatch => {
         }
         dispatch({ type: QUIZ_RESULT_FAIL });
     }
+}
+
+export const clearQuiz = () => dispatch => {
+    dispatch({ type: CLEAR_QUIZ });
 }
