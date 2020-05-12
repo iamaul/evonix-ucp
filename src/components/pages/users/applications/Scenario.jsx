@@ -26,7 +26,7 @@ const Scenario = ({ auth: { user }, quiz: { scenarios, score, setLoading } }) =>
                         </Header>
                         { setLoading ? (<Loader isLoading={setLoading} />) : (
                             scenarios.map((scenario) => (
-                                <ScenarioItem item={scenario} userId={user.id} score={score} />
+                                <ScenarioItem key={scenario.id} item={scenario} userId={user.id} score={score} />
                             )
                         ))}
                     </Segment>

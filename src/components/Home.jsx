@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { 
     Grid, 
     Image,
@@ -8,7 +10,12 @@ import {
     Divider
 } from 'semantic-ui-react';
 
-const Home = () => {
+const Home = ({ isAuthenticated }) => {
+
+    if (isAuthenticated) {
+        return <Redirect to="/applications" />;
+    }
+    
     return (
         <>
             <section id="news">
@@ -95,4 +102,12 @@ const Home = () => {
     )
 }
 
-export default Home;
+Home.propTypes = {
+    isAuthenticated: PropTypes.bool
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Home);
