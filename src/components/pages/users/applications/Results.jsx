@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Message } from 'semantic-ui-react';
 
-const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
+const Results = ({ submissions, maxSubmissions, score }) => {
     let print = '';
-    const score = numbersCorrect*10;
 
     if (submissions === 0) {
         print = (
             <Message info size="small">
                 <p style={{ textAlign: 'justify' }}>
                     Hey there! The quiz below is made up of 10 multiple choices of random questions. 
-                    You may have 4 or fewer answer options, so please choose the correct answers wisely.<br/><br/>
+                    There may have 4 or fewer questions answer options, so please choose the correct answers wisely.<br/><br/>
                     <b>Note</b>: You are allowed up to 2 submissions in case you are finished with a low score <span role="img" aria-label="face-savouring-food">😋</span>.
                 </p>
             </Message>
@@ -20,7 +19,7 @@ const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
         print = (
             <Message warning size="small">
                 <p style={{ textAlign: 'justify' }}>
-                    You have 2 submissions already. Any further submissions will not be accepted. Your final score was <b>{score}</b>, you passed the quiz! You can now go to the next one.
+                    Your final score was <b>{score}</b>, you {score >= 70 ? 'passed the quiz! You can now go to the next one.' : 'failed the quiz! take your time to check our server rules and try again.'}
                 </p>
             </Message>
         )
@@ -28,7 +27,7 @@ const Results = ({ submissions, maxSubmissions, numbersCorrect }) => {
         print = (
             <Message success size="small">
                 <p style={{ textAlign: 'justify' }}>
-                    Your score was <b>{score}</b>, it means that you are {score >= 70 ? 'passed' : 'failed' } the quiz. {score < 70 && (
+                    Your score was <b>{score}</b>, it means that you are {score >= 70 ? (<b>passed</b>) : (<b>failed</b>)} the quiz. {score < 70 && (
                         <>Don't worry the quiz isn't ended yet for you. You still have 1 submission left, you can do fixing the incorrect questions answer below and press the button at the bottom of the page to submit your final score.</>
                     )}
                     {score >= 70 && (

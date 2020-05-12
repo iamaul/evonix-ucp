@@ -70,7 +70,7 @@ const Register = ({ userRegister, isAuthenticated, auth: { user } }) => {
     }
 
     if (isAuthenticated) {
-        return <Redirect to="/dashboard" />;
+        return <Redirect to="/applications" />;
     }
 
     return (

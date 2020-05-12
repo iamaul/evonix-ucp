@@ -13,7 +13,7 @@ const Quiz = () => {
     switch (step) {
         case 1: return <Introduction nextStep={nextStep} />;
         case 2: return <MultipleChoice nextStep={nextStep} prevStep={prevStep} />;
-        case 3: return <Scenario nextStep={nextStep} prevStep={prevStep} />;    
+        case 3: return <Scenario nextStep={nextStep} prevStep={prevStep} />; 
         default: return <Introduction nextStep={nextStep} />;
     }
 }
