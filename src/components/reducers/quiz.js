@@ -6,6 +6,7 @@ import {
     QUIZ_GRADE,
     QUIZ_SUBMISSIONS,
     QUIZ_RESULT,
+    // QUIZ_RESULT_FAIL,
     PUSH_QUIZ_SCORE
 } from '../actions/types';
 
