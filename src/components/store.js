@@ -25,7 +25,9 @@ let currentState = {
         setLoading: true 
     }
 };
-  
+
+let currentState = store.getState();
+
 store.subscribe(() => {
     // keep track of the previous and current state to compare changes
     let previousState = currentState;
