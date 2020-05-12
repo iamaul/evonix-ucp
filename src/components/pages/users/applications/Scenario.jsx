@@ -30,7 +30,7 @@ const Scenario = ({ loadQuizScenario, quiz: { scenarios, setLoading } }) => {
                             Step 2: Scenario
                         </Header>
                         { setLoading ? (<Loader isLoading={setLoading} />) : (
-                                <ScenarioItem key={scenario.id} item={scenarios} />
+                                <ScenarioItem item={scenarios} />
                             )
                         }
                     </Segment>
