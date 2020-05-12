@@ -23,7 +23,8 @@ const Scenario = ({
 }) => {
     const [answer, setAnswer] = useState('');
 
-    const { id, title, image, question } = scenarios;
+    console.log(scenarios);
+    // const { id, title, image, question } = scenarios;
     const userId = user.id;
     const data = { userId, id, score, answer };
 
@@ -46,8 +47,8 @@ const Scenario = ({
                             Step 2: Scenario
                         </Header>
                         { setLoading ? (<Loader isLoading={setLoading} />) : (<>
-                                <Label ribbon size="small">{title}</Label>
-                                <Image src={image} bordered />
+                                <Label ribbon size="small">{scenarios.title}</Label>
+                                <Image src={scenarios.image} bordered />
                                 <small>
                                     <i>
                                         <p style={{ textAlign: "center" }}>
@@ -56,7 +57,7 @@ const Scenario = ({
                                     </i>
                                 </small>
                                 <br />
-                                <p style={{ textAlign: "justify" }}>{question}</p>
+                                <p style={{ textAlign: "justify" }}>{scenarios.question}</p>
                                 <Form size="small" onSubmit={onSubmit}>
                                     <Form.Field>
                                         <textarea 
