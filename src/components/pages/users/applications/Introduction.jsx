@@ -10,7 +10,7 @@ import {
     Button
 } from 'semantic-ui-react';
 
-const Introduction = ({ nextStep, auth: { user } }) => {
+const Introduction = ({ nextStep, auth: { user, setLoading } }) => {
     const startQuiz = e => {
         e.preventDefault();
         nextStep();
@@ -35,7 +35,7 @@ const Introduction = ({ nextStep, auth: { user } }) => {
         </Fragment>
     )
 
-    if (user.status === 3) {
+    if (user && user.status === 3) {
         return <Redirect to="/dashboard" />;
     }
 
@@ -48,9 +48,9 @@ const Introduction = ({ nextStep, auth: { user } }) => {
                     </Header>
                     <Segment color="red" stacked>
                         <Header as="h2" textAlign="center">
-                            {user.status === 1 ? 'We\'ve received your application!' : 'Introduction'}
+                            {user && user.status === 1 ? 'We\'ve received your application!' : 'Introduction'}
                         </Header>
-                        {user.status === 0 || user.status === 2 ? intro : submitted}
+                        {user && user.status === 0 || user && user.status === 2 ? intro : submitted}
                     </Segment>
                 </Grid.Column>
             </Grid>
