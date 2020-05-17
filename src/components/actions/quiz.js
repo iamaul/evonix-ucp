@@ -61,11 +61,30 @@ export const quizResult = (dataObj, history) => async dispatch => {
     try {
         const res = await axios.post('/api/v1/users/application', dataObj, config);
         dispatch({ type: QUIZ_RESULT, payload: res.data });
-        Toast.fire({
-            icon: 'success',
-            text: res.data.msg
+        Swal.fire({
+            html: 'Submitting your quiz ...',
+            timer: 3000,
+            timerProgressBar: true,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+                timerInterval = setInterval(() => {
+                    const content = Swal.getContent()
+                    if (content) {
+                        const b = content.querySelector('b')
+                        if (b) {
+                            b.textContent = Swal.getTimerLeft()
+                        }
+                    }
+                }, 100)
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                history.push('/applications');
+            }
         });
-        history.push('/dashboard');
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
