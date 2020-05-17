@@ -48,9 +48,9 @@ const Introduction = ({ nextStep, auth: { user } }) => {
                     </Header>
                     <Segment color="red" stacked>
                         <Header as="h2" textAlign="center">
-                            {user && !user.approved ? 'We\'ve received your application!' : 'Introduction'}
+                            {user && !user.approved ? 'Introduction' : 'We\'ve received your application!'}
                         </Header>
-                        {user && !user.approved ? submitted : intro}
+                        {user && !user.approved ? intro : submitted}
                     </Segment>
                 </Grid.Column>
             </Grid>
