@@ -62,4 +62,4 @@ ScenarioItem.propTypes = {
     quizResult: PropTypes.func.isRequired
 }
 
-export default withRouter(connect(null, { quizResult })(ScenarioItem));
+export default connect(null, { quizResult })(withRouter(ScenarioItem));
