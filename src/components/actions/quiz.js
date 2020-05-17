@@ -64,7 +64,7 @@ export const quizResult = (dataObj, history) => async dispatch => {
 
         let timerInterval;
         Swal.fire({
-            html: 'Submitting your quiz ...',
+            html: res.data.msg,
             timer: 3000,
             timerProgressBar: true,
             onBeforeOpen: () => {

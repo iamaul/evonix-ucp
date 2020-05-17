@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
     Form,
@@ -61,4 +62,4 @@ ScenarioItem.propTypes = {
     quizResult: PropTypes.func.isRequired
 }
 
-export default connect(null, { quizResult })(ScenarioItem);
+export default withRouter(connect(null, { quizResult })(ScenarioItem));
