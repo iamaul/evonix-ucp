@@ -61,6 +61,8 @@ export const quizResult = (dataObj, history) => async dispatch => {
     try {
         const res = await axios.post('/api/v1/users/application', dataObj, config);
         dispatch({ type: QUIZ_RESULT, payload: res.data });
+
+        let timerInterval;
         Swal.fire({
             html: 'Submitting your quiz ...',
             timer: 3000,
