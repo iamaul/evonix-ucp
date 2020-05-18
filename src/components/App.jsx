@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 import { setAuthToken } from './utils';
+import history from './history';
 
 // Components
 import Quiz from './pages/users/applications/Quiz';
@@ -37,7 +38,7 @@ const App = () => {
 
     return (
         <Provider store={store}>
-            <Router>
+            <Router history={history}>
                 <Container>
                     <Switch>
                         <Route exact path="/login" component={Login} />

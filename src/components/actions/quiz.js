@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../history';
 import Swal from 'sweetalert2';
 import {
     LOAD_QUIZ,
@@ -51,7 +52,7 @@ export const pushQuizScore = (score) => dispatch => {
     dispatch({ type: PUSH_QUIZ_SCORE, payload: score });
 }
 
-export const quizResult = (dataObj, history) => async dispatch => {
+export const quizResult = (dataObj) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'

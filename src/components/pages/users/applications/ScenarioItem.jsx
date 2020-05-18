@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
     Form,
@@ -11,7 +10,7 @@ import {
 
 import { quizResult } from '../../../actions/quiz';
 
-const ScenarioItem = ({ quizResult, item, userId, score, history }) => {
+const ScenarioItem = ({ quizResult, item, userId, score }) => {
     const [answer, setAnswer] = useState('');    
 
     const { id, title, question, image } = item;
@@ -20,7 +19,7 @@ const ScenarioItem = ({ quizResult, item, userId, score, history }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        quizResult(data, history);
+        quizResult(data);
     }
 
     const onHandleChange = e => setAnswer(e.target.value);
@@ -62,4 +61,4 @@ ScenarioItem.propTypes = {
     quizResult: PropTypes.func.isRequired
 }
 
-export default connect(null, { quizResult })(withRouter(ScenarioItem));
+export default connect(null, { quizResult })(ScenarioItem);
