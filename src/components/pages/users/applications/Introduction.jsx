@@ -21,7 +21,7 @@ const Introduction = ({ nextStep, auth: { user } }) => {
                 Welcome to EvoniX Roleplay. You're almost ready to go! You'll be given 10 multiple choices and 1 scenario to complete the test. 
                 All questions and scenarios are categorized in such a way, make sure that you have read the server rules before starting to take the test. 
                 The passing grade of multiple choice is <b>70</b> otherwise, you can't get the next step of taking a scenario. Take your time to ensure all the answers are correct!
-                Your application will be reviewed by our staff within the next 24 hours. Thanks for joining us and happy roleplaying! 
+                Your application will be reviewed by our staff within the next 24 hours. Thanks for joining us and good luck! 
             </p>
             <Button color="red" content="Start" onClick={startQuiz} />
         </Fragment>
@@ -29,8 +29,8 @@ const Introduction = ({ nextStep, auth: { user } }) => {
 
     const submitted = (<Fragment>
         <p style={{ textAlign: "justify" }}>
-            Your application is still under review. We'll let you know when there are admins available to look through them! While you're waiting to get accepted, 
-            we suggest you read server rules again or visit our forums to see what's hot in there. Thanks for waiting and do not ever ask any admins to respond to your application!
+            Your application is still under review. We'll let you know when there are admins available to look through them! While you're waiting to get responded, 
+            we suggest you to visit our forums or discord server to keep up to date. Be patience and do not ever ask any admin to look your application!
         </p>
         </Fragment>
     )
