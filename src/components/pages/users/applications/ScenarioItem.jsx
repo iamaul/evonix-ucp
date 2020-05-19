@@ -59,8 +59,7 @@ const ScenarioItem = ({ quizResult, item, userId, score, nextStep }) => {
 }
 
 ScenarioItem.propTypes = {
-    quizResult: PropTypes.func.isRequired,
-    nextStep: PropTypes.func.isRequired
+    quizResult: PropTypes.func.isRequired
 }
 
 export default connect(null, { quizResult })(ScenarioItem);

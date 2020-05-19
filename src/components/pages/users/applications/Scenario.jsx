@@ -12,7 +12,7 @@ import ScenarioItem from './ScenarioItem';
 
 import Loader from '../../../layouts/loader/Loader';
 
-const Scenario = ({ auth: { user }, quiz: { scenarios, score, setLoading } }) => {
+const Scenario = ({ auth: { user }, quiz: { scenarios, score, setLoading }, nextStep }) => {
     return (
         <>
             <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
@@ -26,7 +26,7 @@ const Scenario = ({ auth: { user }, quiz: { scenarios, score, setLoading } }) =>
                         </Header>
                         { setLoading ? (<Loader isLoading={setLoading} />) : (
                             scenarios.map((scenario) => (
-                                <ScenarioItem key={scenario.id} item={scenario} userId={user.id} score={score} />
+                                <ScenarioItem key={scenario.id} item={scenario} userId={user.id} score={score} nextStep={nextStep}/>
                             )
                         ))}
                     </Segment>
@@ -38,7 +38,8 @@ const Scenario = ({ auth: { user }, quiz: { scenarios, score, setLoading } }) =>
 
 Scenario.propTypes = {
     auth: PropTypes.object.isRequired,
-    quiz: PropTypes.object.isRequired
+    quiz: PropTypes.object.isRequired,
+    nextStep: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
