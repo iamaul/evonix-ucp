@@ -62,32 +62,7 @@ export const quizResult = (dataObj) => async dispatch => {
     try {
         const res = await axios.post('/api/v1/users/application', dataObj, config);
         dispatch({ type: QUIZ_RESULT, payload: res.data });
-
-        let timerInterval;
-        Swal.fire({
-            html: res.data.msg,
-            timer: 3000,
-            timerProgressBar: true,
-            onBeforeOpen: () => {
-                Swal.showLoading()
-                timerInterval = setInterval(() => {
-                    const content = Swal.getContent()
-                    if (content) {
-                        const b = content.querySelector('b')
-                        if (b) {
-                            b.textContent = Swal.getTimerLeft()
-                        }
-                    }
-                }, 100)
-            },
-            onClose: () => {
-                clearInterval(timerInterval)
-            }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                history.push('/applications');
-            }
-        });
+        history.push('/applications');
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
