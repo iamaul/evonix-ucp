@@ -10,7 +10,7 @@ import {
 
 import { quizResult } from '../../../actions/quiz';
 
-const ScenarioItem = ({ quizResult, item, userId, score }) => {
+const ScenarioItem = ({ quizResult, item, userId, score, nextStep }) => {
     const [answer, setAnswer] = useState('');    
 
     const { id, title, question, image } = item;
@@ -20,6 +20,7 @@ const ScenarioItem = ({ quizResult, item, userId, score }) => {
     const onSubmit = e => {
         e.preventDefault();
         quizResult(data);
+        nextStep();
     }
 
     const onHandleChange = e => setAnswer(e.target.value);
@@ -58,7 +59,8 @@ const ScenarioItem = ({ quizResult, item, userId, score }) => {
 }
 
 ScenarioItem.propTypes = {
-    quizResult: PropTypes.func.isRequired
+    quizResult: PropTypes.func.isRequired,
+    nextStep: PropTypes.func.isRequired
 }
 
 export default connect(null, { quizResult })(ScenarioItem);
