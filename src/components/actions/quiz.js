@@ -1,5 +1,4 @@
 import axios from 'axios';
-import history from '../history';
 import Swal from 'sweetalert2';
 import {
     LOAD_QUIZ,
@@ -61,7 +60,6 @@ export const quizResult = (dataObj) => async dispatch => {
 
     try {
         const res = await axios.post('/api/v1/users/application', dataObj, config);
-        history.push('/applications');
         dispatch({ type: QUIZ_RESULT, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
