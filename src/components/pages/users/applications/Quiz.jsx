@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Introduction from './Introduction';
 import MultipleChoice from './MultipleChoice';
 import Scenario from './Scenario';
+import Submitted from './Submitted';
 
 const Quiz = () => {
     const [step, setStep] = useState(1);
@@ -14,7 +15,7 @@ const Quiz = () => {
         case 1: return <Introduction nextStep={nextStep} />;
         case 2: return <MultipleChoice nextStep={nextStep} prevStep={prevStep} />;
         case 3: return <Scenario nextStep={nextStep} prevStep={prevStep} />;
-        case 4: return <Introduction />; 
+        case 4: return <Submitted />; 
         default: return <Introduction nextStep={nextStep} />;
     }
 }
