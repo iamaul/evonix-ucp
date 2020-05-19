@@ -61,8 +61,8 @@ export const quizResult = (dataObj) => async dispatch => {
 
     try {
         const res = await axios.post('/api/v1/users/application', dataObj, config);
-        dispatch({ type: QUIZ_RESULT, payload: res.data });
         history.push('/applications');
+        dispatch({ type: QUIZ_RESULT, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
