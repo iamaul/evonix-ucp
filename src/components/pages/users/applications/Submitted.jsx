@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
     Grid,
     Header,
@@ -21,7 +20,7 @@ const Submitted = () => {
                         <Image src="https://media.giphy.com/media/h5Ct5uxV5RfwY/giphy.gif" centered bordered /><br/>
                         Finally, you have successfully submitted your application.
                         <Divider hidden />
-                        <Button content="Continue" size="small" as={Link} to="/dashboard" />
+                        <Button content="Continue" size="small" onClick={() => window.location.reload(false)} />
                     </Segment>
                 </Grid.Column>
             </Grid>
