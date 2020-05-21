@@ -11,7 +11,7 @@ import {
 
 const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end'
+    position: 'center'
 });
 
 export const getUserCharacters = () => async dispatch => {
