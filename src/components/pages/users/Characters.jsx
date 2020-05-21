@@ -21,7 +21,7 @@ const Characters = () => {
         gender: ''
     });
 
-    const genderOptions = [
+    const options = [
         { key: 'm', text: 'Male', value: 'male' },
         { key: 'f', text: 'Female', value: 'female' }
     ]
@@ -30,13 +30,13 @@ const Characters = () => {
 
     const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
 
-    const onModalClose = () => setOpen(false);
+    // const onModalClose = () => setOpen(false);
 
     const onSubmit = e => {
         e.preventDefault();
         
         createCharacter({ firstname, lastname, gender });
-        onModalClose();
+        // onModalClose();
     }
 
     return (
@@ -59,7 +59,6 @@ const Characters = () => {
                                     closeOnEscape={false}
                                     closeOnDimmerClick={false} 
                                     closeIcon
-                                    onClose={onModalClose}
                                 >
                                     <Header icon="user plus" content="Create a new character" />
                                     <Modal.Content>
@@ -81,7 +80,7 @@ const Characters = () => {
                                             <Form.Select
                                                 name="gender"
                                                 value={gender}
-                                                options={genderOptions}
+                                                options={options}
                                                 placeholder="Select Gender"
                                                 onChange={c => onChange(c)}
                                                 width={7}
