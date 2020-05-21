@@ -8,8 +8,7 @@ import {
     Segment, 
     Grid, 
     Form, 
-    Modal,
-    Radio 
+    Modal
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -18,11 +17,15 @@ import { createCharacter } from '../../actions/character';
 
 const Characters = ({ createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: null });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
 
     const { firstname, lastname, gender } = formData;
 
-    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
+    const onChange = c => {
+        setFormData({ ...formData, [c.target.name]: c.target.value });
+        console.log(c.target.name + " " + c.target.value);
+        console.log(formData);
+    }
 
     const onModalClose = () => setOpen(false);
 
@@ -55,7 +58,7 @@ const Characters = ({ createCharacter }) => {
                                 >
                                     <Header icon="user plus" content="Create a new character" />
                                     <Modal.Content>
-                                        <Form size="small" onSubmit={e => onSubmit(e)}>
+                                        <Form onSubmit={e => onSubmit(e)}>
                                             <Form.Input
                                                 type="text"
                                                 name="firstname"
@@ -71,15 +74,15 @@ const Characters = ({ createCharacter }) => {
                                                 onChange={c => onChange(c)}
                                             />
                                             <Form.Group inline>
-                                                <Form.Field>Select gender:</Form.Field>
-                                                <Radio
+                                                <label>Gender:</label>
+                                                <Form.Radio
                                                     label="Male"
                                                     name="gender"
                                                     value={0}
                                                     checked={gender === 0}
                                                     onChange={c => onChange(c)}
                                                 />
-                                                <Radio
+                                                <Form.Radio
                                                     label="Female"
                                                     name="gender"
                                                     value={1}
