@@ -16,8 +16,8 @@ import { createCharacter } from '../../actions/character';
 
 const Characters = () => {
     const [formData, setFormData] = useState({ 
-        firstname: '',
-        lastname: '',
+        firstName: '',
+        lastName: '',
         gender: null
     });
 
@@ -26,15 +26,15 @@ const Characters = () => {
         { key: 'f', text: 'Female', value: 1 }
     ]
 
-    const { firstname, lastname, gender } = formData;
+    const { firstName, lastName, gender } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
 
-        firstname.charAt(0).toUpperCase + firstname.slice(1);
-        lastname.charAt(0).toUpperCase + lastname.slice(1);
+        const firstname = firstName.charAt(0).toUpperCase + firstName.slice(1);
+        const lastname = lastName.charAt(0).toUpperCase + lastName.slice(1);
         console.log(firstname + lastname);
         
         createCharacter({ firstname, lastname, gender });
@@ -59,14 +59,14 @@ const Characters = () => {
                                             <Form.Input
                                                 type="text"
                                                 name="fistname"
-                                                value={firstname}
+                                                value={firstName}
                                                 placeholder="First Name"
                                                 onChange={c => onChange(c)}
                                             />
                                             <Form.Input
                                                 type="text"
                                                 name="lastname"
-                                                value={lastname}
+                                                value={lastName}
                                                 placeholder="Last Name"
                                                 onChange={c => onChange(c)}
                                             />
@@ -75,7 +75,7 @@ const Characters = () => {
                                                 name="gender"
                                                 value={gender}
                                                 options={genderOptions}
-                                                placeholder="Gender"
+                                                placeholder="Select Gender"
                                                 onChange={c => onChange(c)}
                                             />
                                         </Modal.Content>
