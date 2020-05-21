@@ -30,13 +30,13 @@ const Characters = () => {
 
     const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
 
-    // const onModalClose = () => setOpen(false);
+    const onModalClose = () => setOpen(false);
 
     const onSubmit = e => {
         e.preventDefault();
         
         createCharacter({ firstname, lastname, gender });
-        // onModalClose();
+        onModalClose();
     }
 
     return (
@@ -59,10 +59,11 @@ const Characters = () => {
                                     closeOnEscape={false}
                                     closeOnDimmerClick={false} 
                                     closeIcon
+                                    onClose={onModalClose}
                                 >
                                     <Header icon="user plus" content="Create a new character" />
                                     <Modal.Content>
-                                        <Form size="small">
+                                        <Form size="small" onSubmit={e => onSubmit(e)}>
                                             <Form.Input
                                                 type="text"
                                                 name="firstname"
@@ -81,15 +82,14 @@ const Characters = () => {
                                                 name="gender"
                                                 value={gender}
                                                 options={options}
+                                                label="Select Gender"
                                                 placeholder="Select Gender"
                                                 onChange={c => onChange(c)}
                                                 width={7}
                                             />
+                                            <Form.Button color="red" content="Create" />
                                         </Form>
                                     </Modal.Content>
-                                    <Modal.Actions>
-                                        <Button color="red" content="Create" onClick={e => onSubmit(e)} />
-                                    </Modal.Actions>
                                 </Modal>
                             </Segment>
                         </Segment>
