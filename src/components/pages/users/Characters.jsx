@@ -75,14 +75,14 @@ const Characters = ({ createCharacter }) => {
                                                     label="Male"
                                                     name="gender"
                                                     value={gender}
-                                                    checked={value === 0}
+                                                    checked={gender === 0}
                                                     onChange={c => onChange(c)}
                                                 />
                                                 <Form.Radio
                                                     label="Female"
                                                     name="gender"
                                                     value={gender}
-                                                    checked={value === 1}
+                                                    checked={gender === 1}
                                                     onChange={c => onChange(c)}
                                                 />
                                             </Form.Group>
