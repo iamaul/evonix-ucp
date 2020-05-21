@@ -56,7 +56,7 @@ const Characters = () => {
                                     No characters are listed for this account.
                                 </Header>
                                 <Modal 
-                                    size="small" 
+                                    size="tiny" 
                                     dimmer="blurring" 
                                     trigger={<Button primary onClick={() => setOpen(true)}>Add New</Button>}
                                     open={open}
@@ -83,6 +83,7 @@ const Characters = () => {
                                                 onChange={c => onChange(c)}
                                             />
                                             <Form.Select
+                                                width={6}
                                                 name="gender"
                                                 value={gender}
                                                 options={genderOptions}
