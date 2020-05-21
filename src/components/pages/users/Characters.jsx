@@ -17,7 +17,7 @@ import { createCharacter } from '../../actions/character';
 
 const Characters = ({ createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 'male' });
 
     const { firstname, lastname, gender } = formData;
 
@@ -75,20 +75,18 @@ const Characters = ({ createCharacter }) => {
                                             />
                                             <Form.Group inline>
                                                 <label>Gender:</label>
-                                                <Form.Input
-                                                    type="radio"
+                                                <Form.Radio
                                                     label="Male"
                                                     name="gender"
-                                                    value={0}
-                                                    checked={gender === 0}
+                                                    value='male'
+                                                    checked={gender === 'male'}
                                                     onChange={c => onChange(c)}
                                                 />
-                                                <Form.Input
-                                                    type="radio"
+                                                <Form.Radio
                                                     label="Female"
                                                     name="gender"
-                                                    value={1}
-                                                    checked={gender === 1}
+                                                    value='female'
+                                                    checked={gender === 'female'}
                                                     onChange={c => onChange(c)}
                                                 />
                                             </Form.Group>
