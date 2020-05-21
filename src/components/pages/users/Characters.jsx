@@ -17,20 +17,11 @@ import { createCharacter } from '../../actions/character';
 
 const Characters = ({ createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: null });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
 
     const { firstname, lastname, gender } = formData;
 
-    const onChange = c => {
-        setFormData({ ...formData, [c.target.name]: c.target.value });
-        console.log(c.target.name + " " + c.target.value);
-        console.log(formData);
-    }
-
-    const options = [
-        { key: 'm', text: 'Male', value: 0 },
-        { key: 'f', text: 'Female', value: 1 }
-    ]
+    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
 
     const onModalClose = () => setOpen(false);
 
@@ -54,7 +45,6 @@ const Characters = ({ createCharacter }) => {
                                 </Header>
                                 <Modal 
                                     size="tiny" 
-                                    dimmer="inverted" 
                                     trigger={<Button primary onClick={() => setOpen(true)}>Add New</Button>}
                                     open={open}
                                     closeOnEscape={false}
@@ -79,14 +69,23 @@ const Characters = ({ createCharacter }) => {
                                                 placeholder="Last Name"
                                                 onChange={c => onChange(c)}
                                             />
-                                            <Form.Select
-                                                name="gender"
-                                                value={gender}
-                                                options={options}
-                                                placeholder="Select Gender"
-                                                onChange={c => onChange(c)}
-                                                width={9}
-                                            />
+                                            <Form.Group inline>
+                                                <label>Gender</label>
+                                                <Form.Radio
+                                                    label="Male"
+                                                    name="gender"
+                                                    value={gender}
+                                                    checked={value === 0}
+                                                    onChange={c => onChange(c)}
+                                                />
+                                                <Form.Radio
+                                                    label="Female"
+                                                    name="gender"
+                                                    value={gender}
+                                                    checked={value === 1}
+                                                    onChange={c => onChange(c)}
+                                                />
+                                            </Form.Group>
                                             <Form.Button color="red" content="Create" />
                                         </Form>
                                     </Modal.Content>
