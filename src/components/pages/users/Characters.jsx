@@ -34,12 +34,6 @@ const Characters = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-
-        setFormData({ 
-            firstname: firstname.charAt(0).toUpperCase + firstname.slice(1),
-            lastname: lastname.charAt(0).toUpperCase + lastname.slice(1)
-        });
-        console.log(firstname + lastname);
         
         createCharacter({ firstname, lastname, gender });
         onModalClose();
