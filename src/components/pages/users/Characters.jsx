@@ -88,7 +88,7 @@ const Characters = ({ createCharacter }) => {
                                                 value={gender}
                                                 options={options}
                                                 placeholder="Select Gender"
-                                                onChange={c => onChange(c)}
+                                                onChange={({ value }) => onChange(value)}
                                                 width={7}
                                             />
                                             <Form.Button color="red" content="Create" />
