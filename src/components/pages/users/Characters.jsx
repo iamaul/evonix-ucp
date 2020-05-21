@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { 
     Button, 
     Header, 
@@ -13,7 +15,7 @@ import Sidebar from '../../layouts/sidebar/Sidebar';
 
 import { createCharacter } from '../../actions/character';
 
-const Characters = () => {
+const Characters = ({ createCharacter }) => {
     const [open, setOpen] = useState(false);
     const [formData, setFormData] = useState({ 
         firstname: '',
@@ -28,15 +30,18 @@ const Characters = () => {
 
     const { firstname, lastname, gender } = formData;
 
-    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
+    const onChange = c => {
+        setFormData({ ...formData, [c.target.name]: c.target.value });
+        console.log(c.target.name + c.target.value);
+        console.log(formData);
+    }
 
-    // const onModalClose = () => setOpen(false);
+    const onModalClose = () => setOpen(false);
 
     const onSubmit = e => {
         e.preventDefault();
         
         createCharacter({ firstname, lastname, gender });
-        // onModalClose();
     }
 
     return (
@@ -59,6 +64,7 @@ const Characters = () => {
                                     closeOnEscape={false}
                                     closeOnDimmerClick={false} 
                                     closeIcon
+                                    onClose={onModalClose}
                                 >
                                     <Header icon="user plus" content="Create a new character" />
                                     <Modal.Content>
@@ -98,4 +104,8 @@ const Characters = () => {
     )
 }
 
-export default Characters;
+Characters.propTypes = {
+    createCharacter: PropTypes.func.isRequired
+}
+
+export default connect(null, { createCharacter })(Characters);
