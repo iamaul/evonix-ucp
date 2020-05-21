@@ -6,7 +6,6 @@ import {
     Segment, 
     Grid, 
     Form, 
-    Select, 
     Modal 
 } from 'semantic-ui-react';
 
@@ -59,8 +58,8 @@ const Characters = () => {
                                 <Modal 
                                     size="small" 
                                     dimmer="blurring" 
-                                    trigger={<Button primary>Add New</Button>}
-                                    open={() => setOpen(!open)}
+                                    trigger={<Button primary onClick={() => setOpen(true)}>Add New</Button>}
+                                    open={open}
                                     closeOnEscape
                                     closeOnDimmerClick 
                                     closeIcon
@@ -83,8 +82,7 @@ const Characters = () => {
                                                 placeholder="Last Name"
                                                 onChange={c => onChange(c)}
                                             />
-                                            <Form.Input
-                                                control={Select}
+                                            <Form.Select
                                                 name="gender"
                                                 value={gender}
                                                 options={genderOptions}
