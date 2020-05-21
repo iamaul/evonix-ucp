@@ -23,18 +23,18 @@ const Characters = ({ createCharacter }) => {
         gender: ''
     });
 
-    const options = [
-        { key: 'm', text: 'Male', value: 'male' },
-        { key: 'f', text: 'Female', value: 'female' }
-    ]
-
     const { firstname, lastname, gender } = formData;
 
     const onChange = c => {
         setFormData({ ...formData, [c.target.name]: c.target.value });
-        console.log(c.target.name + c.target.value);
+        console.log(c.target.name + " " + c.target.value);
         console.log(formData);
     }
+
+    const options = [
+        { key: 'm', text: 'Male', value: 'male' },
+        { key: 'f', text: 'Female', value: 'female' }
+    ]
 
     const onModalClose = () => setOpen(false);
 
@@ -88,8 +88,8 @@ const Characters = ({ createCharacter }) => {
                                                 value={gender}
                                                 options={options}
                                                 placeholder="Select Gender"
-                                                onChange={({ value }) => onChange(value)}
-                                                width={7}
+                                                onChange={c => onChange(c)}
+                                                width={9}
                                             />
                                             <Form.Button color="red" content="Create" />
                                         </Form>
