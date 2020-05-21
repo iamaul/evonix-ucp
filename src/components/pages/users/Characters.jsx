@@ -18,17 +18,17 @@ const Characters = () => {
     const [formData, setFormData] = useState({ 
         firstname: '',
         lastname: '',
-        gender: null
+        gender: ''
     });
 
     const genderOptions = [
-        { key: 0, text: 'Male', value: 0 },
-        { key: 1, text: 'Female', value: 1 }
+        { key: 'm', text: 'Male', value: 'male' },
+        { key: 'f', text: 'Female', value: 'female' }
     ]
 
     const { firstname, lastname, gender } = formData;
 
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
 
     const onModalClose = () => setOpen(false);
 
@@ -62,8 +62,8 @@ const Characters = () => {
                                     dimmer="blurring" 
                                     trigger={<Button primary onClick={() => setOpen(true)}>Add New</Button>}
                                     open={open}
-                                    closeOnEscape
-                                    closeOnDimmerClick 
+                                    closeOnEscape={false}
+                                    closeOnDimmerClick={false} 
                                     closeIcon
                                     onClose={onModalClose}
                                 >
@@ -72,7 +72,7 @@ const Characters = () => {
                                         <Form size="small">
                                             <Form.Input
                                                 type="text"
-                                                name="fistname"
+                                                name="firstname"
                                                 value={firstname}
                                                 placeholder="First Name"
                                                 onChange={c => onChange(c)}
@@ -85,12 +85,12 @@ const Characters = () => {
                                                 onChange={c => onChange(c)}
                                             />
                                             <Form.Select
-                                                width={7}
                                                 name="gender"
-                                                options={genderOptions}
                                                 value={gender}
-                                                onChange={c => onChange(c)}
+                                                options={genderOptions}
                                                 placeholder="Select Gender"
+                                                onChange={c => onChange(c)}
+                                                width={7}
                                             />
                                         </Form>
                                     </Modal.Content>
