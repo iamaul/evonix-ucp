@@ -17,11 +17,7 @@ import { createCharacter } from '../../actions/character';
 
 const Characters = ({ createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ 
-        firstname: '',
-        lastname: '',
-        gender: ''
-    });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: null });
 
     const { firstname, lastname, gender } = formData;
 
@@ -32,8 +28,8 @@ const Characters = ({ createCharacter }) => {
     }
 
     const options = [
-        { key: 'm', text: 'Male', value: 'male' },
-        { key: 'f', text: 'Female', value: 'female' }
+        { key: 'm', text: 'Male', value: 0 },
+        { key: 'f', text: 'Female', value: 1 }
     ]
 
     const onModalClose = () => setOpen(false);
@@ -58,7 +54,7 @@ const Characters = ({ createCharacter }) => {
                                 </Header>
                                 <Modal 
                                     size="tiny" 
-                                    dimmer="blurring" 
+                                    dimmer="inverted" 
                                     trigger={<Button primary onClick={() => setOpen(true)}>Add New</Button>}
                                     open={open}
                                     closeOnEscape={false}
