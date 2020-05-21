@@ -75,14 +75,16 @@ const Characters = ({ createCharacter }) => {
                                             />
                                             <Form.Group inline>
                                                 <label>Gender:</label>
-                                                <Form.Radio
+                                                <Form.Input
+                                                    type="radio"
                                                     label="Male"
                                                     name="gender"
                                                     value={0}
                                                     checked={gender === 0}
                                                     onChange={c => onChange(c)}
                                                 />
-                                                <Form.Radio
+                                                <Form.Input
+                                                    type="radio"
                                                     label="Female"
                                                     name="gender"
                                                     value={1}
