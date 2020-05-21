@@ -17,7 +17,7 @@ import { createCharacter } from '../../actions/character';
 
 const Characters = ({ createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: null });
 
     const { firstname, lastname, gender } = formData;
 
@@ -75,14 +75,14 @@ const Characters = ({ createCharacter }) => {
                                                     label="Male"
                                                     name="gender"
                                                     value='0'
-                                                    checked={gender === 0}
+                                                    checked={gender === '0'}
                                                     onChange={c => onChange(c)}
                                                 />
                                                 <Form.Radio
                                                     label="Female"
                                                     name="gender"
                                                     value='1'
-                                                    checked={gender === 1}
+                                                    checked={gender === '1'}
                                                     onChange={c => onChange(c)}
                                                 />
                                             </Form.Group>
