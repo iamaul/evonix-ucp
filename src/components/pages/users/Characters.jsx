@@ -22,13 +22,15 @@ const Characters = () => {
     });
 
     const genderOptions = [
-        { key: 'm', text: 'Male', value: 0 },
-        { key: 'f', text: 'Female', value: 1 }
+        { key: 0, text: 'Male', value: 0 },
+        { key: 1, text: 'Female', value: 1 }
     ]
 
     const { firstname, lastname, gender } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onModalClose = () => setOpen(false);
 
     const onSubmit = e => {
         e.preventDefault();
@@ -40,7 +42,7 @@ const Characters = () => {
         console.log(firstname + lastname);
         
         createCharacter({ firstname, lastname, gender });
-        setOpen(false);
+        onModalClose();
     }
 
     return (
@@ -63,7 +65,7 @@ const Characters = () => {
                                     closeOnEscape
                                     closeOnDimmerClick 
                                     closeIcon
-                                    onClose={open}
+                                    onClose={onModalClose}
                                 >
                                     <Header icon="user plus" content="Create a new character" />
                                     <Modal.Content>
@@ -83,12 +85,12 @@ const Characters = () => {
                                                 onChange={c => onChange(c)}
                                             />
                                             <Form.Select
-                                                width={6}
+                                                width={7}
                                                 name="gender"
-                                                value={gender}
                                                 options={genderOptions}
-                                                placeholder="Select Gender"
+                                                value={gender}
                                                 onChange={c => onChange(c)}
+                                                placeholder="Select Gender"
                                             />
                                         </Form>
                                     </Modal.Content>
