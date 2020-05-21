@@ -6,6 +6,7 @@ import account from './account';
 import samp from './samp';
 import stats from './stats';
 import quiz from './quiz';
+import character from './character';
 
 export default combineReducers({
     alert,
@@ -13,5 +14,6 @@ export default combineReducers({
     account,
     samp,
     stats,
-    quiz
+    quiz,
+    character
 });
