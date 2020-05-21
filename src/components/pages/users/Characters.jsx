@@ -8,7 +8,8 @@ import {
     Segment, 
     Grid, 
     Form, 
-    Modal 
+    Modal,
+    Radio 
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -70,19 +71,19 @@ const Characters = ({ createCharacter }) => {
                                                 onChange={c => onChange(c)}
                                             />
                                             <Form.Group inline>
-                                                <label>Gender</label>
-                                                <Form.Radio
+                                                <Form.Field>Select gender:</Form.Field>
+                                                <Radio
                                                     label="Male"
                                                     name="gender"
-                                                    value='0'
-                                                    checked={gender === '0'}
+                                                    value={0}
+                                                    checked={gender === 0}
                                                     onChange={c => onChange(c)}
                                                 />
-                                                <Form.Radio
+                                                <Radio
                                                     label="Female"
                                                     name="gender"
-                                                    value='1'
-                                                    checked={gender === '1'}
+                                                    value={1}
+                                                    checked={gender === 1}
                                                     onChange={c => onChange(c)}
                                                 />
                                             </Form.Group>
