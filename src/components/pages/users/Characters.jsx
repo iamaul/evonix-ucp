@@ -22,7 +22,7 @@ import { getUserCharacters, createCharacter } from '../../actions/character';
 const ExpandedData = ({ data }) => (
     <Grid>
         <Grid.Column width={4}>
-            <Image src={`/assets/skins/${data.skin_id}.png`} size="medium" />
+            <Image src={`/assets/skins/${data.skin_id}.png`} size="massive" />
         </Grid.Column>
         <Grid.Column width={9}>
             <p style={{ textAlign: 'justify' }}>
