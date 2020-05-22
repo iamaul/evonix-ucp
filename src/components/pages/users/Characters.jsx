@@ -8,7 +8,6 @@ import {
     Grid, 
     Image,
     Divider,
-    Moment,
     Form
 } from 'semantic-ui-react';
 
