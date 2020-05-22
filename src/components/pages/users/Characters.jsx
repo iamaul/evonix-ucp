@@ -20,11 +20,11 @@ import Loader from '../../layouts/loader/Loader';
 import { getUserCharacters, createCharacter } from '../../actions/character';
 
 const ExpandedData = ({ data }) => (
-    <Grid>
-        <Grid.Column width={5}>
+    <Grid columns={2} padded>
+        <Grid.Column>
             <Image src={`/assets/skins/${data.skin_id}.png`} />
         </Grid.Column>
-        <Grid.Column width={11}>
+        <Grid.Column>
             <p style={{ textAlign: 'justify' }}>
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
                 <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
