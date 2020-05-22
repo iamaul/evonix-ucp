@@ -48,8 +48,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         // eslint-disable-next-line
     }, []);
 
-    const { count, rows } = character;
-
     const columns = useMemo(() => [
         {
             name: 'Name',
@@ -138,12 +136,12 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                                 </Form>
                             </Grid.Column>
                             <Grid.Column>
-                                {rows !== null && !setLoading ? (<div>
-                                    <small>You have created {count} characters.</small><br/>
+                                {character !== null && !setLoading ? (<div>
+                                    <small>You have created {character.count} characters.</small><br/>
                                     <DataTable
                                         title="Characters"
                                         columns={columns}
-                                        data={rows}
+                                        data={character.rows}
                                         expandableRows
                                         expandableRowsComponent={<ExpandedData />}
                                         highlightOnHover
