@@ -22,7 +22,7 @@ import { getUserCharacters, createCharacter } from '../../actions/character';
 const ExpandedData = ({ data }) => (
     <Grid>
         <Grid.Column width={4}>
-            <Image src={`/assets/images/skins/${data.skin_id}.png`} size="medium" />
+            <Image src={`/assets/skins/${data.skin_id}.png`} size="medium" />
         </Grid.Column>
         <Grid.Column width={9}>
             <p style={{ textAlign: 'justify' }}>
@@ -37,8 +37,7 @@ const ExpandedData = ({ data }) => (
                 <b>Health</b>: {data.health}<br/>
                 <b>Armour</b>: {data.armour}<br/>
                 <b>Phone Number</b>: {data.phone_number}<br/>
-                <Divider hidden />
-                You have spent {data.play_second} seconds, {data.play_minute} minutes, and {data.play_hour} hours in the server!
+                <b>Playtime</b>: {data.play_second} seconds, {data.play_minute} minutes, and {data.play_hour} hours
             </p>
         </Grid.Column>
     </Grid>
