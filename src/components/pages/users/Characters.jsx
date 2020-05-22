@@ -42,6 +42,8 @@ const ExpandedData = ({ data }) => (
 );
 
 const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
+    const { firstname, lastname, gender } = formData;
 
     useEffect(() => {
         getUserCharacters();
@@ -71,10 +73,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         }
         // eslint-disable-next-line
     ], []);
-
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
-
-    const { firstname, lastname, gender } = formData;
 
     const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
 
@@ -109,7 +107,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                                         onChange={c => onChange(c)}
                                     />
                                     <Form.Group inline>
-                                        <label>Gender:</label>
+                                        <Form.Field>Gender:</Form.Field>
                                         <Form.Radio
                                             label="Male"
                                             name="gender"
