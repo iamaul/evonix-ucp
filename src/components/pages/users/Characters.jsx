@@ -61,7 +61,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
     }
 
     const actions = (
-        character.count !== 5 && (
+        character && character.count !== 5 && (
             <Modal 
                 size="tiny" 
                 trigger={<Button color="green" size="small" icon labelPosition="left"><Icon name="add user"/>New Character</Button>}
