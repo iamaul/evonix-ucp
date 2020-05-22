@@ -26,7 +26,7 @@ const ExpandedData = ({ data }) => (
         </Grid.Column>
         <Grid.Column width={9}>
             <p style={{ textAlign: 'justify' }}>
-                <b>Gender</b>: {data.gender === 0 ? 'Male' : data.gender === 1 ? 'Female' : 'Other'}<br/>
+                <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
                 <b>Date of Birth</b>: {data.birth_day}/{data.birth_month}/{data.birth_year}<br/>
                 <b>Exp</b>: {data.exp}<br/>
                 <b>Money</b>: {data.money}<br/>
@@ -97,13 +97,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                             name="gender"
                             value={1}
                             checked={gender === 1}
-                            onChange={c => onChange(c)}
-                        />
-                        <Form.Radio
-                            label="Other"
-                            name="gender"
-                            value={2}
-                            checked={gender === 2}
                             onChange={c => onChange(c)}
                         />
                     </Form.Group>
