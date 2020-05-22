@@ -7,7 +7,6 @@ import {
     Segment, 
     Grid, 
     Image,
-    Divider,
     Form,
     Modal,
     Button,
@@ -44,7 +43,6 @@ const ExpandedData = ({ data }) => (
 );
 
 const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
-    const [open, setOpen] = useState(false);
     const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: '' });
     const { firstname, lastname, gender } = formData;
 
@@ -52,8 +50,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         getUserCharacters();
         // eslint-disable-next-line
     }, []);
-
-    const onModalClose = () => setOpen(false);
 
     const onChange = (e, target) => setFormData({ ...formData, [target.name]: target.value });
 
@@ -67,12 +63,9 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         character.count !== 5 && (
             <Modal 
                 size="tiny" 
-                trigger={<Button color="green" size="small" icon labelPosition="left" onClick={() => setOpen(true)}><Icon name="add user"/>New Character</Button>}
-                open={open}
+                trigger={<Button color="green" size="small" icon labelPosition="left"><Icon name="add user"/>New Character</Button>}
                 closeOnEscape={false}
-                closeOnDimmerClick={false} 
                 closeIcon
-                onClose={onModalClose}
             >
                 <Header icon="user plus" content="Create A New Character" />
                 <Modal.Content>
