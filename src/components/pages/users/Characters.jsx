@@ -8,7 +8,9 @@ import {
     Grid, 
     Image,
     Divider,
-    Form
+    Form,
+    Modal,
+    Button
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -42,6 +44,7 @@ const ExpandedData = ({ data }) => (
 );
 
 const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
+    const [open, setOpen] = useState(false);
     const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
     const { firstname, lastname, gender } = formData;
 
@@ -49,6 +52,63 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         getUserCharacters();
         // eslint-disable-next-line
     }, []);
+
+    const actions = (
+        <Modal 
+            size="tiny" 
+            trigger={<Button color="green" size="small" onClick={() => setOpen(true)}>New Character</Button>}
+            open={open}
+            closeOnEscape={false}
+            closeOnDimmerClick={false} 
+            closeIcon
+            onClose={onModalClose}
+        >
+            <Header icon="user plus" content="Create A New Character" />
+            <Modal.Content>
+                <Form onSubmit={e => onSubmit(e)}>
+                    <Form.Input
+                        type="text"
+                        name="firstname"
+                        value={firstname}
+                        placeholder="First Name"
+                        onChange={c => onChange(c)}
+                    />
+                    <Form.Input
+                        type="text"
+                        name="lastname"
+                        value={lastname}
+                        placeholder="Last Name"
+                        onChange={c => onChange(c)}
+                    />
+                    <Form.Group inline>
+                        <Form.Field>Gender:</Form.Field>
+                        <Form.Radio
+                            label="Male"
+                            name="gender"
+                            value={0}
+                            checked={gender === 0}
+                            onChange={c => onChange(c)}
+                        />
+                        <Form.Radio
+                            label="Female"
+                            name="gender"
+                            value={1}
+                            checked={gender === 1}
+                            onChange={c => onChange(c)}
+                        />
+                        <Form.Radio
+                            label="Other"
+                            name="gender"
+                            value={2}
+                            checked={gender === 2}
+                            onChange={c => onChange(c)}
+                        />
+                    </Form.Group>
+                    <Form.Button color="red" content="Create" />
+                </Form>
+            </Modal.Content>
+        </Modal>
+    );
 
     const columns = useMemo(() => [
         {
@@ -76,6 +136,8 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
 
     const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
 
+    const onModalClose = () => setOpen(false);
+
     const onSubmit = e => {
         e.preventDefault();
         
@@ -89,67 +151,23 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                        <Grid columns={2} padded>
-                            <Grid.Column>
-                                <Form size="small" onSubmit={e => onSubmit(e)}>
-                                    <Form.Input
-                                        type="text"
-                                        name="firstname"
-                                        value={firstname}
-                                        placeholder="First Name"
-                                        onChange={c => onChange(c)}
-                                    />
-                                    <Form.Input
-                                        type="text"
-                                        name="lastname"
-                                        value={lastname}
-                                        placeholder="Last Name"
-                                        onChange={c => onChange(c)}
-                                    />
-                                    <Form.Group inline>
-                                        <Form.Field>Gender:</Form.Field>
-                                        <Form.Radio
-                                            label="Male"
-                                            name="gender"
-                                            value={0}
-                                            checked={gender === 0}
-                                            onChange={c => onChange(c)}
-                                        />
-                                        <Form.Radio
-                                            label="Female"
-                                            name="gender"
-                                            value={1}
-                                            checked={gender === 1}
-                                            onChange={c => onChange(c)}
-                                        />
-                                        <Form.Radio
-                                            label="Other"
-                                            name="gender"
-                                            value={2}
-                                            checked={gender === 2}
-                                            onChange={c => onChange(c)}
-                                        />
-                                    </Form.Group>
-                                    <Form.Button color="red" content="Create" />
-                                </Form>
-                            </Grid.Column>
-                            <Grid.Column>
-                                {character !== null && !setLoading ? (<div>
-                                    <small>You have created {character.count} characters.</small><br/>
-                                    <DataTable
-                                        title="Characters"
-                                        columns={columns}
-                                        data={character.rows}
-                                        expandableRows
-                                        expandableRowsComponent={<ExpandedData />}
-                                        highlightOnHover
-                                        defaultSortField="lastlogin"
-                                    />
-                                </div>) : (
-                                    <Loader isLoading={setLoading} />
+                            {character !== null && !setLoading ? (<div>
+                                {character.count > 0 && (
+                                    <div><small>You have <b>{character.count}</b> characters in the list.</small><br/></div>
                                 )}
-                            </Grid.Column>
-                        </Grid>
+                                <DataTable
+                                    title="Characters"
+                                    columns={columns}
+                                    data={character.rows}
+                                    actions={actions}
+                                    expandableRows
+                                    expandableRowsComponent={<ExpandedData />}
+                                    highlightOnHover
+                                    defaultSortField="lastlogin"
+                                />
+                            </div>) : (
+                                <Loader isLoading={setLoading} />
+                            )}
                         </Segment>
                     </Grid.Column>
                 </Grid>
