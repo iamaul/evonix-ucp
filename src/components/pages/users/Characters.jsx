@@ -54,6 +54,8 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         // eslint-disable-next-line
     }, []);
 
+    const onModalClose = () => setOpen(false);
+
     const actions = (
         <Modal 
             size="tiny" 
@@ -136,8 +138,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
     ], []);
 
     const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
-
-    const onModalClose = () => setOpen(false);
 
     const onSubmit = e => {
         e.preventDefault();
