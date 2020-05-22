@@ -64,53 +64,55 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
     }
 
     const actions = (
-        <Modal 
-            size="tiny" 
-            trigger={<Button color="green" size="small" onClick={() => setOpen(true)}>New Character</Button>}
-            open={open}
-            closeOnEscape={false}
-            closeOnDimmerClick={false} 
-            closeIcon
-            onClose={onModalClose}
-        >
-            <Header icon="user plus" content="Create A New Character" />
-            <Modal.Content>
-                <Form onSubmit={onSubmit}>
-                    <Form.Input
-                        type="text"
-                        name="firstname"
-                        value={firstname}
-                        placeholder="First Name"
-                        onChange={onChange}
-                    />
-                    <Form.Input
-                        type="text"
-                        name="lastname"
-                        value={lastname}
-                        placeholder="Last Name"
-                        onChange={onChange}
-                    />
-                    <Form.Group inline>
-                        <Form.Field>Gender:</Form.Field>
-                        <Form.Radio
-                            label="Male"
-                            name="gender"
-                            value={0}
-                            checked={gender === 0}
+        character.count !== 5 && (
+            <Modal 
+                size="tiny" 
+                trigger={<Button color="green" size="small" icon labelPosition="left" onClick={() => setOpen(true)}><Icon name="add user"/>New Character</Button>}
+                open={open}
+                closeOnEscape={false}
+                closeOnDimmerClick={false} 
+                closeIcon
+                onClose={onModalClose}
+            >
+                <Header icon="user plus" content="Create A New Character" />
+                <Modal.Content>
+                    <Form onSubmit={onSubmit}>
+                        <Form.Input
+                            type="text"
+                            name="firstname"
+                            value={firstname}
+                            placeholder="First Name"
                             onChange={onChange}
                         />
-                        <Form.Radio
-                            label="Female"
-                            name="gender"
-                            value={1}
-                            checked={gender === 1}
+                        <Form.Input
+                            type="text"
+                            name="lastname"
+                            value={lastname}
+                            placeholder="Last Name"
                             onChange={onChange}
                         />
-                    </Form.Group>
-                    <Form.Button color="red" content="Create" />
-                </Form>
-            </Modal.Content>
-        </Modal>
+                        <Form.Group inline>
+                            <Form.Field>Gender:</Form.Field>
+                            <Form.Radio
+                                label="Male"
+                                name="gender"
+                                value={0}
+                                checked={gender === 0}
+                                onChange={onChange}
+                            />
+                            <Form.Radio
+                                label="Female"
+                                name="gender"
+                                value={1}
+                                checked={gender === 1}
+                                onChange={onChange}
+                            />
+                        </Form.Group>
+                        <Form.Button color="red" content="Create" />
+                    </Form>
+                </Modal.Content>
+            </Modal>
+        )
     );
 
     const columns = useMemo(() => [
@@ -144,10 +146,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            {character !== null && !setLoading ? (<div>
-                                {character.count > 0 && (
-                                    <div><small>You have <b>{character.count}</b> characters in the list.</small><br/></div>
-                                )}
+                            {character !== null && !setLoading ? (
                                 <DataTable
                                     title="Characters"
                                     columns={columns}
@@ -158,7 +157,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                                     highlightOnHover
                                     defaultSortField="lastlogin"
                                 />
-                            </div>) : (
+                            ) : (
                                 <Loader isLoading={setLoading} />
                             )}
                         </Segment>
