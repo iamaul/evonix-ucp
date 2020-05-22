@@ -46,7 +46,7 @@ const ExpandedData = ({ data }) => (
 
 const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: null });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: '' });
     const { firstname, lastname, gender } = formData;
 
     useEffect(() => {
@@ -56,16 +56,12 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
 
     const onModalClose = () => setOpen(false);
 
-    const onChange = e => {
-        const { target } = e;
-        setFormData(prev => ({ ...prev, [target.name]: target.value }));
-    };
+    const onChange = (e, target) => setFormData({ ...formData, [target.name]: target.value });
 
     const onSubmit = e => {
         e.preventDefault();
         
         createCharacter({ firstname, lastname, gender });
-        onModalClose();
     }
 
     const actions = (
@@ -95,23 +91,23 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                         placeholder="Last Name"
                         onChange={onChange}
                     />
-                    <Form.Field>Gender:</Form.Field><br/>
-                    <input
-                        type="radio"
-                        name="gender"
-                        value={0}
-                        checked={gender === 0}
-                        onChange={onChange}
-                    />{' '}
-                    Male{' '}
-                    <input
-                        type="radio"
-                        name="gender"
-                        value={1}
-                        checked={gender === 1}
-                        onChange={onChange}
-                    />{' '}
-                    Female
+                    <Form.Group inline>
+                        <Form.Field>Gender:</Form.Field>
+                        <Form.Radio
+                            label="Male"
+                            name="gender"
+                            value={0}
+                            checked={gender === 0}
+                            onChange={onChange}
+                        />
+                        <Form.Radio
+                            label="Female"
+                            name="gender"
+                            value={1}
+                            checked={gender === 1}
+                            onChange={onChange}
+                        />
+                    </Form.Group>
                     <Form.Button color="red" content="Create" />
                 </Form>
             </Modal.Content>
