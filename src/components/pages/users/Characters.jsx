@@ -21,13 +21,13 @@ import { getUserCharacters, createCharacter } from '../../actions/character';
 
 const ExpandedData = ({ data }) => (
     <Grid>
-        <Grid.Column width={4}>
-            <Image src={`/assets/skins/${data.skin_id}.png`} size="massive" />
+        <Grid.Column width={5}>
+            <Image src={`/assets/skins/${data.skin_id}.png`} />
         </Grid.Column>
-        <Grid.Column width={9}>
+        <Grid.Column width={11}>
             <p style={{ textAlign: 'justify' }}>
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
-                <b>Date of Birth</b>: {data.birth_day}/{data.birth_month}/{data.birth_year}<br/>
+                <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
                 <b>Exp</b>: {data.exp}<br/>
                 <b>Money</b>: {data.money}<br/>
                 <b>Bank</b>: {data.bank}<br/>
@@ -37,7 +37,7 @@ const ExpandedData = ({ data }) => (
                 <b>Health</b>: {data.health}<br/>
                 <b>Armour</b>: {data.armour}<br/>
                 <b>Phone Number</b>: {data.phone_number}<br/>
-                <b>Playtime</b>: {data.play_second} seconds, {data.play_minute} minutes, and {data.play_hour} hours
+                <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}
             </p>
         </Grid.Column>
     </Grid>
