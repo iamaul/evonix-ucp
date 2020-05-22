@@ -80,7 +80,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
                     <Header as="h2" textAlign="center">
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
-                    <Form size="large" onSubmit={e => onSubmit(e)}>
+                    <Form size="large" onSubmit={onSubmit}>
                         <Segment color="red" stacked>
                             <Form.Input
                                 type="text"
@@ -89,7 +89,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
                                 icon="user" 
                                 iconPosition="left"  
                                 placeholder="Username" 
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid 
                             />
                             <Form.Input 
@@ -99,7 +99,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
                                 icon="envelope" 
                                 iconPosition="left"  
                                 placeholder="Email Address"
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid 
                             />
                             <Form.Input
@@ -109,7 +109,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
                                 icon="lock"
                                 iconPosition="left"
                                 placeholder="Password"
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid
                             />
                             <Form.Input
@@ -119,13 +119,13 @@ const Register = ({ userRegister, isAuthenticated }) => {
                                 icon="lock"
                                 iconPosition="left"
                                 placeholder="Confirm Password"
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid
                             />
                             <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                             /><br/>
                             <Form.Button color="red" fluid size="large" content="Sign Up" />
                         </Segment>

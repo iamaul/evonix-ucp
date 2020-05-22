@@ -46,7 +46,7 @@ const ExpandedData = ({ data }) => (
 
 const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: '' });
     const { firstname, lastname, gender } = formData;
 
     useEffect(() => {
@@ -68,36 +68,36 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         >
             <Header icon="user plus" content="Create A New Character" />
             <Modal.Content>
-                <Form onSubmit={e => onSubmit(e)}>
+                <Form onSubmit={onSubmit}>
                     <Form.Input
                         type="text"
                         name="firstname"
                         value={firstname}
                         placeholder="First Name"
-                        onChange={c => onChange(c)}
+                        onChange={onChange}
                     />
                     <Form.Input
                         type="text"
                         name="lastname"
                         value={lastname}
                         placeholder="Last Name"
-                        onChange={c => onChange(c)}
+                        onChange={onChange}
                     />
                     <Form.Group inline>
                         <Form.Field>Gender:</Form.Field>
                         <Form.Radio
                             label="Male"
                             name="gender"
-                            value={0}
-                            checked={gender === 0}
-                            onChange={c => onChange(c)}
+                            value="male"
+                            checked={gender === 'male'}
+                            onChange={onChange}
                         />
                         <Form.Radio
                             label="Female"
                             name="gender"
-                            value={1}
-                            checked={gender === 1}
-                            onChange={c => onChange(c)}
+                            value="female"
+                            checked={gender === 'female'}
+                            onChange={onChange}
                         />
                     </Form.Group>
                     <Form.Button color="red" content="Create" />
@@ -130,7 +130,10 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         // eslint-disable-next-line
     ], []);
 
-    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
+    const onChange = e => {
+        const { target } = e;
+        setFormData(prev => ({ ...prev, [target.name]: target.value }));
+    };
 
     const onSubmit = e => {
         e.preventDefault();

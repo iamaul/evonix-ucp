@@ -46,7 +46,7 @@ const Login = ({ userLogin, isAuthenticated }) => {
                     <Header as="h2" textAlign="center">
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
-                    <Form size="large" onSubmit={e => onSubmit(e)}>
+                    <Form size="large" onSubmit={onSubmit}>
                         <Segment color="red" stacked>
                             <Form.Input 
                                 type="text"
@@ -55,7 +55,7 @@ const Login = ({ userLogin, isAuthenticated }) => {
                                 icon="user" 
                                 iconPosition="left" 
                                 placeholder="Username or Email Address"
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid 
                             />
                             <Form.Input
@@ -65,7 +65,7 @@ const Login = ({ userLogin, isAuthenticated }) => {
                                 icon="lock"
                                 iconPosition="left"
                                 placeholder="Password"
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid
                             />
                             <Form.Button color="red" fluid size="large" content="Sign In" />

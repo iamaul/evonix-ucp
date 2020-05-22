@@ -52,7 +52,7 @@ const ChangePassword = ({ userChangePassword }) => {
                     icon="lock"
                     iconPosition="left"
                     placeholder="Old Password"
-                    onChange={c => onChange(c)}
+                    onChange={onChange}
                     fluid
                 />
                 <Form.Input
@@ -62,7 +62,7 @@ const ChangePassword = ({ userChangePassword }) => {
                     icon="lock"
                     iconPosition="left"
                     placeholder="New Password"
-                    onChange={c => onChange(c)}
+                    onChange={onChange}
                     fluid
                 />
                 <Form.Input
@@ -72,7 +72,7 @@ const ChangePassword = ({ userChangePassword }) => {
                     icon="lock"
                     iconPosition="left"
                     placeholder="Confirm New Password"
-                    onChange={c => onChange(c)}
+                    onChange={onChange}
                     fluid
                 />
                 <Form.Button color="red" size="medium" content="Change" />

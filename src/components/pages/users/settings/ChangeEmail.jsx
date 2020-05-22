@@ -32,7 +32,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
                     icon="envelope"
                     iconPosition="left"
                     placeholder={currentEmail}
-                    onChange={c => onChange(c)}
+                    onChange={onChange}
                 />
                 <Form.Button color="red" content="Change" />
             </Form>

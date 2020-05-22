@@ -39,7 +39,7 @@ const ForgotPassword = ({ userForgotPassword }) => {
                     <Header as="h2" textAlign="center">
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
-                    <Form size="large" onSubmit={e => onSubmit(e)}>
+                    <Form size="large" onSubmit={onSubmit}>
                         <Segment color="red" stacked>
                             <Form.Input 
                                 type="email"
@@ -48,7 +48,7 @@ const ForgotPassword = ({ userForgotPassword }) => {
                                 icon="envelope" 
                                 iconPosition="left" 
                                 placeholder="Email Address"
-                                onChange={c => onChange(c)}
+                                onChange={onChange}
                                 fluid 
                             />
                             <Form.Button color="red" fluid size="large" content="Reset" />
