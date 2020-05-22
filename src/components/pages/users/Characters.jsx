@@ -1,19 +1,21 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 import DataTable from 'react-data-table-component';
 import { 
-    Button, 
     Segment, 
     Grid, 
-    Image
+    Image,
+    Divider,
+    Moment,
+    Form
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
 
-import { getUserCharacters } from '../../actions/character';
+import { getUserCharacters, createCharacter } from '../../actions/character';
 
 const ExpandedData = ({ data }) => (
     <Grid>
@@ -40,7 +42,7 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const Characters = ({ getUserCharacters , character: { character, setLoading } }) => {
+const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
 
     useEffect(() => {
         getUserCharacters();
@@ -48,19 +50,6 @@ const Characters = ({ getUserCharacters , character: { character, setLoading } }
     }, []);
 
     const { count, rows } = character;
-
-    const actions = (
-        <div>
-            <Button
-                content="Create A New Character"
-                color="green"
-                size="small"
-                as={Link}
-                to="/characters/create"
-            /><br/>
-            <small>You have created {count} characters.</small>
-        </div>
-    );
 
     const columns = useMemo(() => [
         {
@@ -86,6 +75,18 @@ const Characters = ({ getUserCharacters , character: { character, setLoading } }
         // eslint-disable-next-line
     ], []);
 
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: 0 });
+
+    const { firstname, lastname, gender } = formData;
+
+    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value });
+
+    const onSubmit = e => {
+        e.preventDefault();
+        
+        createCharacter({ firstname, lastname, gender });
+    }
+
     return (
         <>
             <section id="characters">
@@ -93,19 +94,67 @@ const Characters = ({ getUserCharacters , character: { character, setLoading } }
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            {rows !== null && !setLoading ? (
-                                <DataTable
-                                    title="Characters"
-                                    columns={columns}
-                                    data={rows}
-                                    expandableRows
-                                    expandableRowsComponent={<ExpandedData />}
-                                    highlightOnHover
-                                    defaultSortField="lastlogin"
-                                />
-                            ) : (
-                                <Loader isLoading={setLoading} />
-                            )}
+                        <Grid columns={2} padded>
+                            <Grid.Column>
+                                <Form size="small" onSubmit={e => onSubmit(e)}>
+                                    <Form.Input
+                                        type="text"
+                                        name="firstname"
+                                        value={firstname}
+                                        placeholder="First Name"
+                                        onChange={c => onChange(c)}
+                                    />
+                                    <Form.Input
+                                        type="text"
+                                        name="lastname"
+                                        value={lastname}
+                                        placeholder="Last Name"
+                                        onChange={c => onChange(c)}
+                                    />
+                                    <Form.Group inline>
+                                        <label>Gender:</label>
+                                        <Form.Radio
+                                            label="Male"
+                                            name="gender"
+                                            value={0}
+                                            checked={gender === 0}
+                                            onChange={c => onChange(c)}
+                                        />
+                                        <Form.Radio
+                                            label="Female"
+                                            name="gender"
+                                            value={1}
+                                            checked={gender === 1}
+                                            onChange={c => onChange(c)}
+                                        />
+                                        <Form.Radio
+                                            label="Other"
+                                            name="gender"
+                                            value={2}
+                                            checked={gender === 2}
+                                            onChange={c => onChange(c)}
+                                        />
+                                    </Form.Group>
+                                    <Form.Button color="red" content="Create" />
+                                </Form>
+                            </Grid.Column>
+                            <Grid.Column>
+                                {rows !== null && !setLoading ? (<div>
+                                    <small>You have created {count} characters.</small><br/>
+                                    <DataTable
+                                        title="Characters"
+                                        columns={columns}
+                                        data={rows}
+                                        expandableRows
+                                        expandableRowsComponent={<ExpandedData />}
+                                        highlightOnHover
+                                        defaultSortField="lastlogin"
+                                    />
+                                </div>) : (
+                                    <Loader isLoading={setLoading} />
+                                )}
+                            </Grid.Column>
+                        </Grid>
                         </Segment>
                     </Grid.Column>
                 </Grid>
@@ -115,7 +164,8 @@ const Characters = ({ getUserCharacters , character: { character, setLoading } }
 }
 
 Characters.propTypes = {
-    getUserCharacters: PropTypes.func.isRequired
+    getUserCharacters: PropTypes.func.isRequired,
+    createCharacter: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -123,4 +173,4 @@ const mapStateToProps = state => ({
     character: state.character
 });
 
-export default connect(mapStateToProps, { getUserCharacters })(Characters);
+export default connect(mapStateToProps, { getUserCharacters, createCharacter })(Characters);

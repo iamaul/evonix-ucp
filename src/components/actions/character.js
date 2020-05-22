@@ -4,14 +4,12 @@ import {
     GET_USER_CHARACTERS,
     GET_USER_CHARACTERS_FAIL,
     CHARACTER_CREATED,
-    CHARACTER_CREATED_FAIL,
-    SHOW_CHARACTER_DETAIL,
-    SHOW_CHARACTER_DETAIL_FAIL
+    CHARACTER_CREATED_FAIL
 } from './types';
 
 const Toast = Swal.mixin({
     toast: true,
-    position: 'center'
+    position: 'top-end'
 });
 
 export const getUserCharacters = () => async dispatch => {
@@ -60,21 +58,21 @@ export const createCharacter = ({ firstname, lastname, gender }) => async dispat
     }
 }
 
-export const showCharacterDetail = charId => async dispatch => {
-    try {
-        const res = await axios.get(`/api/v1/characters/${charId}`);
-        dispatch({ type: SHOW_CHARACTER_DETAIL, payload: res.data });
-    } catch (error) {
-        const errors = error.response.data.errors;
-        if (errors) {
-            errors.map(err => {
-                return Toast.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: err.msg
-                });
-            });
-        }
-        dispatch({ type: SHOW_CHARACTER_DETAIL_FAIL });
-    }       
-}
+// export const showCharacterDetail = charId => async dispatch => {
+//     try {
+//         const res = await axios.get(`/api/v1/characters/${charId}`);
+//         dispatch({ type: SHOW_CHARACTER_DETAIL, payload: res.data });
+//     } catch (error) {
+//         const errors = error.response.data.errors;
+//         if (errors) {
+//             errors.map(err => {
+//                 return Toast.fire({
+//                     icon: 'error',
+//                     title: 'Oops...',
+//                     text: err.msg
+//                 });
+//             });
+//         }
+//         dispatch({ type: SHOW_CHARACTER_DETAIL_FAIL });
+//     }       
+// }
