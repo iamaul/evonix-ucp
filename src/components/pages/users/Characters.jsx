@@ -56,6 +56,18 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
 
     const onModalClose = () => setOpen(false);
 
+    const onChange = e => {
+        const { target } = e;
+        setFormData(prev => ({ ...prev, [target.name]: target.value }));
+    };
+
+    const onSubmit = e => {
+        e.preventDefault();
+        
+        createCharacter({ firstname, lastname, gender });
+        onModalClose();
+    }
+
     const actions = (
         <Modal 
             size="tiny" 
@@ -129,17 +141,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         }
         // eslint-disable-next-line
     ], []);
-
-    const onChange = e => {
-        const { target } = e;
-        setFormData(prev => ({ ...prev, [target.name]: target.value }));
-    };
-
-    const onSubmit = e => {
-        e.preventDefault();
-        
-        createCharacter({ firstname, lastname, gender });
-    }
 
     return (
         <>
