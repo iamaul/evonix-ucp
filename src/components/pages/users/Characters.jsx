@@ -10,7 +10,8 @@ import {
     Form,
     Modal,
     Button,
-    Header
+    Header,
+    Icon
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
