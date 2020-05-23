@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
     Segment,
@@ -22,21 +21,13 @@ const Dashboard = ({
     getCountServerUsers,
     getCountServerVehicles,
     getCountServerProperties, 
-    stats: { total_users, player_vehicles, player_properties, setLoading },
-    auth: { user }
+    stats: { total_users, player_vehicles, player_properties, setLoading }
 }) => {
     useEffect(() => {
         getCountServerUsers();
         getCountServerVehicles();
         getCountServerProperties();
     }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties])
-
-    if (user.status === 0 
-        || user.status === 1 
-        || user.status === 2
-    ) {
-        return <Redirect to="/applications" />;
-    }
 
     return (
         <>
@@ -88,13 +79,11 @@ Dashboard.propTypes = {
     getCountServerUsers: PropTypes.func.isRequired,
     getCountServerVehicles: PropTypes.func.isRequired,
     getCountServerProperties: PropTypes.func.isRequired,
-    stats: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
+    stats: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    stats: state.stats,
-    auth: state.auth
+    stats: state.stats
 });
 
 export default connect(mapStateToProps, { 

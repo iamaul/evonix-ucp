@@ -43,6 +43,10 @@ export const createCharacter = ({ firstname, lastname, gender }) => async dispat
     try {
         const res = await axios.post('/api/v1/characters/new', body, config);
         dispatch({ type: CHARACTER_CREATED, payload: res.data });
+        Toast.fire({
+            icon: 'success',
+            text: 'You have successfully created a character.'
+        });
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
