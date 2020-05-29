@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import {
     GET_NEWS,
     GET_NEWS_FAIL,
+    GET_HEADLINE_NEWS,
+    GET_HEADLINE_NEWS_FAIL,
     GET_NEWS_DETAIL,
     GET_NEWS_DETAIL_FAIL
 } from './types';
