@@ -30,10 +30,10 @@ const Navbar = ({ auth: { isAuthenticated, setLoading, user }, userLogout }) => 
     )
 
     const guestMenu = (
-        <Button.Group size="mini">
-            <Button as={Link} to="/login">Sign In</Button>
+        <Button.Group>
+            <Button as={Link} to="/login" size="small">Sign In</Button>
             <Button.Or />
-            <Button color="red" as={Link} to="/register">Sign Up</Button>
+            <Button color="red" as={Link} to="/register" size="small">Sign Up</Button>
         </Button.Group>
     )
 

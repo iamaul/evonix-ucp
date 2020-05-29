@@ -38,7 +38,7 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                                         <span className="cinema"><Moment unix format="lll">{item.created_at}</Moment> by {item.newsCreatedBy && item.newsCreatedBy.name}</span>
                                     </Item.Meta>
                                     <Item.Description>
-                                        <Truncate lines={70} ellipsis={<span>...</span>}>
+                                        <Truncate lines={50} ellipsis={<span>...</span>}>
                                             {parse(item.content)}
                                         </Truncate> 
                                     </Item.Description>

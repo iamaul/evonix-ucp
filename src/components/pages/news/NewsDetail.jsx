@@ -26,7 +26,7 @@ const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match })
                         Last updated on <Moment unix format="lll">{news_detail.updated_at}</Moment> by {news_detail.newsUpdatedBy && news_detail.newsUpdatedBy.name}
                     </Container>)}
                     <Container textAlign="justified">
-                        Posted by {news_detail.newsCreatedBy && news_detail.newsUpdatedBy.name} on <Moment unix format="lll">{news_detail.created_at}</Moment>
+                        Posted by {news_detail.newsCreatedBy && news_detail.newsCreatedBy.name} on <Moment unix format="lll">{news_detail.created_at}</Moment>
                         <Divider />
                         {parse(news_detail.content)}
                     </Container>

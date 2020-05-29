@@ -25,7 +25,7 @@ const Home = ({ getHeadlineNews, news: { headline_news, setLoading } }) => {
         <>
             <section id="latest-news">
                 <h1 className="head">Latest News</h1>
-                <Link to="/news"><Header as="h5" floated="right" >View All</Header></Link>
+                <Link to="/news"><Header as="h5" floated="right">View All</Header></Link>
                 <Divider />
                 {headline_news === null && !setLoading && (
                     <Header icon="search" size="medium" as="h3" textAlign="center">There is no latest news to display.</Header>

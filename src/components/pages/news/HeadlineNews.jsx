@@ -20,7 +20,7 @@ const HeadlineNews = ({ headlineNews }) => {
                     <span className="cinema"><Moment unix format="lll">{created_at}</Moment> by {newsCreatedBy && newsCreatedBy.name}</span>
                 </Item.Meta>
                 <Item.Description>
-                    <Truncate lines={70} ellipsis={<span>...</span>}>
+                    <Truncate lines={50} ellipsis={<span>...</span>}>
                         {parse(content)}
                     </Truncate> 
                 </Item.Description>
