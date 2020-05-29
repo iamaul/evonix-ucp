@@ -18,7 +18,7 @@ const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match })
         <>
             <section id="news-detail">
                 {news_detail !== null && !setLoading ? (<div>
-                    <h3 className="head">{news.detail.title}</h3>
+                    <h3 className="head">{news_detail.title}</h3>
                     <Divider />
                     <Container textAlign="center">
                         <Image size="medium" src={news_detail.image} centered />
