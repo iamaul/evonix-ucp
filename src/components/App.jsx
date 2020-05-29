@@ -15,6 +15,8 @@ import Home from './Home';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
+import NewsFeed from './pages/news/NewsFeed';
+import NewsDetail from './pages/news/NewsDetail';
 import Footer from './layouts/footer/Footer';
 import Page404 from './pages/error/Page404';
 
@@ -44,6 +46,8 @@ const App = () => {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/forgot/password" component={ForgotPassword} />
+                        <Route exact path="/news" component={NewsFeed} />
+                        <Route exact path="/news/:slug" component={NewsDetail} />
                         <PrivateRoute exact path="/applications" component={Quiz} />
                         <Fragment>
                             <Header />
