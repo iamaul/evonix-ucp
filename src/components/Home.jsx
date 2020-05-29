@@ -15,7 +15,7 @@ import Loader from './layouts/loader/Loader';
 
 import { getHeadlineNews } from './actions/news';
 
-const Home = ({ getHeadlineNews, headline_news: { headline_news, setLoading } }) => {
+const Home = ({ getHeadlineNews, news: { headline_news, setLoading } }) => {
     useEffect(() => {
         getHeadlineNews();
         // eslint-disable-next-line
@@ -59,11 +59,11 @@ const Home = ({ getHeadlineNews, headline_news: { headline_news, setLoading } })
 
 Home.propTypes = {
     getHeadlineNews: PropTypes.func.isRequired,
-    headline_news: PropTypes.object.isRequired
+    news: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    headline_news: state.headline_news
+    news: state.news
 });
 
 export default connect(mapStateToProps, { getHeadlineNews })(Home);

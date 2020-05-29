@@ -9,7 +9,7 @@ import Loader from '../../layouts/loader/Loader';
 
 import { getNewsDetail } from '../../actions/news';
 
-const NewsDetail = ({ getNewsDetail, news_detail: { news_detail, setLoading }, match }) => {
+const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match }) => {
     useEffect(() => {
         getNewsDetail(match.params.slug)
     }, [getNewsDetail, match.params.slug]);
@@ -38,11 +38,11 @@ const NewsDetail = ({ getNewsDetail, news_detail: { news_detail, setLoading }, m
 
 NewsDetail.propTypes = {
     getNewsDetail: PropTypes.func.isRequired,
-    news_detail: PropTypes.object.isRequired
+    news: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    news_detail: state.news_detail
+    news: state.news
 });
 
 export default connect(mapStateToProps, { getNewsDetail })(NewsDetail);
