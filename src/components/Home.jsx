@@ -7,7 +7,8 @@ import {
     Image,
     Item, 
     Divider,
-    Header
+    Header,
+    Icon
 } from 'semantic-ui-react';
 
 import HeadlineNews from './pages/news/HeadlineNews';
