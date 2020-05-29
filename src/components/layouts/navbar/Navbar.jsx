@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Dropdown, Menu, Icon } from 'semantic-ui-react';
+import { Dropdown, Menu, Icon, Button } from 'semantic-ui-react';
 
 import { userLogout } from '../../actions/auth';
 
@@ -30,26 +30,11 @@ const Navbar = ({ auth: { isAuthenticated, setLoading, user }, userLogout }) => 
     )
 
     const guestMenu = (
-        <Dropdown
-            text="Guest"
-            icon="user circle"
-            floating
-            labeled
-            button
-            className="icon"
-        >
-            <Dropdown.Menu>
-                <Dropdown.Header content="You're not signed in" />
-                <Dropdown.Item as={NavLink} to="/login">
-                    <Icon name="sign in" />
-                    Sign In
-                </Dropdown.Item>
-                <Dropdown.Item as={NavLink} to="/register">
-                    <Icon name="signup" />
-                    Sign Up
-                </Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
+        <Button.Group size="mini">
+            <Button as={Link} to="/login">Sign In</Button>
+            <Button.Or />
+            <Button color="red" as={Link} to="/register">Sign Up</Button>
+        </Button.Group>
     )
 
     return (

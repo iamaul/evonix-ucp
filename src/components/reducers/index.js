@@ -7,6 +7,7 @@ import samp from './samp';
 import stats from './stats';
 import quiz from './quiz';
 import character from './character';
+import news from './news';
 
 export default combineReducers({
     alert,
@@ -15,5 +16,6 @@ export default combineReducers({
     samp,
     stats,
     quiz,
-    character
+    character,
+    news
 });

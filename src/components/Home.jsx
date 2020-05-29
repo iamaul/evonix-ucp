@@ -1,81 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { 
     Grid, 
     Image,
     Item, 
-    Button, 
-    Icon,
-    Divider
+    Divider,
+    Header
 } from 'semantic-ui-react';
 
-const Home = () => {
+import HeadlineNews from './pages/news/HeadlineNews';
+import Loader from './layouts/loader/Loader';
+
+import { getHeadlineNews } from './actions/news';
+
+const Home = ({ getHeadlineNews, headline_news: { headline_news, setLoading } }) => {
+    useEffect(() => {
+        getHeadlineNews();
+        // eslint-disable-next-line
+    }, []);
+
     return (
         <>
-            <section id="news">
-                <h1 className="head">News</h1>
+            <section id="latest-news">
+                <h1 className="head">Latest News</h1>
+                <Link to="/news"><Header as="h5" floated="right" >View All</Header></Link>
                 <Divider />
-                <Item.Group divided>
-                    <Item>
-                        <Item.Image src="https://place-hold.it/800x800&text=Image&fontsize=32" />
-
-                        <Item.Content>
-                            <Item.Header as="a">Title</Item.Header>
-                            <Item.Meta>
-                                <span className="cinema">createdAt - username</span>
-                            </Item.Meta>
-                            <Item.Description>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia, magna et hendrerit hendrerit, justo arcu euismod ex, sit amet vestibulum velit nisi ac nulla. In in sagittis sem, in volutpat nulla. Nullam ullamcorper pellentesque nunc, non tempor nisi ultricies sed. Curabitur eget malesuada nibh. Vivamus dictum purus sed ex volutpat bibendum id non nisi. Curabitur ac vestibulum mauris. Donec facilisis malesuada mi eget accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet malesuada leo, vitae aliquam ipsum. Nunc blandit nisl rhoncus luctus rhoncus. Vivamus ex tellus, volutpat ac diam in, tempus pulvinar enim.
-                            </Item.Description>
-                            <Item.Extra>
-                                <Button secondary size="mini">
-                                    Read more
-                                    <Icon name="right chevron" />
-                                </Button>
-                            </Item.Extra>
-                        </Item.Content>
-                    </Item>
-
-                    <Item>
-                        <Item.Image src="https://place-hold.it/800x800&text=Image&fontsize=32" />
-
-                        <Item.Content>
-                            <Item.Header as="a">Title</Item.Header>
-                            <Item.Meta>
-                                <span className="cinema">createdAt - username</span>
-                            </Item.Meta>
-                            <Item.Description>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia, magna et hendrerit hendrerit, justo arcu euismod ex, sit amet vestibulum velit nisi ac nulla. In in sagittis sem, in volutpat nulla. Nullam ullamcorper pellentesque nunc, non tempor nisi ultricies sed. Curabitur eget malesuada nibh. Vivamus dictum purus sed ex volutpat bibendum id non nisi. Curabitur ac vestibulum mauris. Donec facilisis malesuada mi eget accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet malesuada leo, vitae aliquam ipsum. Nunc blandit nisl rhoncus luctus rhoncus. Vivamus ex tellus, volutpat ac diam in, tempus pulvinar enim.
-                            </Item.Description>
-                            <Item.Extra>
-                                <Button secondary size="mini">
-                                    Read more
-                                    <Icon name="right chevron" />
-                                </Button>
-                            </Item.Extra>
-                        </Item.Content>
-                    </Item>
-
-                    <Item>
-                        <Item.Image src="https://place-hold.it/800x800&text=Image&fontsize=32" />
-
-                        <Item.Content>
-                            <Item.Header as="a">Title</Item.Header>
-                            <Item.Meta>
-                                <span className="cinema">createdAt - username</span>
-                            </Item.Meta>
-                            <Item.Description>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia, magna et hendrerit hendrerit, justo arcu euismod ex, sit amet vestibulum velit nisi ac nulla. In in sagittis sem, in volutpat nulla. Nullam ullamcorper pellentesque nunc, non tempor nisi ultricies sed. Curabitur eget malesuada nibh. Vivamus dictum purus sed ex volutpat bibendum id non nisi. Curabitur ac vestibulum mauris. Donec facilisis malesuada mi eget accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet malesuada leo, vitae aliquam ipsum. Nunc blandit nisl rhoncus luctus rhoncus. Vivamus ex tellus, volutpat ac diam in, tempus pulvinar enim.
-                            </Item.Description>
-                            <Item.Extra>
-                                <Button secondary size="mini">
-                                    Read more
-                                    <Icon name="right chevron" />
-                                </Button>
-                            </Item.Extra>
-                        </Item.Content>
-                    </Item>
-                </Item.Group>
+                {headline_news === null && headline_news.length === 0 && !setLoading && (
+                    <Header icon="search" size="medium" as="h3" textAlign="center">There is no latest news to display.</Header>
+                )}
+                {headline_news !== null && !setLoading ? (
+                    <Item.Group divided>
+                        {headline_news.map(news => (
+                            <HeadlineNews key={news.id} headlineNews={news} />
+                        ))}
+                    </Item.Group>
+                ) : (<Loader isLoading={setLoading} />)}
             </section>
             <section id="quick-links">
                 <h1 className="head">Quick Links</h1>
@@ -96,4 +57,13 @@ const Home = () => {
     )
 }
 
-export default Home;
+Home.propTypes = {
+    getHeadlineNews: PropTypes.func.isRequired,
+    headline_news: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    headline_news: state.headline_news
+});
+
+export default connect(mapStateToProps, { getHeadlineNews })(Home);

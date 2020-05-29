@@ -171,11 +171,11 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
 
 Characters.propTypes = {
     getUserCharacters: PropTypes.func.isRequired,
-    createCharacter: PropTypes.func.isRequired
+    createCharacter: PropTypes.func.isRequired,
+    character: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth,
     character: state.character
 });
 

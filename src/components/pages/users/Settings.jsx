@@ -17,7 +17,7 @@ const Settings = ({ auth: { user }}) => {
                         <Message.Header>Warning</Message.Header>
                         <p>
                             Hey! You have not yet verified your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
-                            <b>Note</b>: Verifying your email address will improves the security of your account.
+                            <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   
                 }
