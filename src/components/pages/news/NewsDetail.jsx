@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import parse from 'html-react-parser';
-import { Container, Image, Divider } from 'semantic-ui-react';
+import { Container, Image, Divider, Header, Button } from 'semantic-ui-react';
 
 import Loader from '../../layouts/loader/Loader';
 
@@ -18,10 +18,12 @@ const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match })
         <>
             <section id="news-detail">
                 {news_detail !== null && !setLoading ? (<div>
-                    <h3 className="head">{news_detail.title}</h3>
+                    <h1 className="head">News</h1>
+                    {/* <Button circular icon="linkify" label="Share" size="small" floated="right" /> */}
                     <Divider />
                     <Container textAlign="center">
-                        <Image size="medium" src={news_detail.image} centered />
+                        <Image size="massive" src={news_detail.image} centered />
+                        <Header as="h2">{news_detail.title}</Header>
                     </Container>
                     {news_detail.updated_at !== null && (
                         <Container textAlign="right">
