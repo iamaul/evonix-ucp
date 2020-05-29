@@ -25,13 +25,10 @@ const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match })
                         <Image size="massive" src={news_detail.image} centered />
                         <Header as="h2">{news_detail.title}</Header>
                     </Container>
-                    {news_detail.updated_at !== null && (
-                        <Container textAlign="right">
-                            Last updated on <Moment unix format="lll">{news_detail.updated_at}</Moment> by {news_detail.newsUpdatedBy && news_detail.newsUpdatedBy.name}
-                        </Container>)
-                    }
                     <Container textAlign="justified">
-                        Posted by {news_detail.newsCreatedBy && news_detail.newsCreatedBy.name} on <Moment unix format="lll">{news_detail.created_at}</Moment>
+                        Posted by <b>{news_detail.newsCreatedBy && news_detail.newsCreatedBy.name}</b> on <Moment unix format="lll">{news_detail.created_at}</Moment>
+                        {news_detail.updated_at !== null && (
+                            <><br/>Last updated on <Moment unix format="lll">{news_detail.updated_at}</Moment> by <b>{news_detail.newsUpdatedBy && news_detail.newsUpdatedBy.name}</b></>)}
                         <Divider />
                         {parse(news_detail.content)}
                     </Container>
