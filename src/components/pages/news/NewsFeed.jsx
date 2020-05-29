@@ -2,10 +2,14 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 import parse from 'html-react-parser';
-import { Divider, Header, Item } from 'semantic-ui-react';
+import Truncate from 'react-truncate';
+import { Divider, Header, Item, Button, Icon } from 'semantic-ui-react';
 
 import Loader from '../../layouts/loader/Loader';
+
+import { getNews } from '../../actions/news';
 
 const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
     useEffect(() => {
