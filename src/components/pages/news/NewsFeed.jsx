@@ -26,8 +26,8 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                     <Header icon="search" size="medium" as="h3" textAlign="center">There is no news to display.</Header>
                 )}
                 {news !== null && !setLoading ? (
-                    news.map((item, index) => (
-                        <Item.Group divided>
+                    <Item.Group divided>
+                        {news.map((item, index) => (
                             <Item key={index}>
                                 {/* <Item.Image src="https://place-hold.it/800x800&text=Image&fontsize=32" /> */}
                                 <Item.Image src={item.image} />
@@ -50,8 +50,8 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                                     </Item.Extra>
                                 </Item.Content>
                             </Item>
-                        </Item.Group>
-                    ))
+                        ))}
+                    </Item.Group>
                 ) : (<Loader isLoading={setLoading} />)}
             </section>
         </>

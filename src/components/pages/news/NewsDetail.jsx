@@ -18,16 +18,19 @@ const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match })
         <>
             <section id="news-detail">
                 {news_detail !== null && !setLoading ? (<div>
+                    <h3 className="head">{news.detail.title}</h3>
+                    <Divider />
                     <Container textAlign="center">
-                        <Image size="massive" src={news_detail.image} />
+                        <Image size="medium" src={news_detail.image} centered />
                     </Container>
                     {news_detail.updated_at !== null && (
-                    <Container textAlign="right">
-                        Last updated on <Moment unix format="lll">{news_detail.updated_at}</Moment> by {news_detail.newsUpdatedBy && news_detail.newsUpdatedBy.name}
-                    </Container>)}
+                        <Container textAlign="right">
+                            Last updated on <Moment unix format="lll">{news_detail.updated_at}</Moment> by {news_detail.newsUpdatedBy && news_detail.newsUpdatedBy.name}
+                        </Container>)
+                    }
                     <Container textAlign="justified">
                         Posted by {news_detail.newsCreatedBy && news_detail.newsCreatedBy.name} on <Moment unix format="lll">{news_detail.created_at}</Moment>
-                        <Divider />
+                        <Divider hidden />
                         {parse(news_detail.content)}
                     </Container>
                 </div>) : (<Loader isLoading={setLoading} />)}
