@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import parse from 'html-react-parser';
-import { Container, Image, Divider, Header, Button } from 'semantic-ui-react';
+import { Container, Image, Divider, Header } from 'semantic-ui-react';
 
 import Loader from '../../layouts/loader/Loader';
 
@@ -32,7 +32,7 @@ const NewsDetail = ({ getNewsDetail, news: { news_detail, setLoading }, match })
                     }
                     <Container textAlign="justified">
                         Posted by {news_detail.newsCreatedBy && news_detail.newsCreatedBy.name} on <Moment unix format="lll">{news_detail.created_at}</Moment>
-                        <Divider hidden />
+                        <Divider />
                         {parse(news_detail.content)}
                     </Container>
                 </div>) : (<Loader isLoading={setLoading} />)}

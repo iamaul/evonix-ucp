@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import parse from 'html-react-parser';
 import Truncate from 'react-truncate';
 import { Divider, Header, Item, Button, Icon } from 'semantic-ui-react';
 
@@ -23,7 +22,7 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                 <h1 className="head">News</h1>
                 <Divider />
                 {news === null && !setLoading && (
-                    <Header icon="search" size="medium" as="h3" textAlign="center">There is no news to display.</Header>
+                    <Header size="medium" as="h3" textAlign="center"><Icon name="search" /><Header.Content>Oops... there is no news to display.</Header.Content></Header>
                 )}
                 {news !== null && !setLoading ? (
                     <Item.Group divided>
@@ -38,8 +37,8 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                                         <span className="cinema"><Moment unix format="lll">{item.created_at}</Moment> by {item.newsCreatedBy && item.newsCreatedBy.name}</span>
                                     </Item.Meta>
                                     <Item.Description>
-                                        <Truncate lines={50} ellipsis={<span>...</span>}>
-                                            {parse(item.content)}
+                                        <Truncate lines={50} ellipsis={<span>...</span>} children={}>
+                                            {item.content}
                                         </Truncate> 
                                     </Item.Description>
                                     <Item.Extra>

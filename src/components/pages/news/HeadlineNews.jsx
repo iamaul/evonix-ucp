@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import parse from 'html-react-parser';
 import Truncate from 'react-truncate';
 import { Item, Button, Icon } from 'semantic-ui-react';
 
@@ -21,7 +20,7 @@ const HeadlineNews = ({ headlineNews }) => {
                 </Item.Meta>
                 <Item.Description>
                     <Truncate lines={50} ellipsis={<span>...</span>}>
-                        {parse(content)}
+                        {content}
                     </Truncate> 
                 </Item.Description>
                 <Item.Extra>

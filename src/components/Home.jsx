@@ -28,7 +28,7 @@ const Home = ({ getHeadlineNews, news: { headline_news, setLoading } }) => {
                 <Link to="/news"><Header as="h5" floated="right">View All</Header></Link>
                 <Divider />
                 {headline_news === null && !setLoading && (
-                    <Header icon="search" size="medium" as="h3" textAlign="center">There is no latest news to display.</Header>
+                    <Header size="medium" as="h3" textAlign="center"><Icon name="search" /><Header.Content>Oops... there is no news to display.</Header.Content></Header>
                 )}
                 {headline_news !== null && !setLoading ? (
                     <Item.Group divided>
