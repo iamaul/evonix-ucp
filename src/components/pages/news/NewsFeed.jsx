@@ -26,7 +26,7 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                     <Header icon="search" size="medium" as="h3" textAlign="center">There is no news to display.</Header>
                 )}
                 {news !== null && !setLoading ? (
-                    news.rows.map((item, index) => (
+                    news.map((item, index) => (
                         <Item.Group divided>
                             <Item key={index}>
                                 {/* <Item.Image src="https://place-hold.it/800x800&text=Image&fontsize=32" /> */}
