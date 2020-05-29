@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import Truncate from 'react-truncate';
+import parse from 'html-react-parser';
 import { Divider, Header, Item, Button, Icon } from 'semantic-ui-react';
 
 import Loader from '../../layouts/loader/Loader';
@@ -37,8 +38,8 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
                                         <span className="cinema"><Moment unix format="lll">{item.created_at}</Moment> by {item.newsCreatedBy && item.newsCreatedBy.name}</span>
                                     </Item.Meta>
                                     <Item.Description>
-                                        <Truncate lines={50} ellipsis={<span>...</span>}>
-                                            {item.content}
+                                        <Truncate lines={3} ellipsis={<span>...</span>}>
+                                            {parse(item.content)}
                                         </Truncate> 
                                     </Item.Description>
                                     <Item.Extra>
