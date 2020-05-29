@@ -22,7 +22,7 @@ const NewsFeed = ({ getNews, news: { news, setLoading } }) => {
             <section id="news">
                 <h1 className="head">News</h1>
                 <Divider />
-                {news === null && !setLoading && (
+                {news !== null && news.length === 0 && !setLoading && (
                     <Header size="medium" as="h3" textAlign="center"><Icon name="search" /><Header.Content>Oops... there is no news to display.</Header.Content></Header>
                 )}
                 {news !== null && !setLoading ? (
