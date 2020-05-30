@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import { Grid, Image, Label, Icon, Segment } from 'semantic-ui-react';
 
-import { getCharacterVehicles } from '../../../actions/vehicle';
+import { getCharacterVehicles } from '../../../actions/character';
 
 import Sidebar from '../../../layouts/sidebar/Sidebar';
 import Loader from '../../../layouts/loader/Loader';
@@ -19,10 +19,10 @@ const ExpandedData = ({ data }) => (
                 <b>Model</b>: {data.model}<br/>
                 <b>World</b>: {data.world}<br/>
                 <b>Interior</b>: {data.interior}<br/>
-                <b>Damage Panels</b>: {data.damage_panels === 0 ? (<Icon name="smile">Good</Icon>) : (<Icon name="frown">Bad</Icon>)}<br/>
-                <b>Damage Doors</b>: {data.damage_doors === 0 ? (<Icon name="smile">Good</Icon>) : (<Icon name="frown">Bad</Icon>)}<br/>
-                <b>Damage Lights</b>: {data.damage_lights === 0 ? (<Icon name="smile">Good</Icon>) : (<Icon name="frown">Bad</Icon>)}<br/>
-                <b>Damage Tires</b>: {data.damage_tires === 0 ? (<Icon name="smile">Good</Icon>) : (<Icon name="frown">Bad</Icon>)}<br/>
+                <b>Damage Panels</b>: {data.damage_panels === 0 ? 'Good' : 'Bad'}<br/>
+                <b>Damage Doors</b>: {data.damage_doors === 0 ? 'Good' : 'Bad'}<br/>
+                <b>Damage Lights</b>: {data.damage_lights === 0 ? 'Good' : 'Bad'}<br/>
+                <b>Damage Tires</b>: {data.damage_tires === 0 ? 'Good' : 'Bad'}<br/>
                 <b>Health</b>: {data.health}<br/>
                 <b>Max Health</b>: {data.max_health}<br/>
                 <b>Fuel</b>: {data.fuel}<br/>
@@ -32,7 +32,7 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const CharacterVehicle = ({ getCharacterVehicles, vehicle: { vehicle, setLoading }, match }) => {
+const CharacterVehicle = ({ getCharacterVehicles, character: { vehicle, setLoading }, match }) => {
     useEffect(() => {
         getCharacterVehicles(match.params.id);
     }, [getCharacterVehicles, match.params.id]);
@@ -95,11 +95,11 @@ const CharacterVehicle = ({ getCharacterVehicles, vehicle: { vehicle, setLoading
 
 CharacterVehicle.propTypes = {
     getCharacterVehicles: PropTypes.func.isRequired,
-    vehicle: PropTypes.object.isRequired
+    character: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    vehicle: state.vehicle
+    character: state.character
 });
 
 export default connect(mapStateToProps, { getCharacterVehicles })(CharacterVehicle);

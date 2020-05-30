@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import NumberFormat from 'react-number-format';
-import { Grid, Label, Icon, Segment, Header } from 'semantic-ui-react';
+import { Grid, Label, Icon, Segment } from 'semantic-ui-react';
 
-import { getCharacterProperty } from '../../../actions/property';
+import { getCharacterProperty } from '../../../actions/character';
 
 import Sidebar from '../../../layouts/sidebar/Sidebar';
 import Loader from '../../../layouts/loader/Loader';
 
-const CharacterProperty = ({ getCharacterProperty, property: { property, setLoading }, match }) => {
+const CharacterProperty = ({ getCharacterProperty, character: { property, setLoading }, match }) => {
     useEffect(() => {
         getCharacterProperty(match.params.id);
     }, [getCharacterProperty, match.params.id]);
@@ -78,11 +78,11 @@ const CharacterProperty = ({ getCharacterProperty, property: { property, setLoad
 
 CharacterProperty.propTypes = {
     getCharacterProperty: PropTypes.func.isRequired,
-    property: PropTypes.object.isRequired
+    character: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    property: state.property
+    character: state.character
 });
 
 export default connect(mapStateToProps, { getCharacterProperty })(CharacterProperty);

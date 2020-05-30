@@ -8,8 +8,6 @@ import stats from './stats';
 import quiz from './quiz';
 import character from './character';
 import news from './news';
-import vehicle from './vehicle';
-import property from './property';
 
 export default combineReducers({
     alert,
@@ -19,7 +17,5 @@ export default combineReducers({
     stats,
     quiz,
     character,
-    news,
-    vehicle,
-    property
+    news
 });
