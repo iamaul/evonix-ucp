@@ -59,7 +59,7 @@ const CharacterProperty = ({ getCharacterProperty, property: { property, setLoad
                         <Segment>
                             {property !== null && !setLoading ? (
                                 <DataTable
-                                    title={`${property.propertyChar && property.propertyChar.name}'s Property List`}
+                                    title={`${property.propertyChar.name}'s Property List`}
                                     columns={columns}
                                     data={property}
                                     highlightOnHover

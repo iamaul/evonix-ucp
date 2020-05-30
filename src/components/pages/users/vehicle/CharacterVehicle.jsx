@@ -74,7 +74,7 @@ const CharacterVehicle = ({ getCharacterVehicles, vehicle: { vehicle, setLoading
                         <Segment>
                             {vehicle !== null && !setLoading ? (
                                 <DataTable
-                                    title={`${vehicle.vehicleChar && vehicle.vehicleChar.name}'s Vehicle List`}
+                                    title={`${vehicle.vehicleChar.name}'s Vehicle List`}
                                     columns={columns}
                                     data={vehicle}
                                     expandableRows
