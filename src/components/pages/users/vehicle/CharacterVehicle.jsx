@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
-import { Grid, Image, Label, Icon, Segment, Header } from 'semantic-ui-react';
+import { Grid, Image, Label, Icon, Segment } from 'semantic-ui-react';
 
 import { getCharacterVehicles } from '../../../actions/vehicle';
 
@@ -19,10 +19,10 @@ const ExpandedData = ({ data }) => (
                 <b>Model</b>: {data.model}<br/>
                 <b>World</b>: {data.world}<br/>
                 <b>Interior</b>: {data.interior}<br/>
-                <b>Damage Panels</b>: {data.damage_panels}<br/>
-                <b>Damage Doors</b>: {data.damage_doors}<br/>
-                <b>Damage Lights</b>: {data.damage_lights}<br/>
-                <b>Damage Tires</b>: {data.damage_tires}<br/>
+                <b>Damage Panels</b>: {data.damage_panels === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
+                <b>Damage Doors</b>: {data.damage_doors === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
+                <b>Damage Lights</b>: {data.damage_lights === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
+                <b>Damage Tires</b>: {data.damage_tires === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
                 <b>Health</b>: {data.health}<br/>
                 <b>Max Health</b>: {data.max_health}<br/>
                 <b>Fuel</b>: {data.fuel}<br/>
