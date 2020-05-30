@@ -72,9 +72,10 @@ const CharacterVehicle = ({ getCharacterVehicles, vehicle: { vehicle, setLoading
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            {vehicle !== null && !setLoading ? (
+                            {vehicle !== null && !setLoading ? (<div>
+                                <Header as="h5">{vehicle.vehicleChar && vehicle.vehicleChar.name}</Header>
                                 <DataTable
-                                    title={`${vehicle.vehicleChar.name}'s Vehicle List`}
+                                    title="Vehicle List"
                                     columns={columns}
                                     data={vehicle}
                                     expandableRows
@@ -82,7 +83,7 @@ const CharacterVehicle = ({ getCharacterVehicles, vehicle: { vehicle, setLoading
                                     highlightOnHover
                                     defaultSortField="mileage"
                                 />
-                            ) : (
+                            </div>) : (
                                 <Loader isLoading={setLoading} />
                             )}
                         </Segment>

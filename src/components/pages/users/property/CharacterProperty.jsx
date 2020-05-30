@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import NumberFormat from 'react-number-format';
-import { Grid, Label, Icon, Segment } from 'semantic-ui-react';
+import { Grid, Label, Icon, Segment, Header } from 'semantic-ui-react';
 
 import { getCharacterProperty } from '../../../actions/property';
 
@@ -57,15 +57,16 @@ const CharacterProperty = ({ getCharacterProperty, property: { property, setLoad
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            {property !== null && !setLoading ? (
+                            {property !== null && !setLoading ? (<div>
+                                <Header as="h5">{property.propertyChar && property.propertyChar.name}</Header>
                                 <DataTable
-                                    title={`${property.propertyChar.name}'s Property List`}
+                                    title="Property List"
                                     columns={columns}
                                     data={property}
                                     highlightOnHover
                                     defaultSortField="price"
                                 />
-                            ) : (
+                            </div>) : (
                                 <Loader isLoading={setLoading} />
                             )}
                         </Segment>

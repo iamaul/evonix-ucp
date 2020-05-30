@@ -1,11 +1,9 @@
 import {
-    GET_CHARACTER_VEHICLES,
-    GET_CHARACTER_VEHICLES_FAIL
+    GET_CHARACTER_VEHICLES
 } from '../actions/types';
 
 const INITIAL_STATE = {
     vehicle: null,
-    error: {},
     setLoading: true
 }
 
@@ -17,12 +15,6 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 vehicle: payload,
-                setLoading: false
-            }
-        case GET_CHARACTER_VEHICLES_FAIL:
-            return {
-                ...state,
-                error: payload,
                 setLoading: false
             }
         default: return state;
