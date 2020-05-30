@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
-import { Grid, Image, Label, Icon, Segment } from 'semantic-ui-react';
+import { Grid, Image, Label, Icon, Segment, Header } from 'semantic-ui-react';
 
 import { getCharacterVehicles } from '../../../actions/vehicle';
 
