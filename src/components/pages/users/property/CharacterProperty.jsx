@@ -58,9 +58,8 @@ const CharacterProperty = ({ getCharacterProperty, property: { property, setLoad
                     <Grid.Column stretched width={12}>
                         <Segment>
                             {property !== null && !setLoading ? (<div>
-                                <Header as="h5">{property.propertyChar && property.propertyChar.name}</Header>
                                 <DataTable
-                                    title="Property List"
+                                    title={`${match.params.name}'s Property List`}
                                     columns={columns}
                                     data={property}
                                     highlightOnHover

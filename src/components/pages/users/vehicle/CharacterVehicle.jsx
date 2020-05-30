@@ -73,9 +73,8 @@ const CharacterVehicle = ({ getCharacterVehicles, vehicle: { vehicle, setLoading
                     <Grid.Column stretched width={12}>
                         <Segment>
                             {vehicle !== null && !setLoading ? (<div>
-                                <Header as="h5">{vehicle.vehicleChar && vehicle.vehicleChar.name}</Header>
                                 <DataTable
-                                    title="Vehicle List"
+                                    title={`${match.params.name}'s Vehicle List`}
                                     columns={columns}
                                     data={vehicle}
                                     expandableRows

@@ -20,8 +20,8 @@ const Routes = () => {
             {/* <Route exact path="/blog" component={BlogList} /> */}
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/characters" component={Characters} />
-            <PrivateRoute exact path="/characters/:id/vehicle" component={CharacterVehicle} />
-            <PrivateRoute exact path="/characters/:id/property" component={CharacterProperty} />
+            <PrivateRoute exact path="/characters/:name/vehicle/:id" component={CharacterVehicle} />
+            <PrivateRoute exact path="/characters/:name/property/:id" component={CharacterProperty} />
             <PrivateRoute exact path="/settings" component={Settings} />
         </Switch>
     )
