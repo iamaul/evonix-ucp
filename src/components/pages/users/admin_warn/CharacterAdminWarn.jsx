@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
+import Moment from 'react-moment';
 import { Grid, Segment } from 'semantic-ui-react';
 
 import { getCharacterAdminWarns } from '../../../actions/character';
