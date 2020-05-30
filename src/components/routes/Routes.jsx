@@ -6,6 +6,8 @@ import NewsFeed from '../pages/news/NewsFeed';
 import NewsDetail from '../pages/news/NewsDetail';
 import Dashboard from '../pages/users/Dashboard';
 import Characters from '../pages/users/Characters';
+import CharacterVehicle from '../pages/users/vehicle/CharacterVehicle';
+import CharacterProperty from '../pages/users/property/CharacterProperty';
 import Settings from '../pages/users/Settings';
 
 import PrivateRoute from './PrivateRoute';
@@ -18,6 +20,8 @@ const Routes = () => {
             {/* <Route exact path="/blog" component={BlogList} /> */}
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/characters" component={Characters} />
+            <PrivateRoute exact path="/characters/:id/vehicle" component={CharacterVehicle} />
+            <PrivateRoute exact path="/characters/:id/property" component={CharacterProperty} />
             <PrivateRoute exact path="/settings" component={Settings} />
         </Switch>
     )

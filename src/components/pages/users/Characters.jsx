@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import DataTable from 'react-data-table-component';
+import NumberFormat from 'react-number-format';
 import { 
     Segment, 
     Grid, 
@@ -29,15 +31,17 @@ const ExpandedData = ({ data }) => (
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
                 <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
                 <b>Exp</b>: {data.exp}<br/>
-                <b>Money</b>: {data.money}<br/>
-                <b>Bank</b>: {data.bank}<br/>
-                <b>Bank Saving</b>: {data.bank_saving}<br/>
-                <b>Paycheck</b>: {data.paycheck}<br/>
+                <b>Money</b>: <NumberFormat value={data.money} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
+                <b>Bank</b>: <NumberFormat value={data.bank} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
+                <b>Bank Saving</b>: <NumberFormat value={data.bank_saving} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
+                <b>Paycheck</b>: <NumberFormat value={data.paycheck} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
                 <b>Max Health</b>: {data.max_health}<br/>
                 <b>Health</b>: {data.health}<br/>
                 <b>Armour</b>: {data.armour}<br/>
                 <b>Phone Number</b>: {data.phone_number}<br/>
-                <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}
+                <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}<br/>
+                <Link to={`/characters/${data.id}/vehicle`} target="_blank">My Vehicle</Link><br/>
+                <Link to={`/characters/${data.id}/property`} target="_blank">My Property</Link>
             </p>
         </Grid.Column>
     </Grid>
