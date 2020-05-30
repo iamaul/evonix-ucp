@@ -19,10 +19,10 @@ const ExpandedData = ({ data }) => (
                 <b>Model</b>: {data.model}<br/>
                 <b>World</b>: {data.world}<br/>
                 <b>Interior</b>: {data.interior}<br/>
-                <b>Damage Panels</b>: {data.damage_panels === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
-                <b>Damage Doors</b>: {data.damage_doors === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
-                <b>Damage Lights</b>: {data.damage_lights === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
-                <b>Damage Tires</b>: {data.damage_tires === 0 ? (<Label color="green"><Icon name="smile outline" />Good</Label>) : (<Label color="red"><Icon name="frown outline" />Bad</Label>)}<br/>
+                <b>Damage Panels</b>: {data.damage_panels === 0 ? (<Icon name="smile outline" size="small">Good</Icon>) : (<Icon name="frown outline" size="small">Bad</Icon>)}<br/>
+                <b>Damage Doors</b>: {data.damage_doors === 0 ? (<Icon name="smile outline" size="small">Good</Icon>) : (<Icon name="frown outline" size="small">Bad</Icon>)}<br/>
+                <b>Damage Lights</b>: {data.damage_lights === 0 ? (<Icon name="smile outline" size="small">Good</Icon>) : (<Icon name="frown outline" size="small">Bad</Icon>)}<br/>
+                <b>Damage Tires</b>: {data.damage_tires === 0 ? (<Icon name="smile outline" size="small">Good</Icon>) : (<Icon name="frown outline" size="small">Bad</Icon>)}<br/>
                 <b>Health</b>: {data.health}<br/>
                 <b>Max Health</b>: {data.max_health}<br/>
                 <b>Fuel</b>: {data.fuel}<br/>

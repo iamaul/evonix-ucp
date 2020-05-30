@@ -26,14 +26,12 @@ const Home = ({ getHeadlineNews, news: { headline_news, setLoading } }) => {
         <>
             <section id="latest-news">
                 <h1 className="head">Latest News</h1>
-                {headline_news !== null && (
-                    <Link to="/news"><Header as="h5" floated="right">View All</Header></Link>
-                )}
                 <Divider />
                 {headline_news !== null && headline_news.length === 0 && !setLoading && (
                     <Header size="medium" as="h3" textAlign="center"><Icon name="search" /><Header.Content>Oops... there is no news to display.</Header.Content></Header>
                 )}
                 {headline_news !== null && !setLoading ? (
+                    <Link to="/news"><Header as="h5" floated="right">View All</Header></Link>
                     <Item.Group divided>
                         {headline_news.map(news => (
                             <HeadlineNews key={news.id} headlineNews={news} />
