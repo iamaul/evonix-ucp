@@ -30,14 +30,14 @@ const Home = ({ getHeadlineNews, news: { headline_news, setLoading } }) => {
                 {headline_news !== null && headline_news.length === 0 && !setLoading && (
                     <Header size="medium" as="h3" textAlign="center"><Icon name="search" /><Header.Content>Oops... there is no news to display.</Header.Content></Header>
                 )}
-                {headline_news !== null && !setLoading ? (
+                {headline_news !== null && !setLoading ? (<>
                     <Link to="/news"><Header as="h5" floated="right">View All</Header></Link>
                     <Item.Group divided>
                         {headline_news.map(news => (
                             <HeadlineNews key={news.id} headlineNews={news} />
                         ))}
                     </Item.Group>
-                ) : (<Loader isLoading={setLoading} />)}
+                </>) : (<Loader isLoading={setLoading} />)}
             </section>
             <section id="quick-links">
                 <h1 className="head">Quick Links</h1>
