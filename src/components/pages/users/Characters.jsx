@@ -40,8 +40,8 @@ const ExpandedData = ({ data }) => (
                 <b>Armour</b>: {data.armour}<br/>
                 <b>Phone Number</b>: {data.phone_number}<br/>
                 <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}<br/>
-                <Link to={`/characters/${data.id}/vehicle`} target="_blank">My Vehicle</Link><br/>
-                <Link to={`/characters/${data.id}/property`} target="_blank">My Property</Link>
+                <b><Link to={`/characters/${data.id}/vehicle`} target="_blank">My Vehicle</Link></b><br/>
+                <b><Link to={`/characters/${data.id}/property`} target="_blank">My Property</Link></b>
             </p>
         </Grid.Column>
     </Grid>
