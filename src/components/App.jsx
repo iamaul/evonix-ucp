@@ -15,6 +15,7 @@ import Home from './Home';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
+import ForgotPassword from './pages/auth/ResetPassword';
 import ConfirmEmailVerification from './pages/auth/ConfirmEmailVerification';
 import Footer from './layouts/footer/Footer';
 import Page404 from './pages/error/Page404';
@@ -45,6 +46,7 @@ const App = () => {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/forgot/password" component={ForgotPassword} />
+                        <Route exact path="/forgot/password/:code" component={ResetPassword} />
                         <PrivateRoute exact path="/email/verification/:code" component={ConfirmEmailVerification} />
                         <PrivateRoute exact path="/applications" component={Quiz} />
                         <Fragment>
