@@ -10,7 +10,8 @@ import {
     Header, 
     Image, 
     Segment,
-    Icon
+    Icon,
+    Button
 } from 'semantic-ui-react';
 
 import { userResetPassword } from '../../actions/auth';
