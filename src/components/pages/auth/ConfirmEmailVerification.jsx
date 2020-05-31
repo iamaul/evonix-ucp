@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
     Grid,
@@ -21,10 +21,6 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
         userConfirmEmailVerification(match.params.code);
     }, [userConfirmEmailVerification, match.params.code]);
 
-    const onClickBack = () => {
-        return <Redirect to="/dashboard" />;
-    }
-
     return (
         <>
             <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
@@ -34,12 +30,13 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
                     </Header>
                     <Segment color="red" stacked>
                         {confirm_email_verification !== null && !setLoading ? (<>
-                            <Image src="https://media.giphy.com/media/U8f2H1xkfBvyxJhk0e/giphy.gif" centered size="medium" /><br/>
+                            <Image src="https://media.giphy.com/media/U8f2H1xkfBvyxJhk0e/giphy.gif" centered size="small" /><br/>
                             {confirm_email_verification.msg}
                             <Divider hidden />
                             <Button
                                 info
-                                onClick={onClickBack}
+                                as={Link}
+                                to="/dashboard"
                             >
                                 <Icon name="arrow alternate circle left"/>Back to Dashboard
                             </Button>
