@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
     Grid,
     Header,
@@ -21,6 +21,10 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
         userConfirmEmailVerification(match.params.code);
     }, [userConfirmEmailVerification, match.params.code]);
 
+    const onClickBack = () => {
+        return <Redirect to="/dashboard" />;
+    }
+
     return (
         <>
             <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
@@ -35,8 +39,7 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
                             <Divider hidden />
                             <Button
                                 info
-                                as={Redirect}
-                                to="/dashboard"
+                                onClick={onClickBack}
                             >
                                 <Icon name="arrow alternate circle left"/>Back to Dashboard
                             </Button>
