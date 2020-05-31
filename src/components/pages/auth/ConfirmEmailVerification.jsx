@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {
     Grid,
     Header,
@@ -35,7 +35,7 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
                             <Divider hidden />
                             <Button
                                 info
-                                as={Link}
+                                as={Redirect}
                                 to="/dashboard"
                             >
                                 <Icon name="arrow alternate circle left"/>Back to Dashboard
