@@ -92,7 +92,7 @@ export const userLogin = ({ usermail, password }) => async dispatch => {
 
 export const userVerifyEmail = () => async dispatch => {
     try {
-        const res = await axios.post('/api/v1/auth/email/verification');
+        const res = await axios.post('/api/v1/users/email/verification');
         dispatch({ type: EMAIL_VERIFICATION_SENT });
         Toast.fire({
             icon: 'success',
@@ -115,7 +115,7 @@ export const userVerifyEmail = () => async dispatch => {
 
 export const userConfirmEmailVerification = (code) => async dispatch => {
     try {
-        const res = await axios.put(`/api/v1/auth/email/verification/${code}`);
+        const res = await axios.put(`/api/v1/users/email/verification/${code}`);
         dispatch({ type: CONFIRM_EMAIL_VERIFICATION, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
