@@ -30,7 +30,7 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
                     </Header>
                     <Segment color="red" stacked>
                         {confirm_email_verification !== null && !setLoading ? (<>
-                            <Image src="https://media.giphy.com/media/U8f2H1xkfBvyxJhk0e/giphy.gif" centered bordered /><br/>
+                            <Image src="https://media.giphy.com/media/U8f2H1xkfBvyxJhk0e/giphy.gif" centered size="medium" /><br/>
                             {confirm_email_verification.msg}
                             <Divider hidden />
                             <Button
