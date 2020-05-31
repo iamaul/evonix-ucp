@@ -18,7 +18,7 @@ import { userResetPassword } from '../../actions/auth';
 
 const ResetPassword = ({ userResetPassword, match }) => {
     const [formData, setformData] = useState({ password: '', confirm_password: '' });
-    const { new_password, confirm_password } = formData;
+    const { password, confirm_password } = formData;
     const { code } = match.params.code;
     const onChange = e => setformData({ ...formData, [e.target.name]: e.target.value });
 
@@ -40,14 +40,14 @@ const ResetPassword = ({ userResetPassword, match }) => {
                 title: 'Oops...',
                 text: 'Invalid reCAPTCHA response.'
             });
-        } else if (new_password !== confirm_password) {
+        } else if (password !== confirm_password) {
             Toast.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'The new password confirmation does not match.'
             });
         } else {
-            userResetPassword({ new_password, code });
+            userResetPassword({ password, code });
             setformData({ password: '', confirm_password: '' });
         }
     }
@@ -64,7 +64,7 @@ const ResetPassword = ({ userResetPassword, match }) => {
                             <Form.Input 
                                 type="password"
                                 name="password" 
-                                value={new_password}
+                                value={password}
                                 icon="lock" 
                                 iconPosition="left" 
                                 placeholder="New Password"
