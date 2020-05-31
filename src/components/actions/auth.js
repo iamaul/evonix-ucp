@@ -7,14 +7,19 @@ import {
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     FORGOT_PASSWORD_FAIL,
-    FORGOT_PASSWORD_SUCCESS,
+    FORGOT_PASSWORD_SENT,
+    RESET_NEW_PASSWORD,
+    RESET_NEW_PASSWORD_FAIL,
+    EMAIL_VERIFICATION_SENT,
+    EMAIL_VERIFICATION_FAIL,
     AUTH_ERROR,
     LOGOUT
 } from './types';
 
 const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end'
+    position: 'top-end',
+    showConfirmButton: true
 });
 
 export const userLoad = () => async dispatch => {
@@ -82,18 +87,10 @@ export const userLogin = ({ usermail, password }) => async dispatch => {
     }
 }
 
-export const userForgotPassword = ({ email }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
-    const body = JSON.stringify({ email });
-
+export const userVerifyEmail = () => async dispatch => {
     try {
-        const res = await axios.post('/api/v1/auth/reset', body, config);
-        dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: res.data });
+        const res = await axios.get('/api/v1/auth/email/verification');
+        dispatch({ type: EMAIL_VERIFICATION_SENT });
         Toast.fire({
             icon: 'success',
             text: res.data.msg
@@ -109,10 +106,88 @@ export const userForgotPassword = ({ email }) => async dispatch => {
                 });
             });
         }
-        dispatch({ type: FORGOT_PASSWORD_FAIL, payload: {
-            msg: error.response.statusText,
-            status: error.response.status
-        } });
+        dispatch({ type: EMAIL_VERIFICATION_FAIL });
+    }
+}
+
+export const userConfirmEmailVerification = (code) => async dispatch => {
+    try {
+        const res = await axios.get(`/api/v1/auth/email/verification/${code}`);
+        dispatch({ type: CONFIRM_EMAIL_VERIFICATION, payload: res.data });
+    } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+            errors.map(err => {
+                return Toast.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: err.msg
+                });
+            });
+        }
+        dispatch({ type: CONFIRM_EMAIL_VERIFICATION_FAIL });
+    }
+}
+
+export const userForgotPassword = ({ email }) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({ email });
+
+    try {
+        const res = await axios.post('/api/v1/auth/reset', body, config);
+        dispatch({ type: FORGOT_PASSWORD_SENT });
+        Toast.fire({
+            icon: 'success',
+            text: res.data.msg
+        });
+    } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+            errors.map(err => {
+                return Toast.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: err.msg
+                });
+            });
+        }
+        dispatch({ type: FORGOT_PASSWORD_FAIL });
+    }
+}
+
+export const userResetPassword = ({ password, code }) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({ password });
+
+    try {
+        const res = await axios.post(`/api/v1/auth/reset/${code}`, body, config);
+        dispatch({ type: RESET_NEW_PASSWORD });
+        Toast.fire({
+            icon: 'success',
+            text: res.data.msg
+        });
+    } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+            errors.map(err => {
+                return Toast.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: err.msg
+                });
+            });
+        }
+        dispatch({ type: RESET_NEW_PASSWORD_FAIL });
     }
 }
 

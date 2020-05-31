@@ -24,12 +24,12 @@ const Login = ({ userLogin, isAuthenticated }) => {
 
     const { usermail, password } = formData;
 
-    const onChange = c => setFormData({
+    const onChange = e => setFormData({
         ...formData,
-        [c.target.name]: c.target.value
+        [e.target.name]: e.target.value
     });
 
-    const onSubmit = async e => {
+    const onSubmit = e => {
         e.preventDefault();
 
         userLogin({ usermail, password });

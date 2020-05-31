@@ -1,7 +1,7 @@
 import React, { useState, createRef } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Swal from 'sweetalert2';
 import { 
@@ -9,40 +9,21 @@ import {
     Grid, 
     Header, 
     Image, 
-    Message, 
     Segment,
     Icon
 } from 'semantic-ui-react';
 
-import { userRegister } from '../../actions/auth';
+import { userResetPassword } from '../../actions/auth';
 
-// import evonixLogo from '../../../assets/images/evonix-logo.png';
-
-const Register = ({ userRegister, isAuthenticated }) => {
-    const initialState = {
-        username: '',
-        email: '',
-        password: '',
-        confirm_password: ''
-    }
-
-    const [formData, setFormData] = useState(initialState);
-
-    const {
-        username,
-        email,
-        password,
-        confirm_password
-    } = formData;
-
-    const onChange = e => setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
-    });
+const ResetPassword = ({ userResetPassword, match }) => {
+    const [formData, setformData] = useState({ password: '', confirm_password: '' });
+    const { new_password, confirm_password } = formData;
+    const { code } = match.params.code;
+    const onChange = e => setformData({ ...formData, [e.target.name]: e.target.value });
 
     const recaptchaRef = createRef();
     
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
 
         const recaptchaVal = recaptchaRef.current.getValue();
@@ -58,19 +39,15 @@ const Register = ({ userRegister, isAuthenticated }) => {
                 title: 'Oops...',
                 text: 'Invalid reCAPTCHA response.'
             });
-        } else if (password !== confirm_password) {
+        } else if (new_password !== confirm_password) {
             Toast.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'The password confirmation does not match.'
+                text: 'The new password confirmation does not match.'
             });
         } else {
-            userRegister({ username, email, password });
+            userResetPassword({ new_password, code });
         }
-    }
-
-    if (isAuthenticated) {
-        return <Redirect to="/applications" />;
     }
 
     return (
@@ -82,57 +59,42 @@ const Register = ({ userRegister, isAuthenticated }) => {
                     </Header>
                     <Form size="large" onSubmit={onSubmit}>
                         <Segment color="red" stacked>
-                            <Form.Input
-                                type="text"
-                                name="username"
-                                value={username}
-                                icon="user" 
-                                iconPosition="left"  
-                                placeholder="Username" 
+                            <Form.Input 
+                                type="password"
+                                name="password" 
+                                value={new_password}
+                                icon="lock" 
+                                iconPosition="left" 
+                                placeholder="New Password"
                                 onChange={onChange}
                                 fluid 
                             />
                             <Form.Input 
-                                type="email"
-                                name="email"
-                                value={email}
-                                icon="envelope" 
-                                iconPosition="left"  
-                                placeholder="Email Address"
+                                type="password"
+                                name="confirm_password" 
+                                value={confirm_password}
+                                icon="lock" 
+                                iconPosition="left" 
+                                placeholder="Confirm New Password"
                                 onChange={onChange}
                                 fluid 
-                            />
-                            <Form.Input
-                                type="password"
-                                name="password"
-                                value={password}
-                                icon="lock"
-                                iconPosition="left"
-                                placeholder="Password"
-                                onChange={onChange}
-                                fluid
-                            />
-                            <Form.Input
-                                type="password"
-                                name="confirm_password"
-                                value={confirm_password}
-                                icon="lock"
-                                iconPosition="left"
-                                placeholder="Confirm Password"
-                                onChange={onChange}
-                                fluid
                             />
                             <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
                                 onChange={onChange}
                             /><br/>
-                            <Form.Button color="red" fluid size="large" content="Sign Up" />
+                            <Form.Button color="red" fluid size="large" content="Reset" />
                         </Segment>
                     </Form>
-                    <Message info>
-                        Already have an account? <Link to="/login"><Icon name="sign in"/>Sign In</Link>
-                    </Message>
+                    <br/>
+                    <Button
+                        info
+                        as={Link}
+                        to="/login"
+                    >
+                        <Icon name="arrow alternate circle left"/>Back
+                    </Button>
                 </Grid.Column>
             </Grid>
             <footer>
@@ -164,13 +126,8 @@ const Register = ({ userRegister, isAuthenticated }) => {
     )
 }
 
-Register.propTypes = {
-    userRegister: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+ResetPassword.propTypes = {
+    userResetPassword: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-});
-
-export default connect(mapStateToProps, { userRegister })(Register);
+export default connect(null, { userResetPassword })(ResetPassword);

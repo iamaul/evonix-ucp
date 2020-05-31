@@ -4,8 +4,7 @@ import {
     REGISTER_SUCCESS,
     // LOGIN_FAIL,
     LOGIN_SUCCESS,
-    FORGOT_PASSWORD_FAIL,
-    FORGOT_PASSWORD_SUCCESS,
+    CONFIRM_EMAIL_VERIFICATION,
     AUTH_ERROR,
     LOGOUT
 } from '../actions/types';
@@ -14,6 +13,7 @@ const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     user: null,
+    confirm_email_verification: null,
     setLoading: true,
     error: {}
 }
@@ -44,16 +44,10 @@ export default function (state = INITIAL_STATE, action) {
                 isAuthenticated: true,
                 setLoading: false,
             }
-        case FORGOT_PASSWORD_SUCCESS:
+        case CONFIRM_EMAIL_VERIFICATION:
             return {
                 ...state,
-                ...payload,
-                setLoading: false
-            }
-        case FORGOT_PASSWORD_FAIL:
-            return {
-                ...state,
-                error: payload,
+                confirm_email_verification: payload,
                 setLoading: false
             }
         // case REGISTER_FAIL:

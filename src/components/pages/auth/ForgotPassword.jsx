@@ -17,19 +17,13 @@ import { userForgotPassword } from '../../actions/auth';
 // import evonixLogo from '../../../assets/images/evonix-logo.png';
 
 const ForgotPassword = ({ userForgotPassword }) => {
-    const [formData, setFormData] = useState({ email: '' });
+    const [email, setEmail] = useState('');
+    const onChange = e => setEmail(e.target.value);
 
-    const { email } = formData;
-
-    const onChange = c => setFormData({
-        ...formData,
-        [c.target.name]: c.target.value
-    });
-
-    const onSubmit = async e => {
+    const onSubmit = e => {
         e.preventDefault();
 
-        userForgotPassword({ email });
+        userForgotPassword(email);
     }
 
     return (
