@@ -47,6 +47,7 @@ const ResetPassword = ({ userResetPassword, match }) => {
             });
         } else {
             userResetPassword({ new_password, code });
+            setformData({ password: '', confirm_password: '' });
         }
     }
 

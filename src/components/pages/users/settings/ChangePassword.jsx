@@ -17,9 +17,9 @@ const ChangePassword = ({ userChangePassword }) => {
 
     const { old_password, password, confirm_password } = formData;
 
-    const onChange = c => setFormData({
+    const onChange = e => setFormData({
         ...formData,
-        [c.target.name]: c.target.value
+        [e.target.name]: e.target.value
     });
 
     const Toast = Swal.mixin({
@@ -27,7 +27,7 @@ const ChangePassword = ({ userChangePassword }) => {
         position: 'top-end'
     });
 
-    const onSubmit = async e => {
+    const onSubmit = e => {
         e.preventDefault();
 
         if (password !== confirm_password) {

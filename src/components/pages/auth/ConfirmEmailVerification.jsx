@@ -7,11 +7,14 @@ import {
     Header,
     Segment,
     Image,
+    Icon,
     Button,
     Divider
 } from 'semantic-ui-react';
 
 import { userConfirmEmailVerification } from '../../actions/auth';
+
+import Loader from '../../layouts/loader/Loader';
 
 const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confirm_email_verification, setLoading }, match }) => {
     useEffect(() => {
