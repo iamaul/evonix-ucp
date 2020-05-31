@@ -31,8 +31,10 @@ const Dashboard = ({
         getCountServerProperties();
     }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties])
 
-    if (user.status === 0 || user.status === 1 || user.status === 2) {
-        <Redirect to="/applications" />;
+    if (user !== null) {
+        if (user.status === 0 || user.status === 1 || user.status === 2) {
+            return <Redirect to="/applications" />;
+        }
     }
 
     return (
