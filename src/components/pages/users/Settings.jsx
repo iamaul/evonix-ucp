@@ -10,6 +10,10 @@ import ChangeEmail from './settings/ChangeEmail';
 import { userVerifyEmail } from '../../actions/auth';
 
 const Settings = ({ userVerifyEmail, auth: { user }}) => {
+    const onUserVerifyEmail = () => {
+        userVerifyEmail();
+    }
+
     return (
         <>
             <section id="settings">
@@ -17,7 +21,7 @@ const Settings = ({ userVerifyEmail, auth: { user }}) => {
                     <Message size="small" warning>
                         <Message.Header>Warning</Message.Header>
                         <p>
-                            Hey! You have not yet verified your email address to this account, please click <Button onClick={userVerifyEmail()} size="mini" content="here" /> to verify.<br/><br/>
+                            Hey! You have not yet verified your email address to this account, please click <Button onClick={onUserVerifyEmail} size="tiny" content="here" /> to verify.<br/><br/>
                             <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   
