@@ -87,11 +87,13 @@ Dashboard.propTypes = {
     getCountServerUsers: PropTypes.func.isRequired,
     getCountServerVehicles: PropTypes.func.isRequired,
     getCountServerProperties: PropTypes.func.isRequired,
-    stats: PropTypes.object.isRequired
+    stats: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    stats: state.stats
+    stats: state.stats,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { 
