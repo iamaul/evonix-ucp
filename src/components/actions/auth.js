@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../history';
 import Swal from 'sweetalert2';
 import {
     USER_LOADED,
@@ -162,21 +163,25 @@ export const userForgotPassword = (email) => async dispatch => {
     }
 }
 
-export const userResetPassword = ({ password, code }) => async dispatch => {
+export const userResetPassword = (password, code) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
 
-    const body = JSON.stringify({ password });
+    const data = { password };
 
     try {
-        const res = await axios.post(`/api/v1/auth/reset/${code}`, body, config);
+        const res = await axios.post(`/api/v1/auth/reset/${code}`, data, config);
         dispatch({ type: RESET_NEW_PASSWORD });
         Toast.fire({
             icon: 'success',
             text: res.data.msg
+        }).then((result) => {
+            if (result.value) {
+                history.push('/login');
+            }
         });
     } catch (error) {
         const errors = error.response.data.errors;

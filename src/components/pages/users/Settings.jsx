@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Header, Icon, Segment, Grid, Message } from 'semantic-ui-react';
+import { Header, Icon, Segment, Grid, Message, Button } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import ChangePassword from './settings/ChangePassword';
@@ -18,7 +17,7 @@ const Settings = ({ userVerifyEmail, auth: { user }}) => {
                     <Message size="small" warning>
                         <Message.Header>Warning</Message.Header>
                         <p>
-                            Hey! You have not yet verified your email address to this account, please click <Link onClick={userVerifyEmail()}>here</Link> to verify.<br/><br/>
+                            Hey! You have not yet verified your email address to this account, please click <Button onClick={userVerifyEmail()} size="mini" content="here" /> to verify.<br/><br/>
                             <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   

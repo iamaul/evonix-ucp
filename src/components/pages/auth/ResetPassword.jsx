@@ -17,10 +17,10 @@ import {
 import { userResetPassword } from '../../actions/auth';
 
 const ResetPassword = ({ userResetPassword, match }) => {
-    const [formData, setformData] = useState({ password: '', confirm_password: '' });
-    const { password, confirm_password } = formData;
-    const { code } = match.params.code;
-    const onChange = e => setformData({ ...formData, [e.target.name]: e.target.value });
+    const [password, setPassword] = useState('');
+    const [confirm_password, setConfirmPassword] = useState('');
+    const onPasswordChange = e => setPassword(e.target.value);
+    const onConfirmPasswordChange = e => setConfirmPassword(e.target.value);
 
     const recaptchaRef = createRef();
     
@@ -47,8 +47,7 @@ const ResetPassword = ({ userResetPassword, match }) => {
                 text: 'The new password confirmation does not match.'
             });
         } else {
-            userResetPassword({ password, code });
-            setformData({ password: '', confirm_password: '' });
+            userResetPassword(password, match.params.code);
         }
     }
 
@@ -68,7 +67,7 @@ const ResetPassword = ({ userResetPassword, match }) => {
                                 icon="lock" 
                                 iconPosition="left" 
                                 placeholder="New Password"
-                                onChange={onChange}
+                                onChange={onPasswordChange}
                                 fluid 
                             />
                             <Form.Input 
@@ -78,13 +77,12 @@ const ResetPassword = ({ userResetPassword, match }) => {
                                 icon="lock" 
                                 iconPosition="left" 
                                 placeholder="Confirm New Password"
-                                onChange={onChange}
+                                onChange={onConfirmPasswordChange}
                                 fluid 
                             />
                             <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                                onChange={onChange}
                             /><br/>
                             <Form.Button color="red" fluid size="large" content="Reset" />
                         </Segment>
