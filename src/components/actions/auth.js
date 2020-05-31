@@ -131,17 +131,17 @@ export const userConfirmEmailVerification = (code) => async dispatch => {
     }
 }
 
-export const userForgotPassword = ({ email }) => async dispatch => {
+export const userForgotPassword = (email) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
 
-    const body = JSON.stringify({ email });
+    const data = { email };
 
     try {
-        const res = await axios.post('/api/v1/auth/reset', body, config);
+        const res = await axios.post('/api/v1/auth/reset', data, config);
         dispatch({ type: FORGOT_PASSWORD_SENT });
         Toast.fire({
             icon: 'success',

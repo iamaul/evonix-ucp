@@ -8,7 +8,9 @@ import Sidebar from '../../layouts/sidebar/Sidebar';
 import ChangePassword from './settings/ChangePassword';
 import ChangeEmail from './settings/ChangeEmail';
 
-const Settings = ({ auth: { user }}) => {
+import { userVerifyEmail } from '../../actions/auth';
+
+const Settings = ({ userVerifyEmail, auth: { user }}) => {
     return (
         <>
             <section id="settings">
@@ -16,7 +18,7 @@ const Settings = ({ auth: { user }}) => {
                     <Message size="small" warning>
                         <Message.Header>Warning</Message.Header>
                         <p>
-                            Hey! You have not yet verified your email address to this account, please click <Link to="#">here</Link> to verify.<br/><br/>
+                            Hey! You have not yet verified your email address to this account, please click <Link onClick={userVerifyEmail()}>here</Link> to verify.<br/><br/>
                             <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   
@@ -55,6 +57,7 @@ const Settings = ({ auth: { user }}) => {
 }
 
 Settings.propTypes = {
+    userVerifyEmail: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
 
@@ -62,4 +65,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps)(Settings);
+export default connect(mapStateToProps, { userVerifyEmail })(Settings);
