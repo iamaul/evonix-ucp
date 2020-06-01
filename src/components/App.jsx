@@ -9,7 +9,7 @@ import history from './history';
 import Quiz from './pages/users/applications/Quiz';
 
 import Header from './layouts/header/Header';
-import BannerSlide from './slider/BannerSlide';
+// import BannerSlide from './slider/BannerSlide';
 import Home from './Home';
 
 import Login from './pages/auth/Login';
@@ -51,7 +51,7 @@ const App = () => {
                         <PrivateRoute exact path="/applications" component={Quiz} />
                         <Fragment>
                             <Header />
-                            <BannerSlide />
+                            {/* <BannerSlide /> */}
                             <Route exact path="/" component={Home} />
                             <Route component={Routes} />
                             <Footer />
