@@ -5,7 +5,7 @@ import { Image } from 'semantic-ui-react';
 const BannerSlide = () => {
     const params = {
         slidesPerView: 3,
-        spaceBetween: 30,
+        spaceBetween: 10,
         autoplay: {
             delay: 5000,
             disableOnInteraction: false
