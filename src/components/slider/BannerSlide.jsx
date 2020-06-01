@@ -5,7 +5,7 @@ import { Image } from 'semantic-ui-react';
 const BannerSlide = () => {
     const params = {
         slidesPerView: 'auto',
-        spaceBetween: 30,
+        spaceBetween: 10,
         loop: true,
         autoplay: {
             delay: 5000,
@@ -25,11 +25,11 @@ const BannerSlide = () => {
     return (
         <>
             <Swiper {...params}>
-                <span><Image src="/assets/images/banner_1.png" size="massive" rounded /></span>
-                <span><Image src="/assets/images/banner_2.png" size="massive" rounded /></span>
-                <span><Image src="/assets/images/banner_3.png" size="massive" rounded /></span>
-                <span><Image src="/assets/images/banner_4.png" size="massive" rounded /></span>
-                <span><Image src="/assets/images/banner_5.png" size="massive" rounded /></span>
+                <div className="swiper-slide"><Image src="/assets/images/banner_1.png" rounded /></div>
+                <div className="swiper-slide"><Image src="/assets/images/banner_2.png" rounded /></div>
+                <div className="swiper-slide"><Image src="/assets/images/banner_3.png" rounded /></div>
+                <div className="swiper-slide"><Image src="/assets/images/banner_4.png" rounded /></div>
+                <div className="swiper-slide"><Image src="/assets/images/banner_5.png" rounded /></div>
             </Swiper>
         </>
     )
