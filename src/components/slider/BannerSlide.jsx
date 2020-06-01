@@ -25,11 +25,11 @@ const BannerSlide = () => {
     return (
         <>
             <Swiper {...params}>
-                <div className="swiper-slide"><Image src="/assets/images/banner_1.png" rounded /></div>
-                <div className="swiper-slide"><Image src="/assets/images/banner_2.png" rounded /></div>
-                <div className="swiper-slide"><Image src="/assets/images/banner_3.png" rounded /></div>
-                <div className="swiper-slide"><Image src="/assets/images/banner_4.png" rounded /></div>
-                <div className="swiper-slide"><Image src="/assets/images/banner_5.png" rounded /></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_1.png" rounded /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_2.png" rounded /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_3.png" rounded /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_4.png" rounded /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_5.png" rounded /></span></div>
             </Swiper>
         </>
     )
