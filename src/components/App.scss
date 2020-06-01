@@ -42,14 +42,6 @@ section {
     align-items: center;
 }
 
-.swiper-slide:nth-child(2n) {
-    width: 60%;
-}
-
-.swiper-slide:nth-child(3n) {
-    width: 40%;
-}
-
 .swiper-button-prev, .swiper-button-next {
     color: #ff0000 !important;
 } 
