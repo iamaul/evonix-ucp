@@ -16,7 +16,7 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import ResetPassword from './pages/auth/ResetPassword';
-import ConfirmEmailVerification from './pages/auth/ConfirmEmailVerification';
+import ConfirmEmailVerification from './pages/users/settings/ConfirmEmailVerification';
 import Footer from './layouts/footer/Footer';
 import Page404 from './pages/error/Page404';
 

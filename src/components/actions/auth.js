@@ -11,18 +11,13 @@ import {
     FORGOT_PASSWORD_SENT,
     RESET_NEW_PASSWORD,
     RESET_NEW_PASSWORD_FAIL,
-    EMAIL_VERIFICATION_SENT,
-    EMAIL_VERIFICATION_FAIL,
-    CONFIRM_EMAIL_VERIFICATION,
-    CONFIRM_EMAIL_VERIFICATION_FAIL,
     AUTH_ERROR,
     LOGOUT
 } from './types';
 
 const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
-    showConfirmButton: true
+    position: 'top-end'
 });
 
 export const userLoad = () => async dispatch => {
@@ -90,48 +85,6 @@ export const userLogin = ({ usermail, password }) => async dispatch => {
     }
 }
 
-export const userVerifyEmail = () => async dispatch => {
-    try {
-        const res = await axios.post('/api/v1/users/email/verification');
-        dispatch({ type: EMAIL_VERIFICATION_SENT });
-        Toast.fire({
-            icon: 'success',
-            text: res.data.msg
-        });
-    } catch (error) {
-        const errors = error.response.data.errors;
-        if (errors) {
-            errors.map(err => {
-                return Toast.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: err.msg
-                });
-            });
-        }
-        dispatch({ type: EMAIL_VERIFICATION_FAIL });
-    }
-}
-
-export const userConfirmEmailVerification = (code) => async dispatch => {
-    try {
-        const res = await axios.put(`/api/v1/users/email/verification/${code}`);
-        dispatch({ type: CONFIRM_EMAIL_VERIFICATION, payload: res.data });
-    } catch (error) {
-        const errors = error.response.data.errors;
-        if (errors) {
-            errors.map(err => {
-                return Toast.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: err.msg
-                });
-            });
-        }
-        dispatch({ type: CONFIRM_EMAIL_VERIFICATION_FAIL });
-    }
-}
-
 export const userForgotPassword = (email) => async dispatch => {
     const config = {
         headers: {
@@ -148,6 +101,9 @@ export const userForgotPassword = (email) => async dispatch => {
             icon: 'success',
             text: res.data.msg
         });
+        setTimeout(function() {
+            history.push('/login');
+        }, 3000);
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {

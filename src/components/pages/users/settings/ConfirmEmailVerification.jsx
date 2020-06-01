@@ -12,11 +12,11 @@ import {
     Divider
 } from 'semantic-ui-react';
 
-import { userConfirmEmailVerification } from '../../actions/auth';
+import { userConfirmEmailVerification } from '../../../actions/account';
 
-import Loader from '../../layouts/loader/Loader';
+import Loader from '../../../layouts/loader/Loader';
 
-const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confirm_email_verification, setLoading }, match }) => {
+const ConfirmEmailVerification = ({ userConfirmEmailVerification, account: { confirm_email_verification, setLoading }, match }) => {
     useEffect(() => {
         userConfirmEmailVerification(match.params.code);
     }, [userConfirmEmailVerification, match.params.code]);
@@ -50,11 +50,11 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, auth: { confir
 
 ConfirmEmailVerification.propTypes = {
     userConfirmEmailVerification: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    account: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    account: state.account
 });
 
 export default connect(mapStateToProps, { userConfirmEmailVerification })(ConfirmEmailVerification);

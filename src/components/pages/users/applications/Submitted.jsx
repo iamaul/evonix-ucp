@@ -17,7 +17,7 @@ const Submitted = () => {
                         <Image src="/assets/images/evonix-logo.png" size="massive" />
                     </Header>
                     <Segment color="red" stacked>
-                        <Image src="https://media.giphy.com/media/h5Ct5uxV5RfwY/giphy.gif" centered bordered /><br/>
+                        <Image src="https://media.giphy.com/media/h5Ct5uxV5RfwY/giphy.gif" centered bordered size="medium" /><br/>
                         Finally, you have successfully submitted your application.
                         <Divider hidden />
                         <Button content="Continue" size="small" onClick={() => window.location.reload(false)} />

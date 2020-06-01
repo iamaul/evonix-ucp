@@ -19,7 +19,6 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
         e.preventDefault();
 
         userChangeEmail({ new_email });
-        setFormData({ new_email: '' });
     }
 
     return (

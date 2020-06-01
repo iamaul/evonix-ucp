@@ -60,7 +60,7 @@ const MultipleChoice = ({
         clearQuiz();
     }
 
-    let submitButton = maxSubmissions && score >= 70 ? (
+    let submitButton = score >= 70 ? (
         <Form.Button color="red" size="small" content="Save & Next" onClick={saveAndNext} /> 
     ) : maxSubmissions && score < 70 ? (
         <Form.Button content="Retry" color="red" size="small" onClick={goBack} />

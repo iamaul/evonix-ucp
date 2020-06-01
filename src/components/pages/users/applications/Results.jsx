@@ -27,11 +27,11 @@ const Results = ({ submissions, maxSubmissions, score }) => {
         print = (
             <Message success size="small">
                 <p style={{ textAlign: 'justify' }}>
-                    Your score was <b>{score}</b>, it means that you are {score >= 70 ? (<b>passed</b>) : (<b>failed</b>)} the quiz. {score < 70 && (
+                    Your score was <b>{score}</b>, it means that you have {score >= 70 ? (<b>passed</b>) : (<b>failed</b>)} the quiz. {score < 70 && (
                         <>Don't worry the quiz isn't ended yet for you. You still have 1 submission left, you can do fixing the incorrect questions answer below and press the button at the bottom of the page to submit your final score.</>
                     )}
                     {score >= 70 && (
-                        <>Wohooo <span role="img" aria-label="raised-hands">🙌</span>! You passed the quiz. You can now go to the next step, press the button at the bottom of the page to submit your final score!</>
+                        <>Wohooo <span role="img" aria-label="raised-hands">🙌</span>! You have passed the quiz. You can now go to the next step, press the button at the bottom of the page to submit your final score!</>
                     )}
                 </p>
             </Message>
