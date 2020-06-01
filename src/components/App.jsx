@@ -30,7 +30,7 @@ import { userLoad } from './actions/auth';
 
 // CSS/SCSS
 import './App.scss';
-import 'react-id-swiper/lib/styles/scss/swiper.scss';
+import 'swiper/swiper.scss'
 
 const App = () => {
     useEffect(() => {
