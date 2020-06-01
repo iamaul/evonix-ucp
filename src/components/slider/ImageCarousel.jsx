@@ -8,18 +8,11 @@ import {
 
 import CustomDotGroup from './CustomDotGroup';
 
-// import bannerOne from '../../assets/images/banner_1.png';
-// import bannerTwo from '../../assets/images/banner_2.png';
-// import bannerThree from '../../assets/images/banner_3.png';
-// import bannerFour from '../../assets/images/banner_4.png';
-// import bannerFive from '../../assets/images/banner_5.png';
-
 const ImageCarousel = () => (
     <>
         <CarouselProvider
             naturalSlideWidth={450}
             naturalSlideHeight={150}
-            visibleSlides={2}
             isPlaying={'true'}
             hasMasterSpinner={'true'}
             totalSlides={5}
