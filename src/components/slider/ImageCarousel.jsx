@@ -11,8 +11,8 @@ import CustomDotGroup from './CustomDotGroup';
 const ImageCarousel = () => (
     <>
         <CarouselProvider
-            naturalSlideWidth={450}
-            naturalSlideHeight={150}
+            naturalSlideWidth={800}
+            naturalSlideHeight={800}
             isPlaying={'true'}
             hasMasterSpinner={'true'}
             totalSlides={5}
