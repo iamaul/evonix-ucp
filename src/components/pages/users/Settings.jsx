@@ -7,7 +7,7 @@ import Sidebar from '../../layouts/sidebar/Sidebar';
 import ChangePassword from './settings/ChangePassword';
 import ChangeEmail from './settings/ChangeEmail';
 
-import { userVerifyEmail } from '../../actions/auth';
+import { userVerifyEmail } from '../../actions/account';
 
 const Settings = ({ userVerifyEmail, auth: { user }}) => {
     const onUserVerifyEmail = () => {
