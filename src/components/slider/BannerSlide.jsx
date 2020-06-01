@@ -1,6 +1,6 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
-import { Image } from 'semantic-ui-react';
+import { Image, Button } from 'semantic-ui-react';
 
 const BannerSlide = () => {
     const params = {
@@ -12,17 +12,19 @@ const BannerSlide = () => {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-        }
+        },
+        renderPrevButton: () => <Button circular icon="arrow left" color="red" />,
+        renderNextButton: () => <Button circular icon="arrow right" color="red" />
     }
 
     return (
         <>
             <Swiper {...params}>
-                <div className="swiper-slide"><span><Image src="/assets/images/banner_1.png" /></span></div>
-                <div className="swiper-slide"><span><Image src="/assets/images/banner_2.png" /></span></div>
-                <div className="swiper-slide"><span><Image src="/assets/images/banner_3.png" /></span></div>
-                <div className="swiper-slide"><span><Image src="/assets/images/banner_4.png" /></span></div>
-                <div className="swiper-slide"><span><Image src="/assets/images/banner_5.png" /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_1.png" fluid /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_2.png" fluid /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_3.png" fluid /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_4.png" fluid /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_5.png" fluid /></span></div>
             </Swiper>
         </>
     )
