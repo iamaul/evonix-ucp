@@ -14,13 +14,11 @@ const BannerSlide = () => {
     return (
         <>
             <Swiper {...params}>
-                <div className="swiper-slide">
-                    <span><Image src="/assets/images/banner_1.png" /></span>
-                    <span><Image src="/assets/images/banner_2.png" /></span>
-                    <span><Image src="/assets/images/banner_3.png" /></span>
-                    <span><Image src="/assets/images/banner_4.png" /></span>
-                    <span><Image src="/assets/images/banner_5.png" /></span>
-                </div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_1.png" /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_2.png" /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_3.png" /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_4.png" /></span></div>
+                <div className="swiper-slide"><span><Image src="/assets/images/banner_5.png" /></span></div>
             </Swiper>
         </>
     )
