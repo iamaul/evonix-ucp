@@ -9,10 +9,8 @@ import ChangeEmail from './settings/ChangeEmail';
 
 import { userVerifyEmail } from '../../actions/account';
 
-const Settings = ({ userVerifyEmail, auth: { user }}) => {
-    const onUserVerifyEmail = () => {
-        userVerifyEmail();
-    }
+const Settings = ({ userVerifyEmail, auth: { user }, account: { verify_email_success }}) => {
+    const onUserVerifyEmail = () => userVerifyEmail();
 
     return (
         <>
@@ -21,7 +19,8 @@ const Settings = ({ userVerifyEmail, auth: { user }}) => {
                     <Message size="small" warning>
                         <Message.Header>Warning</Message.Header>
                         <p>
-                            Hey! You have not yet verified your email address to this account, please click <Button onClick={onUserVerifyEmail} size="tiny" content="here" /> to verify.<br/><br/>
+                            Hey! You have not yet verified your email address to this account, please click the following button below to verify.<br/>
+                            <Button onClick={onUserVerifyEmail} size="tiny" color="green" content="Send email verification" disabled={verify_email_success} /><br/><br/>
                             <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   
@@ -61,11 +60,13 @@ const Settings = ({ userVerifyEmail, auth: { user }}) => {
 
 Settings.propTypes = {
     userVerifyEmail: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    account: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    account: state.account
 });
 
 export default connect(mapStateToProps, { userVerifyEmail })(Settings);

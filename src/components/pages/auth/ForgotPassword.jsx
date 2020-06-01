@@ -14,9 +14,7 @@ import {
 
 import { userForgotPassword } from '../../actions/auth';
 
-// import evonixLogo from '../../../assets/images/evonix-logo.png';
-
-const ForgotPassword = ({ userForgotPassword }) => {
+const ForgotPassword = ({ userForgotPassword, auth: { forgot_password_send } }) => {
     const [email, setEmail] = useState('');
     const onChange = e => setEmail(e.target.value);
 
@@ -45,7 +43,7 @@ const ForgotPassword = ({ userForgotPassword }) => {
                                 onChange={onChange}
                                 fluid 
                             />
-                            <Form.Button color="red" fluid size="large" content="Reset" />
+                            <Form.Button color="red" fluid size="large" content="Reset" disabled={forgot_password_send} />
                         </Segment>
                     </Form>
                     <br/>
@@ -88,7 +86,12 @@ const ForgotPassword = ({ userForgotPassword }) => {
 }
 
 ForgotPassword.propTypes = {
-    userForgotPassword: PropTypes.func.isRequired
+    userForgotPassword: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
-export default connect(null, { userForgotPassword })(ForgotPassword);
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps, { userForgotPassword })(ForgotPassword);

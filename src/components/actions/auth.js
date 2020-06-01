@@ -101,9 +101,6 @@ export const userForgotPassword = (email) => async dispatch => {
             icon: 'success',
             text: res.data.msg
         });
-        setTimeout(function() {
-            history.push('/login');
-        }, 3000);
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
@@ -134,11 +131,10 @@ export const userResetPassword = (password, code) => async dispatch => {
         Toast.fire({
             icon: 'success',
             text: res.data.msg
-        }).then((result) => {
-            if (result.value) {
-                history.push('/login');
-            }
         });
+        setTimeout(function() {
+            history.push('/login');
+        }, 3000);
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
