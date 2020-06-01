@@ -4,7 +4,7 @@ import { Image } from 'semantic-ui-react';
 
 const BannerSlide = () => {
     const params = {
-        slidesPerView: 1,
+        slidesPerView: 'auto',
         spaceBetween: 30,
         loop: true,
         autoplay: {
