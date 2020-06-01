@@ -41,3 +41,15 @@ section {
     -webkit-align-items: center;
     align-items: center;
 }
+
+.swiper-button-prev, .swiper-button-next {
+    color: #ff0000 !important;
+} 
+
+.swiper-pagination {
+    background: #fff !important; 
+}
+  
+.swiper-pagination-bullet-active {
+    background: #ff0000 !important; 
+}

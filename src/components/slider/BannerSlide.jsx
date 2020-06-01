@@ -8,6 +8,10 @@ const BannerSlide = () => {
             el: '.swiper-pagination',
             clickable: true,
             dynamicBullets: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         }
     }
 
