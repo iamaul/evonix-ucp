@@ -30,7 +30,7 @@ import { userLoad } from './actions/auth';
 
 // CSS/SCSS
 import './App.scss';
-import 'swiper/swiper.scss'
+import 'swiper/css/swiper.css'
 
 const App = () => {
     useEffect(() => {
