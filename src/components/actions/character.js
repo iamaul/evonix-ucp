@@ -5,6 +5,8 @@ import {
     GET_USER_CHARACTERS_FAIL,
     GET_CHARACTER_ADMIN_WARNS,
     GET_CHARACTER_ADMIN_WARNS_FAIL,
+    GET_CHARACTER_INVENTORY,
+    GET_CHARACTER_INVENTORY_FAIL,
     GET_CHARACTER_VEHICLES,
     GET_CHARACTER_VEHICLES_FAIL,
     GET_CHARACTER_PROPERTY,
@@ -74,6 +76,15 @@ export const getCharacterAdminWarns = (char_id) => async dispatch => {
         dispatch({ type: GET_CHARACTER_ADMIN_WARNS, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_ADMIN_WARNS_FAIL });
+    }
+}
+
+export const getCharacterInventory = (char_id) => async dispatch => {
+    try {
+        const res = await axios.get(`/api/v1/characters/${char_id}/inventory`);
+        dispatch({ type: GET_CHARACTER_INVENTORY, payload: res.data });
+    } catch (error) {
+        dispatch({ type: GET_CHARACTER_INVENTORY_FAIL });
     }
 }
 

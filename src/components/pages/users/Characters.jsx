@@ -30,6 +30,7 @@ const ExpandedData = ({ data }) => (
             <p style={{ textAlign: 'justify' }}>
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
                 <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
+                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : `${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`}<br/>
                 <b>Exp</b>: {data.exp}<br/>
                 <b>Money</b>: <NumberFormat value={data.money} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
                 <b>Bank</b>: <NumberFormat value={data.bank} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
@@ -41,6 +42,7 @@ const ExpandedData = ({ data }) => (
                 <b>Phone Number</b>: {data.phone_number}<br/>
                 <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}<br/>
                 <b><Link to={`/characters/${data.name}/admin_records/${data.id}`} target="_blank">Admin Records</Link></b><br/>
+                <b><Link to={`/characters/${data.name}/inventory/${data.id}`} target="_blank">Inventory</Link></b><br/>
                 <b><Link to={`/characters/${data.name}/vehicle/${data.id}`} target="_blank">Vehicle</Link></b><br/>
                 <b><Link to={`/characters/${data.name}/property/${data.id}`} target="_blank">Property</Link></b>
             </p>
@@ -63,6 +65,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         e.preventDefault();
         
         createCharacter({ firstname, lastname, gender });
+        setFormData({ firstname: '', lastname: '', gender: '' });
     }
 
     const actions = (
@@ -76,8 +79,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                 >
                     <Icon name="add user"/>New Character
                 </Button>}
-                closeOnEscape={false}
-                closeOnDimmerClick={false}
                 closeIcon
             >
                 <Header icon="user plus" content="Create A New Character" />

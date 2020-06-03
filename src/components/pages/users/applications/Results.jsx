@@ -10,7 +10,7 @@ const Results = ({ submissions, maxSubmissions, score }) => {
             <Message info size="small">
                 <p style={{ textAlign: 'justify' }}>
                     Hey there! The quiz below is made up of 10 multiple choices of random questions. 
-                    There may have 4 or fewer questions answer options, so please choose the correct answers wisely.<br/><br/>
+                    There may have 4 or fewer question answer options, so please choose the correct answers wisely.<br/><br/>
                     <b>Note</b>: You are allowed up to 2 submissions in case you are finished with a low score <span role="img" aria-label="face-savouring-food">😋</span>.
                 </p>
             </Message>
@@ -19,7 +19,7 @@ const Results = ({ submissions, maxSubmissions, score }) => {
         print = (
             <Message warning size="small">
                 <p style={{ textAlign: 'justify' }}>
-                    Your final score was <b>{score}</b>, you {score >= 70 ? 'passed the quiz! You can now go to the next one.' : 'failed the quiz! take your time to check our server rules and try again.'}
+                    Your final score was <b>{score}</b>, you {score >= 70 ? 'have passed the quiz! You can now go to the next one.' : 'have failed the quiz! take your time to check our server rules and try again.'}
                 </p>
             </Message>
         )

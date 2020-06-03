@@ -89,7 +89,6 @@ const ResetPassword = ({ userResetPassword, match }) => {
                     </Form>
                     <br/>
                     <Button
-                        info
                         as={Link}
                         to="/login"
                     >

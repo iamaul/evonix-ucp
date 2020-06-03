@@ -3,6 +3,7 @@ import {
     GET_CHARACTER_ADMIN_WARNS,
     GET_CHARACTER_VEHICLES,
     GET_CHARACTER_PROPERTY,
+    GET_CHARACTER_INVENTORY,
     CHARACTER_CREATED
 } from '../actions/types';
 
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
     vehicle: null,
     property: null,
     admin_warns: null,
+    inventory: null,
     setLoading: true
 }
 
@@ -29,6 +31,12 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 admin_warns: payload,
+                setLoading: false
+            }
+        case GET_CHARACTER_INVENTORY:
+            return {
+                ...state,
+                inventory: payload,
                 setLoading: false
             }
         case GET_CHARACTER_VEHICLES:
