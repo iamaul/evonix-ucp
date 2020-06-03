@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // import BlogList from '../pages/blog/BlogList';
 import About from '../pages/about/About';
+import Donation from '../pages/donation/Donation';
 import NewsFeed from '../pages/news/NewsFeed';
 import NewsDetail from '../pages/news/NewsDetail';
 import Dashboard from '../pages/users/Dashboard';
@@ -19,6 +20,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route exact path="/about" component={About} />
+            <Route exact path="/donation" component={Donation} />
             <Route exact path="/news" component={NewsFeed} />
             <Route exact path="/news/:slug" component={NewsDetail} />
             {/* <Route exact path="/blog" component={BlogList} /> */}

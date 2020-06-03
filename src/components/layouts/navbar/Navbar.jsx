@@ -44,6 +44,16 @@ const Navbar = ({ auth: { isAuthenticated, setLoading, user }, userLogout }) => 
                 name="home"
                 exact to="/"
             />
+            <Menu.Item
+                as={NavLink}
+                name="about"
+                exact to="/about"
+            />
+            <Menu.Item
+                as={NavLink}
+                name="donation"
+                exact to="/donation"
+            />
             <Menu.Menu position="right">
                 { !setLoading && (<>{ isAuthenticated ? authMenu : guestMenu }</>) }
             </Menu.Menu>
