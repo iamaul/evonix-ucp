@@ -41,7 +41,7 @@ const Header = ({ getApiSampServer, samp: { server, setLoading } }) => {
                 }
             </Head>
             <Navbar />
-            <Divider />
+            <Divider hidden />
         </>
     )
 }
