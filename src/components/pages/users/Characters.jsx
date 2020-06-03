@@ -79,6 +79,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                 >
                     <Icon name="add user"/>New Character
                 </Button>}
+                closeIcon
             >
                 <Header icon="user plus" content="Create A New Character" />
                 <Modal.Content>
