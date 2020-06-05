@@ -19,18 +19,18 @@ import PrivateRoute from './PrivateRoute';
 const Routes = () => {
     return (
         <Switch>
-            <Route exact path="/about" component={About} />
-            <Route exact path="/donation" component={Donation} />
-            <Route exact path="/news" component={NewsFeed} />
-            <Route exact path="/news/:slug" component={NewsDetail} />
-            {/* <Route exact path="/blog" component={BlogList} /> */}
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/characters" component={Characters} />
-            <PrivateRoute exact path="/characters/:name/admin_records/:id" component={CharacterAdminWarn} />
-            <PrivateRoute exact path="/characters/:name/inventory/:id" component={CharacterInventory} />
-            <PrivateRoute exact path="/characters/:name/vehicle/:id" component={CharacterVehicle} />
-            <PrivateRoute exact path="/characters/:name/property/:id" component={CharacterProperty} />
-            <PrivateRoute exact path="/settings" component={Settings} />
+            <Route path="/about" component={About} />
+            <Route path="/donation" component={Donation} />
+            <Route path="/news" component={NewsFeed} />
+            <Route path="/news/:slug" component={NewsDetail} />
+            {/* <Route path="/blog" component={Blog} /> */}
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/characters" component={Characters} />
+            <PrivateRoute path="/characters/:name/admin_records/:id" component={CharacterAdminWarn} />
+            <PrivateRoute path="/characters/:name/inventory/:id" component={CharacterInventory} />
+            <PrivateRoute path="/characters/:name/vehicle/:id" component={CharacterVehicle} />
+            <PrivateRoute path="/characters/:name/property/:id" component={CharacterProperty} />
+            <PrivateRoute path="/settings" component={Settings} />
         </Switch>
     )
 }

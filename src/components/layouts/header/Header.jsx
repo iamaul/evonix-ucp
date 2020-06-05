@@ -23,8 +23,8 @@ const Header = ({ getApiSampServer, samp: { server, setLoading } }) => {
                 <Image centered src="/assets/images/evonix-logo.png" size="massive"/><br/>
                 User Control Panel
                 <Head.Subheader>
-                    This <b>beta version</b> could be unstable and there may even be bugged sometimes, If you're facing issues please submit a ticket on 
-                    <u><a href="http://support.evonix-rp.com" target="_blank" rel="noopener noreferrer"> support.evonix-rp.com</a></u>
+                    This <b>beta version</b> could be unstable and there may even be expected bugs and issues. If you found any errors, please submit a ticket on 
+                    <u><a href="http://support.evonix-rp.com" target="_blank" rel="noopener noreferrer"> support.evonix-rp.com</a></u>.
                 </Head.Subheader><br/>
                 { setLoading ? (<Loader isLoading={setLoading} resizeIcon={32} />) : server && server.active ? (
                     <Label image color="green" as="a" href={linkIp}>

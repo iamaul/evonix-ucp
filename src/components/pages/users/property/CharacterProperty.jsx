@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import NumberFormat from 'react-number-format';
-import { Grid, Label, Icon, Segment } from 'semantic-ui-react';
+import { Label, Icon } from 'semantic-ui-react';
 
 import { getCharacterProperty } from '../../../actions/character';
 
-import Sidebar from '../../../layouts/sidebar/Sidebar';
 import Loader from '../../../layouts/loader/Loader';
 
-const CharacterProperty = ({ getCharacterProperty, character: { property, setLoading }, match }) => {
+const CharacterProperty = ({ getCharacterProperty, char_id, char_name, character: { property, setLoading }, match }) => {
     useEffect(() => {
-        getCharacterProperty(match.params.id);
-    }, [getCharacterProperty, match.params.id]);
+        getCharacterProperty(char_id);
+        // eslint-disable-next-line
+    }, []);
 
     const columns = useMemo(() => [
         {
@@ -52,26 +52,17 @@ const CharacterProperty = ({ getCharacterProperty, character: { property, setLoa
 
     return (
         <>
-            <section id={`characters-${match.params.id}-property`}>
-                <Grid stackable>
-                    <Sidebar />
-                    <Grid.Column stretched width={12}>
-                        <Segment>
-                            {property !== null && !setLoading ? (<div>
-                                <DataTable
-                                    title={`${match.params.name}'s Property List`}
-                                    columns={columns}
-                                    data={property}
-                                    highlightOnHover
-                                    defaultSortField="price"
-                                />
-                            </div>) : (
-                                <Loader isLoading={setLoading} />
-                            )}
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
-            </section>
+            {property !== null && !setLoading ? (<div>
+                <DataTable
+                    title={`${char_name}'s Property List`}
+                    columns={columns}
+                    data={property}
+                    highlightOnHover
+                    defaultSortField="price"
+                />
+            </div>) : (
+                <Loader isLoading={setLoading} />
+            )}
         </>
     )
 }

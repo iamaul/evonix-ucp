@@ -14,8 +14,6 @@ import {
 
 import { userLogin } from '../../actions/auth';
 
-// import evonixLogo from '../../../assets/images/evonix-logo.png';
-
 const Login = ({ userLogin, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         usermail: '',
@@ -36,7 +34,7 @@ const Login = ({ userLogin, isAuthenticated }) => {
     }
 
     if (isAuthenticated) {
-        return <Redirect to="/applications" />;
+        return <Redirect to="/dashboard" />;
     }
 
     return (

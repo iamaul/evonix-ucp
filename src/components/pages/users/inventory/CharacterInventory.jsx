@@ -2,17 +2,16 @@ import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
-import { Grid, Segment } from 'semantic-ui-react';
 
 import { getCharacterInventory } from '../../../actions/character';
 
-import Sidebar from '../../../layouts/sidebar/Sidebar';
 import Loader from '../../../layouts/loader/Loader';
 
-const CharacterInventory = ({ getCharacterInventory, character: { inventory, setLoading }, match }) => {
+const CharacterInventory = ({ getCharacterInventory, char_id, char_name, character: { inventory, setLoading }, match }) => {
     useEffect(() => {
-        getCharacterInventory(match.params.id);
-    }, [getCharacterInventory, match.params.id]);
+        getCharacterInventory(char_id);
+        // eslint-disable-next-line
+    }, []);
 
     const columns = useMemo(() => [
         {
@@ -30,26 +29,17 @@ const CharacterInventory = ({ getCharacterInventory, character: { inventory, set
 
     return (
         <>
-            <section id={`characters-${match.params.id}-inventory`}>
-                <Grid stackable>
-                    <Sidebar />
-                    <Grid.Column stretched width={12}>
-                        <Segment>
-                            {inventory !== null && !setLoading ? (<div>
-                                <DataTable
-                                    title={`${match.params.name}'s Inventory`}
-                                    columns={columns}
-                                    data={inventory}
-                                    highlightOnHover
-                                    defaultSortField="amount"
-                                />
-                            </div>) : (
-                                <Loader isLoading={setLoading} />
-                            )}
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
-            </section>
+            {inventory !== null && !setLoading ? (<div>
+                <DataTable
+                    title={`${char_name}'s Inventory`}
+                    columns={columns}
+                    data={inventory}
+                    highlightOnHover
+                    defaultSortField="amount"
+                />
+            </div>) : (
+                <Loader isLoading={setLoading} />
+            )}
         </>
     )
 }

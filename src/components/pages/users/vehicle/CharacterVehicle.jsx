@@ -2,11 +2,10 @@ import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
-import { Grid, Image, Label, Icon, Segment } from 'semantic-ui-react';
+import { Grid, Image, Label, Icon } from 'semantic-ui-react';
 
 import { getCharacterVehicles } from '../../../actions/character';
 
-import Sidebar from '../../../layouts/sidebar/Sidebar';
 import Loader from '../../../layouts/loader/Loader';
 
 const ExpandedData = ({ data }) => (
@@ -32,10 +31,11 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const CharacterVehicle = ({ getCharacterVehicles, character: { vehicle, setLoading }, match }) => {
+const CharacterVehicle = ({ getCharacterVehicles, char_id, char_name, character: { vehicle, setLoading }, match }) => {
     useEffect(() => {
-        getCharacterVehicles(match.params.id);
-    }, [getCharacterVehicles, match.params.id]);
+        getCharacterVehicles(char_id);
+        // eslint-disable-next-line
+    }, []);
 
     const columns = useMemo(() => [
         {
@@ -67,28 +67,19 @@ const CharacterVehicle = ({ getCharacterVehicles, character: { vehicle, setLoadi
 
     return (
         <>
-            <section id={`characters-${match.params.id}-vehicle`}>
-                <Grid stackable>
-                    <Sidebar />
-                    <Grid.Column stretched width={12}>
-                        <Segment>
-                            {vehicle !== null && !setLoading ? (<div>
-                                <DataTable
-                                    title={`${match.params.name}'s Vehicle List`}
-                                    columns={columns}
-                                    data={vehicle}
-                                    expandableRows
-                                    expandableRowsComponent={<ExpandedData />}
-                                    highlightOnHover
-                                    defaultSortField="mileage"
-                                />
-                            </div>) : (
-                                <Loader isLoading={setLoading} />
-                            )}
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
-            </section>
+            {vehicle !== null && !setLoading ? (<div>
+                <DataTable
+                    title={`${char_name}'s Vehicle List`}
+                    columns={columns}
+                    data={vehicle}
+                    expandableRows
+                    expandableRowsComponent={<ExpandedData />}
+                    highlightOnHover
+                    defaultSortField="mileage"
+                />
+            </div>) : (
+                <Loader isLoading={setLoading} />
+            )}
         </>
     )
 }

@@ -7,13 +7,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@tinymce/tinymce-react": "^3.6.0",
     "axios": "^0.19.2",
     "history": "^4.10.1",
     "html-react-parser": "^0.10.5",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "node-sass": "^4.14.1",
-    "pure-react-carousel": "^1.27.1",
     "react": "^16.13.1",
     "react-data-table-component": "^6.9.3",
     "react-dom": "^16.13.1",
@@ -33,7 +33,7 @@
     "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.1.1",
     "sweetalert2": "^9.14.0",
-    "swiper": "^5.4.1",
+    "swiper": "^5.4.2",
     "uuid": "^7.0.3"
   },
   "scripts": {

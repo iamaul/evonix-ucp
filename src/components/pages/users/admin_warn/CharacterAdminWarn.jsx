@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import Moment from 'react-moment';
-import { Grid, Segment } from 'semantic-ui-react';
 
 import { getCharacterAdminWarns } from '../../../actions/character';
 
-import Sidebar from '../../../layouts/sidebar/Sidebar';
 import Loader from '../../../layouts/loader/Loader';
 
 const ExpandedData = ({ data }) => (
@@ -18,10 +16,11 @@ const ExpandedData = ({ data }) => (
     </div>
 );
 
-const CharacterAdminWarn = ({ getCharacterAdminWarns, character: { admin_warns, setLoading }, match }) => {
+const CharacterAdminWarn = ({ getCharacterAdminWarns, char_id, char_name, character: { admin_warns, setLoading } }) => {
     useEffect(() => {
-        getCharacterAdminWarns(match.params.id);
-    }, [getCharacterAdminWarns, match.params.id]);
+        getCharacterAdminWarns(char_id);
+        // eslint-disable-next-line
+    }, []);
 
     const columns = useMemo(() => [
         {
@@ -49,28 +48,19 @@ const CharacterAdminWarn = ({ getCharacterAdminWarns, character: { admin_warns, 
 
     return (
         <>
-            <section id={`characters-${match.params.id}-admin-records`}>
-                <Grid stackable>
-                    <Sidebar />
-                    <Grid.Column stretched width={12}>
-                        <Segment>
-                            {admin_warns !== null && !setLoading ? (<div>
-                                <DataTable
-                                    title={`${match.params.name}'s Admin Records`}
-                                    columns={columns}
-                                    data={admin_warns}
-                                    expandableRows
-                                    expandableRowsComponent={<ExpandedData />}
-                                    highlightOnHover
-                                    defaultSortField="timestamp"
-                                />
-                            </div>) : (
-                                <Loader isLoading={setLoading} />
-                            )}
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
-            </section>
+            {admin_warns !== null && !setLoading ? (<div>
+                <DataTable
+                    title={`${char_name}'s Admin Records`}
+                    columns={columns}
+                    data={admin_warns}
+                    expandableRows
+                    expandableRowsComponent={<ExpandedData />}
+                    highlightOnHover
+                    defaultSortField="timestamp"
+                />
+            </div>) : (
+                <Loader isLoading={setLoading} />
+            )}
         </>
     )
 }

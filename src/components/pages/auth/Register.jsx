@@ -16,8 +16,6 @@ import {
 
 import { userRegister } from '../../actions/auth';
 
-// import evonixLogo from '../../../assets/images/evonix-logo.png';
-
 const Register = ({ userRegister, isAuthenticated }) => {
     const initialState = {
         username: '',
@@ -70,7 +68,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
     }
 
     if (isAuthenticated) {
-        return <Redirect to="/applications" />;
+        return <Redirect to="/dashboard" />;
     }
 
     return (

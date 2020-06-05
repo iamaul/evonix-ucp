@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import DataTable from 'react-data-table-component';
 import NumberFormat from 'react-number-format';
@@ -18,6 +17,11 @@ import {
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
+
+import CharacterAdminWarn from './admin_warn/CharacterAdminWarn';
+import CharacterInventory from './inventory/CharacterInventory';
+import CharacterVehicle from './vehicle/CharacterVehicle';
+import CharacterProperty from './property/CharacterProperty';
 
 import { getUserCharacters, createCharacter } from '../../actions/character';
 
@@ -40,11 +44,7 @@ const ExpandedData = ({ data }) => (
                 <b>Health</b>: {data.health}<br/>
                 <b>Armour</b>: {data.armour}<br/>
                 <b>Phone Number</b>: {data.phone_number}<br/>
-                <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}<br/>
-                <b><Link to={`/characters/${data.name}/admin_records/${data.id}`} target="_blank">Admin Records</Link></b><br/>
-                <b><Link to={`/characters/${data.name}/inventory/${data.id}`} target="_blank">Inventory</Link></b><br/>
-                <b><Link to={`/characters/${data.name}/vehicle/${data.id}`} target="_blank">Vehicle</Link></b><br/>
-                <b><Link to={`/characters/${data.name}/property/${data.id}`} target="_blank">Property</Link></b>
+                <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}
             </p>
         </Grid.Column>
     </Grid>
@@ -127,9 +127,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
             name: 'Name',
             selector: 'name',
             sortable: true,
-            style: {
-                fontWeight: 'bold'
-            }
+            style: { fontWeight: 'bold' }
         },
         {
             name: 'Last Login',
@@ -142,6 +140,46 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
             selector: 'level',
             sortable: true,
             cell: row => <div>{row.level}</div>
+        },
+        {
+            name: 'Admin Records',
+            cell: row => <div>
+                            <Modal trigger={<Button size="small">Show</Button>}>
+                                <Modal.Content>
+                                    <CharacterAdminWarn char_id={row.id} char_name={row.name} />
+                                </Modal.Content>
+                            </Modal>
+                        </div>
+        },
+        {
+            name: 'Inventory',
+            cell: row => <div>
+                            <Modal trigger={<Button size="small">Show</Button>}>
+                                <Modal.Content>
+                                    <CharacterInventory char_id={row.id} char_name={row.name} />
+                                </Modal.Content>
+                            </Modal>
+                        </div>
+        },
+        {
+            name: 'Vehicle',
+            cell: row => <div>
+                            <Modal trigger={<Button size="small">Show</Button>}>
+                                <Modal.Content>
+                                    <CharacterVehicle char_id={row.id} char_name={row.name} />
+                                </Modal.Content>
+                            </Modal>
+                        </div>
+        },
+        {
+            name: 'Property',
+            cell: row => <div>
+                            <Modal trigger={<Button size="small">Show</Button>}>
+                                <Modal.Content>
+                                    <CharacterProperty char_id={row.id} char_name={row.name} />
+                                </Modal.Content>
+                            </Modal>
+                        </div>
         }
         // eslint-disable-next-line
     ], []);
