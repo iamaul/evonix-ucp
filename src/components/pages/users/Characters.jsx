@@ -51,22 +51,22 @@ const ExpandedData = ({ data }) => (
             <Button.Group>
                 <Modal trigger={<Button size="small">Admin Records</Button>} closeIcon>
                     <Modal.Content>
-                        <CharacterAdminWarn char_id={row.id} char_name={row.name} />
+                        <CharacterAdminWarn char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
                 <Modal trigger={<Button size="small">Inventory</Button>} closeIcon>
                     <Modal.Content>
-                        <CharacterInventory char_id={row.id} char_name={row.name} />
+                        <CharacterInventory char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
                 <Modal trigger={<Button size="small">Vehicle</Button>} closeIcon>
                     <Modal.Content>
-                        <CharacterVehicle char_id={row.id} char_name={row.name} />
+                        <CharacterVehicle char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
                 <Modal trigger={<Button size="small">Property</Button>} closeIcon>
                     <Modal.Content>
-                        <CharacterProperty char_id={row.id} char_name={row.name} />
+                        <CharacterProperty char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
             </Button.Group>
