@@ -12,7 +12,8 @@ import {
     Modal,
     Button,
     Header,
-    Icon
+    Icon,
+    Divider
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -46,6 +47,29 @@ const ExpandedData = ({ data }) => (
                 <b>Phone Number</b>: {data.phone_number}<br/>
                 <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}
             </p>
+            <Divider />
+            <Button.Group>
+                <Modal trigger={<Button size="small">Admin Records</Button>} closeIcon>
+                    <Modal.Content>
+                        <CharacterAdminWarn char_id={row.id} char_name={row.name} />
+                    </Modal.Content>
+                </Modal>
+                <Modal trigger={<Button size="small">Inventory</Button>} closeIcon>
+                    <Modal.Content>
+                        <CharacterInventory char_id={row.id} char_name={row.name} />
+                    </Modal.Content>
+                </Modal>
+                <Modal trigger={<Button size="small">Vehicle</Button>} closeIcon>
+                    <Modal.Content>
+                        <CharacterVehicle char_id={row.id} char_name={row.name} />
+                    </Modal.Content>
+                </Modal>
+                <Modal trigger={<Button size="small">Property</Button>} closeIcon>
+                    <Modal.Content>
+                        <CharacterProperty char_id={row.id} char_name={row.name} />
+                    </Modal.Content>
+                </Modal>
+            </Button.Group>
         </Grid.Column>
     </Grid>
 );
@@ -140,46 +164,6 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
             selector: 'level',
             sortable: true,
             cell: row => <div>{row.level}</div>
-        },
-        {
-            name: 'Admin Records',
-            cell: row => <div>
-                            <Modal trigger={<Button size="small">Show</Button>}>
-                                <Modal.Content>
-                                    <CharacterAdminWarn char_id={row.id} char_name={row.name} />
-                                </Modal.Content>
-                            </Modal>
-                        </div>
-        },
-        {
-            name: 'Inventory',
-            cell: row => <div>
-                            <Modal trigger={<Button size="small">Show</Button>}>
-                                <Modal.Content>
-                                    <CharacterInventory char_id={row.id} char_name={row.name} />
-                                </Modal.Content>
-                            </Modal>
-                        </div>
-        },
-        {
-            name: 'Vehicle',
-            cell: row => <div>
-                            <Modal trigger={<Button size="small">Show</Button>}>
-                                <Modal.Content>
-                                    <CharacterVehicle char_id={row.id} char_name={row.name} />
-                                </Modal.Content>
-                            </Modal>
-                        </div>
-        },
-        {
-            name: 'Property',
-            cell: row => <div>
-                            <Modal trigger={<Button size="small">Show</Button>}>
-                                <Modal.Content>
-                                    <CharacterProperty char_id={row.id} char_name={row.name} />
-                                </Modal.Content>
-                            </Modal>
-                        </div>
         }
         // eslint-disable-next-line
     ], []);
