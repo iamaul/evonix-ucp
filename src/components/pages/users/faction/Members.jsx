@@ -1,10 +1,15 @@
 import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import DataTable from 'react-data-table-component';
 
 import { getCharacterFactionMembers } from '../../../actions/character';
 
 import Loader from '../../../layouts/loader/Loader';
+
+const ExpandedData = ({ data }) => {
+    <p>{data.name} - {data.faction_rankname} {data.faction_div === 0 ? 'None' : data.faction_divname}</p>
+}
 
 const Members = ({ faction_sqlid, getCharacterFactionMembers, character: { character, setLoading } }) => {
     useEffect(() => {
