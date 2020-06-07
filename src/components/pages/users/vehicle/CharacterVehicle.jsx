@@ -55,6 +55,7 @@ const CharacterVehicle = ({ getCharacterVehicles, char_id, char_name, character:
             name: 'Status',
             selector: 'lock_status',
             sortable: true,
+            allowOverflow: true,
             cell: row => <div>{row.lock_status ? (<Label color="red"><Icon name="lock" />Locked</Label>) : (<Label color="green"><Icon name="lock open" />Unlocked</Label>)}</div>
         },
         {

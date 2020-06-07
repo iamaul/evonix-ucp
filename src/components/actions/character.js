@@ -12,7 +12,13 @@ import {
     GET_CHARACTER_PROPERTY,
     GET_CHARACTER_PROPERTY_FAIL,
     CHARACTER_CREATED,
-    CHARACTER_CREATED_FAIL
+    CHARACTER_CREATED_FAIL,
+    CHARACTER_DELETED,
+    CHARACTER_DELETED_FAIL,
+    GET_CHARACTER_DETAIL,
+    GET_CHARACTER_DETAIL_FAIL,
+    GET_CHARACTER_FACTION_MEMBERS,
+    GET_CHARACTER_FACTION_MEMBERS_FAIL
 } from './types';
 
 const Toast = Swal.mixin({
@@ -67,6 +73,37 @@ export const createCharacter = ({ firstname, lastname, gender }) => async dispat
             });
         }
         dispatch({ type: CHARACTER_CREATED_FAIL });
+    }
+}
+
+export const getCharacter = (id) => async dispatch => {
+    try {
+        const res = await axios.get(`/api/v1/characters/${id}`);
+        dispatch({ type: GET_CHARACTER_DETAIL, payload: res.data });
+    } catch (error) {
+        dispatch({ type: GET_CHARACTER_DETAIL_FAIL });
+    }
+}
+
+export const deleteCharacter = (id) => async dispatch => {
+    try {
+        const res = await axios.delete(`/api/v1/characters/${id}`);
+        dispatch({ type: CHARACTER_DELETED, payload: res.data });
+        Toast.fire({
+            icon: 'success',
+            text: res.data.msg
+        });
+    } catch (error) {
+        dispatch({ type: CHARACTER_DELETED_FAIL });
+    }
+}
+
+export const getCharacterFactionMembers = (faction_sqlid) => async dispatch => {
+    try {
+        const res = await axios.get(`/api/v1/characters/faction/${faction_sqlid}`);
+        dispatch({ type: GET_CHARACTER_FACTION_MEMBERS, payload: res.data });
+    } catch (error) {
+        dispatch({ type: GET_CHARACTER_FACTION_MEMBERS_FAIL });
     }
 }
 

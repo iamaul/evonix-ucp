@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
@@ -13,7 +13,9 @@ import {
     Button,
     Header,
     Icon,
-    Divider
+    Divider,
+    Popup,
+    Label
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -23,8 +25,9 @@ import CharacterAdminWarn from './admin_warn/CharacterAdminWarn';
 import CharacterInventory from './inventory/CharacterInventory';
 import CharacterVehicle from './vehicle/CharacterVehicle';
 import CharacterProperty from './property/CharacterProperty';
+import CharacterFaction from './faction/CharacterFaction';
 
-import { getUserCharacters, createCharacter } from '../../actions/character';
+import { getUserCharacters, createCharacter, deleteCharacter } from '../../actions/character';
 
 const ExpandedData = ({ data }) => (
     <Grid columns={2} padded>
@@ -35,7 +38,20 @@ const ExpandedData = ({ data }) => (
             <p style={{ textAlign: 'justify' }}>
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
                 <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
-                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : `${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`}<br/>
+                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : data.charFaction ? <Popup header="My Activity" content={
+                    <>
+                        <br/>
+                        <Image src={data.faction_skin} avatar />
+                        <Divider />
+                        <p style={{ textAlign: 'justify' }}>
+                            <b>Division</b>: {data.faction_divname}<br/>
+                            <b>Status</b>: {data.faction_duty ? <Label color="green" size="small">On Duty</Label> : <Label color="red" size="small">Off Duty</Label>}<br/>
+                            <b>Duty Time</b>: {data.faction_dutytime}<br/>
+                            <b>Duty Paycheck</b>: {data.faction_dutypaycheck}
+                        </p>
+                    </>}
+                    trigger={`${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`} /> : `${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`
+                }<br/>
                 <b>Exp</b>: {data.exp}<br/>
                 <b>Money</b>: <NumberFormat value={data.money} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
                 <b>Bank</b>: <NumberFormat value={data.bank} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
@@ -48,12 +64,20 @@ const ExpandedData = ({ data }) => (
                 <b>Playtime</b>: {data.play_second === 0 && data.play_minute === 0 && data.play_hour === 0 ? 'Not played yet' : `${data.play_second} seconds, ${data.play_minute} minutes, ${data.play_hour} hours`}
             </p>
             <Divider />
-            <Button.Group>
+            <Button.Group size="small">
                 <Modal trigger={<Button size="small">Admin Records</Button>} closeIcon>
                     <Modal.Content>
                         <CharacterAdminWarn char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
+                {data.charFaction && data.charFaction.leader_sqlid === data.id && (
+                    <Modal trigger={<Button size="small">Faction</Button>} closeIcon>
+                        <Modal.Header>{data.name}</Modal.Header>
+                        <Modal.Content>
+                            <CharacterFaction char_id={data.id} />
+                        </Modal.Content>
+                    </Modal>
+                )}
                 <Modal trigger={<Button size="small">Inventory</Button>} closeIcon>
                     <Modal.Content>
                         <CharacterInventory char_id={data.id} char_name={data.name} />
@@ -74,7 +98,7 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter }) => {
+const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter, deleteCharacter }) => {
     const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: '' });
     const { firstname, lastname, gender } = formData;
 
@@ -146,6 +170,11 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
         )
     );
 
+    const onCharacterDelete = useCallback((id) => {
+        deleteCharacter(id);
+        // eslint-disable-next-line
+    }, []);
+
     const columns = useMemo(() => [
         {
             name: 'Name',
@@ -164,6 +193,10 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
             selector: 'level',
             sortable: true,
             cell: row => <div>{row.level}</div>
+        },
+        {
+            name: 'Delete',
+            cell: row => <div><Button color="red" onClick={() => onCharacterDelete(row.id)} icon size="small"><Icon name="delete"/></Button></div>
         }
         // eslint-disable-next-line
     ], []);
@@ -200,6 +233,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
 Characters.propTypes = {
     getUserCharacters: PropTypes.func.isRequired,
     createCharacter: PropTypes.func.isRequired,
+    deleteCharacter: PropTypes.func.isRequired,
     character: PropTypes.object.isRequired
 }
 
@@ -207,4 +241,4 @@ const mapStateToProps = state => ({
     character: state.character
 });
 
-export default connect(mapStateToProps, { getUserCharacters, createCharacter })(Characters);
+export default connect(mapStateToProps, { getUserCharacters, createCharacter, deleteCharacter })(Characters);

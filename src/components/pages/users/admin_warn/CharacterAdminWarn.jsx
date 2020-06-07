@@ -10,9 +10,11 @@ import Loader from '../../../layouts/loader/Loader';
 
 const ExpandedData = ({ data }) => (
     <div>
-        <p><b>Issuer</b>: {data.issuer}</p>
-        <p><b>Date</b>: <Moment unix format="LLLL">{data.timestamp}</Moment></p>
-        <p><b>Reason</b>: {data.reason}</p>
+        <p>
+            <b>Issuer</b>: {data.issuer}<br/>
+            <b>Date</b>: <Moment unix format="LLLL">{data.timestamp}</Moment><br/>
+            <b>Reason</b>: {data.reason}
+        </p>
     </div>
 );
 
