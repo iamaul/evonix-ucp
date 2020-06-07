@@ -3,11 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import Moment from 'react-moment';
-import { Label, Image } from 'semantic-ui-react';
+import parse from 'html-react-parser';
+import { Label, Image, Button, Divider } from 'semantic-ui-react';
 
 import { getFactionNews } from '../../../../actions/news';
 
 import Loader from '../../../../layouts/loader/Loader';
+
+const ExpandedData = ({ data }) => (
+    <div>
+        <Image src={data.image} size="medium" />
+        <p><b>{data.title}</b><br/>Created at <Moment unix format="LLLL">{data.created_at}</Moment>{data.updated_at !== null && (<><br/>
+                Last updated on <Moment unix format="LLLL">{data.updated_at}</Moment>
+            </>)}</p>
+        <Divider hidden />
+        {parse(data.content)}
+    </div>
+);
 
 const News = ({ faction_sqlid, faction_rank, char_id, getFactionNews, news: { faction_news, setLoading } }) => {
     useEffect(() => {
