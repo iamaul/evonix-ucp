@@ -41,7 +41,10 @@ const ExpandedData = ({ data }) => (
                 <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'Not logged in yet.' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
                 {data.faction_sqlid !== 0 && (
                     <>
-                        <Popup trigger={<><b>Faction</b>: {data.charFaction && data.charFaction.name} - {data.faction_rankname} ({data.faction_rank})</>}>
+                        <b>Faction</b>:
+                        <Popup trigger={
+                            `${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`
+                        }>
                             <Popup.Header>My Activity</Popup.Header>
                             <Popup.Content>
                                 <Image src={data.faction_skin} avatar />

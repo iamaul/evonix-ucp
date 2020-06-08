@@ -91,9 +91,19 @@ export const deleteCharacter = (id) => async dispatch => {
         dispatch({ type: CHARACTER_DELETED, payload: res.data });
         Toast.fire({
             icon: 'success',
-            text: res.data.msg
+            text: 'Deleted character successfully.'
         });
     } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+            errors.map(err => {
+                return Toast.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: err.msg
+                });
+            });
+        }
         dispatch({ type: CHARACTER_DELETED_FAIL });
     }
 }
