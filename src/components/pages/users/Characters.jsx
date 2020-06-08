@@ -46,7 +46,7 @@ const ExpandedData = ({ data }) => (
                         <Divider />
                         <p style={{ textAlign: 'justify' }}>
                             <b>Division</b>: {data.faction_divname}<br/>
-                            <b>Status</b>: {data.faction_duty ? <Label color="green" size="small">On Duty</Label> : <Label color="red" size="small">Off Duty</Label>}<br/>
+                            <b>Status</b>: {data.faction_duty === 0 ? <Label color="red" size="small">Off Duty</Label> : <Label color="green" size="small">On Duty</Label>}<br/>
                             <b>Duty Time</b>: {data.faction_dutytime}<br/>
                             <b>Duty Paycheck</b>: {data.faction_dutypaycheck}
                         </p>
