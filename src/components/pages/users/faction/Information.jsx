@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
 
-const ExpandedData = ({ data }) => {
+const ExpandedData = ({ data }) => (
     <p>{data.name}</p>
-}
+)
 
 const Information = ({ character }) => {
     const columns = useMemo(() => [
