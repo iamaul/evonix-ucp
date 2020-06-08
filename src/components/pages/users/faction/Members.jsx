@@ -7,9 +7,9 @@ import { getCharacterFactionMembers } from '../../../actions/character';
 
 import Loader from '../../../layouts/loader/Loader';
 
-const ExpandedData = ({ data }) => {
+const ExpandedData = ({ data }) => (
     <p>{data.name} - {data.faction_rankname} {data.faction_div === 0 ? 'None' : data.faction_divname}</p>
-}
+)
 
 const Members = ({ faction_sqlid, getCharacterFactionMembers, character: { character, setLoading } }) => {
     useEffect(() => {
