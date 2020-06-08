@@ -39,7 +39,7 @@ const ExpandedData = ({ data }) => (
             <p style={{ textAlign: 'justify' }}>
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
                 <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
-                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : <Popup header="My Activity" content={
+                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : (<Popup header="My Activity" content={
                     <>
                         <br/>
                         <Image src={data.faction_skin} avatar />
@@ -51,7 +51,7 @@ const ExpandedData = ({ data }) => (
                             <b>Duty Paycheck</b>: {data.faction_dutypaycheck}
                         </p>
                     </>}
-                    trigger={`${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`} /> 
+                    trigger={`${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`} />) 
                 }<br/>
                 <b>Exp</b>: {data.exp}<br/>
                 <b>Money</b>: <NumberFormat value={data.money} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
