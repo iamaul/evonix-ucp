@@ -88,7 +88,6 @@ const News = ({ faction_sqlid, faction_rank, char_id, getFactionNews, news: { fa
                 <DataTable
                     title="Faction News"
                     columns={columns}
-                    actions={actions}
                     data={faction_news}
                     pagination
                     expandableRows
