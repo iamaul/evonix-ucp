@@ -38,20 +38,22 @@ const ExpandedData = ({ data }) => (
         <Grid.Column>
             <p style={{ textAlign: 'justify' }}>
                 <b>Gender</b>: {data.gender === 0 ? 'Male' : 'Female'}<br/>
-                <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'None' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
-                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : (<Popup header="My Activity" content={
-                    <>
-                        <br/>
-                        <Image src={data.faction_skin} avatar />
-                        <Divider />
-                        <p style={{ textAlign: 'justify' }}>
-                            <b>Division</b>: {data.faction_divname}<br/>
-                            <b>Status</b>: {data.faction_duty === 0 ? <Label color="red" size="small">Off Duty</Label> : <Label color="green" size="small">On Duty</Label>}<br/>
-                            <b>Duty Time</b>: {data.faction_dutytime}<br/>
-                            <b>Duty Paycheck</b>: {data.faction_dutypaycheck}
-                        </p>
-                    </>}
-                    trigger={`${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`} />) 
+                <b>Date of Birth</b>: {data.birth_day === 0 && data.birth_month === 0 && data.birth_year === 0 ? 'Not logged in yet.' : `${data.birth_day}/${data.birth_month}/${data.birth_year}`}<br/>
+                <b>Faction</b>: {data.faction_sqlid === 0 ? 'Civilian' : (
+                        <Popup trigger={`${data.charFaction && data.charFaction.name} - ${data.faction_rankname} (${data.faction_rank})`}>
+                            <Popup.Header>My Activity</Popup.Header>
+                            <Popup.Content>
+                                <Image src={data.faction_skin} avatar />
+                                <Divider />
+                                <p style={{ textAlign: 'justify' }}>
+                                    <b>Division</b>: {data.faction_divname}<br/>
+                                    <b>Status</b>: {data.faction_duty === 0 ? <Label color="red" size="small">Off Duty</Label> : <Label color="green" size="small">On Duty</Label>}<br/>
+                                    <b>Duty Time</b>: {data.faction_dutytime}<br/>
+                                    <b>Duty Paycheck</b>: {data.faction_dutypaycheck}
+                                </p>
+                            </Popup.Content>
+                        </Popup>
+                    )
                 }<br/>
                 <b>Exp</b>: {data.exp}<br/>
                 <b>Money</b>: <NumberFormat value={data.money} displayType={'text'} thousandSeparator={true} prefix={'$'} /><br/>
