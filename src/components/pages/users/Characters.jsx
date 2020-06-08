@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import DataTable from 'react-data-table-component';
 import NumberFormat from 'react-number-format';
+import Swal from 'sweetalert2';
 import { 
     Segment, 
     Grid, 
@@ -171,11 +172,27 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
     );
 
     const onCharacterDelete = useCallback((id) => {
-        deleteCharacter(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `Your character with id ${id} is going to be deleted, you won't be able to revert this.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.value) {
+                deleteCharacter(id);
+            }
+        });
         // eslint-disable-next-line
     }, []);
 
     const columns = useMemo(() => [
+        {
+            name: 'Id',
+            selector: 'id'
+        },
         {
             name: 'Name',
             selector: 'name',
@@ -192,11 +209,11 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
             name: 'Level',
             selector: 'level',
             sortable: true,
-            cell: row => <div>{row.level}</div>
+            cell: row => <div>{row.level === 0 ? 'Not logged in yet.' : row.level}</div>
         },
         {
             name: 'Delete',
-            cell: row => <div><Button color="red" onClick={() => onCharacterDelete(row.id)} icon size="small"><Icon name="delete"/></Button></div>
+            cell: (row) => (<Button color="red" onClick={() => onCharacterDelete(row.id)} icon size="small"><Icon name="delete"/></Button>)
         }
         // eslint-disable-next-line
     ], []);
