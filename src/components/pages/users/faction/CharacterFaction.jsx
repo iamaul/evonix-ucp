@@ -5,6 +5,7 @@ import { Menu } from 'semantic-ui-react';
 
 import { getCharacter } from '../../../actions/character';
 
+import MyActivity from './MyActivity';
 import Information from './Information';
 import Members from './Members';
 import News from './news/News';
