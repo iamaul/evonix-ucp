@@ -13,7 +13,7 @@ import News from './news/News';
 import Loader from '../../../layouts/loader/Loader';
 
 const CharacterFaction = ({ char_id, leader_sqlid, faction_rank, getCharacter, character: { character, setLoading } }) => {
-    const [activeItem, setActiveItem] = useState('information');
+    const [activeItem, setActiveItem] = useState('my-activity');
 
     useEffect(() => {
         getCharacter(char_id);
