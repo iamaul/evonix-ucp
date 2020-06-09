@@ -6,7 +6,9 @@ import Swal from 'sweetalert2';
 
 import { userChangePassword } from '../../../actions/account';
 
-const ChangePassword = ({ userChangePassword }) => {
+import Loader from '../../../layouts/loader/Loader';
+
+const ChangePassword = ({ userChangePassword, account: { account_settings, setLoading } }) => {
     const initialState = {
         old_password: '',
         password: '',
@@ -39,7 +41,9 @@ const ChangePassword = ({ userChangePassword }) => {
         } else {
             userChangePassword({ old_password, password });
         }
-        setFormData({ ...initialState });
+        account_settings !== null && !setLoading ? (
+            setFormData({ ...initialState })
+        ) : (<Loader isLoading={setLoading} />);
     }
 
     return (
@@ -82,7 +86,12 @@ const ChangePassword = ({ userChangePassword }) => {
 }
 
 ChangePassword.propTypes = {
-    userChangePassword: PropTypes.func.isRequired
+    userChangePassword: PropTypes.func.isRequired,
+    account: PropTypes.object.isRequired
 }
 
-export default connect(null, { userChangePassword })(ChangePassword);
+const mapStateToProps = state => ({
+    account: state.account
+});
+
+export default connect(mapStateToProps, { userChangePassword })(ChangePassword);
