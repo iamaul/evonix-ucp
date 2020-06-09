@@ -41,10 +41,11 @@ const ChangePassword = ({ userChangePassword, account: { setLoading } }) => {
             setLoadingButton(true);
             userChangePassword({ old_password, password });
         }
-        if (!setLoading) {
-            setFormData({ ...initialState });
-            setLoadingButton(false);
-        }
+    }
+
+    if (loadingButton && !setLoading) {
+        setFormData({ ...initialState });
+        setLoadingButton(false);
     }
 
     return (
