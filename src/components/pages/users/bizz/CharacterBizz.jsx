@@ -84,7 +84,7 @@ const CharacterBizz = ({ getCharacterBizz, char_id, char_name, character: { bizz
     )
 }
 
-CharacterProperty.propTypes = {
+CharacterBizz.propTypes = {
     getCharacterBizz: PropTypes.func.isRequired,
     character: PropTypes.object.isRequired
 }
