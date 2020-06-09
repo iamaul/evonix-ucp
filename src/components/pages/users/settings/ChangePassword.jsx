@@ -15,6 +15,7 @@ const ChangePassword = ({ userChangePassword, account: { account_settings, setLo
         confirm_password: ''
     }
 
+    const [loadingButton, setLoadingButton] = useState(false);
     const [formData, setFormData] = useState(initialState);
 
     const { old_password, password, confirm_password } = formData;
@@ -39,11 +40,14 @@ const ChangePassword = ({ userChangePassword, account: { account_settings, setLo
                 text: 'The new password confirmation does not match.'
             });
         } else {
+            setLoadingButton(true);
             userChangePassword({ old_password, password });
         }
-        account_settings !== null && !setLoading ? (
-            setFormData({ ...initialState })
-        ) : (<Loader isLoading={setLoading} />);
+    }
+
+    if (account_settings !== null && !setLoading) {
+        setFormData({ ...initialState });
+        setLoadingButton(false);
     }
 
     return (
@@ -79,7 +83,7 @@ const ChangePassword = ({ userChangePassword, account: { account_settings, setLo
                     onChange={onChange}
                     fluid
                 />
-                <Form.Button color="red" size="medium" content="Change" />
+                <Form.Button color="red" size="medium" content="Change" loading={loadingButton} />
             </Form>
         </>
     )
