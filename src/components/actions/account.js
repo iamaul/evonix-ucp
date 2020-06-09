@@ -64,7 +64,7 @@ export const userChangeEmail = ({ new_email }) => async dispatch => {
             text: res.data.msg
         });
         setTimeout(function() {
-            location.reload();
+            window.location.reload();
         }, 3000);
     } catch (error) {
         const errors = error.response.data.errors;
