@@ -6,9 +6,7 @@ import Swal from 'sweetalert2';
 
 import { userChangePassword } from '../../../actions/account';
 
-import Loader from '../../../layouts/loader/Loader';
-
-const ChangePassword = ({ userChangePassword, account: { account_settings, setLoading } }) => {
+const ChangePassword = ({ userChangePassword, account: { setLoading } }) => {
     const initialState = {
         old_password: '',
         password: '',
@@ -43,11 +41,10 @@ const ChangePassword = ({ userChangePassword, account: { account_settings, setLo
             setLoadingButton(true);
             userChangePassword({ old_password, password });
         }
-    }
-
-    if (account_settings !== null && !setLoading) {
-        setFormData({ ...initialState });
-        setLoadingButton(false);
+        if (!setLoading) {
+            setFormData({ ...initialState });
+            setLoadingButton(false);
+        }
     }
 
     return (
