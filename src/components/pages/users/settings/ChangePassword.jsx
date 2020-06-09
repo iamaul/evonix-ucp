@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 import { userChangePassword } from '../../../actions/account';
 
-const ChangePassword = ({ userChangePassword, account: { setLoading } }) => {
+const ChangePassword = ({ userChangePassword, account: { account_settings, setLoading } }) => {
     const initialState = {
         old_password: '',
         password: '',
@@ -43,7 +43,7 @@ const ChangePassword = ({ userChangePassword, account: { setLoading } }) => {
         }
     }
 
-    if (loadingButton && !setLoading) {
+    if (account_settings !== null && !setLoading) {
         setFormData({ ...initialState });
         setLoadingButton(false);
     }

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import history from '../history';
 import Swal from 'sweetalert2';
 import {
     CHANGE_PASSWORD_FAIL,
@@ -44,10 +43,7 @@ export const userChangePassword = ({ old_password, password }) => async dispatch
                 });
             });
         }
-        dispatch({ type: CHANGE_PASSWORD_FAIL, payload: {
-            msg: error.response.statusText,
-            status: error.response.status
-        } });
+        dispatch({ type: CHANGE_PASSWORD_FAIL });
     }
 }
 
@@ -68,7 +64,7 @@ export const userChangeEmail = ({ new_email }) => async dispatch => {
             text: res.data.msg
         });
         setTimeout(function() {
-            history.push('/settings');
+            location.reload();
         }, 3000);
     } catch (error) {
         const errors = error.response.data.errors;
@@ -81,10 +77,7 @@ export const userChangeEmail = ({ new_email }) => async dispatch => {
                 });
             });
         }
-        dispatch({ type: CHANGE_EMAIL_FAIL, payload: {
-            msg: error.response.statusText,
-            status: error.response.status
-        } });
+        dispatch({ type: CHANGE_EMAIL_FAIL });
     }
 }
 

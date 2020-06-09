@@ -1,7 +1,5 @@
 import {
-    CHANGE_PASSWORD_FAIL,
     CHANGE_PASSWORD_SUCCESS,
-    CHANGE_EMAIL_FAIL,
     CHANGE_EMAIL_SUCCESS,
     CONFIRM_EMAIL_VERIFICATION,
     EMAIL_VERIFICATION_SENT
@@ -11,8 +9,7 @@ const INITIAL_STATE = {
     account_settings: null,
     confirm_email_verification: null,
     verify_email_success: false,
-    setLoading: true,
-    error: {}
+    setLoading: true
 }
 
 export default function (state = INITIAL_STATE, action) {
@@ -24,13 +21,6 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 account_settings: payload,
-                setLoading: false
-            }
-        case CHANGE_PASSWORD_FAIL:
-        case CHANGE_EMAIL_FAIL:
-            return {
-                ...state,
-                error: payload,
                 setLoading: false
             }
         case EMAIL_VERIFICATION_SENT:

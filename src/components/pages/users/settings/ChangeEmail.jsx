@@ -5,7 +5,8 @@ import { Form } from 'semantic-ui-react';
 
 import { userChangeEmail } from '../../../actions/account';
 
-const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
+const ChangeEmail = ({ currentEmail, userChangeEmail, account: { account_settings, setLoading } }) => {
+    const [loadingButton, setLoadingButton] = useState(false);
     const [formData, setFormData] = useState({ new_email: '' });
 
     const { new_email } = formData;
@@ -18,7 +19,12 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
     const onSubmit = e => {
         e.preventDefault();
 
+        setLoadingButton(true);
         userChangeEmail({ new_email });
+    }
+
+    if (account_settings !== null && !setLoading) {
+        setLoadingButton(false);
     }
 
     return (
@@ -33,14 +39,19 @@ const ChangeEmail = ({ currentEmail, userChangeEmail }) => {
                     placeholder={currentEmail}
                     onChange={onChange}
                 />
-                <Form.Button color="red" content="Change" />
+                <Form.Button color="red" size="medium" content="Change" loading={loadingButton} />
             </Form>
         </>
     )
 }
 
 ChangeEmail.propTypes = {
-    userChangeEmail: PropTypes.func.isRequired
+    userChangeEmail: PropTypes.func.isRequired,
+    account: PropTypes.object.isRequired
 }
 
-export default connect(null, { userChangeEmail })(ChangeEmail);
+const mapStateToProps = state => ({
+    account: state.account
+});
+
+export default connect(mapStateToProps, { userChangeEmail })(ChangeEmail);
