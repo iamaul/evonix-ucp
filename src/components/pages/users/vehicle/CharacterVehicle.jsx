@@ -31,7 +31,7 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const CharacterVehicle = ({ getCharacterVehicles, char_id, char_name, character: { vehicle, setLoading }, match }) => {
+const CharacterVehicle = ({ getCharacterVehicles, char_id, char_name, character: { vehicle, setLoading } }) => {
     useEffect(() => {
         getCharacterVehicles(char_id);
         // eslint-disable-next-line

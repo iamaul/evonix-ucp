@@ -14,9 +14,7 @@ import {
     Button,
     Header,
     Icon,
-    Divider,
-    Popup,
-    Label
+    Divider
 } from 'semantic-ui-react';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -26,7 +24,8 @@ import CharacterAdminWarn from './admin_warn/CharacterAdminWarn';
 import CharacterInventory from './inventory/CharacterInventory';
 import CharacterVehicle from './vehicle/CharacterVehicle';
 import CharacterProperty from './property/CharacterProperty';
-import CharacterFaction from './faction/CharacterFaction';
+// import CharacterFaction from './faction/CharacterFaction';
+import CharacterBizz from './bizz/CharacterBizz';
 
 import { getUserCharacters, createCharacter, deleteCharacter } from '../../actions/character';
 
@@ -56,6 +55,11 @@ const ExpandedData = ({ data }) => (
                 <Modal trigger={<Button size="small">Admin Records</Button>} closeIcon>
                     <Modal.Content>
                         <CharacterAdminWarn char_id={data.id} char_name={data.name} />
+                    </Modal.Content>
+                </Modal>
+                <Modal trigger={<Button size="small">Business</Button>} closeIcon>
+                    <Modal.Content>
+                        <CharacterBizz char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
                 {/* {data.faction_sqlid !== 0 && (

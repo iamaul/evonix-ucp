@@ -7,7 +7,7 @@ import { getCharacterInventory } from '../../../actions/character';
 
 import Loader from '../../../layouts/loader/Loader';
 
-const CharacterInventory = ({ getCharacterInventory, char_id, char_name, character: { inventory, setLoading }, match }) => {
+const CharacterInventory = ({ getCharacterInventory, char_id, char_name, character: { inventory, setLoading } }) => {
     useEffect(() => {
         getCharacterInventory(char_id);
         // eslint-disable-next-line

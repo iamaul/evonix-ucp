@@ -4,6 +4,7 @@ import {
     GET_CHARACTER_VEHICLES,
     GET_CHARACTER_PROPERTY,
     GET_CHARACTER_INVENTORY,
+    GET_CHARACTER_BIZZ,
     CHARACTER_CREATED,
     CHARACTER_DELETED,
     GET_CHARACTER_DETAIL,
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
     character: null,
     vehicle: null,
     property: null,
+    bizz: null,
     admin_warns: null,
     inventory: null,
     setLoading: true
@@ -55,6 +57,12 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 property: payload,
+                setLoading: false
+            }
+        case GET_CHARACTER_BIZZ:
+            return {
+                ...state,
+                bizz: payload,
                 setLoading: false
             }
         default: return state;

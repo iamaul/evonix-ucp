@@ -38,6 +38,7 @@ const ChangePassword = ({ userChangePassword, account: { requestChangePassword }
             });
         } else {
             userChangePassword({ old_password, password });
+            setFormData({ ...initialState });
         }
     }
 

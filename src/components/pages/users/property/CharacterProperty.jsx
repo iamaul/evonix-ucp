@@ -9,7 +9,7 @@ import { getCharacterProperty } from '../../../actions/character';
 
 import Loader from '../../../layouts/loader/Loader';
 
-const CharacterProperty = ({ getCharacterProperty, char_id, char_name, character: { property, setLoading }, match }) => {
+const CharacterProperty = ({ getCharacterProperty, char_id, char_name, character: { property, setLoading } }) => {
     useEffect(() => {
         getCharacterProperty(char_id);
         // eslint-disable-next-line

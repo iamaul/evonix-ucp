@@ -15,7 +15,7 @@ const Footer = () => (
                     <Icon name="instagram" />
                 </a>               
                 <br/>          
-                <Icon name="copyright outline" /> 2020 EvoniX Community.
+                <Icon name="copyright outline" /> 2020 EvoniX UCP.
             </p>
         </footer>
         <style>{`

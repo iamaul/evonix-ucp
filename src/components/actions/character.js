@@ -11,6 +11,8 @@ import {
     GET_CHARACTER_VEHICLES_FAIL,
     GET_CHARACTER_PROPERTY,
     GET_CHARACTER_PROPERTY_FAIL,
+    GET_CHARACTER_BIZZ,
+    GET_CHARACTER_BIZZ_FAIL,
     CHARACTER_CREATED,
     CHARACTER_CREATED_FAIL,
     CHARACTER_DELETED,
@@ -150,5 +152,14 @@ export const getCharacterProperty = (owner_sqlid) => async dispatch => {
         dispatch({ type: GET_CHARACTER_PROPERTY, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_PROPERTY_FAIL });
+    }
+}
+
+export const getCharacterBizz = (owner_sqlid) => async dispatch => {
+    try {
+        const res = await axios.get(`/api/v1/characters/${owner_sqlid}/bizz`);
+        dispatch({ type: GET_CHARACTER_BIZZ, payload: res.data });
+    } catch (error) {
+        dispatch({ type: GET_CHARACTER_BIZZ_FAIL });
     }
 }
