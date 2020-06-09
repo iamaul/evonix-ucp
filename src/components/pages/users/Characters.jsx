@@ -58,14 +58,14 @@ const ExpandedData = ({ data }) => (
                         <CharacterAdminWarn char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
-                {data.faction_sqlid !== 0 && (
+                {/* {data.faction_sqlid !== 0 && (
                     <Modal trigger={<Button size="small">Faction</Button>} closeIcon>
                         <Modal.Header>{data.name}</Modal.Header>
                         <Modal.Content>
                             <CharacterFaction char_id={data.id} leader_sqlid={data.charFaction && data.charFaction.leader_sqlid} faction_rank={data.faction_rank} />
                         </Modal.Content>
                     </Modal>
-                )}
+                )} */}
                 <Modal trigger={<Button size="small">Inventory</Button>} closeIcon>
                     <Modal.Content>
                         <CharacterInventory char_id={data.id} char_name={data.name} />
