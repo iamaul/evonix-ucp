@@ -9,7 +9,7 @@ import ChangeEmail from './settings/ChangeEmail';
 
 import { userVerifyEmail } from '../../actions/account';
 
-const Settings = ({ userVerifyEmail, auth: { user }, account: { verify_email_success }}) => {
+const Settings = ({ userVerifyEmail, auth: { user }, account: { requestVerifyEmail, verify_email_success }}) => {
     const onUserVerifyEmail = () => userVerifyEmail();
 
     return (
@@ -20,7 +20,7 @@ const Settings = ({ userVerifyEmail, auth: { user }, account: { verify_email_suc
                         <Message.Header>Warning</Message.Header>
                         <p>
                             Hey! You have not yet verified your email address to this account, please click the following button below to verify.<br/>
-                            <Button onClick={onUserVerifyEmail} size="tiny" color="green" content="Send email verification" disabled={verify_email_success} /><br/><br/>
+                            <Button onClick={onUserVerifyEmail} size="tiny" color="green" content="Send email verification" loading={requestVerifyEmail} disabled={verify_email_success} /><br/><br/>
                             <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   

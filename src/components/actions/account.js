@@ -3,12 +3,15 @@ import Swal from 'sweetalert2';
 import {
     CHANGE_PASSWORD_FAIL,
     CHANGE_PASSWORD_SUCCESS,
+    CHANGE_PASSWORD_REQUEST,
     CHANGE_EMAIL_FAIL,
     CHANGE_EMAIL_SUCCESS,
+    CHANGE_EMAIL_REQUEST,
+    VERIFY_EMAIL_REQUEST,
     EMAIL_VERIFICATION_SENT,
     EMAIL_VERIFICATION_FAIL,
     CONFIRM_EMAIL_VERIFICATION,
-    CONFIRM_EMAIL_VERIFICATION_FAIL
+    CONFIRM_EMAIL_VERIFICATION_FAIL,
 } from './types';
 
 const Toast = Swal.mixin({
@@ -26,8 +29,12 @@ export const userChangePassword = ({ old_password, password }) => async dispatch
     const body = JSON.stringify({ old_password, password });
 
     try {
+        // REQUEST START
+        dispatch({ type: CHANGE_PASSWORD_REQUEST });
+
         const res = await axios.put('/api/v1/users/change/password', body, config);
         dispatch({ type: CHANGE_PASSWORD_SUCCESS, payload: res.data });
+
         Toast.fire({
             icon: 'success',
             text: res.data.msg
@@ -57,12 +64,17 @@ export const userChangeEmail = ({ new_email }) => async dispatch => {
     const body = JSON.stringify({ new_email });
 
     try {
+        // REQUEST START
+        dispatch({ type: CHANGE_EMAIL_REQUEST });
+
         const res = await axios.put('/api/v1/users/change/email', body, config);
         dispatch({ type: CHANGE_EMAIL_SUCCESS, payload: res.data });
+        
         Toast.fire({
             icon: 'success',
             text: res.data.msg
         });
+        
         setTimeout(function() {
             window.location.reload();
         }, 3000);
@@ -83,8 +95,12 @@ export const userChangeEmail = ({ new_email }) => async dispatch => {
 
 export const userVerifyEmail = () => async dispatch => {
     try {
+        // REQUEST START
+        dispatch({ type: VERIFY_EMAIL_REQUEST });
+
         const res = await axios.post('/api/v1/users/email/verification');
         dispatch({ type: EMAIL_VERIFICATION_SENT });
+        
         Toast.fire({
             icon: 'success',
             text: res.data.msg

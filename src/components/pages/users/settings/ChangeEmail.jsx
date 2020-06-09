@@ -5,8 +5,7 @@ import { Form } from 'semantic-ui-react';
 
 import { userChangeEmail } from '../../../actions/account';
 
-const ChangeEmail = ({ currentEmail, userChangeEmail, account: { account_settings, setLoading } }) => {
-    const [loadingButton, setLoadingButton] = useState(false);
+const ChangeEmail = ({ currentEmail, userChangeEmail, account: { requestChangeEmail } }) => {
     const [formData, setFormData] = useState({ new_email: '' });
 
     const { new_email } = formData;
@@ -19,12 +18,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail, account: { account_setting
     const onSubmit = e => {
         e.preventDefault();
 
-        setLoadingButton(true);
         userChangeEmail({ new_email });
-    }
-
-    if (account_settings !== null && !setLoading) {
-        setLoadingButton(false);
     }
 
     return (
@@ -39,7 +33,7 @@ const ChangeEmail = ({ currentEmail, userChangeEmail, account: { account_setting
                     placeholder={currentEmail}
                     onChange={onChange}
                 />
-                <Form.Button color="red" size="medium" content="Change" loading={loadingButton} />
+                <Form.Button color="red" size="medium" content="Change" loading={requestChangeEmail} />
             </Form>
         </>
     )

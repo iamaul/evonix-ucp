@@ -9,6 +9,7 @@ import {
     LOGIN_SUCCESS,
     FORGOT_PASSWORD_FAIL,
     FORGOT_PASSWORD_SENT,
+    FORGOT_PASSWORD_REQUEST,
     RESET_NEW_PASSWORD,
     RESET_NEW_PASSWORD_FAIL,
     AUTH_ERROR,
@@ -95,8 +96,12 @@ export const userForgotPassword = (email) => async dispatch => {
     const data = { email };
 
     try {
+        // REQUEST START
+        dispatch({ type: FORGOT_PASSWORD_REQUEST });
+
         const res = await axios.post('/api/v1/auth/reset', data, config);
         dispatch({ type: FORGOT_PASSWORD_SENT });
+        
         Toast.fire({
             icon: 'success',
             text: res.data.msg
@@ -128,10 +133,12 @@ export const userResetPassword = (password, code) => async dispatch => {
     try {
         const res = await axios.put(`/api/v1/auth/reset/${code}`, data, config);
         dispatch({ type: RESET_NEW_PASSWORD });
+        
         Toast.fire({
             icon: 'success',
             text: res.data.msg
         });
+
         setTimeout(function() {
             history.push('/login');
         }, 3000);

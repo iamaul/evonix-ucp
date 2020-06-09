@@ -14,7 +14,7 @@ import {
 
 import { userForgotPassword } from '../../actions/auth';
 
-const ForgotPassword = ({ userForgotPassword, auth: { forgot_password_send } }) => {
+const ForgotPassword = ({ userForgotPassword, auth: { forgot_password_send, requestForgotPassword } }) => {
     const [email, setEmail] = useState('');
     const onChange = e => setEmail(e.target.value);
 
@@ -43,7 +43,7 @@ const ForgotPassword = ({ userForgotPassword, auth: { forgot_password_send } }) 
                                 onChange={onChange}
                                 fluid 
                             />
-                            <Form.Button color="red" fluid size="large" content="Reset" disabled={forgot_password_send} />
+                            <Form.Button color="red" fluid size="large" content="Reset" loading={requestForgotPassword} disabled={forgot_password_send} />
                         </Segment>
                     </Form>
                     <br/>
