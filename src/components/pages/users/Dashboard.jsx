@@ -8,6 +8,7 @@ import {
     Statistic,
     Divider
 } from 'semantic-ui-react';
+import NumberFormat from 'react-number-format';
 
 import { 
     getCountServerUsers, 
