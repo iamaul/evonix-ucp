@@ -5,6 +5,7 @@ import {
     AUTH_ERROR,
     FORGOT_PASSWORD_REQUEST,
     FORGOT_PASSWORD_SENT,
+    FORGOT_PASSWORD_FAIL,
     LOGOUT
 } from '../actions/types';
 
@@ -54,6 +55,11 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 forgot_password_send: true,
                 requestForgotPassword: false,
+            }
+        case FORGOT_PASSWORD_FAIL:
+            return {
+                ...state,
+                requestForgotPassword: false
             }
         case AUTH_ERROR:
         case LOGOUT:

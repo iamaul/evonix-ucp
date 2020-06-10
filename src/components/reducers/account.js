@@ -1,8 +1,10 @@
 import {
     CHANGE_PASSWORD_REQUEST,
     CHANGE_PASSWORD_SUCCESS,
+    CHANGE_PASSWORD_FAIL,
     CHANGE_EMAIL_REQUEST,
     CHANGE_EMAIL_SUCCESS,
+    CHANGE_EMAIL_FAIL,
     VERIFY_EMAIL_REQUEST,
     CONFIRM_EMAIL_VERIFICATION,
     EMAIL_VERIFICATION_SENT
@@ -37,8 +39,18 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 account_settings: payload,
-                setLoading: false,
                 requestChangePassword: false,
+                requestChangeEmail: false,
+                setLoading: false
+            }
+        case CHANGE_PASSWORD_FAIL:
+            return {
+                ...state,
+                requestChangePassword: false
+            }
+        case CHANGE_EMAIL_FAIL:
+            return {
+                ...state,
                 requestChangeEmail: false
             }
         case VERIFY_EMAIL_REQUEST:
