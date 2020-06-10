@@ -3,9 +3,11 @@ import {
     COUNT_SERVER_USERS,
     COUNT_SERVER_VEHICLES,
     COUNT_SERVER_PROPERTIES,
+    COUNT_SERVER_USER_APPS,
     COUNT_SERVER_USERS_FAIL,
     COUNT_SERVER_VEHICLES_FAIL,
-    COUNT_SERVER_PROPERTIES_FAIL
+    COUNT_SERVER_PROPERTIES_FAIL,
+    COUNT_SERVER_USER_APPS_FAIL,
 } from './types';
 
 export const getCountServerUsers = () => async dispatch => {
@@ -32,5 +34,14 @@ export const getCountServerProperties = () => async dispatch => {
         dispatch({ type: COUNT_SERVER_PROPERTIES, payload: res.data });
     } catch (error) {
         dispatch({ type: COUNT_SERVER_PROPERTIES_FAIL });
+    }
+}
+
+export const getCountServerUserApps = () => async dispatch => {
+    try {
+        const res = await axios.get('/api/v1/server/stats/user_applications');
+        dispatch({ type: COUNT_SERVER_USER_APPS, payload: res.data });
+    } catch (error) {
+        dispatch({ type: COUNT_SERVER_USER_APPS_FAIL });
     }
 }

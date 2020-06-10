@@ -12,7 +12,8 @@ import {
 import { 
     getCountServerUsers, 
     getCountServerVehicles,
-    getCountServerProperties
+    getCountServerProperties,
+    getCountServerUserApps
 } from '../../actions/stats';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
@@ -22,14 +23,16 @@ const Dashboard = ({
     getCountServerUsers,
     getCountServerVehicles,
     getCountServerProperties, 
-    stats: { total_users, player_vehicles, player_properties, setLoading },
+    getCountServerUserApps,
+    stats: { total_users, player_vehicles, player_properties, total_user_apps, setLoading },
     auth: { user }
 }) => {
     useEffect(() => {
         getCountServerUsers();
         getCountServerVehicles();
         getCountServerProperties();
-    }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties])
+        getCountServerUserApps();
+    }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties, getCountServerUserApps])
 
     if (user !== null) {
         if (user.status === 0 || user.status === 1 || user.status === 2) {
@@ -44,11 +47,19 @@ const Dashboard = ({
                     <Sidebar />
                     <Grid.Column stretched width={12}>
                         <Segment>
-                            <Statistic.Group size="small" widths="3">
+                            <Statistic.Group size="small" widths="4">
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
-                                            { total_users }
+                                            <NumberFormat value={total_user_apps} displayType={'text'} thousandSeparator={true} />
+                                        </Statistic.Value> )
+                                    }
+                                    <Statistic.Label>User Applications</Statistic.Label>
+                                </Statistic>
+                                <Statistic>
+                                    { setLoading ? (<Loader isLoading={setLoading} />) : (
+                                        <Statistic.Value>
+                                            <NumberFormat value={total_users} displayType={'text'} thousandSeparator={true} />
                                         </Statistic.Value> )
                                     }
                                     <Statistic.Label>Registered Users</Statistic.Label>
@@ -56,7 +67,7 @@ const Dashboard = ({
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
-                                            { player_vehicles }
+                                            <NumberFormat value={player_vehicles} displayType={'text'} thousandSeparator={true} />
                                         </Statistic.Value> )
                                     }
                                     <Statistic.Label>Player Vehicles</Statistic.Label>
@@ -64,7 +75,7 @@ const Dashboard = ({
                                 <Statistic>
                                     { setLoading ? (<Loader isLoading={setLoading} />) : (
                                         <Statistic.Value>
-                                            { player_properties }
+                                            <NumberFormat value={player_properties} displayType={'text'} thousandSeparator={true} />
                                         </Statistic.Value> )
                                     }
                                     <Statistic.Label>Properties</Statistic.Label>
@@ -73,7 +84,7 @@ const Dashboard = ({
                             <Divider hidden />
                             <Divider horizontal>Welcome to EvoniX Roleplay</Divider>
                             <p style={{ textAlign: 'justify' }}>
-                                Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe roleplay yang bold dan realistis tanpa ada embel-embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management, dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
+                                Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe roleplay yang bold dan realistis tanpa ada embel-embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
                             </p>
                         </Segment>
                     </Grid.Column>
@@ -87,6 +98,7 @@ Dashboard.propTypes = {
     getCountServerUsers: PropTypes.func.isRequired,
     getCountServerVehicles: PropTypes.func.isRequired,
     getCountServerProperties: PropTypes.func.isRequired,
+    getCountServerUserApps: PropTypes.func.isRequired,
     stats: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired
 }
@@ -99,4 +111,5 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { 
     getCountServerUsers, 
     getCountServerVehicles, 
-    getCountServerProperties })(Dashboard);
+    getCountServerProperties,
+    getCountServerUserApps })(Dashboard);

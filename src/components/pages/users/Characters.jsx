@@ -57,11 +57,6 @@ const ExpandedData = ({ data }) => (
                         <CharacterAdminWarn char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
-                <Modal trigger={<Button size="small">Business</Button>} closeIcon>
-                    <Modal.Content>
-                        <CharacterBizz char_id={data.id} char_name={data.name} />
-                    </Modal.Content>
-                </Modal>
                 {/* {data.faction_sqlid !== 0 && (
                     <Modal trigger={<Button size="small">Faction</Button>} closeIcon>
                         <Modal.Header>{data.name}</Modal.Header>
@@ -78,6 +73,11 @@ const ExpandedData = ({ data }) => (
                 <Modal trigger={<Button size="small">Vehicle</Button>} closeIcon>
                     <Modal.Content>
                         <CharacterVehicle char_id={data.id} char_name={data.name} />
+                    </Modal.Content>
+                </Modal>
+                <Modal trigger={<Button size="small">Business</Button>} closeIcon>
+                    <Modal.Content>
+                        <CharacterBizz char_id={data.id} char_name={data.name} />
                     </Modal.Content>
                 </Modal>
                 <Modal trigger={<Button size="small">Property</Button>} closeIcon>

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
     Grid,
@@ -33,6 +34,10 @@ const Introduction = ({ nextStep, auth: { user } }) => {
             <Button color="red" content="Start" onClick={startQuiz} />
         </Fragment>
     )
+
+    if (user && user.status === 3) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <>
