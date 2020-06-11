@@ -4,7 +4,7 @@ RUN mkdir -p /evonix-app/client
 
 WORKDIR /evonix-app/client
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
 
