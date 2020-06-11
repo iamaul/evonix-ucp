@@ -8,7 +8,6 @@ import {
     Statistic,
     Divider,
     Link,
-    Divider,
     List,
     Header
 } from 'semantic-ui-react';
