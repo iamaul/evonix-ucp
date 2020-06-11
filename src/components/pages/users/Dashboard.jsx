@@ -8,6 +8,7 @@ import {
     Statistic,
     Divider,
     List,
+    Embed,
     Header
 } from 'semantic-ui-react';
 import NumberFormat from 'react-number-format';
