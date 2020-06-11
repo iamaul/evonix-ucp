@@ -6,7 +6,11 @@ import {
     Segment,
     Grid,
     Statistic,
-    Divider
+    Divider,
+    Link,
+    Divider,
+    List,
+    Header
 } from 'semantic-ui-react';
 import NumberFormat from 'react-number-format';
 
@@ -84,9 +88,32 @@ const Dashboard = ({
                             </Statistic.Group>
                             <Divider hidden />
                             <Divider horizontal>Welcome to EvoniX Roleplay</Divider>
-                            <p style={{ textAlign: 'justify' }}>
-                                Sebuah media pemenuhan hasrat para roleplayer sekalian yang ingin dan rindu akan vibe roleplay yang bold dan realistis tanpa ada embel-embel murahan lain nya. Di server ini para player memiliki kebebasan untuk mengekspresikan diri sebebas-bebas nya, dan tentu saja harus dilandasi oleh server rules yang berlaku. Dengan demikian segenap Server Management dan Administator mengharapkan kenyamanan bagi para player yang nantinya bermain di server ini.
-                            </p>
+                            <Grid columns={2} stackable>
+                                <Grid.Column>
+                                    <Embed
+                                        id="2NEHWtLY1JI"
+                                        placeholder="https://cdn.discordapp.com/attachments/679017351223705648/680342373024137237/header_lspd.png"
+                                        source="youtube"
+                                    />
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <p style={{ textAlign: 'justify' }}>
+                                        <Header as="h3">Useful Links</Header>
+                                        <Divider />
+                                        <List celled ordered>
+                                            <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank">Ingame Rules</Link></List.Item>
+                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=74" target="_blank">Official Guide</Link></List.Item>
+                                            <List.Item>
+                                            Recommended Guides
+                                                <List.List>
+                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=74&t=210" target="_blank">Evonix Starter Guide</Link></List.Item>
+                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=439" target="_blank">[INDEX] Saya Belum Paham RP, Harus Bagaimana?</Link></List.Item>
+                                                </List.List>
+                                            </List.Item>
+                                        </List>
+                                    </p>
+                                </Grid.Column>
+                            </Grid>
                         </Segment>
                     </Grid.Column>
                 </Grid>

@@ -14,6 +14,7 @@ const Navbar = ({ auth: { isAuthenticated, setLoading, user }, userLogout }) => 
             floating
             labeled
             button
+            simple
             className="icon"
         >
             <Dropdown.Menu>
