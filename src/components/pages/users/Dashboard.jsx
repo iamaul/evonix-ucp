@@ -87,18 +87,19 @@ const Dashboard = ({
                             </Statistic.Group>
                             <Divider hidden />
                             <Divider horizontal>Welcome to EvoniX Roleplay</Divider>
+                            <Divider hidden />
                             <Grid columns={2} stackable>
                                 <Grid.Column>
                                     <Embed
                                         id="2NEHWtLY1JI"
-                                        placeholder="https://cdn.discordapp.com/attachments/679017351223705648/680342373024137237/header_lspd.png"
+                                        iframe={{ allowFullScreen: true }}
                                         source="youtube"
                                     />
                                 </Grid.Column>
                                 <Grid.Column>
                                     <p style={{ textAlign: 'justify' }}>
                                         <Header as="h3">Useful Links</Header>
-                                        <Divider />
+                                        <Divider hidden />
                                         <List celled ordered>
                                             <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank">Ingame Rules</Link></List.Item>
                                             <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=74" target="_blank">Official Guide</Link></List.Item>
