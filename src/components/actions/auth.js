@@ -5,6 +5,7 @@ import {
     USER_LOADED,
     REGISTER_FAIL,
     REGISTER_SUCCESS,
+    REGISTER_REQUEST,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     FORGOT_PASSWORD_FAIL,
@@ -40,9 +41,13 @@ export const userRegister = ({ username, email, password }) => async dispatch =>
     const body = JSON.stringify({ username, email, password });
 
     try {
+        // REQUEST START
+        dispatch({ type: REGISTER_REQUEST });
+
         const res = await axios.post('/api/v1/auth/new', body, config);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         dispatch(userLoad());
+        
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {

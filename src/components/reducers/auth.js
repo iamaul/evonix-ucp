@@ -1,6 +1,8 @@
 import {
     USER_LOADED,
+    REGISTER_FAIL,
     REGISTER_SUCCESS,
+    REGISTER_REQUEST,
     LOGIN_SUCCESS,
     AUTH_ERROR,
     FORGOT_PASSWORD_REQUEST,
@@ -13,6 +15,7 @@ const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     user: null,
+    requestRegister: false,
     requestForgotPassword: false,
     forgot_password_send: false,
     setLoading: true,
@@ -29,6 +32,11 @@ export default function (state = INITIAL_STATE, action) {
                 isAuthenticated: true,
                 setLoading: false,
                 user: payload
+            }
+        case REGISTER_REQUEST:
+            return {
+                ...state,
+                requestRegister: true
             }
         case REGISTER_SUCCESS:
             return {
@@ -61,11 +69,13 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 requestForgotPassword: false
             }
+        case REGISTER_FAIL:
         case AUTH_ERROR:
         case LOGOUT:
             return {
                 ...state,
                 token: null,
+                requestRegister: false,
                 isAuthenticated: false,
                 setLoading: false,
                 user: null

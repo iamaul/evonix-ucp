@@ -16,7 +16,7 @@ import {
 
 import { userRegister } from '../../actions/auth';
 
-const Register = ({ userRegister, isAuthenticated }) => {
+const Register = ({ userRegister, isAuthenticated, requestRegister }) => {
     const initialState = {
         username: '',
         email: '',
@@ -125,7 +125,7 @@ const Register = ({ userRegister, isAuthenticated }) => {
                                 sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
                                 onChange={onChange}
                             /><br/>
-                            <Form.Button color="red" fluid size="large" content="Sign Up" />
+                            <Form.Button color="red" fluid size="large" content="Sign Up" loading={requestRegister} />
                         </Segment>
                     </Form>
                     <Message info>
@@ -164,11 +164,13 @@ const Register = ({ userRegister, isAuthenticated }) => {
 
 Register.propTypes = {
     userRegister: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    requestRegister: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    requestRegister: state.auth.requestRegister
 });
 
 export default connect(mapStateToProps, { userRegister })(Register);

@@ -99,6 +99,7 @@ const Dashboard = ({
                                 <Grid.Column>
                                     <p style={{ textAlign: 'justify' }}>
                                         <Header as="h3">Useful Links</Header>
+                                        These guidelines were created for the newcomer. Please read the server rules and guidelines to get started!
                                         <Divider hidden />
                                         <List celled ordered>
                                             <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank">Ingame Rules</Link></List.Item>
@@ -107,9 +108,14 @@ const Dashboard = ({
                                             Recommended Guides
                                                 <List.List>
                                                     <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=74&t=210" target="_blank">Evonix Starter Guide</Link></List.Item>
-                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=439" target="_blank">[INDEX] Saya Belum Paham RP, Harus Bagaimana?</Link></List.Item>
+                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=112" target="_blank">/do dapat? Apakah ini benar?</Link></List.Item>
+                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=402" target="_blank">Powergaming</Link></List.Item>
+                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=181" target="_blank">your character!</Link></List.Item>
                                                 </List.List>
                                             </List.Item>
+                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=28" target="_blank">Bug Report</Link></List.Item>
+                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=134" target="_blank">Player Suggestion</Link></List.Item>
+                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=25" target="_blank">Ban Appeal</Link></List.Item>
                                         </List>
                                     </p>
                                 </Grid.Column>

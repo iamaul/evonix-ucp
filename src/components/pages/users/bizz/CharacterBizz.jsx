@@ -71,7 +71,7 @@ const CharacterBizz = ({ getCharacterBizz, char_id, char_name, character: { bizz
         <>
             {bizz !== null && !setLoading ? (<div>
                 <DataTable
-                    title={`${char_name}'s Bizz List`}
+                    title={`${char_name}'s Business List`}
                     columns={columns}
                     data={bizz}
                     highlightOnHover
