@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
     LOAD_QUIZ,
@@ -12,6 +11,7 @@ import {
     PUSH_QUIZ_SCORE,
     CLEAR_QUIZ
 } from './types';
+import api from '../api/api';
 
 const Toast = Swal.mixin({
     toast: true,
@@ -24,7 +24,7 @@ export const loadQuiz = (questions) => dispatch => {
 
 export const loadQuizScenario = () => async dispatch => {
     try {
-        const res = await axios.get('/api/v1/quiz/scenario');
+        const res = await api.get('quiz/scenario');
         dispatch({ type: LOAD_QUIZ_SCENARIO, payload: res.data });
     } catch (error) {
         dispatch({ type: LOAD_QUIZ_SCENARIO_FAIL, payload: {
@@ -59,7 +59,7 @@ export const quizResult = (dataObj) => async dispatch => {
     }
 
     try {
-        const res = await axios.post('/api/v1/users/application', dataObj, config);
+        const res = await api.post('users/application', dataObj, config);
         dispatch({ type: QUIZ_RESULT, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;

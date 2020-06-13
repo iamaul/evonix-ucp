@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
     GET_NEWS,
@@ -10,6 +9,7 @@ import {
     GET_NEWS_DETAIL,
     GET_NEWS_DETAIL_FAIL
 } from './types';
+import api from '../api/api';
 
 const Toast = Swal.mixin({
     toast: true,
@@ -18,7 +18,7 @@ const Toast = Swal.mixin({
 
 export const getHeadlineNews = () => async dispatch => {
     try {
-        const res = await axios.get('/api/v1/news/headline');
+        const res = await api.get('news/headline');
         dispatch({ type: GET_HEADLINE_NEWS, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
@@ -37,7 +37,7 @@ export const getHeadlineNews = () => async dispatch => {
 
 export const getNews = () => async dispatch => {
     try {
-        const res = await axios.get('/api/v1/news');
+        const res = await api.get('news');
         dispatch({ type: GET_NEWS, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
@@ -56,7 +56,7 @@ export const getNews = () => async dispatch => {
 
 export const getFactionNews = (faction_sqlid) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/news/faction/${faction_sqlid}`);
+        const res = await api.get(`news/faction/${faction_sqlid}`);
         dispatch({ type: GET_FACTION_NEWS, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
@@ -75,7 +75,7 @@ export const getFactionNews = (faction_sqlid) => async dispatch => {
 
 export const getNewsDetail = (slug) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/news/${slug}`);
+        const res = await api.get(`news/${slug}`);
         dispatch({ type: GET_NEWS_DETAIL, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;

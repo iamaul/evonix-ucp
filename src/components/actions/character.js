@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
     GET_USER_CHARACTERS,
@@ -22,6 +21,7 @@ import {
     GET_CHARACTER_FACTION_MEMBERS,
     GET_CHARACTER_FACTION_MEMBERS_FAIL
 } from './types';
+import api from '../api/api';
 
 const Toast = Swal.mixin({
     toast: true,
@@ -30,7 +30,7 @@ const Toast = Swal.mixin({
 
 export const getUserCharacters = () => async dispatch => {
     try {
-        const res = await axios.get('/api/v1/characters');
+        const res = await api.get('characters');
         dispatch({ type: GET_USER_CHARACTERS, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
@@ -57,7 +57,7 @@ export const createCharacter = ({ firstname, lastname, gender }) => async dispat
     const body = JSON.stringify({ firstname, lastname, gender });
 
     try {
-        const res = await axios.post('/api/v1/characters/new', body, config);
+        const res = await api.post('characters/new', body, config);
         dispatch({ type: CHARACTER_CREATED, payload: res.data });
         Toast.fire({
             icon: 'success',
@@ -80,7 +80,7 @@ export const createCharacter = ({ firstname, lastname, gender }) => async dispat
 
 export const getCharacter = (id) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/${id}`);
+        const res = await api.get(`characters/${id}`);
         dispatch({ type: GET_CHARACTER_DETAIL, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_DETAIL_FAIL });
@@ -89,7 +89,7 @@ export const getCharacter = (id) => async dispatch => {
 
 export const deleteCharacter = (id) => async dispatch => {
     try {
-        const res = await axios.delete(`/api/v1/characters/${id}`);
+        const res = await api.delete(`characters/${id}`);
         dispatch({ type: CHARACTER_DELETED, payload: res.data });
         Toast.fire({
             icon: 'success',
@@ -112,7 +112,7 @@ export const deleteCharacter = (id) => async dispatch => {
 
 export const getCharacterFactionMembers = (faction_sqlid) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/faction/${faction_sqlid}`);
+        const res = await api.get(`characters/faction/${faction_sqlid}`);
         dispatch({ type: GET_CHARACTER_FACTION_MEMBERS, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_FACTION_MEMBERS_FAIL });
@@ -121,7 +121,7 @@ export const getCharacterFactionMembers = (faction_sqlid) => async dispatch => {
 
 export const getCharacterAdminWarns = (char_id) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/${char_id}/admin_warn`);
+        const res = await api.get(`characters/${char_id}/admin_warn`);
         dispatch({ type: GET_CHARACTER_ADMIN_WARNS, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_ADMIN_WARNS_FAIL });
@@ -130,7 +130,7 @@ export const getCharacterAdminWarns = (char_id) => async dispatch => {
 
 export const getCharacterInventory = (char_id) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/${char_id}/inventory`);
+        const res = await api.get(`characters/${char_id}/inventory`);
         dispatch({ type: GET_CHARACTER_INVENTORY, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_INVENTORY_FAIL });
@@ -139,7 +139,7 @@ export const getCharacterInventory = (char_id) => async dispatch => {
 
 export const getCharacterVehicles = (owner_sqlid) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/${owner_sqlid}/vehicle`);
+        const res = await api.get(`characters/${owner_sqlid}/vehicle`);
         dispatch({ type: GET_CHARACTER_VEHICLES, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_VEHICLES_FAIL });
@@ -148,7 +148,7 @@ export const getCharacterVehicles = (owner_sqlid) => async dispatch => {
 
 export const getCharacterProperty = (owner_sqlid) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/${owner_sqlid}/property`);
+        const res = await api.get(`characters/${owner_sqlid}/property`);
         dispatch({ type: GET_CHARACTER_PROPERTY, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_PROPERTY_FAIL });
@@ -157,7 +157,7 @@ export const getCharacterProperty = (owner_sqlid) => async dispatch => {
 
 export const getCharacterBizz = (owner_sqlid) => async dispatch => {
     try {
-        const res = await axios.get(`/api/v1/characters/${owner_sqlid}/bizz`);
+        const res = await api.get(`characters/${owner_sqlid}/bizz`);
         dispatch({ type: GET_CHARACTER_BIZZ, payload: res.data });
     } catch (error) {
         dispatch({ type: GET_CHARACTER_BIZZ_FAIL });

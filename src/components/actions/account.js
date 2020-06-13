@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
     CHANGE_PASSWORD_FAIL,
@@ -13,6 +12,7 @@ import {
     CONFIRM_EMAIL_VERIFICATION,
     CONFIRM_EMAIL_VERIFICATION_FAIL,
 } from './types';
+import api from '../api/api';
 
 const Toast = Swal.mixin({
     toast: true,
@@ -32,7 +32,7 @@ export const userChangePassword = ({ old_password, password }) => async dispatch
         // REQUEST START
         dispatch({ type: CHANGE_PASSWORD_REQUEST });
 
-        const res = await axios.put('/api/v1/users/change/password', body, config);
+        const res = await api.put('users/change/password', body, config);
         dispatch({ type: CHANGE_PASSWORD_SUCCESS, payload: res.data });
 
         Toast.fire({
@@ -67,7 +67,7 @@ export const userChangeEmail = ({ new_email }) => async dispatch => {
         // REQUEST START
         dispatch({ type: CHANGE_EMAIL_REQUEST });
 
-        const res = await axios.put('/api/v1/users/change/email', body, config);
+        const res = await api.put('users/change/email', body, config);
         dispatch({ type: CHANGE_EMAIL_SUCCESS, payload: res.data });
         
         Toast.fire({
@@ -98,7 +98,7 @@ export const userVerifyEmail = () => async dispatch => {
         // REQUEST START
         dispatch({ type: VERIFY_EMAIL_REQUEST });
 
-        const res = await axios.post('/api/v1/users/email/verification');
+        const res = await api.post('users/email/verification');
         dispatch({ type: EMAIL_VERIFICATION_SENT });
         
         Toast.fire({
@@ -122,7 +122,7 @@ export const userVerifyEmail = () => async dispatch => {
 
 export const userConfirmEmailVerification = (code) => async dispatch => {
     try {
-        const res = await axios.put(`/api/v1/users/email/verification/${code}`);
+        const res = await api.put(`users/email/verification/${code}`);
         dispatch({ type: CONFIRM_EMAIL_VERIFICATION, payload: res.data });
     } catch (error) {
         const errors = error.response.data.errors;
