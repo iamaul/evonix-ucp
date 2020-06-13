@@ -6,6 +6,7 @@ import {
     QUIZ_UPDATE,
     QUIZ_GRADE,
     QUIZ_SUBMISSIONS,
+    REQUEST_QUIZ_RESULT,
     QUIZ_RESULT,
     QUIZ_RESULT_FAIL,
     PUSH_QUIZ_SCORE,
@@ -59,8 +60,12 @@ export const quizResult = (dataObj) => async dispatch => {
     }
 
     try {
+        // REQUEST START
+        dispatch({ type: REQUEST_QUIZ_RESULT });
+
         const res = await api.post('users/application', dataObj, config);
         dispatch({ type: QUIZ_RESULT, payload: res.data });
+        
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {

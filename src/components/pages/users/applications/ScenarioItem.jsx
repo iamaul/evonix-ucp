@@ -10,7 +10,7 @@ import {
 
 import { quizResult } from '../../../actions/quiz';
 
-const ScenarioItem = ({ quizResult, item, userId, score, nextStep }) => {
+const ScenarioItem = ({ quizResult, requestResult, item, userId, score, nextStep }) => {
     const [answer, setAnswer] = useState('');    
 
     const { id, title, question, image } = item;
@@ -51,7 +51,7 @@ const ScenarioItem = ({ quizResult, item, userId, score, nextStep }) => {
                     />
                 </Form.Field>
                 <Form.Field>
-                    <Form.Button color="red" size="tiny" content="Submit" />
+                    <Form.Button color="red" size="medium" content="Submit" loading={requestResult} />
                 </Form.Field>
             </Form>
         </>
@@ -59,7 +59,12 @@ const ScenarioItem = ({ quizResult, item, userId, score, nextStep }) => {
 }
 
 ScenarioItem.propTypes = {
-    quizResult: PropTypes.func.isRequired
+    quizResult: PropTypes.func.isRequired,
+    requestResult: PropTypes.bool
 }
 
-export default connect(null, { quizResult })(ScenarioItem);
+const mapStateToProps = state => ({
+    requestResult: state.quiz.requestResult
+});
+
+export default connect(mapStateToProps, { quizResult })(ScenarioItem);

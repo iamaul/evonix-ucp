@@ -90,7 +90,7 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const Characters = ({ getUserCharacters, character: { character, setLoading }, createCharacter, deleteCharacter }) => {
+const Characters = ({ getUserCharacters, character: { character, requestCreateChar, setLoading }, createCharacter, deleteCharacter }) => {
     const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: '' });
     const { firstname, lastname, gender } = formData;
 
@@ -155,7 +155,7 @@ const Characters = ({ getUserCharacters, character: { character, setLoading }, c
                                 onChange={onChange}
                             />
                         </Form.Group>
-                        <Form.Button color="red" content="Create" />
+                        <Form.Button color="red" content="Create" loading={requestCreateChar} />
                     </Form>
                 </Modal.Content>
             </Modal>

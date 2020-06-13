@@ -12,6 +12,7 @@ import {
     GET_CHARACTER_PROPERTY_FAIL,
     GET_CHARACTER_BIZZ,
     GET_CHARACTER_BIZZ_FAIL,
+    REQUEST_CREATE_CHARACTER,
     CHARACTER_CREATED,
     CHARACTER_CREATED_FAIL,
     CHARACTER_DELETED,
@@ -57,8 +58,12 @@ export const createCharacter = ({ firstname, lastname, gender }) => async dispat
     const body = JSON.stringify({ firstname, lastname, gender });
 
     try {
+        // REQUEST START
+        dispatch({ type: REQUEST_CREATE_CHARACTER });
+
         const res = await api.post('characters/new', body, config);
         dispatch({ type: CHARACTER_CREATED, payload: res.data });
+        
         Toast.fire({
             icon: 'success',
             text: 'You have successfully created a character.'
