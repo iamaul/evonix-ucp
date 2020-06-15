@@ -3,7 +3,7 @@ import store from '../store';
 import { LOGOUT } from '../actions/types';
 
 const api = axios.create({
-    baseURL: 'https://server.evonix-rp.com/',
+    baseURL: 'https://dev.evonix-rp.com/',
     headers: {
       'Content-Type': 'application/json'
     }
