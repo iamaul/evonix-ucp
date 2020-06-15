@@ -32,19 +32,13 @@ export const userLoad = () => async dispatch => {
 }
 
 export const userRegister = ({ username, email, password }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const body = JSON.stringify({ username, email, password });
 
     try {
         // REQUEST START
         dispatch({ type: REGISTER_REQUEST });
 
-        const res = await api.post('/api/v1/auth/new', body, config);
+        const res = await api.post('/api/v1/auth/new', body);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         dispatch(userLoad());
         
@@ -64,16 +58,10 @@ export const userRegister = ({ username, email, password }) => async dispatch =>
 }
 
 export const userLogin = ({ usermail, password }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const body = JSON.stringify({ usermail, password });
 
     try {
-        const res = await api.post('/api/v1/auth', body, config);
+        const res = await api.post('/api/v1/auth', body);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         dispatch(userLoad());
     } catch (error) {
@@ -92,19 +80,13 @@ export const userLogin = ({ usermail, password }) => async dispatch => {
 }
 
 export const userForgotPassword = (email) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const data = { email };
 
     try {
         // REQUEST START
         dispatch({ type: FORGOT_PASSWORD_REQUEST });
 
-        const res = await api.post('/api/v1/auth/reset', data, config);
+        const res = await api.post('/api/v1/auth/reset', data);
         dispatch({ type: FORGOT_PASSWORD_SENT });
         
         Toast.fire({
@@ -127,16 +109,10 @@ export const userForgotPassword = (email) => async dispatch => {
 }
 
 export const userResetPassword = (password, code) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const data = { password };
 
     try {
-        const res = await api.put(`/api/v1/auth/reset/${code}`, data, config);
+        const res = await api.put(`/api/v1/auth/reset/${code}`, data);
         dispatch({ type: RESET_NEW_PASSWORD });
         
         Toast.fire({

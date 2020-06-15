@@ -49,19 +49,13 @@ export const getUserCharacters = () => async dispatch => {
 }
 
 export const createCharacter = ({ firstname, lastname, gender }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const body = JSON.stringify({ firstname, lastname, gender });
 
     try {
         // REQUEST START
         dispatch({ type: REQUEST_CREATE_CHARACTER });
 
-        const res = await api.post('/api/v1/characters/new', body, config);
+        const res = await api.post('/api/v1/characters/new', body);
         dispatch({ type: CHARACTER_CREATED, payload: res.data });
         
         Toast.fire({

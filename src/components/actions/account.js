@@ -20,19 +20,13 @@ const Toast = Swal.mixin({
 });
 
 export const userChangePassword = ({ old_password, password }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const body = JSON.stringify({ old_password, password });
 
     try {
         // REQUEST START
         dispatch({ type: CHANGE_PASSWORD_REQUEST });
 
-        const res = await api.put('/api/v1/users/change/password', body, config);
+        const res = await api.put('/api/v1/users/change/password', body);
         dispatch({ type: CHANGE_PASSWORD_SUCCESS, payload: res.data });
 
         Toast.fire({
@@ -55,19 +49,13 @@ export const userChangePassword = ({ old_password, password }) => async dispatch
 }
 
 export const userChangeEmail = ({ new_email }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
-
     const body = JSON.stringify({ new_email });
 
     try {
         // REQUEST START
         dispatch({ type: CHANGE_EMAIL_REQUEST });
 
-        const res = await api.put('/api/v1/users/change/email', body, config);
+        const res = await api.put('/api/v1/users/change/email', body);
         dispatch({ type: CHANGE_EMAIL_SUCCESS, payload: res.data });
         
         Toast.fire({

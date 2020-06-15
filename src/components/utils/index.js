@@ -1,5 +1,6 @@
-import axios from 'axios';
 import { shuffle, take } from 'lodash';
+
+import api from './api';
 
 import questions from '../../data/quiz/multiple_choice';
 
@@ -7,10 +8,10 @@ const NUMBER_OF_QUESTIONS = 10;
 
 export const setAuthToken = (token) => {
     if (token) {
-        axios.defaults.headers.common['x-auth-token'] = token;
+        api.defaults.headers.common['x-auth-token'] = token;
         localStorage.setItem('token', token);
     } else {
-        delete axios.defaults.headers.common['x-auth-token'];
+        delete api.defaults.headers.common['x-auth-token'];
         localStorage.removeItem('token');
     }
 }

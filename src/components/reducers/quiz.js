@@ -39,19 +39,46 @@ export default function (state = INITIAL_STATE, action) {
             const updatedQuiz = state.questions.map((question) => {
                 return question.id === payload.questionId ? { ...question, providedAnswer: payload.answer } : question
             });
-            return { ...state, questions: updatedQuiz, setLoading: false }
+            return { 
+                ...state, 
+                questions: updatedQuiz, 
+                setLoading: false 
+            }
         case QUIZ_GRADE:
-            return { ...state, questions: payload, setLoading: false }
+            return { 
+                ...state, 
+                questions: payload, 
+                setLoading: false 
+            }
         case QUIZ_SUBMISSIONS:
-            return { ...state, submissions: payload, setLoading: false }
+            return { 
+                ...state, 
+                submissions: payload, 
+                setLoading: false 
+            }
         case PUSH_QUIZ_SCORE:
-            return { ...state, score: payload, setLoading: false }
+            return { 
+                ...state, 
+                score: payload, 
+                setLoading: false 
+            }
         case REQUEST_QUIZ_RESULT:
-            return { ...state, requestResult: true }
+            return { 
+                ...state, 
+                requestResult: true 
+            }
         case QUIZ_RESULT:
-            return { ...state, result: payload, requestResult: false, setLoading: false }
+            return { 
+                ...state, 
+                result: payload, 
+                requestResult: false, 
+                setLoading: false 
+            }
         case QUIZ_RESULT_FAIL:
-            return { ...state, requestResult: false }
+            return { 
+                ...state, 
+                requestResult: false 
+            }
         case LOAD_QUIZ_SCENARIO_FAIL:
             return {
                 ...state,
