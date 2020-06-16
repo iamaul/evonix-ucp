@@ -113,10 +113,23 @@ export const userForgotPassword = (email) => async dispatch => {
 
 export const userVerifyResetPassword = (code) => async dispatch => {
     try {
-        const res = await api.get(`/api/v1/auth/reset/${code}`);
+        await api.get(`/api/v1/auth/reset/${code}`);
         dispatch({ type: VERIFY_RESET_NEW_PASSWORD });
     } catch (error) {
+        history.push('/');
+        
         dispatch({ type: VERIFY_RESET_NEW_PASSWORD_FAIL });
+
+        const errors = error.response.data.errors;
+        if (errors) {
+            errors.map(err => {
+                return Toast.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: err.msg
+                });
+            });
+        }
     }
 }
 

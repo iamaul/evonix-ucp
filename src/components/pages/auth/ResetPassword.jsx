@@ -10,9 +10,7 @@ import {
     Header, 
     Image, 
     Segment,
-    Icon,
-    Button,
-    Divider
+    Icon
 } from 'semantic-ui-react';
 
 import { userVerifyResetPassword, userResetPassword } from '../../actions/auth';
@@ -21,7 +19,6 @@ const ResetPassword = ({
     userVerifyResetPassword, 
     userResetPassword, 
     requestResetNewPassword, 
-    verify_reset_new_password_fail, 
     match 
 }) => {
     useEffect(() => {
@@ -62,57 +59,6 @@ const ResetPassword = ({
             setPassword('');
             setConfirmPassword('');
         }
-    }
-
-    if (verify_reset_new_password_fail) {
-        return (
-            <>
-                <Grid textAlign="center" style={{ height: '80vh' }} verticalAlign="middle">
-                    <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as="h2" textAlign="center">
-                            <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
-                        </Header>
-                        <Segment color="red" stacked>
-                            <Image src="https://media.giphy.com/media/kC3Z2WuxtXO8DyCUzG/giphy.gif" centered size="medium" /><br/>
-                            The page link is invalid or session has been expired.
-                        </Segment>
-                        <Divider hidden />
-                        <Button
-                            info
-                            as={Link}
-                            to="/login"
-                        >
-                            <Icon name="arrow alternate circle left"/>Back
-                        </Button>
-                    </Grid.Column>
-                </Grid>
-                <footer>
-                    <p>
-                        <a href="http://facebook.com/EvonixRoleplay" target="_blank" rel="noopener noreferrer">
-                            <Icon name="facebook official" />
-                        </a>
-                        <a href="http://twitter.com/EvonixRoleplay" target="_blank" rel="noopener noreferrer">
-                            <Icon name="twitter square" />               
-                        </a> 
-                        <a href="http://instagram.com/evonixroleplay" target="_blank" rel="noopener noreferrer">
-                            <Icon name="instagram" />
-                        </a>               
-                        <br/>          
-                        <Icon name="copyright outline" /> 2020 EvoniX UCP.
-                    </p>
-                </footer>
-                <style>{`
-                    footer {
-                        position: fixed;
-                        left: 0;
-                        bottom: 0;
-                        width: 100%;
-                        text-align: center;
-                        padding: 10px;
-                    }
-                `}</style>
-            </>
-        )
     }
 
     return (
@@ -185,13 +131,11 @@ const ResetPassword = ({
 ResetPassword.propTypes = {
     userResetPassword: PropTypes.func.isRequired,
     userVerifyResetPassword: PropTypes.func.isRequired,
-    requestResetNewPassword: PropTypes.bool,
-    verify_reset_new_password_fail: PropTypes.bool
+    requestResetNewPassword: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
-    requestResetNewPassword: state.auth.requestResetNewPassword,
-    verify_reset_new_password_fail: state.auth.verify_reset_new_password_fail
+    requestResetNewPassword: state.auth.requestResetNewPassword
 });
 
 export default connect(mapStateToProps, { userResetPassword, userVerifyResetPassword })(ResetPassword);

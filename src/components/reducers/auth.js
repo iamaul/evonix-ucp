@@ -11,7 +11,6 @@ import {
     RESET_NEW_PASSWORD_REQUEST,
     RESET_NEW_PASSWORD,
     RESET_NEW_PASSWORD_FAIL,
-    VERIFY_RESET_NEW_PASSWORD_FAIL,
     LOGOUT
 } from '../actions/types';
 
@@ -19,7 +18,6 @@ const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     user: null,
-    verify_reset_new_invalid: false,
     requestRegister: false,
     requestForgotPassword: false,
     requestResetNewPassword: false,
@@ -80,11 +78,6 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 requestResetNewPassword: true
-            }
-        case VERIFY_RESET_NEW_PASSWORD_FAIL:
-            return {
-                ...state,
-                verify_reset_new_password_fail: true
             }
         case RESET_NEW_PASSWORD:
             return {
