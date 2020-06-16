@@ -9,7 +9,8 @@ import {
     Image, 
     Segment,
     Button,
-    Icon 
+    Icon,
+    Divider
 } from 'semantic-ui-react';
 
 import { userForgotPassword } from '../../actions/auth';
@@ -46,7 +47,7 @@ const ForgotPassword = ({ userForgotPassword, auth: { forgot_password_send, requ
                             <Form.Button color="red" fluid size="large" content="Reset" loading={requestForgotPassword} disabled={forgot_password_send} />
                         </Segment>
                     </Form>
-                    <br/>
+                    <Divider hidden />
                     <Button
                         info
                         as={Link}

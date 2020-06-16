@@ -12,6 +12,7 @@ import {
     FORGOT_PASSWORD_REQUEST,
     VERIFY_RESET_NEW_PASSWORD,
     VERIFY_RESET_NEW_PASSWORD_FAIL,
+    RESET_NEW_PASSWORD_REQUEST,
     RESET_NEW_PASSWORD,
     RESET_NEW_PASSWORD_FAIL,
     AUTH_ERROR,
@@ -126,9 +127,6 @@ export const userVerifyResetPassword = (code) => async dispatch => {
             });
         }
         dispatch({ type: VERIFY_RESET_NEW_PASSWORD_FAIL });
-        setTimeout(function() {
-            history.push('/');
-        }, 3000);
     }
 }
 
@@ -136,6 +134,9 @@ export const userResetPassword = (password, code) => async dispatch => {
     const data = { password };
 
     try {
+        // REQUEST START
+        dispatch({ type: RESET_NEW_PASSWORD_REQUEST });
+
         const res = await api.put(`/api/v1/auth/reset/${code}`, data);
         dispatch({ type: RESET_NEW_PASSWORD });
         
@@ -143,10 +144,6 @@ export const userResetPassword = (password, code) => async dispatch => {
             icon: 'success',
             text: res.data.msg
         });
-
-        setTimeout(function() {
-            history.push('/login');
-        }, 3000);
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {

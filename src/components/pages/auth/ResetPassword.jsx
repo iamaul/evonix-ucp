@@ -11,12 +11,19 @@ import {
     Image, 
     Segment,
     Icon,
-    Button
+    Button,
+    Divider
 } from 'semantic-ui-react';
 
 import { userVerifyResetPassword, userResetPassword } from '../../actions/auth';
 
-const ResetPassword = ({ userVerifyResetPassword, userResetPassword, match }) => {
+const ResetPassword = ({ 
+    userVerifyResetPassword, 
+    userResetPassword, 
+    requestResetNewPassword, 
+    verify_reset_new_password, 
+    match 
+}) => {
     useEffect(() => {
         userVerifyResetPassword(match.params.code);
     }, [userVerifyResetPassword, match.params.code]);
@@ -62,42 +69,49 @@ const ResetPassword = ({ userVerifyResetPassword, userResetPassword, match }) =>
                     <Header as="h2" textAlign="center">
                         <Image as={Link} src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
-                    <Form size="large" onSubmit={onSubmit}>
-                        <Segment color="red" stacked>
-                            <Form.Input 
-                                type="password"
-                                name="password" 
-                                value={password}
-                                icon="lock" 
-                                iconPosition="left" 
-                                placeholder="New Password"
-                                onChange={onPasswordChange}
-                                fluid 
-                            />
-                            <Form.Input 
-                                type="password"
-                                name="confirm_password" 
-                                value={confirm_password}
-                                icon="lock" 
-                                iconPosition="left" 
-                                placeholder="Confirm New Password"
-                                onChange={onConfirmPasswordChange}
-                                fluid 
-                            />
-                            <ReCAPTCHA
-                                ref={recaptchaRef}
-                                sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                            /><br/>
-                            <Form.Button color="red" fluid size="large" content="Reset" />
-                        </Segment>
-                    </Form>
-                    <br/>
-                    <Button
-                        as={Link}
-                        to="/login"
-                    >
-                        <Icon name="arrow alternate circle left"/>Back
-                    </Button>
+                    <Segment color="red" stacked>
+                        {verify_reset_new_password === null ? (<>
+                            <Image src="https://media.giphy.com/media/kC3Z2WuxtXO8DyCUzG/giphy.gif" centered size="small" /><br/>
+                            The page link is invalid or session has been expired. Please click the button below to go back!
+                        </>) : (
+                                <Form size="large" onSubmit={onSubmit}>
+                                    <Form.Input 
+                                        type="password"
+                                        name="password" 
+                                        value={password}
+                                        icon="lock" 
+                                        iconPosition="left" 
+                                        placeholder="New Password"
+                                        onChange={onPasswordChange}
+                                        fluid 
+                                    />
+                                    <Form.Input 
+                                        type="password"
+                                        name="confirm_password" 
+                                        value={confirm_password}
+                                        icon="lock" 
+                                        iconPosition="left" 
+                                        placeholder="Confirm New Password"
+                                        onChange={onConfirmPasswordChange}
+                                        fluid 
+                                    />
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                                    /><br/>
+                                    <Form.Button color="red" fluid size="large" content="Reset" loading={requestResetNewPassword} />
+                                </Form>
+                            )
+                        }
+                    </Segment>
+                    <Divider hidden />
+                        <Button
+                            info
+                            as={Link}
+                            to="/login"
+                        >
+                            <Icon name="arrow alternate circle left"/>Back
+                        </Button>
                 </Grid.Column>
             </Grid>
             <footer>
@@ -131,7 +145,14 @@ const ResetPassword = ({ userVerifyResetPassword, userResetPassword, match }) =>
 
 ResetPassword.propTypes = {
     userResetPassword: PropTypes.func.isRequired,
-    userVerifyResetPassword: PropTypes.func.isRequired
+    userVerifyResetPassword: PropTypes.func.isRequired,
+    requestResetNewPassword: PropTypes.bool,
+    verify_reset_new_password: PropTypes.object
 }
 
-export default connect(null, { userResetPassword, userVerifyResetPassword })(ResetPassword);
+const mapStateToProps = state => ({
+    requestResetNewPassword: state.auth.requestResetNewPassword,
+    verify_reset_new_password: state.auth.verify_reset_new_password
+});
+
+export default connect(mapStateToProps, { userResetPassword, userVerifyResetPassword })(ResetPassword);

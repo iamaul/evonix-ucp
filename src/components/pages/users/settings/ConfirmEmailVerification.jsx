@@ -32,16 +32,16 @@ const ConfirmEmailVerification = ({ userConfirmEmailVerification, account: { con
                         {confirm_email_verification !== null && !setLoading ? (<>
                             <Image src="https://media.giphy.com/media/U8f2H1xkfBvyxJhk0e/giphy.gif" centered size="small" /><br/>
                             {confirm_email_verification.msg}
-                            <Divider hidden />
-                            <Button
-                                info
-                                as={Link}
-                                to="/dashboard"
-                            >
-                                <Icon name="arrow alternate circle left"/>Back to Dashboard
-                            </Button>
                         </>) : (<Loader isLoading={setLoading} />)}
                     </Segment>
+                    <Divider hidden />
+                    <Button
+                        info
+                        as={Link}
+                        to="/dashboard"
+                    >
+                        <Icon name="arrow alternate circle left"/>Back
+                    </Button>
                 </Grid.Column>
             </Grid>
         </>

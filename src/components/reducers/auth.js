@@ -8,8 +8,11 @@ import {
     FORGOT_PASSWORD_REQUEST,
     FORGOT_PASSWORD_SENT,
     FORGOT_PASSWORD_FAIL,
+    RESET_NEW_PASSWORD_REQUEST,
+    RESET_NEW_PASSWORD,
+    RESET_NEW_PASSWORD_FAIL,
     VERIFY_RESET_NEW_PASSWORD,
-    LOGOUT
+    LOGOUT,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -19,6 +22,7 @@ const INITIAL_STATE = {
     verify_reset_new_password: null,
     requestRegister: false,
     requestForgotPassword: false,
+    requestResetNewPassword: false,
     forgot_password_send: false,
     setLoading: true,
     error: {}
@@ -45,6 +49,7 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 ...payload,
                 isAuthenticated: true,
+                requestRegister: false,
                 setLoading: false,
                 user: payload
             }
@@ -71,10 +76,25 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 requestForgotPassword: false
             }
+        case RESET_NEW_PASSWORD_REQUEST:
+            return {
+                ...state,
+                requestResetNewPassword: true
+            }
         case VERIFY_RESET_NEW_PASSWORD:
             return {
                 ...state,
                 verify_reset_new_password: payload
+            }
+        case RESET_NEW_PASSWORD:
+            return {
+                ...state,
+                requestResetNewPassword: false
+            }
+        case RESET_NEW_PASSWORD_FAIL:
+            return {
+                ...state,
+                requestResetNewPassword: false
             }
         case REGISTER_FAIL:
         case AUTH_ERROR:
