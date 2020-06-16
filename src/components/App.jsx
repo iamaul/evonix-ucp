@@ -46,7 +46,7 @@ const App = () => {
                         <Route path="/login" component={Login} />
                         <Route path="/register" component={Register} />
                         <Route path="/forgot/password" component={ForgotPassword} />
-                        <Route path="/forgot/password/:code" component={ResetPassword} />
+                        <Route path="/reset/password/:code" component={ResetPassword} />
                         <PrivateRoute path="/email/verification/:code" component={ConfirmEmailVerification} />
                         <PrivateRoute path="/applications" component={Quiz} />
                         <Fragment>

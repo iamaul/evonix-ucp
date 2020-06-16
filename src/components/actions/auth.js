@@ -10,6 +10,8 @@ import {
     FORGOT_PASSWORD_FAIL,
     FORGOT_PASSWORD_SENT,
     FORGOT_PASSWORD_REQUEST,
+    VERIFY_RESET_NEW_PASSWORD,
+    VERIFY_RESET_NEW_PASSWORD_FAIL,
     RESET_NEW_PASSWORD,
     RESET_NEW_PASSWORD_FAIL,
     AUTH_ERROR,
@@ -105,6 +107,28 @@ export const userForgotPassword = (email) => async dispatch => {
             });
         }
         dispatch({ type: FORGOT_PASSWORD_FAIL });
+    }
+}
+
+export const userVerifyResetPassword = (code) => async dispatch => {
+    try {
+        const res = await api.get(`/api/v1/auth/reset/${code}`);
+        dispatch({ type: VERIFY_RESET_NEW_PASSWORD, payload: res.data });
+    } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+            errors.map(err => {
+                return Toast.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: err.msg
+                });
+            });
+        }
+        dispatch({ type: VERIFY_RESET_NEW_PASSWORD_FAIL });
+        setTimeout(function() {
+            history.push('/');
+        }, 3000);
     }
 }
 

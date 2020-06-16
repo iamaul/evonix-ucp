@@ -8,6 +8,7 @@ import {
     FORGOT_PASSWORD_REQUEST,
     FORGOT_PASSWORD_SENT,
     FORGOT_PASSWORD_FAIL,
+    VERIFY_RESET_NEW_PASSWORD,
     LOGOUT
 } from '../actions/types';
 
@@ -15,6 +16,7 @@ const INITIAL_STATE = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     user: null,
+    verify_reset_new_password: null,
     requestRegister: false,
     requestForgotPassword: false,
     forgot_password_send: false,
@@ -68,6 +70,11 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 requestForgotPassword: false
+            }
+        case VERIFY_RESET_NEW_PASSWORD:
+            return {
+                ...state,
+                verify_reset_new_password: payload
             }
         case REGISTER_FAIL:
         case AUTH_ERROR:

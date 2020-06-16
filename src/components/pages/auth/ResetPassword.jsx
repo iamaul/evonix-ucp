@@ -14,9 +14,13 @@ import {
     Button
 } from 'semantic-ui-react';
 
-import { userResetPassword } from '../../actions/auth';
+import { userVerifyResetPassword, userResetPassword } from '../../actions/auth';
 
-const ResetPassword = ({ userResetPassword, match }) => {
+const ResetPassword = ({ userVerifyResetPassword, userResetPassword, match }) => {
+    useEffect(() => {
+        userVerifyResetPassword(match.params.code);
+    }, [userVerifyResetPassword, match.params.code]);
+
     const [password, setPassword] = useState('');
     const [confirm_password, setConfirmPassword] = useState('');
     const onPasswordChange = e => setPassword(e.target.value);
@@ -126,7 +130,8 @@ const ResetPassword = ({ userResetPassword, match }) => {
 }
 
 ResetPassword.propTypes = {
-    userResetPassword: PropTypes.func.isRequired
+    userResetPassword: PropTypes.func.isRequired,
+    userVerifyResetPassword: PropTypes.func.isRequired
 }
 
-export default connect(null, { userResetPassword })(ResetPassword);
+export default connect(null, { userResetPassword, userVerifyResetPassword })(ResetPassword);
