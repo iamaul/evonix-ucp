@@ -116,16 +116,6 @@ export const userVerifyResetPassword = (code) => async dispatch => {
         const res = await api.get(`/api/v1/auth/reset/${code}`);
         dispatch({ type: VERIFY_RESET_NEW_PASSWORD, payload: res.data });
     } catch (error) {
-        const errors = error.response.data.errors;
-        if (errors) {
-            errors.map(err => {
-                return Toast.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: err.msg
-                });
-            });
-        }
         dispatch({ type: VERIFY_RESET_NEW_PASSWORD_FAIL });
     }
 }

@@ -71,8 +71,8 @@ const ResetPassword = ({
                     </Header>
                     <Segment color="red" stacked>
                         {verify_reset_new_password === null ? (<>
-                            <Image src="https://media.giphy.com/media/kC3Z2WuxtXO8DyCUzG/giphy.gif" centered size="small" /><br/>
-                            The page link is invalid or session has been expired. Please click the button below to go back!
+                            <Image src="https://media.giphy.com/media/kC3Z2WuxtXO8DyCUzG/giphy.gif" centered size="medium" /><br/>
+                            The page link is invalid or session has been expired.
                         </>) : (
                                 <Form size="large" onSubmit={onSubmit}>
                                     <Form.Input 
