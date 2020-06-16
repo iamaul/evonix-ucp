@@ -1,3 +1,4 @@
+import history from '../history';
 import Swal from 'sweetalert2';
 import {
     CHANGE_PASSWORD_FAIL,
@@ -113,6 +114,10 @@ export const userConfirmEmailVerification = (code) => async dispatch => {
         const res = await api.put(`/api/v1/users/email/verification/${code}`);
         dispatch({ type: CONFIRM_EMAIL_VERIFICATION, payload: res.data });
     } catch (error) {
+        history.push('/');
+
+        dispatch({ type: CONFIRM_EMAIL_VERIFICATION_FAIL });
+
         const errors = error.response.data.errors;
         if (errors) {
             errors.map(err => {
@@ -123,6 +128,5 @@ export const userConfirmEmailVerification = (code) => async dispatch => {
                 });
             });
         }
-        dispatch({ type: CONFIRM_EMAIL_VERIFICATION_FAIL });
     }
 }
