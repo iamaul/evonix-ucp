@@ -21,7 +21,7 @@ const ResetPassword = ({
     userVerifyResetPassword, 
     userResetPassword, 
     requestResetNewPassword, 
-    verify_reset_new_password, 
+    verify_reset_new_password_fail, 
     match 
 }) => {
     useEffect(() => {
@@ -59,10 +59,12 @@ const ResetPassword = ({
             });
         } else {
             userResetPassword(password, match.params.code);
+            setPassword('');
+            setConfirmPassword('');
         }
     }
 
-    if (verify_reset_new_password === null) {
+    if (verify_reset_new_password_fail) {
         return (
             <>
                 <Grid textAlign="center" style={{ height: '80vh' }} verticalAlign="middle">
@@ -149,14 +151,6 @@ const ResetPassword = ({
                             <Form.Button color="red" fluid size="large" content="Reset" loading={requestResetNewPassword} />
                         </Segment>
                     </Form>
-                    <Divider hidden />
-                    <Button
-                        info
-                        as={Link}
-                        to="/login"
-                    >
-                        <Icon name="arrow alternate circle left"/>Back
-                    </Button>
                 </Grid.Column>
             </Grid>
             <footer>
@@ -192,12 +186,12 @@ ResetPassword.propTypes = {
     userResetPassword: PropTypes.func.isRequired,
     userVerifyResetPassword: PropTypes.func.isRequired,
     requestResetNewPassword: PropTypes.bool,
-    verify_reset_new_password: PropTypes.object
+    verify_reset_new_password_fail: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
     requestResetNewPassword: state.auth.requestResetNewPassword,
-    verify_reset_new_password: state.auth.verify_reset_new_password
+    verify_reset_new_password_fail: state.auth.verify_reset_new_password_fail
 });
 
 export default connect(mapStateToProps, { userResetPassword, userVerifyResetPassword })(ResetPassword);

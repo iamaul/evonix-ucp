@@ -114,7 +114,7 @@ export const userForgotPassword = (email) => async dispatch => {
 export const userVerifyResetPassword = (code) => async dispatch => {
     try {
         const res = await api.get(`/api/v1/auth/reset/${code}`);
-        dispatch({ type: VERIFY_RESET_NEW_PASSWORD, payload: res.data });
+        dispatch({ type: VERIFY_RESET_NEW_PASSWORD });
     } catch (error) {
         dispatch({ type: VERIFY_RESET_NEW_PASSWORD_FAIL });
     }
@@ -134,6 +134,10 @@ export const userResetPassword = (password, code) => async dispatch => {
             icon: 'success',
             text: res.data.msg
         });
+
+        setTimeout(function() {
+            history.push('/login');
+        }, 5000);
     } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
