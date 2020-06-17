@@ -41,6 +41,7 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 character: payload,
+                requestCreateChar: false,
                 setLoading: false
             }
         case CHARACTER_CREATED_FAIL:

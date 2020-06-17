@@ -99,7 +99,7 @@ const Dashboard = ({
                                 <Grid.Column>
                                     <p style={{ textAlign: 'justify' }}>
                                         <Header as="h3">Useful Links</Header>
-                                        These guidelines were created for the newcomer. Please read the server rules and guidelines to get started!
+                                        These guidelines are recommended for newcomers. Please read the server rules and guidelines to get started!
                                         <Divider hidden />
                                         <List celled ordered>
                                             <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank" rel="noreferrer">Ingame Rules</a></List.Item>
