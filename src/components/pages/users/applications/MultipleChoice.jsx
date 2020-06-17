@@ -87,7 +87,7 @@ const MultipleChoice = ({
                     <Header as="h2" textAlign="center">
                         <Image src="/assets/images/evonix-logo.png" size="massive" to="/" />
                     </Header>
-                    <Segment color="red" stacked>
+                    <Segment color="red" style={{ overflow: 'auto', maxHeight: 200 }} stacked>
                         <Header as="h3" textAlign="center">
                             Step 1: Multiple Choice
                         </Header>
