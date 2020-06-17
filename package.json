@@ -23,7 +23,7 @@
     "react-number-format": "^4.4.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.0",
+    "react-scripts": "^3.4.1",
     "react-spinners": "^0.8.3",
     "react-truncate": "^2.4.0",
     "redux": "^4.0.5",
@@ -33,7 +33,7 @@
     "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.1.1",
     "sweetalert2": "^9.15.1",
-    "swiper": "^5.4.3",
+    "swiper": "^5.4.5",
     "uuid": "^7.0.3"
   },
   "scripts": {
@@ -57,5 +57,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://api:5000"
+  "proxy": "https://dev.evonix-rp.com"
 }
