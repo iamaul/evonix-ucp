@@ -102,20 +102,20 @@ const Dashboard = ({
                                         These guidelines were created for the newcomer. Please read the server rules and guidelines to get started!
                                         <Divider hidden />
                                         <List celled ordered>
-                                            <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank">Ingame Rules</Link></List.Item>
-                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=74" target="_blank">Official Guide</Link></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank" rel="noreferrer">Ingame Rules</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=74" target="_blank" rel="noreferrer">Official Guide</a></List.Item>
                                             <List.Item>
                                             Recommended Guides
                                                 <List.List>
-                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=74&t=210" target="_blank">Evonix Starter Guide</Link></List.Item>
-                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=112" target="_blank">/do dapat? Apakah ini benar?</Link></List.Item>
-                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=402" target="_blank">Powergaming</Link></List.Item>
-                                                    <List.Item><Link to="https://forum.evonix-rp.com/viewtopic.php?f=75&t=181" target="_blank">your character!</Link></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=74&t=210" target="_blank" rel="noreferrer">Evonix Starter Guide</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=112" target="_blank" rel="noreferrer">/do dapat? Apakah ini benar?</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=402" target="_blank" rel="noreferrer">Powergaming</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=181" target="_blank" rel="noreferrer">your character!</a></List.Item>
                                                 </List.List>
                                             </List.Item>
-                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=28" target="_blank">Bug Report</Link></List.Item>
-                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=134" target="_blank">Player Suggestion</Link></List.Item>
-                                            <List.Item><Link to="https://forum.evonix-rp.com/viewforum.php?f=25" target="_blank">Ban Appeal</Link></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=28" target="_blank" rel="noreferrer">Bug Report</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=134" target="_blank" rel="noreferrer">Player Suggestion</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=25" target="_blank" rel="noreferrer">Ban Appeal</a></List.Item>
                                         </List>
                                     </p>
                                 </Grid.Column>
