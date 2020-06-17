@@ -102,20 +102,20 @@ const Dashboard = ({
                                         These guidelines are recommended for newcomers. Please read the server rules and guidelines to get started!
                                         <Divider hidden />
                                         <List celled ordered>
-                                            <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank" rel="noreferrer">Ingame Rules</a></List.Item>
-                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=74" target="_blank" rel="noreferrer">Official Guide</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=49&t=118" target="_blank" rel="noopener noreferrer">Ingame Rules</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=74" target="_blank" rel="noopener noreferrer">Official Guide</a></List.Item>
                                             <List.Item>
                                             Recommended Guides
                                                 <List.List>
-                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=74&t=210" target="_blank" rel="noreferrer">Evonix Starter Guide</a></List.Item>
-                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=112" target="_blank" rel="noreferrer">/do dapat? Apakah ini benar?</a></List.Item>
-                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=402" target="_blank" rel="noreferrer">Powergaming</a></List.Item>
-                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=181" target="_blank" rel="noreferrer">your character!</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=74&t=210" target="_blank" rel="noopener noreferrer">Evonix Starter Guide</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=112" target="_blank" rel="noopener noreferrer">/do dapat? Apakah ini benar?</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=402" target="_blank" rel="noopener noreferrer">Powergaming</a></List.Item>
+                                                    <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=181" target="_blank" rel="noopener noreferrer">your character!</a></List.Item>
                                                 </List.List>
                                             </List.Item>
-                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=28" target="_blank" rel="noreferrer">Bug Report</a></List.Item>
-                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=134" target="_blank" rel="noreferrer">Player Suggestion</a></List.Item>
-                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=25" target="_blank" rel="noreferrer">Ban Appeal</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=28" target="_blank" rel="noopener noreferrer">Bug Report</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=134" target="_blank" rel="noopener noreferrer">Player Suggestion</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=25" target="_blank" rel="noopener noreferrer">Ban Appeal</a></List.Item>
                                         </List>
                                     </p>
                                 </Grid.Column>
