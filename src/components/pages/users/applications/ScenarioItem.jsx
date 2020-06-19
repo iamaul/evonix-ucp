@@ -46,6 +46,7 @@ const ScenarioItem = ({ quizResult, requestResult, item, userId, score, nextStep
                         placeholder="Answer here ..."
                         value={answer}
                         onChange={onHandleChange} 
+                        required
                         rows="5" 
                         col="5" 
                     />
