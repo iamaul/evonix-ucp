@@ -18,9 +18,9 @@ import {
     CHARACTER_DELETED,
     CHARACTER_DELETED_FAIL,
     GET_CHARACTER_DETAIL,
-    GET_CHARACTER_DETAIL_FAIL,
-    GET_CHARACTER_FACTION_MEMBERS,
-    GET_CHARACTER_FACTION_MEMBERS_FAIL
+    GET_CHARACTER_DETAIL_FAIL
+    // GET_CHARACTER_FACTION_MEMBERS,
+    // GET_CHARACTER_FACTION_MEMBERS_FAIL
 } from './types';
 import api from '../utils/api';
 
@@ -109,14 +109,14 @@ export const deleteCharacter = (id) => async dispatch => {
     }
 }
 
-export const getCharacterFactionMembers = (faction_sqlid) => async dispatch => {
-    try {
-        const res = await api.get(`/api/v1/characters/faction/${faction_sqlid}`);
-        dispatch({ type: GET_CHARACTER_FACTION_MEMBERS, payload: res.data });
-    } catch (error) {
-        dispatch({ type: GET_CHARACTER_FACTION_MEMBERS_FAIL });
-    }
-}
+// export const getCharacterFactionMembers = (faction_sqlid) => async dispatch => {
+//     try {
+//         const res = await api.get(`/api/v1/characters/faction/${faction_sqlid}`);
+//         dispatch({ type: GET_CHARACTER_FACTION_MEMBERS, payload: res.data });
+//     } catch (error) {
+//         dispatch({ type: GET_CHARACTER_FACTION_MEMBERS_FAIL });
+//     }
+// }
 
 export const getCharacterAdminWarns = (char_id) => async dispatch => {
     try {

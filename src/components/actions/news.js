@@ -73,7 +73,7 @@ export const getNews = () => async dispatch => {
 //     }
 // }
 
-export const getNewsDetail = slug => async dispatch => {
+export const getNewsDetail = (slug) => async dispatch => {
     try {
         const res = await api.get(`/api/v1/news/${slug}`);
         dispatch({ type: GET_NEWS_DETAIL, payload: res.data });
