@@ -36,7 +36,6 @@ export default function (state = INITIAL_STATE, action) {
         case GET_USER_CHARACTERS:
         case CHARACTER_CREATED:
         case GET_CHARACTER_DETAIL:
-        // case GET_CHARACTER_FACTION_MEMBERS:
         case CHARACTER_DELETED:
             return {
                 ...state,
