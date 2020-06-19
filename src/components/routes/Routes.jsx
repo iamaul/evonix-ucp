@@ -22,7 +22,7 @@ const Routes = () => {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/characters" component={Characters} />
             <PrivateRoute exact path="/settings" component={Settings} />
-            <Route path="*" component={Page404} />
+            <Route component={Page404} />
         </Switch>
     )
 }
