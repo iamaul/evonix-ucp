@@ -42,16 +42,16 @@ const App = () => {
             <Router history={history}>
                 <Container>
                     <Switch>
-                        <Route path="/login" component={Login} />
-                        <Route path="/register" component={Register} />
-                        <Route path="/forgot/password" component={ForgotPassword} />
-                        <Route path="/reset/password/:code" component={ResetPassword} />
-                        <PrivateRoute path="/email/verification/:code" component={ConfirmEmailVerification} />
-                        <PrivateRoute path="/applications" component={Quiz} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/forgot/password" component={ForgotPassword} />
+                        <Route exact path="/reset/password/:code" component={ResetPassword} />
+                        <PrivateRoute exact path="/email/verification/:code" component={ConfirmEmailVerification} />
+                        <PrivateRoute exact path="/applications" component={Quiz} />
                         <Fragment>
                             <Header />
                             {/* <BannerSlide /> */}
-                            <Route path="/" exact component={Home} />
+                            <Route exact path="/" component={Home} />
                             <Route component={Routes} />
                             <Footer />
                         </Fragment>
