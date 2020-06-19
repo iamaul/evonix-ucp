@@ -18,7 +18,6 @@ import ForgotPassword from './pages/auth/ForgotPassword';
 import ResetPassword from './pages/auth/ResetPassword';
 import ConfirmEmailVerification from './pages/users/settings/ConfirmEmailVerification';
 import Footer from './layouts/footer/Footer';
-import Page404 from './pages/error/Page404';
 
 import PrivateRoute from './routes/PrivateRoute';
 import Routes from './routes/Routes';
@@ -43,18 +42,17 @@ const App = () => {
             <Router history={history}>
                 <Container>
                     <Switch>
-                        <Route exact path="/login" component={Login} />
-                        <Route exact path="/register" component={Register} />
-                        <Route exact path="/forgot/password" component={ForgotPassword} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/register" component={Register} />
+                        <Route path="/forgot/password" component={ForgotPassword} />
                         <Route exact path="/reset/password/:code" component={ResetPassword} />
                         <PrivateRoute exact path="/email/verification/:code" component={ConfirmEmailVerification} />
-                        <PrivateRoute exact path="/applications" component={Quiz} />
+                        <PrivateRoute path="/applications" component={Quiz} />
                         <Fragment>
                             <Header />
                             {/* <BannerSlide /> */}
-                            <Route exact path="/" component={Home} />
+                            <Route path="/" exact component={Home} />
                             <Route component={Routes} />
-                            <Route component={Page404} />
                             <Footer />
                         </Fragment>
                     </Switch>

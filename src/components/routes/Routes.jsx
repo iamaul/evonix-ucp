@@ -8,19 +8,21 @@ import NewsDetail from '../pages/news/NewsDetail';
 import Dashboard from '../pages/users/Dashboard';
 import Characters from '../pages/users/Characters';
 import Settings from '../pages/users/Settings';
+import Page404 from '../pages/error/Page404';
 
 import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
     return (
         <Switch>
-            <Route exact path="/about" component={About} />
-            <Route exact path="/donation" component={Donation} />
-            <Route exact path="/news" component={NewsFeed} />
+            <Route path="/about" component={About} />
+            <Route path="/donation" component={Donation} />
+            <Route path="/news" component={NewsFeed} />
             <Route exact path="/news/:slug" component={NewsDetail} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/characters" component={Characters} />
-            <PrivateRoute exact path="/settings" component={Settings} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/characters" component={Characters} />
+            <PrivateRoute path="/settings" component={Settings} />
+            <Route component={Page404} />
         </Switch>
     )
 }
