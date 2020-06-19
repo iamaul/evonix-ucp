@@ -15,14 +15,14 @@ import PrivateRoute from './PrivateRoute';
 const Routes = () => {
     return (
         <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/donation" component={Donation} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/donation" component={Donation} />
             <Route exact path="/news" component={NewsFeed} />
             <Route exact path="/news/:slug" component={NewsDetail} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
-            <PrivateRoute path="/characters" component={Characters} />
-            <PrivateRoute path="/settings" component={Settings} />
-            <Route component={Page404} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/characters" component={Characters} />
+            <PrivateRoute exact path="/settings" component={Settings} />
+            <Route path="*" component={Page404} />
         </Switch>
     )
 }
