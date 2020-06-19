@@ -8,7 +8,7 @@ import NewsDetail from '../pages/news/NewsDetail';
 import Dashboard from '../pages/users/Dashboard';
 import Characters from '../pages/users/Characters';
 import Settings from '../pages/users/Settings';
-import Page404 from '../pages/error/Page404';
+// import Page404 from '../pages/error/Page404';
 
 import PrivateRoute from './PrivateRoute';
 
@@ -22,7 +22,7 @@ const Routes = () => {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/characters" component={Characters} />
             <PrivateRoute exact path="/settings" component={Settings} />
-            <Route component={Page404} />
+            {/* <Route component={Page404} /> */}
         </Switch>
     )
 }
