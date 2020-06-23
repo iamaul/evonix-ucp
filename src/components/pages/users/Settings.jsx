@@ -12,6 +12,12 @@ import { userVerifyEmail } from '../../actions/account';
 const Settings = ({ userVerifyEmail, auth: { user }, account: { requestVerifyEmail, verify_email_success }}) => {
     const onUserVerifyEmail = () => userVerifyEmail();
 
+    if (user !== null) {
+        if (user.status === 0 || user.status === 1 || user.status === 2) {
+            return <Redirect to="/applications" />;
+        }
+    }
+
     return (
         <>
             <section id="settings">

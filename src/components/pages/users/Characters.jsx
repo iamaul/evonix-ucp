@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Moment from 'react-moment';
 import DataTable from 'react-data-table-component';
 import NumberFormat from 'react-number-format';
@@ -90,7 +91,13 @@ const ExpandedData = ({ data }) => (
     </Grid>
 );
 
-const Characters = ({ getUserCharacters, character: { character, requestCreateChar, setLoading }, createCharacter, deleteCharacter }) => {
+const Characters = ({ 
+    getUserCharacters, 
+    createCharacter, 
+    deleteCharacter,
+    auth: { user },
+    character: { character, requestCreateChar, setLoading }
+}) => {
     const [formData, setFormData] = useState({ firstname: '', lastname: '', gender: '' });
     const { firstname, lastname, gender } = formData;
 
@@ -209,6 +216,12 @@ const Characters = ({ getUserCharacters, character: { character, requestCreateCh
         // eslint-disable-next-line
     ], []);
 
+    if (user !== null) {
+        if (user.status === 0 || user.status === 1 || user.status === 2) {
+            return <Redirect to="/applications" />;
+        }
+    }
+
     return (
         <>
             <section id="characters">
@@ -242,11 +255,13 @@ Characters.propTypes = {
     getUserCharacters: PropTypes.func.isRequired,
     createCharacter: PropTypes.func.isRequired,
     deleteCharacter: PropTypes.func.isRequired,
-    character: PropTypes.object.isRequired
+    character: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    character: state.character
+    character: state.character,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { getUserCharacters, createCharacter, deleteCharacter })(Characters);
