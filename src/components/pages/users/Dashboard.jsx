@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
     Segment,
@@ -38,11 +38,11 @@ const Dashboard = ({
         getCountServerUserApps();
     }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties, getCountServerUserApps])
 
-    if (user !== null) {
-        if (user.status === 0 || user.status === 1 || user.status === 2) {
-            return <Redirect to="/applications" />;
-        }
-    }
+    // if (user !== null) {
+    //     if (user.status === 0 || user.status === 1 || user.status === 2) {
+    //         return <Redirect to="/applications" />;
+    //     }
+    // }
 
     return (
         <>
