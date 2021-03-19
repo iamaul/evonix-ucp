@@ -15,7 +15,8 @@ const Header = ({ getApiSampServer, samp: { server, setLoading } }) => {
         getApiSampServer();
     }, [getApiSampServer])
 
-    const linkIp = `samp://${server && server.core.ip}`;
+    // const linkIp = `samp://${server && server.core.ip}`;
+    const linkIp = `samp://${server && server.address}`;
 
     return (
         <>
@@ -30,7 +31,8 @@ const Header = ({ getApiSampServer, samp: { server, setLoading } }) => {
                     <Label image color="green" as="a" href={linkIp}>
                         <Icon name="server" />
                         Online
-                        <Label.Detail>{ server && server.core.pc } / { server && server.core.pm }</Label.Detail>
+                        {/* <Label.Detail>{ server && server.core.pc } / { server && server.core.pm }</Label.Detail> */}
+                        <Label.Detail>{ server && server.online } / { server && server.maxplayers }</Label.Detail>
                     </Label>
                     ) : (
                     <Label image color="red">

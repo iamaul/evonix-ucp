@@ -3,7 +3,7 @@ import api from '../utils/api';
 
 export const getApiSampServer = () => async dispatch => {
     try {
-        const res = await api.get('/api/v1/server');
+        const res = await api.get('/api/v1/server/new');
         console.log(res);
         dispatch({ type: GET_API_SAMP_SERVER, payload: res.data });
     } catch (error) {
