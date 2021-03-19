@@ -91,7 +91,7 @@ const Dashboard = ({
                             <Grid columns={2} stackable>
                                 <Grid.Column>
                                     <Embed
-                                        id="2NEHWtLY1JI"
+                                        id="Hfyp_vLZw-Y"
                                         iframe={{ allowFullScreen: true }}
                                         source="youtube"
                                     />
