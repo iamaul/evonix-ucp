@@ -149,17 +149,22 @@ Dashboard.propTypes = {
     getCountServerVehicles: PropTypes.func.isRequired,
     getCountServerProperties: PropTypes.func.isRequired,
     getCountServerUserApps: PropTypes.func.isRequired,
+    userVerifyEmail: PropTypes.func.isRequired,
     stats: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    account: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     stats: state.stats,
-    auth: state.auth
+    auth: state.auth,
+    account: state.account
 });
 
 export default connect(mapStateToProps, { 
     getCountServerUsers, 
     getCountServerVehicles, 
     getCountServerProperties,
-    getCountServerUserApps })(Dashboard);
+    getCountServerUserApps,
+    userVerifyEmail 
+})(Dashboard);
