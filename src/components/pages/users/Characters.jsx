@@ -255,13 +255,16 @@ Characters.propTypes = {
     getUserCharacters: PropTypes.func.isRequired,
     createCharacter: PropTypes.func.isRequired,
     deleteCharacter: PropTypes.func.isRequired,
+    userVerifyEmail: PropTypes.func.isRequired,
     character: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    account: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     character: state.character,
-    auth: state.auth
+    auth: state.auth,
+    account: state.account
 });
 
 export default connect(mapStateToProps, { getUserCharacters, createCharacter, deleteCharacter })(Characters);

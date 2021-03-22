@@ -18,16 +18,6 @@ const Settings = ({ auth: { user }}) => {
     return (
         <>
             <section id="settings">
-                {/* { user && !user.email_verified &&
-                    <Message size="small" warning>
-                        <Message.Header>Warning</Message.Header>
-                        <p>
-                            Hey! You have not yet verified your email address to this account, please click the following button below to verify.<br/>
-                            <Button onClick={onUserVerifyEmail} size="tiny" color="green" content="Send email verification" loading={requestVerifyEmail} disabled={verify_email_success} /><br/><br/>
-                            <b>Note</b>: Verifying your email address will improve the security of your account.
-                        </p>
-                    </Message>   
-                } */}
                 <Grid stackable>
                     <Sidebar />
                     <Grid.Column stretched width={12}>
@@ -62,14 +52,11 @@ const Settings = ({ auth: { user }}) => {
 }
 
 Settings.propTypes = {
-    userVerifyEmail: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    account: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth,
-    account: state.account
+    auth: state.auth
 });
 
-export default connect(mapStateToProps, { userVerifyEmail })(Settings);
+export default connect(mapStateToProps, null)(Settings);
