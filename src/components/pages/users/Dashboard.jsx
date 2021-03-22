@@ -113,7 +113,7 @@ const Dashboard = ({
                                                     <List.Item><a href="https://forum.evonix-rp.com/viewtopic.php?f=75&t=181" target="_blank" rel="noopener noreferrer">your character!</a></List.Item>
                                                 </List.List>
                                             </List.Item>
-                                            <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=28" target="_blank" rel="noopener noreferrer">Bug Report</a></List.Item>
+                                            <List.Item><a href="https://forum.evonix-rp.com/bugtracker" target="_blank" rel="noopener noreferrer">Bug Report</a></List.Item>
                                             <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=134" target="_blank" rel="noopener noreferrer">Player Suggestion</a></List.Item>
                                             <List.Item><a href="https://forum.evonix-rp.com/viewforum.php?f=25" target="_blank" rel="noopener noreferrer">Ban Appeal</a></List.Item>
                                         </List>
