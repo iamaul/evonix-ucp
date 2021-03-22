@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
     Segment,
@@ -9,7 +9,9 @@ import {
     Divider,
     List,
     Embed,
-    Header
+    Header,
+    Message,
+    Button
 } from 'semantic-ui-react';
 import NumberFormat from 'react-number-format';
 
