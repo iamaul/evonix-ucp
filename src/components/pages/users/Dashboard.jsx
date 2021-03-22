@@ -19,17 +19,21 @@ import {
     getCountServerProperties,
     getCountServerUserApps
 } from '../../actions/stats';
+import { userVerifyEmail } from '../../actions/account';
 
 import Sidebar from '../../layouts/sidebar/Sidebar';
 import Loader from '../../layouts/loader/Loader';
+
 
 const Dashboard = ({ 
     getCountServerUsers,
     getCountServerVehicles,
     getCountServerProperties, 
     getCountServerUserApps,
+    userVerifyEmail,
     stats: { total_users, player_vehicles, player_properties, total_user_apps, setLoading },
-    auth: { user }
+    auth: { user },
+    account: { requestVerifyEmail, verify_email_success }
 }) => {
     useEffect(() => {
         getCountServerUsers();
@@ -38,15 +42,27 @@ const Dashboard = ({
         getCountServerUserApps();
     }, [getCountServerUsers, getCountServerVehicles, getCountServerProperties, getCountServerUserApps])
 
-    // if (user !== null) {
-    //     if (user.status === 0 || user.status === 1 || user.status === 2) {
-    //         return <Redirect to="/applications" />;
-    //     }
-    // }
+    const onUserVerifyEmail = () => userVerifyEmail();
+
+    if (user !== null) {
+        if (user.status === 0 || user.status === 1 || user.status === 2) {
+            return <Redirect to="/applications" />;
+        }
+    }
 
     return (
         <>
             <section id="dashboard">
+                { user && !user.email_verified &&
+                    <Message size="small" warning>
+                        <Message.Header>Warning</Message.Header>
+                        <p>
+                            Hey! You have not yet verified your email address to this account, please click the following button below to verify.<br/>
+                            <Button onClick={onUserVerifyEmail} size="tiny" color="green" content="Send email verification" loading={requestVerifyEmail} disabled={verify_email_success} /><br/><br/>
+                            <b>Note</b>: Verifying your email address will improve the security of your account.
+                        </p>
+                    </Message>   
+                }
                 <Grid stackable>
                     <Sidebar />
                     <Grid.Column stretched width={12}>

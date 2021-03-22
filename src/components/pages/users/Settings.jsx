@@ -8,11 +8,7 @@ import Sidebar from '../../layouts/sidebar/Sidebar';
 import ChangePassword from './settings/ChangePassword';
 import ChangeEmail from './settings/ChangeEmail';
 
-import { userVerifyEmail } from '../../actions/account';
-
-const Settings = ({ userVerifyEmail, auth: { user }, account: { requestVerifyEmail, verify_email_success }}) => {
-    const onUserVerifyEmail = () => userVerifyEmail();
-
+const Settings = ({ auth: { user }}) => {
     if (user !== null) {
         if (user.status === 0 || user.status === 1 || user.status === 2) {
             return <Redirect to="/applications" />;
@@ -22,7 +18,7 @@ const Settings = ({ userVerifyEmail, auth: { user }, account: { requestVerifyEma
     return (
         <>
             <section id="settings">
-                { user && !user.email_verified &&
+                {/* { user && !user.email_verified &&
                     <Message size="small" warning>
                         <Message.Header>Warning</Message.Header>
                         <p>
@@ -31,7 +27,7 @@ const Settings = ({ userVerifyEmail, auth: { user }, account: { requestVerifyEma
                             <b>Note</b>: Verifying your email address will improve the security of your account.
                         </p>
                     </Message>   
-                }
+                } */}
                 <Grid stackable>
                     <Sidebar />
                     <Grid.Column stretched width={12}>
