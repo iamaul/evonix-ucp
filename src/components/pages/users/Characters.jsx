@@ -172,7 +172,7 @@ const Characters = ({
     const onCharacterDelete = useCallback((id) => {
         Swal.fire({
             title: 'Are you sure?',
-            text: `Your character with id ${id} is going to be deleted, you won't be able to revert this.`,
+            html: `<small>Your character with id <b>${id}</b> will be deleted, you won't be able to revert this.</small>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
@@ -210,7 +210,7 @@ const Characters = ({
             cell: row => <div>{row.level === 0 ? 'Not logged in yet.' : row.level}</div>
         },
         {
-            name: 'Delete',
+            name: 'Action',
             cell: (row) => (<Button color="red" onClick={() => onCharacterDelete(row.id)} icon size="small"><Icon name="delete"/></Button>)
         }
         // eslint-disable-next-line
