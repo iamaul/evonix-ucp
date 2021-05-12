@@ -33,7 +33,7 @@
     "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.1.1",
     "sweetalert2": "^9.15.1",
-    "swiper": "^5.4.5",
+    "swiper": "^6.5.1",
     "uuid": "^7.0.3"
   },
   "scripts": {
