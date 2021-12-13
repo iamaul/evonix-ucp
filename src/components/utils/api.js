@@ -3,7 +3,7 @@ import store from '../store';
 import { LOGOUT } from '../actions/types';
 
 const api = axios.create({
-    baseURL: 'https://dev.evonix-rp.com/',
+    baseURL: 'https://evonix-backend-api-old.vercel.app/',
     headers: {
       'Content-Type': 'application/json'
     }
